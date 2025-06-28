@@ -1,0 +1,12 @@
+model: Gemini Pro
+provider: Google
+benchmarks:
+  MMLU:
+    score: 83.7
+    description: Massive Multitask Language Understanding
+  HellaSwag:
+    score: 87.8
+    description: Commonsense Natural Language Inference
+  ARC:
+    score: 87.0
+    description: AI2 Reasoning Challenge

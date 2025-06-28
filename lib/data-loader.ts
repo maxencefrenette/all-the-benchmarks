@@ -1,3 +1,5 @@
+import { parse } from "yaml"
+
 export interface BenchmarkResult {
   score: number
   description: string
@@ -26,13 +28,14 @@ export async function loadLLMData(): Promise<LLMData[]> {
 
   for (const model of models) {
     try {
-      const response = await fetch(`/data/${model}.json`)
+      const response = await fetch(`/data/${model}.yaml`)
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch ${model}.json: ${response.status}`)
+        throw new Error(`Failed to fetch ${model}.yaml: ${response.status}`)
       }
 
-      const data = (await response.json()) as LLMData
+      const text = await response.text()
+      const data = parse(text) as LLMData
 
       // Validate that we have the expected structure
       if (!data.model || !data.provider || !data.benchmarks) {
