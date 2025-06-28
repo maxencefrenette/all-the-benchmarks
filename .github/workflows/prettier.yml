@@ -1,4 +1,4 @@
-name: Lint
+name: Prettier
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  lint:
+  prettier:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,4 +18,4 @@ jobs:
         with:
           node-version: 20
           cache: "pnpm"
-      - run: pnpm lint
+      - run: pnpm prettier

@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react"
 import { Trophy, Medal, Award } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { loadLLMData, type LLMData } from "@/lib/data-loader"
 
@@ -26,7 +32,11 @@ export default function Leaderboard() {
       case 2:
         return <Award className="h-6 w-6 text-amber-600" />
       default:
-        return <div className="h-6 w-6 flex items-center justify-center text-sm font-bold">{index + 1}</div>
+        return (
+          <div className="h-6 w-6 flex items-center justify-center text-sm font-bold">
+            {index + 1}
+          </div>
+        )
     }
   }
 
@@ -44,7 +54,8 @@ export default function Leaderboard() {
     )
   }
 
-  const benchmarkNames = llmData.length > 0 ? Object.keys(llmData[0].benchmarks) : []
+  const benchmarkNames =
+    llmData.length > 0 ? Object.keys(llmData[0].benchmarks) : []
 
   return (
     <div className="space-y-6">
@@ -71,8 +82,12 @@ export default function Leaderboard() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold">{llm.averageScore?.toFixed(1)}</div>
-                  <div className="text-sm text-muted-foreground">Average Score</div>
+                  <div className="text-2xl font-bold">
+                    {llm.averageScore?.toFixed(1)}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Average Score
+                  </div>
                 </div>
               </div>
             </CardHeader>
@@ -84,9 +99,15 @@ export default function Leaderboard() {
                     <div key={benchmarkName} className="space-y-2">
                       <div className="flex items-center justify-between">
                         <Badge variant="outline">{benchmarkName}</Badge>
-                        <span className={`font-semibold ${getScoreColor(benchmark.score)}`}>{benchmark.score}</span>
+                        <span
+                          className={`font-semibold ${getScoreColor(benchmark.score)}`}
+                        >
+                          {benchmark.score}
+                        </span>
                       </div>
-                      <p className="text-xs text-muted-foreground">{benchmark.description}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {benchmark.description}
+                      </p>
                     </div>
                   )
                 })}
@@ -99,27 +120,31 @@ export default function Leaderboard() {
       <Card>
         <CardHeader>
           <CardTitle>Benchmark Details</CardTitle>
-          <CardDescription>Understanding the evaluation metrics</CardDescription>
+          <CardDescription>
+            Understanding the evaluation metrics
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 md:grid-cols-3">
             <div>
               <h4 className="font-semibold">MMLU</h4>
               <p className="text-sm text-muted-foreground">
-                Measures knowledge across 57 academic subjects including mathematics, history, computer science, and
-                more.
+                Measures knowledge across 57 academic subjects including
+                mathematics, history, computer science, and more.
               </p>
             </div>
             <div>
               <h4 className="font-semibold">HellaSwag</h4>
               <p className="text-sm text-muted-foreground">
-                Tests commonsense reasoning by asking models to complete scenarios with the most logical ending.
+                Tests commonsense reasoning by asking models to complete
+                scenarios with the most logical ending.
               </p>
             </div>
             <div>
               <h4 className="font-semibold">ARC</h4>
               <p className="text-sm text-muted-foreground">
-                AI2 Reasoning Challenge focusing on grade-school level science questions requiring reasoning.
+                AI2 Reasoning Challenge focusing on grade-school level science
+                questions requiring reasoning.
               </p>
             </div>
           </div>
