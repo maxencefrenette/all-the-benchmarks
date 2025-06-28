@@ -1,0 +1,6 @@
+benchmark: "HellaSwag"
+description: "Commonsense Natural Language Inference"
+results:
+  gpt-4: 95.3
+  claude-3: 95.4
+  gemini-pro: 87.8

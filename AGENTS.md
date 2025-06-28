@@ -8,3 +8,5 @@ This repository uses pnpm as package manager.
 # Editing this file
 
 Whenever you learn something new, add it to this file.
+
+All YAML benchmark and model files are stored under `public/data`.
