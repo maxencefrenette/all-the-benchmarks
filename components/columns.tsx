@@ -32,7 +32,10 @@ export const columns: ColumnDef<TableRow>[] = [
     id: "select",
     header: ({ table }) => (
       <Checkbox
-        checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")}
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
       />
@@ -51,31 +54,44 @@ export const columns: ColumnDef<TableRow>[] = [
     accessorKey: "model",
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
           Model
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
     },
-    cell: ({ row }) => <div className="font-medium">{row.getValue("model")}</div>,
+    cell: ({ row }) => (
+      <div className="font-medium">{row.getValue("model")}</div>
+    ),
   },
   {
     accessorKey: "provider",
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
           Provider
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
     },
-    cell: ({ row }) => <Badge variant="outline">{row.getValue("provider")}</Badge>,
+    cell: ({ row }) => (
+      <Badge variant="outline">{row.getValue("provider")}</Badge>
+    ),
   },
   {
     accessorKey: "mmlu",
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
           MMLU
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
@@ -87,7 +103,10 @@ export const columns: ColumnDef<TableRow>[] = [
     accessorKey: "hellaswag",
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
           HellaSwag
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
@@ -99,7 +118,10 @@ export const columns: ColumnDef<TableRow>[] = [
     accessorKey: "arc",
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
           ARC
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
@@ -111,7 +133,10 @@ export const columns: ColumnDef<TableRow>[] = [
     accessorKey: "averageScore",
     header: ({ column }) => {
       return (
-        <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
           Average Score
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
@@ -142,7 +167,11 @@ export const columns: ColumnDef<TableRow>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(model.id)}>Copy model ID</DropdownMenuItem>
+            <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(model.id)}
+            >
+              Copy model ID
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View details</DropdownMenuItem>
             <DropdownMenuItem>Compare models</DropdownMenuItem>

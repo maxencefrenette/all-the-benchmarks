@@ -48,8 +48,11 @@ export async function loadLLMData(): Promise<LLMData[]> {
         throw new Error(`No benchmarks found for ${model}`)
       }
 
-      const scores = benchmarkEntries.map((b) => b.score).filter((score) => typeof score === "number")
-      data.averageScore = scores.reduce((sum, score) => sum + score, 0) / scores.length
+      const scores = benchmarkEntries
+        .map((b) => b.score)
+        .filter((score) => typeof score === "number")
+      data.averageScore =
+        scores.reduce((sum, score) => sum + score, 0) / scores.length
 
       results.push(data)
     } catch (error) {
