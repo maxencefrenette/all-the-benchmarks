@@ -1,0 +1,12 @@
+model: "GPT-4"
+provider: "OpenAI"
+benchmarks:
+  MMLU:
+    score: 86.4
+    description: "Massive Multitask Language Understanding"
+  HellaSwag:
+    score: 95.3
+    description: "Commonsense Natural Language Inference"
+  ARC:
+    score: 96.3
+    description: "AI2 Reasoning Challenge"
