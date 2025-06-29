@@ -60,3 +60,62 @@ results:
   o3 (high): 81.3
   o3: 76.9
   o3 (high) + gpt-4.1: 78.2
+cost_per_task:
+  Gemini 2.0 Pro exp-02-05: 0
+  gpt-4o-mini-2024-07-18: 0.0014
+  claude-3-5-sonnet-20241022: 0.064
+  gpt-4o-2024-11-20: 0.0299
+  gpt-4o-2024-08-06: 0.0312
+  o1-2024-12-17 (high): 0.8326
+  DeepSeek Chat V2.5: 0.0023
+  claude-3-5-haiku-20241022: 0.0269
+  Qwen2.5-Coder-32B-Instruct: 0
+  o1-mini-2024-09-12: 0.0826
+  gemini-exp-1206: 0
+  gemini-2.0-flash-exp: 0
+  yi-lightning: 0
+  DeepSeek Chat V3 (prev): 0.0015
+  Codestral 25.01: 0.0088
+  DeepSeek R1: 0.0241
+  DeepSeek R1 + claude-3-5-sonnet-20241022: 0.0591
+  o3-mini (medium): 0.0394
+  o3-mini (high): 0.0811
+  gemini-2.0-flash-thinking-exp-01-21: 0
+  chatgpt-4o-latest (2025-02-15): 0.0644
+  claude-3-7-sonnet-20250219 (no thinking): 0.0788
+  claude-3-7-sonnet-20250219 (32k thinking tokens): 0.1637
+  gpt-4.5-preview: 0.8178
+  QwQ-32B: 0
+  QwQ-32B + Qwen 2.5 Coder Instruct: 0
+  command-a-03-2025-quality: 0
+  gemma-3-27b-it: 0
+  DeepSeek V3 (0324): 0.005
+  Gemini 2.5 Pro Preview 03-25: 0
+  chatgpt-4o-latest (2025-03-29): 0.0877
+  Quasar Alpha: 0
+  Llama 4 Maverick: 0
+  Grok 3 Beta: 0.049
+  Grok 3 Mini Beta (low): 0.0035
+  Grok 3 Mini Beta (high): 0.0033
+  Optimus Alpha: 0
+  gpt-4.1: 0.0438
+  gpt-4.1-mini: 0.0089
+  gpt-4.1-nano: 0.0019
+  o4-mini (high): 0.0873
+  openhands-lm-32b-v0.1: 0
+  gemini-2.5-flash-preview-04-17 (default): 0.0082
+  Gemini 2.5 Pro Preview 05-06: 0.1663
+  Qwen3 32B: 0.0034
+  Qwen3 235B A22B diff, no think, Alibaba API: 0
+  claude-sonnet-4-20250514 (no thinking): 0.0703
+  claude-sonnet-4-20250514 (32k thinking): 0.1181
+  claude-opus-4-20250514 (no think): 0.305
+  claude-opus-4-20250514 (32k thinking): 0.2922
+  gemini-2.5-flash-preview-05-20 (no think): 0.005
+  gemini-2.5-flash-preview-05-20 (24k think): 0.0381
+  gemini-2.5-pro-preview-06-05 (default think): 0.2026
+  gemini-2.5-pro-preview-06-05 (32k think): 0.2217
+  DeepSeek R1 (0528): 0.0214
+  o3 (high): 0.0943
+  o3: 0.0611
+  o3 (high) + gpt-4.1: 0.0784
