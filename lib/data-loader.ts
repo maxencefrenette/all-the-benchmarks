@@ -82,21 +82,20 @@ export async function loadLLMData(): Promise<LLMData[]> {
         throw new Error(`Invalid benchmark structure for ${slug}`)
       }
       const costMap = data.cost_per_task || {}
-      if (!benchmarkCostMap[data.benchmark]) {
-        benchmarkCostMap[data.benchmark] = {}
-      }
       for (const [rawName, score] of Object.entries(data.results)) {
         const mappedSlug = aliasMap[rawName] || rawName
         const llm = llmMap[mappedSlug]
         if (llm) {
+          const hasCost = costMap[rawName] && costMap[rawName] > 0
           llm.benchmarks[data.benchmark] = {
             score: Number(score),
             description: data.description,
-            ...(costMap[rawName] && costMap[rawName] > 0
-              ? { costPerTask: Number(costMap[rawName]) }
-              : {}),
+            ...(hasCost ? { costPerTask: Number(costMap[rawName]) } : {}),
           }
-          if (costMap[rawName] && costMap[rawName] > 0) {
+          if (hasCost) {
+            if (!benchmarkCostMap[data.benchmark]) {
+              benchmarkCostMap[data.benchmark] = {}
+            }
             benchmarkCostMap[data.benchmark][mappedSlug] = Number(
               costMap[rawName],
             )
