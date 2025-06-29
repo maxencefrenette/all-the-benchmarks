@@ -1,4 +1,4 @@
-import Link from "next/link"
+import NavigationPills from "@/components/navigation-pills"
 
 export const metadata = {
   title: "Methodology",
@@ -12,6 +12,7 @@ export default function MethodologyPage() {
       <p className="text-center text-muted-foreground">
         Explanation of how average scores are computed.
       </p>
+      <NavigationPills />
       <div className="space-y-4">
         <p>
           Models are evaluated using a collection of public benchmarks. Raw
@@ -26,11 +27,6 @@ export default function MethodologyPage() {
           This approach ensures that benchmarks with different scales contribute
           equally to the final average.
         </p>
-      </div>
-      <div className="text-center">
-        <Link href="/" className="underline">
-          Back to leaderboard
-        </Link>
       </div>
     </main>
   )

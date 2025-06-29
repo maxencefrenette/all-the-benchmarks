@@ -12,20 +12,10 @@ export default async function LeaderboardTable() {
   const tableData: TableRow[] = transformToTableData(data)
 
   return (
-    <div className="space-y-6">
-      <div className="text-center space-y-2">
-        <h1 className="text-4xl font-bold">LLM Benchmark Leaderboard</h1>
-        <p className="text-muted-foreground text-lg">
-          Sortable and filterable comparison of LLM performance across key
-          benchmarks
-        </p>
-      </div>
-
-      <Card>
-        <CardContent>
-          <DataTable columns={columns} data={tableData} />
-        </CardContent>
-      </Card>
-    </div>
+    <Card>
+      <CardContent>
+        <DataTable columns={columns} data={tableData} />
+      </CardContent>
+    </Card>
   )
 }

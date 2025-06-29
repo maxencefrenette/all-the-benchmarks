@@ -1,5 +1,5 @@
 import { loadBenchmarks } from "@/lib/benchmark-loader"
-import Link from "next/link"
+import NavigationPills from "@/components/navigation-pills"
 
 export const metadata = {
   title: "Benchmarks",
@@ -14,6 +14,7 @@ export default async function BenchmarksPage() {
       <p className="text-center text-muted-foreground">
         Models are evaluated on the following benchmarks.
       </p>
+      <NavigationPills />
       <ul className="space-y-4">
         {benchmarks.map((b) => (
           <li key={b.slug} className="border rounded-lg p-4">
@@ -24,14 +25,6 @@ export default async function BenchmarksPage() {
           </li>
         ))}
       </ul>
-      <div className="text-center space-x-4">
-        <Link href="/" className="underline">
-          Back to leaderboard
-        </Link>
-        <Link href="/methodology" className="underline">
-          Methodology
-        </Link>
-      </div>
     </main>
   )
 }
