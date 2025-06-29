@@ -1,5 +1,0 @@
-model: Claude-3 Opus
-provider: Anthropic
-aliases:
-  - claude-4-opus-20250514-thinking-32k
-  - Claude 4 Opus (thinking)
