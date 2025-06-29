@@ -116,47 +116,6 @@ export default function Leaderboard() {
           </Card>
         ))}
       </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Benchmark Details</CardTitle>
-          <CardDescription>
-            Understanding the evaluation metrics
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 md:grid-cols-4">
-            <div>
-              <h4 className="font-semibold">MMLU</h4>
-              <p className="text-sm text-muted-foreground">
-                Measures knowledge across 57 academic subjects including
-                mathematics, history, computer science, and more.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold">HellaSwag</h4>
-              <p className="text-sm text-muted-foreground">
-                Tests commonsense reasoning by asking models to complete
-                scenarios with the most logical ending.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold">ARC</h4>
-              <p className="text-sm text-muted-foreground">
-                AI2 Reasoning Challenge focusing on grade-school level science
-                questions requiring reasoning.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold">LiveBench</h4>
-              <p className="text-sm text-muted-foreground">
-                Continuously updated benchmark measuring diverse capabilities
-                across multiple categories.
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }
