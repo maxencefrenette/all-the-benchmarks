@@ -1,4 +1,6 @@
 import { parse } from "yaml"
+import fs from "fs/promises"
+import path from "path"
 
 export interface BenchmarkResult {
   score: number
@@ -20,36 +22,23 @@ export interface TableRow {
 }
 
 export async function loadLLMData(): Promise<LLMData[]> {
-  const modelSlugs = [
-    "gpt-4",
-    "claude-3",
-    "gemini-pro",
-    "o3-high",
-    "o3-medium",
-    "gemini-2.5-pro",
-    "gemini-2.5-flash",
-    "claude-opus-4",
-    "claude-sonnet-4",
-  ]
+  const modelDir = path.join(process.cwd(), "public", "data", "models")
+  const benchmarkDir = path.join(process.cwd(), "public", "data", "benchmarks")
 
-  const benchmarkSlugs = [
-    "livebench",
-    "simplebench",
-    "lmarena-text",
-    "arc-agi-1",
-    "aider-polyglot",
-    "humanitys-last-exam",
-  ]
+  const modelSlugs = (await fs.readdir(modelDir))
+    .filter((f) => f.endsWith(".yaml"))
+    .map((f) => f.replace(/\.yaml$/, ""))
+
+  const benchmarkSlugs = (await fs.readdir(benchmarkDir))
+    .filter((f) => f.endsWith(".yaml"))
+    .map((f) => f.replace(/\.yaml$/, ""))
   const llmMap: Record<string, LLMData> = {}
   const aliasMap: Record<string, string> = {}
 
   for (const slug of modelSlugs) {
     try {
-      const response = await fetch(`/data/models/${slug}.yaml`)
-      if (!response.ok) {
-        throw new Error(`Failed to fetch ${slug}.yaml: ${response.status}`)
-      }
-      const text = await response.text()
+      const filePath = path.join(modelDir, `${slug}.yaml`)
+      const text = await fs.readFile(filePath, "utf8")
       const data = parse(text) as {
         model: string
         provider: string
@@ -74,11 +63,8 @@ export async function loadLLMData(): Promise<LLMData[]> {
 
   for (const slug of benchmarkSlugs) {
     try {
-      const response = await fetch(`/data/benchmarks/${slug}.yaml`)
-      if (!response.ok) {
-        throw new Error(`Failed to fetch ${slug}.yaml: ${response.status}`)
-      }
-      const text = await response.text()
+      const filePath = path.join(benchmarkDir, `${slug}.yaml`)
+      const text = await fs.readFile(filePath, "utf8")
       const data = parse(text) as {
         benchmark: string
         description: string

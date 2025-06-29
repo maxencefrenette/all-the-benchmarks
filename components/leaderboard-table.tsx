@@ -1,6 +1,3 @@
-"use client"
-
-import { useEffect, useState } from "react"
 import {
   Card,
   CardContent,
@@ -16,25 +13,9 @@ import {
 import { DataTable } from "./data-table"
 import { columns } from "./columns"
 
-export default function LeaderboardTable() {
-  const [tableData, setTableData] = useState<TableRow[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    loadLLMData().then((data) => {
-      const transformedData = transformToTableData(data)
-      setTableData(transformedData)
-      setLoading(false)
-    })
-  }, [])
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-lg">Loading benchmark data...</div>
-      </div>
-    )
-  }
+export default async function LeaderboardTable() {
+  const data = await loadLLMData()
+  const tableData: TableRow[] = transformToTableData(data)
 
   return (
     <div className="space-y-6">
