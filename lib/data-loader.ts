@@ -21,9 +21,6 @@ export interface TableRow {
 
 export async function loadLLMData(): Promise<LLMData[]> {
   const modelSlugs = [
-    "gpt-4",
-    "claude-3",
-    "gemini-pro",
     "o3-high",
     "o3-medium",
     "gemini-2.5-pro",
