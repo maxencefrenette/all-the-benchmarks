@@ -10,6 +10,12 @@ test("transformToTableData converts LLMData objects to table rows", () => {
 
   const rows = transformToTableData(llms)
   expect(rows).toEqual([
-    { id: "foo", model: "Foo", provider: "Bar", averageScore: 42 },
+    {
+      id: "foo",
+      model: "Foo",
+      provider: "Bar",
+      averageScore: 42,
+      costPerTask: null,
+    },
   ])
 })
