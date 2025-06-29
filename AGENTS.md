@@ -10,6 +10,10 @@ This repository uses pnpm as package manager.
 
 Use the shadcn/ui CLI to scaffold new components. Run `pnpm dlx shadcn-ui@latest add <component>`.
 
+# Model YAML files
+
+Model definitions live in `public/data/models`. Each file includes `model`, `provider`, and optional `aliases`.
+
 # Editing this file
 
 Whenever you learn something new, add it to this file.

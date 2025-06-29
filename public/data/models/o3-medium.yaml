@@ -1,0 +1,5 @@
+model: o3 (medium)
+provider: OpenAI
+aliases:
+  - o3-2025-04-16-medium
+  - o3 (medium)
