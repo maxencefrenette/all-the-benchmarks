@@ -64,20 +64,32 @@ async function main(): Promise<void> {
   )
   const categories: Categories = JSON.parse(categoriesText)
   const rows = parseCSV(csv)
-  const results: Record<string, number> = {}
+  const rawResults: Record<string, number> = {}
   for (const row of rows) {
     const avg = computeGlobalAverage(row, categories)
-    results[row.model] = Math.round(avg * 100) / 100
+    rawResults[row.model] = Math.round(avg * 100) / 100
   }
-  const aliases: Record<string, string> = {
-    "gpt-4": "gpt-4.5-preview-2025-02-27",
-    "claude-3": "claude-4-opus-20250514-thinking-32k",
-    "gemini-pro": "gemini-2.5-pro-preview-05-06",
-  }
-  for (const [slug, name] of Object.entries(aliases)) {
-    if (results[name]) {
-      results[slug] = results[name]
+
+  const modelsDir = path.join(__dirname, "..", "public", "data", "models")
+  const files = await fs.readdir(modelsDir)
+  const aliasMap: Record<string, string[]> = {}
+  for (const file of files) {
+    const slug = path.basename(file, ".yaml")
+    const content = await fs.readFile(path.join(modelsDir, file), "utf8")
+    const data = YAML.parse(content) as {
+      model: string
+      aliases?: string[]
     }
+    aliasMap[slug] = [data.model, ...(data.aliases || [])]
+  }
+
+  const results: Record<string, number> = {}
+  for (const [name, score] of Object.entries(rawResults)) {
+    const slugEntry = Object.entries(aliasMap).find(([, names]) =>
+      names.includes(name),
+    )
+    const slug = slugEntry ? slugEntry[0] : name
+    results[slug] = score
   }
   const yamlObj = {
     benchmark: "LiveBench",
