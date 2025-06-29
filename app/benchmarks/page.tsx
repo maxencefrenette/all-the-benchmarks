@@ -24,9 +24,12 @@ export default async function BenchmarksPage() {
           </li>
         ))}
       </ul>
-      <div className="text-center">
+      <div className="text-center space-x-4">
         <Link href="/" className="underline">
           Back to leaderboard
+        </Link>
+        <Link href="/methodology" className="underline">
+          Methodology
         </Link>
       </div>
     </main>
