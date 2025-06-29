@@ -9,6 +9,7 @@
     "prettier": "prettier --check .",
     "scrape:livebench": "tsx scripts/scrape_livebench.ts",
     "scrape:simplebench": "tsx scripts/scrape_simplebench.ts",
+    "scrape:lmarena-text": "tsx scripts/scrape_lmarena_text.ts",
     "start": "next start"
   },
   "dependencies": {
