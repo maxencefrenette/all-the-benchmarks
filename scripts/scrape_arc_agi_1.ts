@@ -20,6 +20,7 @@ async function main(): Promise<void> {
     datasetId: string
     modelId: string
     score: number
+    costPerTask?: number
     display?: boolean
   }>
 
@@ -36,16 +37,22 @@ async function main(): Promise<void> {
   entries.sort((a, b) => b.score - a.score)
 
   const results: Record<string, number> = {}
+  const costPerTask: Record<string, number> = {}
   for (const e of entries) {
     let score = e.score
     if (score > 0 && score <= 1) score *= 100
-    results[modelMap[e.modelId] || e.modelId] = Math.round(score * 10) / 10
+    const name = modelMap[e.modelId] || e.modelId
+    results[name] = Math.round(score * 10) / 10
+    if (typeof e.costPerTask === "number") {
+      costPerTask[name] = e.costPerTask
+    }
   }
 
   const yamlObj = {
     benchmark: dataset.displayName,
     description: "Accuracy on ARC-AGI-1",
     results,
+    cost_per_task: costPerTask,
   }
 
   const outPath = path.join(

@@ -60,3 +60,63 @@ results:
   GPT-4.1-Mini: 3.5
   Llama 4 Scout: 0.5
   GPT-4.1-Nano: 0
+cost_per_task:
+  Human Panel: 17
+  Stem Grad: 10
+  Avg. Mturker: 3
+  o3-preview (Low)*: 200
+  o3 (High): 0.5002
+  o3-Pro (High): 4.16
+  o4-mini (High): 0.4058
+  o3-Pro (Medium): 3.1766
+  ARChitects: 0.2
+  o3 (Medium): 0.2882
+  o3-Pro (Low): 1.6382
+  o4-mini (Medium): 0.15
+  o3 (Low): 0.1764
+  Gemini 2.5 Pro (Thinking 16K): 0.4839
+  Claude Sonnet 4 (Thinking 16K): 0.3658
+  Gemini 2.5 Pro (Thinking 32K): 0.5123
+  Claude Opus 4 (Thinking 16K): 1.2496
+  o3-mini (High): 0.3989
+  Gemini 2.5 Flash (Preview): 0.0371
+  Gemini 2.5 Flash (Preview) (Thinking 16K): 0.2134
+  Gemini 2.5 Flash (Preview) (Thinking 24K): 0.1971
+  o1 (Medium): 1.9329
+  Claude Opus 4 (Thinking 8K): 0.7408
+  Gemini 2.5 Pro (Thinking 8K): 0.2947
+  Claude Sonnet 4 (Thinking 8K): 0.1952
+  Claude 3.7 (16K): 0.33
+  Claude Sonnet 4 (Thinking 1K): 0.0937
+  Codex Mini (Latest): 0.1597
+  o1 (Low): 1.1803
+  Claude Opus 4 (Thinking 1K): 0.5021
+  Gemini 2.5 Flash (Preview) (Thinking 8K): 0.1344
+  Claude Sonnet 4: 0.0806
+  o1-pro (Low): 10.9039
+  Claude Opus 4: 0.4036
+  o3-mini (Medium): 0.1907
+  o4-mini (Low): 0.0406
+  Deepseek R1 (05/28): 0.0464
+  Claude 3.7 (8K): 0.21
+  o1-preview: 1.6415
+  Icecuber: 0.2
+  Grok 3 Mini (Low): 0.0099
+  Gemini 2.5 Flash (Preview) (Thinking 1K): 0.0356
+  Gemini 2.5 Pro (Thinking 1K): 0.0573
+  Deepseek R1: 0.06
+  o3-mini (Low): 0.0519
+  o1-mini: 0.135
+  Claude 3.7: 0.058
+  Claude 3.7 (1K): 0.07
+  GPT-4.5: 0.29
+  Magistral Medium (Thinking): 0.0989
+  Magistral Medium: 0.1015
+  GPT-4.1: 0.039
+  Grok 3: 0.0931
+  Magistral Small: 0.0399
+  GPT-4o: 0.05
+  Llama 4 Maverick: 0.0078
+  GPT-4.1-Mini: 0.0078
+  Llama 4 Scout: 0.0041
+  GPT-4.1-Nano: 0.0021
