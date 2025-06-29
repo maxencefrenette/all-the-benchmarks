@@ -16,13 +16,21 @@ export interface TableRow {
   id: string
   model: string
   provider: string
-  livebench: number
-  simplebench: number
   averageScore: number
 }
 
 export async function loadLLMData(): Promise<LLMData[]> {
-  const modelSlugs = ["gpt-4", "claude-3", "gemini-pro"]
+  const modelSlugs = [
+    "gpt-4",
+    "claude-3",
+    "gemini-pro",
+    "o3-high",
+    "o3-medium",
+    "gemini-2.5-pro",
+    "gemini-2.5-flash",
+    "claude-opus-4",
+    "claude-sonnet-4",
+  ]
   const benchmarkSlugs = ["livebench", "simplebench"]
 
   const llmMap: Record<string, LLMData> = {}
@@ -103,8 +111,6 @@ export function transformToTableData(llmData: LLMData[]): TableRow[] {
     id: llm.model.toLowerCase().replace(/\s+/g, "-"),
     model: llm.model,
     provider: llm.provider,
-    livebench: llm.benchmarks.LiveBench?.score || 0,
-    simplebench: llm.benchmarks.SimpleBench?.score || 0,
     averageScore: llm.averageScore || 0,
   }))
 }
