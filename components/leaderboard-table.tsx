@@ -12,7 +12,7 @@ export default async function LeaderboardTable() {
   const tableData: TableRow[] = transformToTableData(data)
 
   return (
-    <Card>
+    <Card className="border-0">
       <CardContent>
         <DataTable columns={columns} data={tableData} />
       </CardContent>
