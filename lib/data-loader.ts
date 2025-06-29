@@ -5,6 +5,7 @@ import path from "path"
 export interface BenchmarkResult {
   score: number
   description: string
+  costPerTask?: number
 }
 
 export interface LLMData {
@@ -12,6 +13,8 @@ export interface LLMData {
   provider: string
   benchmarks: Record<string, BenchmarkResult>
   averageScore?: number
+  averageCost?: number
+  costScore?: number
 }
 
 export interface TableRow {
@@ -19,6 +22,7 @@ export interface TableRow {
   model: string
   provider: string
   averageScore: number
+  costPerTask: number | null
 }
 
 export async function loadLLMData(): Promise<LLMData[]> {
@@ -69,10 +73,12 @@ export async function loadLLMData(): Promise<LLMData[]> {
         benchmark: string
         description: string
         results: Record<string, number>
+        cost_per_task?: Record<string, number>
       }
       if (!data.benchmark || !data.results) {
         throw new Error(`Invalid benchmark structure for ${slug}`)
       }
+      const costMap = data.cost_per_task || {}
       for (const [rawName, score] of Object.entries(data.results)) {
         const mappedSlug = aliasMap[rawName] || rawName
         const llm = llmMap[mappedSlug]
@@ -80,6 +86,9 @@ export async function loadLLMData(): Promise<LLMData[]> {
           llm.benchmarks[data.benchmark] = {
             score: Number(score),
             description: data.description,
+            ...(costMap[rawName] && costMap[rawName] > 0
+              ? { costPerTask: Number(costMap[rawName]) }
+              : {}),
           }
         }
       }
@@ -113,8 +122,32 @@ export async function loadLLMData(): Promise<LLMData[]> {
       (normalised.reduce((sum, score) => sum + score, 0) /
         (normalised.length || 1)) *
       100
+    const costs = Object.values(llm.benchmarks)
+      .map((r) => r.costPerTask)
+      .filter((c): c is number => typeof c === "number")
+    if (costs.length > 0) {
+      llm.averageCost = costs.reduce((sum, c) => sum + c, 0) / costs.length
+    }
     return llm
   })
+
+  const costValues = results
+    .map((l) => l.averageCost)
+    .filter((c): c is number => typeof c === "number")
+
+  if (costValues.length > 0) {
+    const mean = costValues.reduce((s, c) => s + c, 0) / costValues.length
+    const std = Math.sqrt(
+      costValues.reduce((s, c) => s + (c - mean) ** 2, 0) / costValues.length,
+    )
+    if (std > 0) {
+      for (const llm of results) {
+        if (typeof llm.averageCost === "number") {
+          llm.costScore = (llm.averageCost - mean) / std
+        }
+      }
+    }
+  }
 
   return results.sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0))
 }
@@ -125,5 +158,6 @@ export function transformToTableData(llmData: LLMData[]): TableRow[] {
     model: llm.model,
     provider: llm.provider,
     averageScore: llm.averageScore || 0,
+    costPerTask: llm.costScore ?? null,
   }))
 }

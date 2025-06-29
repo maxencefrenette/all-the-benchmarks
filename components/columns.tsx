@@ -17,6 +17,11 @@ const ScoreCell = ({ score }: { score: number }) => (
   <Badge variant="secondary">{score.toFixed(1)}</Badge>
 )
 
+const CostCell = ({ cost }: { cost: number | null }) => {
+  if (cost === null || Number.isNaN(cost)) return null
+  return <Badge variant="secondary">{cost.toFixed(2)}</Badge>
+}
+
 export const columns: ColumnDef<TableRow>[] = [
   {
     accessorKey: "model",
@@ -106,6 +111,28 @@ export const columns: ColumnDef<TableRow>[] = [
       return (
         <div className="font-semibold">
           <ScoreCell score={score} />
+        </div>
+      )
+    },
+  },
+  {
+    accessorKey: "costPerTask",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Cost Per Task (z-score)
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+    cell: ({ row }) => {
+      const cost = row.getValue("costPerTask") as number | null
+      return (
+        <div className="font-semibold">
+          <CostCell cost={cost} />
         </div>
       )
     },
