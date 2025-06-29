@@ -15,16 +15,8 @@ import {
 import { Checkbox } from "@/components/ui/checkbox"
 import type { TableRow } from "@/lib/data-loader"
 
-const getScoreColor = (score: number) => {
-  if (score >= 90) return "bg-green-100 text-green-800 hover:bg-green-200"
-  if (score >= 80) return "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
-  return "bg-red-100 text-red-800 hover:bg-red-200"
-}
-
 const ScoreCell = ({ score }: { score: number }) => (
-  <Badge variant="secondary" className={getScoreColor(score)}>
-    {score.toFixed(1)}
-  </Badge>
+  <Badge variant="secondary">{score.toFixed(1)}</Badge>
 )
 
 export const columns: ColumnDef<TableRow>[] = [
@@ -92,7 +84,7 @@ export const columns: ColumnDef<TableRow>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Average Score
+          Average Normalized Score
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
