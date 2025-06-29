@@ -6,15 +6,16 @@ export interface BenchmarkResult {
   score: number
   description: string
   costPerTask?: number
+  normalizedCost?: number
 }
 
 export interface LLMData {
+  slug: string
   model: string
   provider: string
   benchmarks: Record<string, BenchmarkResult>
   averageScore?: number
-  averageCost?: number
-  costScore?: number
+  normalizedCost?: number
 }
 
 export interface TableRow {
@@ -38,6 +39,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
     .map((f) => f.replace(/\.yaml$/, ""))
   const llmMap: Record<string, LLMData> = {}
   const aliasMap: Record<string, string> = {}
+  const benchmarkCostMap: Record<string, Record<string, number>> = {}
 
   for (const slug of modelSlugs) {
     try {
@@ -52,6 +54,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
         throw new Error(`Invalid data structure for ${slug}`)
       }
       llmMap[slug] = {
+        slug,
         model: data.model,
         provider: data.provider,
         benchmarks: {},
@@ -79,6 +82,9 @@ export async function loadLLMData(): Promise<LLMData[]> {
         throw new Error(`Invalid benchmark structure for ${slug}`)
       }
       const costMap = data.cost_per_task || {}
+      if (!benchmarkCostMap[data.benchmark]) {
+        benchmarkCostMap[data.benchmark] = {}
+      }
       for (const [rawName, score] of Object.entries(data.results)) {
         const mappedSlug = aliasMap[rawName] || rawName
         const llm = llmMap[mappedSlug]
@@ -89,6 +95,11 @@ export async function loadLLMData(): Promise<LLMData[]> {
             ...(costMap[rawName] && costMap[rawName] > 0
               ? { costPerTask: Number(costMap[rawName]) }
               : {}),
+          }
+          if (costMap[rawName] && costMap[rawName] > 0) {
+            benchmarkCostMap[data.benchmark][mappedSlug] = Number(
+              costMap[rawName],
+            )
           }
         }
       }
@@ -122,30 +133,44 @@ export async function loadLLMData(): Promise<LLMData[]> {
       (normalised.reduce((sum, score) => sum + score, 0) /
         (normalised.length || 1)) *
       100
-    const costs = Object.values(llm.benchmarks)
-      .map((r) => r.costPerTask)
-      .filter((c): c is number => typeof c === "number")
-    if (costs.length > 0) {
-      llm.averageCost = costs.reduce((sum, c) => sum + c, 0) / costs.length
-    }
     return llm
   })
 
-  const costValues = results
-    .map((l) => l.averageCost)
-    .filter((c): c is number => typeof c === "number")
+  // compute normalization factors for benchmark costs
+  const costBenchmarks = Object.keys(benchmarkCostMap)
+  let intersection = new Set<string>()
+  if (costBenchmarks.length > 0) {
+    intersection = new Set(Object.keys(benchmarkCostMap[costBenchmarks[0]]))
+    for (const b of costBenchmarks.slice(1)) {
+      intersection = new Set(
+        [...intersection].filter((m) => benchmarkCostMap[b][m] !== undefined),
+      )
+    }
+  }
 
-  if (costValues.length > 0) {
-    const mean = costValues.reduce((s, c) => s + c, 0) / costValues.length
-    const std = Math.sqrt(
-      costValues.reduce((s, c) => s + (c - mean) ** 2, 0) / costValues.length,
-    )
-    if (std > 0) {
-      for (const llm of results) {
-        if (typeof llm.averageCost === "number") {
-          llm.costScore = (llm.averageCost - mean) / std
-        }
+  const normalizationFactors: Record<string, number> = {}
+  if (intersection.size > 0) {
+    for (const b of costBenchmarks) {
+      const values = [...intersection].map((m) => benchmarkCostMap[b][m])
+      const mean = values.reduce((sum, c) => sum + c, 0) / (values.length || 1)
+      if (mean > 0) {
+        normalizationFactors[b] = 1 / mean
       }
+    }
+  }
+
+  // apply normalization factors and compute per-model averages
+  for (const llm of results) {
+    const costs: number[] = []
+    for (const [b, res] of Object.entries(llm.benchmarks)) {
+      const factor = normalizationFactors[b]
+      if (res.costPerTask && factor) {
+        res.normalizedCost = res.costPerTask * factor
+        costs.push(res.normalizedCost)
+      }
+    }
+    if (costs.length > 0) {
+      llm.normalizedCost = costs.reduce((s, c) => s + c, 0) / costs.length
     }
   }
 
@@ -158,6 +183,6 @@ export function transformToTableData(llmData: LLMData[]): TableRow[] {
     model: llm.model,
     provider: llm.provider,
     averageScore: llm.averageScore || 0,
-    costPerTask: llm.costScore ?? null,
+    costPerTask: llm.normalizedCost ?? null,
   }))
 }

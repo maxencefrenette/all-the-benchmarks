@@ -123,7 +123,7 @@ export const columns: ColumnDef<TableRow>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Cost Per Task (z-score)
+          Cost Per Task (normalized)
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
