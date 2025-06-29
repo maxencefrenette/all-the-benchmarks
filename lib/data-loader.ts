@@ -22,7 +22,17 @@ export interface TableRow {
 }
 
 export async function loadLLMData(): Promise<LLMData[]> {
-  const modelSlugs = ["gpt-4", "claude-3", "gemini-pro"]
+  const modelSlugs = [
+    "gpt-4",
+    "claude-3",
+    "gemini-pro",
+    "o3-high",
+    "o3-medium",
+    "gemini-2.5-pro",
+    "gemini-2.5-flash",
+    "claude-opus-4",
+    "claude-sonnet-4",
+  ]
   const benchmarkSlugs = ["livebench", "simplebench"]
 
   const llmMap: Record<string, LLMData> = {}

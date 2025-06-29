@@ -13,6 +13,7 @@ Use the shadcn/ui CLI to scaffold new components. Run `pnpm dlx shadcn-ui@latest
 # Model YAML files
 
 Model definitions live in `public/data/models`. Each file includes `model`, `provider`, and optional `aliases`.
+To show a new model on the leaderboard, add its slug to `modelSlugs` in `lib/data-loader.ts`.
 
 # Editing this file
 
