@@ -130,6 +130,21 @@ export const columns: ColumnDef<TableRow>[] = [
     cell: ({ row }) => <ScoreCell score={row.getValue("arc")} />,
   },
   {
+    accessorKey: "livebench",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          LiveBench
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+    cell: ({ row }) => <ScoreCell score={row.getValue("livebench")} />,
+  },
+  {
     accessorKey: "averageScore",
     header: ({ column }) => {
       return (

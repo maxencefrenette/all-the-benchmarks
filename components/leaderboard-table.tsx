@@ -67,7 +67,7 @@ export default function LeaderboardTable() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-4">
             <div>
               <h4 className="font-semibold">MMLU</h4>
               <p className="text-sm text-muted-foreground">
@@ -87,6 +87,13 @@ export default function LeaderboardTable() {
               <p className="text-sm text-muted-foreground">
                 AI2 Reasoning Challenge focusing on grade-school level science
                 questions requiring reasoning.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold">LiveBench</h4>
+              <p className="text-sm text-muted-foreground">
+                Continuously updated benchmark measuring diverse capabilities
+                across multiple categories.
               </p>
             </div>
           </div>
