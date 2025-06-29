@@ -85,51 +85,6 @@ export const columns: ColumnDef<TableRow>[] = [
     ),
   },
   {
-    accessorKey: "mmlu",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          MMLU
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <ScoreCell score={row.getValue("mmlu")} />,
-  },
-  {
-    accessorKey: "hellaswag",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          HellaSwag
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <ScoreCell score={row.getValue("hellaswag")} />,
-  },
-  {
-    accessorKey: "arc",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          ARC
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-    cell: ({ row }) => <ScoreCell score={row.getValue("arc")} />,
-  },
-  {
     accessorKey: "livebench",
     header: ({ column }) => {
       return (
