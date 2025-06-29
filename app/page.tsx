@@ -1,4 +1,5 @@
 import LeaderboardTable from "@/components/leaderboard-table"
+import CostScoreChart from "@/components/cost-score-chart"
 import NavigationPills from "@/components/navigation-pills"
 import Image from "next/image"
 
@@ -22,6 +23,7 @@ export default function Home() {
         </p>
       </div>
       <NavigationPills />
+      <CostScoreChart />
       <LeaderboardTable />
     </main>
   )
