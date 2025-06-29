@@ -1,0 +1,6 @@
+model: o3 (low)
+provider: OpenAI
+aliases:
+  - o3-2025-04-16-low
+  - o3 (low)
+  - o3 (Low)
