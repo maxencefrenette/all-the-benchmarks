@@ -15,7 +15,6 @@ import {
 
 import { Button } from "@/components/ui/button"
 
-import { Input } from "@/components/ui/input"
 import {
   Table,
   TableBody,
@@ -58,26 +57,6 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="w-full">
-      <div className="flex items-center py-4 gap-4">
-        <Input
-          placeholder="Filter models..."
-          value={(table.getColumn("model")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("model")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-        <Input
-          placeholder="Filter providers..."
-          value={
-            (table.getColumn("provider")?.getFilterValue() as string) ?? ""
-          }
-          onChange={(event) =>
-            table.getColumn("provider")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-      </div>
       <div className="rounded-md border">
         <Table>
           <TableHeader>
