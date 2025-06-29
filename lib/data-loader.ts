@@ -31,7 +31,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
     "claude-opus-4",
     "claude-sonnet-4",
   ]
-  const benchmarkSlugs = ["livebench", "simplebench"]
+  const benchmarkSlugs = ["livebench", "simplebench", "aider-polyglot"]
 
   const llmMap: Record<string, LLMData> = {}
   const aliasMap: Record<string, string> = {}

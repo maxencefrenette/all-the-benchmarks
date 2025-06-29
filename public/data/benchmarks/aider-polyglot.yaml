@@ -1,0 +1,62 @@
+benchmark: Aider Polyglot
+description: Pass rate (PR@2) on Aider's polyglot benchmark
+results:
+  Gemini 2.0 Pro exp-02-05: 35.6
+  gpt-4o-mini-2024-07-18: 3.6
+  claude-3-5-sonnet-20241022: 51.6
+  gpt-4o-2024-11-20: 18.2
+  gpt-4o-2024-08-06: 23.1
+  o1-2024-12-17 (high): 61.7
+  DeepSeek Chat V2.5: 17.8
+  claude-3-5-haiku-20241022: 28
+  Qwen2.5-Coder-32B-Instruct: 16.4
+  o1-mini-2024-09-12: 32.9
+  gemini-exp-1206: 38.2
+  gemini-2.0-flash-exp: 22.2
+  yi-lightning: 12.9
+  DeepSeek Chat V3 (prev): 48.4
+  Codestral 25.01: 11.1
+  DeepSeek R1: 56.9
+  DeepSeek R1 + claude-3-5-sonnet-20241022: 64
+  qwen-max-2025-01-25: 21.8
+  o3-mini (medium): 53.8
+  o3-mini (high): 60.4
+  gemini-2.0-flash-thinking-exp-01-21: 18.2
+  chatgpt-4o-latest (2025-02-15): 27.1
+  claude-3-7-sonnet-20250219 (no thinking): 60.4
+  claude-3-7-sonnet-20250219 (32k thinking tokens): 64.9
+  gpt-4.5-preview: 44.9
+  QwQ-32B: 20.9
+  QwQ-32B + Qwen 2.5 Coder Instruct: 26.2
+  command-a-03-2025-quality: 12
+  gemma-3-27b-it: 4.9
+  DeepSeek V3 (0324): 55.1
+  Gemini 2.5 Pro Preview 03-25: 72.9
+  chatgpt-4o-latest (2025-03-29): 45.3
+  Quasar Alpha: 54.7
+  Llama 4 Maverick: 15.6
+  Grok 3 Beta: 53.3
+  Grok 3 Mini Beta (low): 34.7
+  Grok 3 Mini Beta (high): 49.3
+  Optimus Alpha: 52.9
+  gpt-4.1: 52.4
+  gpt-4.1-mini: 32.4
+  gpt-4.1-nano: 8.9
+  o4-mini (high): 72
+  openhands-lm-32b-v0.1: 10.2
+  gemini-2.5-flash-preview-04-17 (default): 47.1
+  Gemini 2.5 Pro Preview 05-06: 76.9
+  Qwen3 32B: 40
+  Qwen3 235B A22B diff, no think, Alibaba API: 59.6
+  claude-sonnet-4-20250514 (no thinking): 56.4
+  claude-sonnet-4-20250514 (32k thinking): 61.3
+  claude-opus-4-20250514 (no think): 70.7
+  claude-opus-4-20250514 (32k thinking): 72
+  gemini-2.5-flash-preview-05-20 (no think): 44
+  gemini-2.5-flash-preview-05-20 (24k think): 55.1
+  gemini-2.5-pro-preview-06-05 (default think): 79.1
+  gemini-2.5-pro-preview-06-05 (32k think): 83.1
+  DeepSeek R1 (0528): 71.4
+  o3 (high): 81.3
+  o3: 76.9
+  o3 (high) + gpt-4.1: 78.2
