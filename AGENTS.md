@@ -22,6 +22,13 @@ To add a new benchmark to the leaderboard:
 
 Model definitions live in `public/data/models`. Each file includes `model`, `provider`, and optional `aliases`.
 
+To add a new model to the leaderboard:
+
+- Search the web for release notes or documentation to learn the official version names and differences between variants of the model. Capture all known names.
+- Create a new YAML file in `public/data/models/` containing the `model` name and `provider`.
+- Look at the benchmark YAML files `results` keys to find all the aliases for the model.
+- Add every variant or version string as an entry under `aliases`.
+
 # Editing this file
 
 Whenever you learn something new, add it to this file.
