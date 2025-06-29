@@ -1,0 +1,6 @@
+benchmark: ARC
+description: AI2 Reasoning Challenge
+results:
+  gpt-4: 96.3
+  claude-3: 96.4
+  gemini-pro: 87.0
