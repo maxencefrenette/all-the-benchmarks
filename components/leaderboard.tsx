@@ -1,6 +1,3 @@
-"use client"
-
-import { useEffect, useState } from "react"
 import { Trophy, Medal, Award } from "lucide-react"
 import {
   Card,
@@ -12,16 +9,8 @@ import {
 import { Badge } from "@/components/ui/badge"
 import { loadLLMData, type LLMData } from "@/lib/data-loader"
 
-export default function Leaderboard() {
-  const [llmData, setLlmData] = useState<LLMData[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    loadLLMData().then((data) => {
-      setLlmData(data)
-      setLoading(false)
-    })
-  }, [])
+export default async function Leaderboard() {
+  const llmData: LLMData[] = await loadLLMData()
 
   const getRankIcon = (index: number) => {
     switch (index) {
@@ -44,14 +33,6 @@ export default function Leaderboard() {
     if (score >= 90) return "text-green-600"
     if (score >= 80) return "text-yellow-600"
     return "text-red-600"
-  }
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-lg">Loading benchmark data...</div>
-      </div>
-    )
   }
 
   const benchmarkNames =
