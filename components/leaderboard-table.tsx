@@ -16,7 +16,7 @@ export default async function LeaderboardTable() {
     <div className="space-y-6">
       <div className="text-center space-y-2">
         <h1 className="text-4xl font-bold flex items-center justify-center gap-2">
-          <Image src="/favicon.png" alt="icon" width={24} height={24} />
+          <Image src="/favicon.png" alt="icon" width={32} height={32} />
           <span>All the benchmarks!</span>
         </h1>
         <p className="text-muted-foreground text-lg">
