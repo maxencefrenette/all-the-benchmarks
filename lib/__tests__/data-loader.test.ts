@@ -5,11 +5,23 @@ import { expect, test } from "vitest"
 
 test("transformToTableData converts LLMData objects to table rows", () => {
   const llms: LLMData[] = [
-    { model: "Foo", provider: "Bar", benchmarks: {}, averageScore: 42 },
+    {
+      slug: "foo",
+      model: "Foo",
+      provider: "Bar",
+      benchmarks: {},
+      averageScore: 42,
+    },
   ]
 
   const rows = transformToTableData(llms)
   expect(rows).toEqual([
-    { id: "foo", model: "Foo", provider: "Bar", averageScore: 42 },
+    {
+      id: "foo",
+      model: "Foo",
+      provider: "Bar",
+      averageScore: 42,
+      costPerTask: null,
+    },
   ])
 })
