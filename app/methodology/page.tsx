@@ -2,7 +2,7 @@ import NavigationPills from "@/components/navigation-pills"
 
 export const metadata = {
   title: "Methodology",
-  description: "How leaderboard scores are calculated",
+  description: "How leaderboard scores and cost per task are calculated",
 }
 
 export default function MethodologyPage() {
@@ -26,6 +26,22 @@ export default function MethodologyPage() {
         <p>
           This approach ensures that benchmarks with different scales contribute
           equally to the final average.
+        </p>
+        <p>
+          Some benchmarks also publish pricing information for completing a
+          single task. When available, these values are used to compute a
+          <em>Cost Per Task</em> metric shown on the leaderboard.
+        </p>
+        <p>
+          Costs are normalised separately from accuracy scores. Only models with
+          prices reported for all cost-enabled benchmarks are considered when
+          calculating normalisation factors. For each benchmark the average cost
+          across this intersection is inverted and applied as a scaling factor.
+        </p>
+        <p>
+          Each model&rsquo;s cost per task figure is then the mean of its
+          normalised costs across the available benchmarks, allowing fair
+          comparison across tasks with different price scales.
         </p>
       </div>
     </main>
