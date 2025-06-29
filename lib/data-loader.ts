@@ -35,6 +35,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
   ]
 
   const llmMap: Record<string, LLMData> = {}
+  const aliasMap: Record<string, string> = {}
 
   for (const slug of modelSlugs) {
     try {
@@ -43,7 +44,11 @@ export async function loadLLMData(): Promise<LLMData[]> {
         throw new Error(`Failed to fetch ${slug}.yaml: ${response.status}`)
       }
       const text = await response.text()
-      const data = parse(text) as { model: string; provider: string }
+      const data = parse(text) as {
+        model: string
+        provider: string
+        aliases?: string[]
+      }
       if (!data.model || !data.provider) {
         throw new Error(`Invalid data structure for ${slug}`)
       }
@@ -51,6 +56,10 @@ export async function loadLLMData(): Promise<LLMData[]> {
         model: data.model,
         provider: data.provider,
         benchmarks: {},
+      }
+      aliasMap[data.model] = slug
+      for (const alias of data.aliases || []) {
+        aliasMap[alias] = slug
       }
     } catch (error) {
       console.error(`Failed to load model data for ${slug}:`, error)
@@ -72,8 +81,9 @@ export async function loadLLMData(): Promise<LLMData[]> {
       if (!data.benchmark || !data.results) {
         throw new Error(`Invalid benchmark structure for ${slug}`)
       }
-      for (const [modelSlug, score] of Object.entries(data.results)) {
-        const llm = llmMap[modelSlug]
+      for (const [rawName, score] of Object.entries(data.results)) {
+        const mappedSlug = aliasMap[rawName] || rawName
+        const llm = llmMap[mappedSlug]
         if (llm) {
           llm.benchmarks[data.benchmark] = {
             score: Number(score),

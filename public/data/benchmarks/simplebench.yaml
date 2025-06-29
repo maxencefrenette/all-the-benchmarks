@@ -1,41 +1,41 @@
 benchmark: SimpleBench
 description: Score (AVG@5) on SimpleBench
 results:
-  human-baseline: 83.7
-  gemini-pro: 62.4
-  claude-3: 58.8
-  o3-high: 53.1
-  gemini-2-5-pro-03-25: 51.6
-  claude-3-7-sonnet-thinking: 46.4
-  claude-4-sonnet-thinking: 45.5
-  claude-3-7-sonnet: 44.9
+  Human Baseline*: 83.7
+  Gemini 2.5 Pro (06-05): 62.4
+  Claude 4 Opus (thinking): 58.8
+  o3 (high): 53.1
+  Gemini 2.5 Pro (03-25): 51.6
+  Claude 3.7 Sonnet (thinking): 46.4
+  Claude 4 Sonnet (thinking): 45.5
+  Claude 3.7 Sonnet: 44.9
   o1-preview: 41.7
-  claude-3-5-sonnet-10-22: 41.4
-  deepseek-r1-05-28: 40.8
-  o1-2024-12-17-high: 40.1
-  o4-mini-high: 38.7
-  o1-2024-12-17-med: 36.7
-  grok-3: 36.1
-  gpt-4: 34.5
-  gemini-exp-1206: 31.1
-  qwen3-235b-a22b: 31
-  deepseek-r1: 30.9
-  gemini-2-0-flash-thinking: 30.7
-  llama-4-maverick: 27.7
-  claude-3-5-sonnet-06-20: 27.5
-  deepseek-v3-03-24: 27.2
-  gemini-1-5-pro-002: 27.1
-  gpt-4-1: 27
-  gpt-4-turbo: 25.1
-  claude-3-opus: 23.5
-  llama-3-1-405b-instruct: 23
-  o3-mini-high: 22.8
-  grok-2: 22.7
-  mistral-large-v2: 22.5
-  llama-3-3-70b-instruct: 19.9
-  deepseek-v3: 18.9
-  gemini-2-0-flash-exp: 18.9
+  Claude 3.5 Sonnet 10-22: 41.4
+  DeepSeek R1 05/28: 40.8
+  o1-2024-12-17 (high): 40.1
+  o4-mini (high): 38.7
+  o1-2024-12-17 (med): 36.7
+  Grok 3: 36.1
+  GPT-4.5: 34.5
+  Gemini-exp-1206: 31.1
+  Qwen3 235B-A22B: 31
+  DeepSeek R1: 30.9
+  Gemini 2.0 Flash Thinking: 30.7
+  Llama 4 Maverick: 27.7
+  Claude 3.5 Sonnet 06-20: 27.5
+  DeepSeek V3 03-24: 27.2
+  Gemini 1.5 Pro 002: 27.1
+  GPT-4.1: 27
+  GPT-4 Turbo: 25.1
+  Claude 3 Opus: 23.5
+  Llama 3.1 405b instruct: 23
+  o3-mini (high): 22.8
+  Grok 2: 22.7
+  Mistral Large v2: 22.5
+  Llama 3.3 70b instruct: 19.9
+  DeepSeek V3: 18.9
+  Gemini 2.0 Flash Exp: 18.9
   o1-mini: 18.1
-  gpt-4o-08-06: 17.8
-  command-r: 17.4
-  gpt-4o-mini: 10.7
+  GPT-4o 08-06: 17.8
+  Command R+: 17.4
+  GPT-4o mini: 10.7

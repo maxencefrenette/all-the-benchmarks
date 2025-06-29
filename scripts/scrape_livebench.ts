@@ -70,26 +70,9 @@ async function main(): Promise<void> {
     rawResults[row.model] = Math.round(avg * 100) / 100
   }
 
-  const modelsDir = path.join(__dirname, "..", "public", "data", "models")
-  const files = await fs.readdir(modelsDir)
-  const aliasMap: Record<string, string[]> = {}
-  for (const file of files) {
-    const slug = path.basename(file, ".yaml")
-    const content = await fs.readFile(path.join(modelsDir, file), "utf8")
-    const data = YAML.parse(content) as {
-      model: string
-      aliases?: string[]
-    }
-    aliasMap[slug] = [data.model, ...(data.aliases || [])]
-  }
-
   const results: Record<string, number> = {}
   for (const [name, score] of Object.entries(rawResults)) {
-    const slugEntry = Object.entries(aliasMap).find(([, names]) =>
-      names.includes(name),
-    )
-    const slug = slugEntry ? slugEntry[0] : name
-    results[slug] = score
+    results[name] = score
   }
   const yamlObj = {
     benchmark: "LiveBench",

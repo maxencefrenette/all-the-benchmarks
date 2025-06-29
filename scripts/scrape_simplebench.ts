@@ -22,34 +22,10 @@ async function main(): Promise<void> {
   const data = context.data
   if (!data) throw new Error("Failed to parse leaderboard data")
 
-  const modelsDir = path.join(__dirname, "..", "public", "data", "models")
-  const files = await fs.readdir(modelsDir)
-  const aliasMap: Record<string, string[]> = {}
-  for (const file of files) {
-    const slug = path.basename(file, ".yaml")
-    const content = await fs.readFile(path.join(modelsDir, file), "utf8")
-    const parsed = YAML.parse(content) as {
-      model: string
-      aliases?: string[]
-    }
-    aliasMap[slug] = [parsed.model, ...(parsed.aliases || [])]
-  }
-
-  function slugify(str: string): string {
-    return str
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "")
-  }
-
   const results: Record<string, number> = {}
   for (const entry of data) {
     const score = parseFloat(entry.score.replace(/%/, ""))
-    const slugEntry = Object.entries(aliasMap).find(([, names]) =>
-      names.includes(entry.model),
-    )
-    const slug = slugEntry ? slugEntry[0] : slugify(entry.model)
-    results[slug] = score
+    results[entry.model] = score
   }
   const yamlObj = {
     benchmark: "SimpleBench",
