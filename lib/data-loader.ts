@@ -23,44 +23,69 @@ export interface TableRow {
 }
 
 export async function loadLLMData(): Promise<LLMData[]> {
-  const models = ["gpt-4", "claude-3", "gemini-pro"]
-  const results: LLMData[] = []
+  const modelSlugs = ["gpt-4", "claude-3", "gemini-pro"]
+  const benchmarkSlugs = ["mmlu", "hellaswag", "arc"]
 
-  for (const model of models) {
+  const llmMap: Record<string, LLMData> = {}
+
+  for (const slug of modelSlugs) {
     try {
-      const response = await fetch(`/data/${model}.yaml`)
-
+      const response = await fetch(`/data/models/${slug}.yaml`)
       if (!response.ok) {
-        throw new Error(`Failed to fetch ${model}.yaml: ${response.status}`)
+        throw new Error(`Failed to fetch ${slug}.yaml: ${response.status}`)
       }
-
       const text = await response.text()
-      const data = parse(text) as LLMData
-
-      // Validate that we have the expected structure
-      if (!data.model || !data.provider || !data.benchmarks) {
-        throw new Error(`Invalid data structure for ${model}`)
+      const data = parse(text) as { model: string; provider: string }
+      if (!data.model || !data.provider) {
+        throw new Error(`Invalid data structure for ${slug}`)
       }
-
-      // Calculate average score
-      const benchmarkEntries = Object.values(data.benchmarks)
-      if (benchmarkEntries.length === 0) {
-        throw new Error(`No benchmarks found for ${model}`)
+      llmMap[slug] = {
+        model: data.model,
+        provider: data.provider,
+        benchmarks: {},
       }
-
-      const scores = benchmarkEntries
-        .map((b) => b.score)
-        .filter((score) => typeof score === "number")
-      data.averageScore =
-        scores.reduce((sum, score) => sum + score, 0) / scores.length
-
-      results.push(data)
     } catch (error) {
-      console.error(`Failed to load data for ${model}:`, error)
+      console.error(`Failed to load model data for ${slug}:`, error)
     }
   }
 
-  // Sort by average score (descending)
+  for (const slug of benchmarkSlugs) {
+    try {
+      const response = await fetch(`/data/benchmarks/${slug}.yaml`)
+      if (!response.ok) {
+        throw new Error(`Failed to fetch ${slug}.yaml: ${response.status}`)
+      }
+      const text = await response.text()
+      const data = parse(text) as {
+        benchmark: string
+        description: string
+        results: Record<string, number>
+      }
+      if (!data.benchmark || !data.results) {
+        throw new Error(`Invalid benchmark structure for ${slug}`)
+      }
+      for (const [modelSlug, score] of Object.entries(data.results)) {
+        const llm = llmMap[modelSlug]
+        if (llm) {
+          llm.benchmarks[data.benchmark] = {
+            score: Number(score),
+            description: data.description,
+          }
+        }
+      }
+    } catch (error) {
+      console.error(`Failed to load benchmark data for ${slug}:`, error)
+    }
+  }
+
+  const results = Object.values(llmMap).map((llm) => {
+    const entries = Object.values(llm.benchmarks)
+    const scores = entries.map((b) => b.score)
+    llm.averageScore =
+      scores.reduce((sum, score) => sum + score, 0) / (scores.length || 1)
+    return llm
+  })
+
   return results.sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0))
 }
 
