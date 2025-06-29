@@ -1,6 +1,0 @@
-benchmark: MMLU
-description: Massive Multitask Language Understanding
-results:
-  gpt-4: 86.4
-  claude-3: 86.8
-  gemini-pro: 83.7

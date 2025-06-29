@@ -50,8 +50,8 @@ export default function LeaderboardTable() {
         <CardHeader>
           <CardTitle>Benchmark Results</CardTitle>
           <CardDescription>
-            Compare LLM performance across MMLU, HellaSwag, and ARC benchmarks.
-            Click column headers to sort, use filters to narrow results.
+            Compare LLM performance across available benchmarks. Click column
+            headers to sort, use filters to narrow results.
           </CardDescription>
         </CardHeader>
         <CardContent>
