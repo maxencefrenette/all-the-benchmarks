@@ -11,6 +11,7 @@
     "scrape:simplebench": "tsx scripts/scrape_simplebench.ts",
     "scrape:lmarena-text": "tsx scripts/scrape_lmarena_text.ts",
     "scrape:arc-agi-1": "tsx scripts/scrape_arc_agi_1.ts",
+    "scrape:arc-agi-2": "tsx scripts/scrape_arc_agi_2.ts",
     "scrape:aider-polyglot": "tsx scripts/scrape_aider-polyglot.ts",
     "scrape:hle": "tsx scripts/scrape_hle.ts",
     "start": "next start"
