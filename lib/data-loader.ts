@@ -110,8 +110,9 @@ export async function loadLLMData(): Promise<LLMData[]> {
       return (result.score - min) / (max - min)
     })
     llm.averageScore =
-      normalised.reduce((sum, score) => sum + score, 0) /
-      (normalised.length || 1)
+      (normalised.reduce((sum, score) => sum + score, 0) /
+        (normalised.length || 1)) *
+      100
     return llm
   })
 
