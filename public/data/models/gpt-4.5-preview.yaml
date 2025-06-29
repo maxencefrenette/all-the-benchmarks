@@ -1,0 +1,7 @@
+model: GPT-4.5 Preview
+provider: OpenAI
+aliases:
+  - gpt-4.5-preview-2025-02-27
+  - gpt-4.5-preview
+  - "GPT 4.5 Preview"
+  - GPT-4.5

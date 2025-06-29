@@ -1,0 +1,5 @@
+model: Grok 3
+provider: xAI
+aliases:
+  - grok-3-preview-02-24
+  - grok-3-beta

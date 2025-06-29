@@ -1,0 +1,4 @@
+model: DeepSeek R1
+provider: DeepSeek
+aliases:
+  - deepseek-r1
