@@ -82,8 +82,8 @@ export async function loadLLMData(): Promise<LLMData[]> {
         throw new Error(`Invalid benchmark structure for ${slug}`)
       }
       for (const [rawName, score] of Object.entries(data.results)) {
-        const slug = aliasMap[rawName] || rawName
-        const llm = llmMap[slug]
+        const mappedSlug = aliasMap[rawName] || rawName
+        const llm = llmMap[mappedSlug]
         if (llm) {
           llm.benchmarks[data.benchmark] = {
             score: Number(score),
