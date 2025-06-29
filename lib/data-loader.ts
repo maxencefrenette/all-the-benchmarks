@@ -88,11 +88,30 @@ export async function loadLLMData(): Promise<LLMData[]> {
     }
   }
 
+  // Determine the min and max score for each benchmark across all models
+  const benchmarkStats: Record<string, { min: number; max: number }> = {}
+  for (const llm of Object.values(llmMap)) {
+    for (const [name, result] of Object.entries(llm.benchmarks)) {
+      const stats = benchmarkStats[name] ?? {
+        min: Number.POSITIVE_INFINITY,
+        max: Number.NEGATIVE_INFINITY,
+      }
+      stats.min = Math.min(stats.min, result.score)
+      stats.max = Math.max(stats.max, result.score)
+      benchmarkStats[name] = stats
+    }
+  }
+
+  // Compute each model's average using min-max normalised scores
   const results = Object.values(llmMap).map((llm) => {
-    const entries = Object.values(llm.benchmarks)
-    const scores = entries.map((b) => b.score)
+    const normalised = Object.entries(llm.benchmarks).map(([name, result]) => {
+      const { min, max } = benchmarkStats[name]
+      if (max === min) return 1
+      return (result.score - min) / (max - min)
+    })
     llm.averageScore =
-      scores.reduce((sum, score) => sum + score, 0) / (scores.length || 1)
+      normalised.reduce((sum, score) => sum + score, 0) /
+      (normalised.length || 1)
     return llm
   })
 
