@@ -16,8 +16,6 @@ export interface TableRow {
   id: string
   model: string
   provider: string
-  livebench: number
-  simplebench: number
   averageScore: number
 }
 
@@ -103,8 +101,6 @@ export function transformToTableData(llmData: LLMData[]): TableRow[] {
     id: llm.model.toLowerCase().replace(/\s+/g, "-"),
     model: llm.model,
     provider: llm.provider,
-    livebench: llm.benchmarks.LiveBench?.score || 0,
-    simplebench: llm.benchmarks.SimpleBench?.score || 0,
     averageScore: llm.averageScore || 0,
   }))
 }
