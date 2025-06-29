@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import {
   loadLLMData,
   transformToTableData,
@@ -28,13 +22,6 @@ export default async function LeaderboardTable() {
       </div>
 
       <Card>
-        <CardHeader>
-          <CardTitle>Benchmark Results</CardTitle>
-          <CardDescription>
-            Compare LLM performance across available benchmarks. Click column
-            headers to sort, use filters to narrow results.
-          </CardDescription>
-        </CardHeader>
         <CardContent>
           <DataTable columns={columns} data={tableData} />
         </CardContent>
