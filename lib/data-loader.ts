@@ -19,12 +19,13 @@ export interface TableRow {
   mmlu: number
   hellaswag: number
   arc: number
+  livebench: number
   averageScore: number
 }
 
 export async function loadLLMData(): Promise<LLMData[]> {
   const modelSlugs = ["gpt-4", "claude-3", "gemini-pro"]
-  const benchmarkSlugs = ["mmlu", "hellaswag", "arc"]
+  const benchmarkSlugs = ["mmlu", "hellaswag", "arc", "livebench"]
 
   const llmMap: Record<string, LLMData> = {}
 
@@ -97,6 +98,7 @@ export function transformToTableData(llmData: LLMData[]): TableRow[] {
     mmlu: llm.benchmarks.MMLU?.score || 0,
     hellaswag: llm.benchmarks.HellaSwag?.score || 0,
     arc: llm.benchmarks.ARC?.score || 0,
+    livebench: llm.benchmarks.LiveBench?.score || 0,
     averageScore: llm.averageScore || 0,
   }))
 }
