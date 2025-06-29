@@ -38,6 +38,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
     "lmarena-text",
     "arc-agi-1",
     "aider-polyglot",
+    "humanitys-last-exam",
   ]
   const llmMap: Record<string, LLMData> = {}
   const aliasMap: Record<string, string> = {}

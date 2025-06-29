@@ -1,0 +1,29 @@
+benchmark: Humanity's Last Exam
+description: Score on Scale's Humanity's Last Exam
+results:
+  gemini-2.5-pro-preview-06-05: 21.64
+  o3 (high) (April 2025): 20.32
+  o3 (medium) (April 2025): 19.2
+  Gemini 2.5 Pro Experimental (March 2025): 18.16
+  o4-mini (high) (April 2025): 18.08
+  Gemini 2.5 Pro Preview (May 06 2025): 17.8
+  o4-mini (medium) (April 2025): 14.28
+  Gemini 2.5 Flash (April 2025): 12.08
+  "Gemini 2.5 Flash Preview (May 2025) ": 10.96
+  Claude Opus 4 (Thinking): 10.72
+  o1 Pro: 8.12
+  Claude 3.7 Sonnet (Thinking): 8.04
+  o1 (December 2024): 7.96
+  "Claude Sonnet 4 (Thinking)\n": 7.76
+  "Claude Opus 4 ": 6.68
+  Gemini 2.0 Flash Thinking (January 2025): 6.56
+  Llama 4 Maverick: 5.68
+  Claude Sonnet 4: 5.52
+  GPT 4.5 Preview: 5.44
+  GPT-4.1: 5.4
+  Gemini-1.5-Pro-002: 4.6
+  Mistral Medium 3: 4.52
+  Nova Pro: 4.4
+  Claude 3.5 Sonnet (October 2024): 4.08
+  Nova Lite: 3.64
+  GPT-4o (November 2024): 2.72
