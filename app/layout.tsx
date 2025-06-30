@@ -2,8 +2,9 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
+  title: "All the Benchmarks!",
+  description:
+    "Sortable and filterable comparison of LLM performance across key benchmarks",
   generator: "v0.dev",
   icons: {
     icon: "/favicon.png",
