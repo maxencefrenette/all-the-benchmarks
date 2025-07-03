@@ -62,12 +62,22 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
             scale="log"
             domain={costDomain as [number, number]}
             tickFormatter={(v) => v && v.toFixed(2)}
+            label={{
+              value: "Normalized Cost per Task",
+              position: "insideBottom",
+              offset: -10,
+            }}
           />
           <YAxis
             dataKey="averageScore"
             type="number"
             domain={[0, 100]}
             name="Score"
+            label={{
+              value: "Average Normalized Score",
+              angle: -90,
+              position: "insideLeft",
+            }}
           />
           <ChartTooltip
             labelFormatter={(_, payload) =>
