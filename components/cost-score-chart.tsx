@@ -60,6 +60,7 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
             name="Cost"
             scale="log"
             domain={costDomain as [number, number]}
+            tickCount={10}
             tickFormatter={(v) => v && v.toFixed(2)}
             label={{
               value: "Normalized Cost per Task",
