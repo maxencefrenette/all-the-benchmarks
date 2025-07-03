@@ -9,6 +9,12 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { Input } from "@/components/ui/input"
 
 import type { TableRow } from "@/lib/data-loader"
@@ -108,10 +114,20 @@ export const columns: ColumnDef<TableRow>[] = [
     },
     cell: ({ row }) => {
       const score = row.getValue("averageScore") as number
+      const count = row.getValue("benchmarkCount") as number
       return (
-        <div className="font-semibold">
-          <ScoreCell score={score} />
-        </div>
+        <TooltipProvider delayDuration={0}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="font-semibold">
+                <ScoreCell score={score} />
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              Evaluated on {count} benchmark{count === 1 ? "" : "s"}
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       )
     },
   },

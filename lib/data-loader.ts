@@ -24,6 +24,7 @@ export interface TableRow {
   provider: string
   averageScore: number
   costPerTask: number | null
+  benchmarkCount: number
 }
 
 export async function loadLLMData(): Promise<LLMData[]> {
@@ -183,5 +184,6 @@ export function transformToTableData(llmData: LLMData[]): TableRow[] {
     provider: llm.provider,
     averageScore: llm.averageScore || 0,
     costPerTask: llm.normalizedCost ?? null,
+    benchmarkCount: Object.keys(llm.benchmarks).length,
   }))
 }

@@ -22,6 +22,7 @@ test("transformToTableData converts LLMData objects to table rows", () => {
       provider: "Bar",
       averageScore: 42,
       costPerTask: null,
+      benchmarkCount: 0,
     },
   ])
 })
