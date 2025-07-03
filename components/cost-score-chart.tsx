@@ -1,38 +1,12 @@
 "use client"
 
-import {
-  ScatterChart,
-  Scatter,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  type TooltipProps,
-} from "recharts"
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid } from "recharts"
 import { Card, CardContent } from "@/components/ui/card"
 import { LLMData } from "@/lib/data-loader"
-import { ChartContainer } from "./ui/chart"
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
 
 type Props = {
   llmData: LLMData[]
-}
-
-function CustomTooltip({ active, payload }: TooltipProps<number, string>) {
-  if (active && payload && payload.length) {
-    const p = payload[0].payload as LLMData
-    return (
-      <div className="rounded border bg-background p-2 text-xs shadow space-y-1">
-        <div>{p.model}</div>
-        {p.normalizedCost !== undefined && (
-          <div>Cost: {p.normalizedCost.toFixed(2)}</div>
-        )}
-        {p.averageScore !== undefined && (
-          <div>Score: {p.averageScore.toFixed(2)}</div>
-        )}
-      </div>
-    )
-  }
-  return null
 }
 
 export default function CostScoreChart({ llmData }: Props) {
@@ -41,7 +15,12 @@ export default function CostScoreChart({ llmData }: Props) {
   return (
     <Card className="border-0">
       <CardContent>
-        <ChartContainer config={{}}>
+        <ChartContainer
+          config={{
+            normalizedCost: { label: "Cost" },
+            averageScore: { label: "Score" },
+          }}
+        >
           <ScatterChart
             width={600}
             height={300}
@@ -62,7 +41,15 @@ export default function CostScoreChart({ llmData }: Props) {
               domain={[0, 100]}
               name="Score"
             />
-            <Tooltip content={<CustomTooltip />} />
+            <ChartTooltip
+              labelFormatter={(_, payload) =>
+                (payload?.[0]?.payload as LLMData).model
+              }
+              formatter={(value: number) =>
+                typeof value === "number" ? value.toFixed(2) : value
+              }
+              content={<ChartTooltipContent />}
+            />
             <Scatter data={llmData} fill="hsl(240,100%,60%)" />
           </ScatterChart>
         </ChartContainer>
