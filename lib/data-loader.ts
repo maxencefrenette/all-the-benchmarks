@@ -172,5 +172,10 @@ export async function loadLLMData(): Promise<LLMData[]> {
   return results.sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0))
 }
 
+export async function loadLLMDetails(slug: string): Promise<LLMData | null> {
+  const all = await loadLLMData()
+  return all.find((m) => m.slug === slug) ?? null
+}
+
 export { transformToTableData }
 export type { TableRow }

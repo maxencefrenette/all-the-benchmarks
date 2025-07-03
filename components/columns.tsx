@@ -2,6 +2,7 @@
 
 import type { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown, Search } from "lucide-react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { PROVIDER_COLORS } from "@/lib/provider-colors"
@@ -173,5 +174,17 @@ export const columns: ColumnDef<TableRow>[] = [
         </div>
       )
     },
+  },
+  {
+    id: "details",
+    header: "Details",
+    cell: ({ row }) => (
+      <Link
+        href={`/models/${row.original.slug}`}
+        className="text-primary underline"
+      >
+        View
+      </Link>
+    ),
   },
 ]
