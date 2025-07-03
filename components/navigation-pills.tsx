@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 const links = [
   { href: "/", label: "Leaderboard" },
   { href: "/benchmarks", label: "Benchmarks" },
-  { href: "/methodology", label: "Methodology" },
+  { href: "/about", label: "About" },
 ]
 
 export default function NavigationPills() {
