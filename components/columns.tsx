@@ -5,6 +5,11 @@ import { ArrowUpDown, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip"
+import {
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -13,8 +18,25 @@ import { Input } from "@/components/ui/input"
 
 import type { TableRow } from "@/lib/data-loader"
 
-const ScoreCell = ({ score }: { score: number }) => (
-  <Badge variant="secondary">{score.toFixed(1)}</Badge>
+const ScoreCell = ({
+  score,
+  benchmarks,
+}: {
+  score: number
+  benchmarks: string[]
+}) => (
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Badge variant="secondary" className="cursor-default">
+        {score.toFixed(1)}
+      </Badge>
+    </TooltipTrigger>
+    {benchmarks.length > 0 && (
+      <TooltipContent className="text-xs">
+        {benchmarks.join(", ")}
+      </TooltipContent>
+    )}
+  </Tooltip>
 )
 
 const CostCell = ({ cost }: { cost: number | null }) => {
@@ -108,9 +130,10 @@ export const columns: ColumnDef<TableRow>[] = [
     },
     cell: ({ row }) => {
       const score = row.getValue("averageScore") as number
+      const benchmarks = row.original.benchmarks
       return (
         <div className="font-semibold">
-          <ScoreCell score={score} />
+          <ScoreCell score={score} benchmarks={benchmarks} />
         </div>
       )
     },
