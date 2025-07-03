@@ -1,14 +1,7 @@
 "use client"
 
 import React from "react"
-import {
-  ScatterChart,
-  Scatter,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  ZAxis,
-} from "recharts"
+import { ScatterChart, Scatter, XAxis, YAxis, ZAxis } from "recharts"
 import { LLMData } from "@/lib/data-loader"
 import { PROVIDER_COLORS } from "@/lib/provider-colors"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
