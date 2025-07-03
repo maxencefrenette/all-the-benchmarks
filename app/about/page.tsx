@@ -40,7 +40,7 @@ export default function AboutPage() {
           </p>
           <p>
             Some benchmarks also publish pricing information for completing a
-            single task. When available, these values are used to compute a
+            single task. When available, these values are used to compute a{" "}
             <em>Cost Per Task</em> metric shown on the leaderboard.
           </p>
           <p>
