@@ -1,5 +1,6 @@
 export interface TableRow {
   id: string
+  slug: string
   model: string
   provider: string
   averageScore: number
@@ -9,6 +10,7 @@ export interface TableRow {
 
 export function transformToTableData(
   llmData: {
+    slug: string
     model: string
     provider: string
     averageScore?: number
@@ -17,7 +19,8 @@ export function transformToTableData(
   }[],
 ): TableRow[] {
   return llmData.map((llm) => ({
-    id: llm.model.toLowerCase().replace(/\s+/g, "-"),
+    id: llm.slug,
+    slug: llm.slug,
     model: llm.model,
     provider: llm.provider,
     averageScore: llm.averageScore || 0,

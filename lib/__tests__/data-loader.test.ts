@@ -19,6 +19,7 @@ test("transformToTableData converts LLMData objects to table rows", () => {
   expect(rows).toEqual([
     {
       id: "foo",
+      slug: "foo",
       model: "Foo",
       provider: "Bar",
       averageScore: 42,
