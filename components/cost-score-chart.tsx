@@ -54,9 +54,10 @@ export default function CostScoreChart({ llmData }: Props) {
               data={llmData}
               fill="hsl(240,100%,60%)"
               shape={(props) =>
-                (props.payload as LLMData & { hidden?: boolean }).hidden
-                  ? null
-                  : undefined
+                (props.payload as LLMData & { hidden?: boolean })
+                  .hidden ? null : (
+                  <circle {...props} />
+                )
               }
             />
           </ScatterChart>
