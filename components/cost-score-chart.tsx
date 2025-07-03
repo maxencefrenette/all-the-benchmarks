@@ -1,6 +1,13 @@
 "use client"
 
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid } from "recharts"
+import {
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Symbols,
+} from "recharts"
 import { Card, CardContent } from "@/components/ui/card"
 import { LLMData } from "@/lib/data-loader"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
@@ -53,12 +60,13 @@ export default function CostScoreChart({ llmData }: Props) {
             <Scatter
               data={llmData}
               fill="hsl(240,100%,60%)"
-              shape={(props) =>
-                (props.payload as LLMData & { hidden?: boolean })
-                  .hidden ? null : (
-                  <circle {...props} />
-                )
-              }
+              shape={(props) => {
+                const { payload, ...rest } = props as typeof props & {
+                  payload: LLMData & { hidden?: boolean }
+                }
+                if (payload.hidden) return null
+                return <Symbols {...rest} type="circle" />
+              }}
             />
           </ScatterChart>
         </ChartContainer>
