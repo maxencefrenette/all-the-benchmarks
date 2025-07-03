@@ -1,6 +1,6 @@
 // Brand inspired colors for each provider
 export const PROVIDER_COLORS: Record<string, string> = {
-  OpenAI: "#000000", // black
+  OpenAI: "#555555", // dark gray
   Anthropic: "#FF7F40", // burnt orange
   Google: "#4285F4", // google blue
   DeepSeek: "#2F88FF", // deepseek blue
