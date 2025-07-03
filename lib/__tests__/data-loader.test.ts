@@ -1,4 +1,5 @@
-import { loadLLMData, transformToTableData, type LLMData } from "../data-loader"
+import { loadLLMData, type LLMData } from "../data-loader"
+import { transformToTableData } from "../table-utils"
 import { expect, test } from "vitest"
 
 // Simple unit test for transformToTableData

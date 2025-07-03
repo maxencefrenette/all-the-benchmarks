@@ -1,13 +1,12 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
-import { transformToTableData, type TableRow, LLMData } from "@/lib/data-loader"
+import { transformToTableData, type TableRow } from "@/lib/table-utils"
+import type { LLMData } from "@/lib/data-loader"
 import { DataTable } from "./data-table"
 import { columns } from "./columns"
 
-export default async function LeaderboardTable({
-  llmData,
-}: {
-  llmData: LLMData[]
-}) {
+export default function LeaderboardTable({ llmData }: { llmData: LLMData[] }) {
   const tableData: TableRow[] = transformToTableData(llmData)
 
   return (
