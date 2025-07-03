@@ -13,13 +13,13 @@ export default function LeaderboardSection({
   llmData: LLMData[]
 }) {
   const [showDeprecated, setShowDeprecated] = useState(false)
-  const filtered = showDeprecated
+  const visible = showDeprecated
     ? llmData
     : llmData.filter((m) => !m.deprecated)
 
   return (
     <div className="space-y-4">
-      <CostScoreChart llmData={filtered} />
+      <CostScoreChart llmData={llmData} showDeprecated={showDeprecated} />
       <div className="flex items-center justify-center gap-2">
         <Switch
           id="deprecated-toggle"
@@ -28,7 +28,7 @@ export default function LeaderboardSection({
         />
         <Label htmlFor="deprecated-toggle">Show deprecated models</Label>
       </div>
-      <LeaderboardTable llmData={filtered} />
+      <LeaderboardTable llmData={visible} />
     </div>
   )
 }
