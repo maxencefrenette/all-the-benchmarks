@@ -3,3 +3,4 @@ provider: Google
 aliases:
   - gemini-2.5-pro-preview-06-05
   - gemini-2.5-pro-preview-06-05 (default think)
+  - Gemini 2.5 Pro (Thinking 32K)
