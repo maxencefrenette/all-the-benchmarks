@@ -4,6 +4,7 @@ import type { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { PROVIDER_COLORS } from "@/lib/provider-colors"
 import {
   Popover,
   PopoverTrigger,
@@ -89,9 +90,22 @@ export const columns: ColumnDef<TableRow>[] = [
         </div>
       )
     },
-    cell: ({ row }) => (
-      <Badge variant="outline">{row.getValue("provider")}</Badge>
-    ),
+    cell: ({ row }) => {
+      const provider = row.getValue("provider") as string
+      const color = PROVIDER_COLORS[provider]
+      return (
+        <Badge
+          variant="outline"
+          style={{
+            backgroundColor: color,
+            color: color ? "white" : undefined,
+            borderColor: color,
+          }}
+        >
+          {provider}
+        </Badge>
+      )
+    },
   },
   {
     accessorKey: "averageScore",
