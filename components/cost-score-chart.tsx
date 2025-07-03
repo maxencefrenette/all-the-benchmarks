@@ -25,23 +25,7 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
     return map
   }, [sorted])
 
-  const visible = React.useMemo(
-    () => sorted.filter((m) => showDeprecated || !m.deprecated),
-    [sorted, showDeprecated],
-  )
-
-  const costDomain = React.useMemo(() => {
-    let min = Infinity
-    let max = -Infinity
-    for (const item of visible) {
-      if (item.normalizedCost !== undefined) {
-        min = Math.min(min, item.normalizedCost)
-        max = Math.max(max, item.normalizedCost)
-      }
-    }
-    if (!isFinite(min) || !isFinite(max)) return [0, 1]
-    return [min, max]
-  }, [visible])
+  const costDomain: [number, number] = [0.01, 3]
 
   if (!llmData.length) return null
 
@@ -59,8 +43,8 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
             type="number"
             name="Cost"
             scale="log"
-            domain={costDomain as [number, number]}
-            tickCount={10}
+            domain={costDomain}
+            ticks={[0.01, 0.03, 0.1, 0.3, 1, 3]}
             tickFormatter={(v) => v && v.toFixed(2)}
             label={{
               value: "Normalized Cost per Task",
