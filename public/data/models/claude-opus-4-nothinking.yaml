@@ -1,0 +1,6 @@
+model: Claude 4 Opus (No Thinking)
+provider: Anthropic
+aliases:
+  - claude-opus-4-20250514 (no think)
+  - claude-4-opus-20250514-base
+  - Claude 4 Opus (no thinking)
