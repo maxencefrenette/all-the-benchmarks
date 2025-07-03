@@ -66,7 +66,7 @@ export default function CostScoreChart({ llmData }: Props) {
                 key={provider}
                 data={data}
                 name={provider}
-                fill={`hsl(var(${PROVIDER_COLORS[provider]}))`}
+                fill={PROVIDER_COLORS[provider]}
               />
             ))}
           </ScatterChart>

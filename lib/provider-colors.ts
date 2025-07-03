@@ -1,7 +1,8 @@
+// Brand inspired colors for each provider
 export const PROVIDER_COLORS: Record<string, string> = {
-  OpenAI: "--chart-1",
-  Anthropic: "--chart-2",
-  Google: "--chart-3",
-  DeepSeek: "--chart-4",
-  xAI: "--chart-5",
+  OpenAI: "#000000", // black
+  Anthropic: "#FF7F40", // burnt orange
+  Google: "#4285F4", // google blue
+  DeepSeek: "#2F88FF", // deepseek blue
+  xAI: "#000000", // black
 }

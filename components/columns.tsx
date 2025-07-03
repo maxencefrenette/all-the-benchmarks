@@ -92,14 +92,14 @@ export const columns: ColumnDef<TableRow>[] = [
     },
     cell: ({ row }) => {
       const provider = row.getValue("provider") as string
-      const colorVar = PROVIDER_COLORS[provider]
+      const color = PROVIDER_COLORS[provider]
       return (
         <Badge
           variant="outline"
           style={{
-            backgroundColor: colorVar ? `hsl(var(${colorVar}))` : undefined,
-            color: colorVar ? "white" : undefined,
-            borderColor: colorVar ? `hsl(var(${colorVar}))` : undefined,
+            backgroundColor: color,
+            color: color ? "white" : undefined,
+            borderColor: color,
           }}
         >
           {provider}
