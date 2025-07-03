@@ -1,10 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import {
-  loadLLMData,
-  transformToTableData,
-  type TableRow,
-  LLMData,
-} from "@/lib/data-loader"
+import { transformToTableData, type TableRow, LLMData } from "@/lib/data-loader"
 import { DataTable } from "./data-table"
 import { columns } from "./columns"
 

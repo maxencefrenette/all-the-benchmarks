@@ -11,7 +11,7 @@ import {
 } from "recharts"
 import { Card, CardContent } from "@/components/ui/card"
 import { LLMData } from "@/lib/data-loader"
-import { ChartConfig, ChartContainer } from "./ui/chart"
+import { ChartContainer } from "./ui/chart"
 
 type Props = {
   llmData: LLMData[]
@@ -21,8 +21,14 @@ function CustomTooltip({ active, payload }: TooltipProps<number, string>) {
   if (active && payload && payload.length) {
     const p = payload[0].payload as LLMData
     return (
-      <div className="rounded border bg-background p-2 text-xs shadow">
-        {p.model}
+      <div className="rounded border bg-background p-2 text-xs shadow space-y-1">
+        <div>{p.model}</div>
+        {p.normalizedCost !== undefined && (
+          <div>Cost: {p.normalizedCost.toFixed(2)}</div>
+        )}
+        {p.averageScore !== undefined && (
+          <div>Score: {p.averageScore.toFixed(2)}</div>
+        )}
       </div>
     )
   }
