@@ -53,11 +53,7 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
           averageScore: { label: "Score" },
         }}
       >
-        <ScatterChart
-          width={600}
-          height={300}
-          margin={{ top: 20, right: 20, bottom: 20, left: 0 }}
-        >
+        <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 0 }}>
           <CartesianGrid />
           <XAxis
             dataKey="normalizedCost"
