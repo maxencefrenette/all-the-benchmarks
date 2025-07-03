@@ -1,8 +1,10 @@
 "use client"
 
+import React from "react"
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid } from "recharts"
 import { Card, CardContent } from "@/components/ui/card"
 import { LLMData } from "@/lib/data-loader"
+import { PROVIDER_COLORS } from "@/lib/provider-colors"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
 
 type Props = {
@@ -10,6 +12,15 @@ type Props = {
 }
 
 export default function CostScoreChart({ llmData }: Props) {
+  const groups = React.useMemo(() => {
+    const map: Record<string, LLMData[]> = {}
+    for (const item of llmData) {
+      if (!map[item.provider]) map[item.provider] = []
+      map[item.provider].push(item)
+    }
+    return map
+  }, [llmData])
+
   if (!llmData.length) return null
 
   return (
@@ -50,7 +61,14 @@ export default function CostScoreChart({ llmData }: Props) {
               }
               content={<ChartTooltipContent />}
             />
-            <Scatter data={llmData} fill="hsl(240,100%,60%)" />
+            {Object.entries(groups).map(([provider, data]) => (
+              <Scatter
+                key={provider}
+                data={data}
+                name={provider}
+                fill={`hsl(var(${PROVIDER_COLORS[provider]}))`}
+              />
+            ))}
           </ScatterChart>
         </ChartContainer>
       </CardContent>
