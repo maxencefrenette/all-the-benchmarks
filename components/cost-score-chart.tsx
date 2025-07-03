@@ -50,7 +50,15 @@ export default function CostScoreChart({ llmData }: Props) {
               }
               content={<ChartTooltipContent />}
             />
-            <Scatter data={llmData} fill="hsl(240,100%,60%)" />
+            <Scatter
+              data={llmData}
+              fill="hsl(240,100%,60%)"
+              shape={(props) =>
+                (props.payload as LLMData & { hidden?: boolean }).hidden
+                  ? null
+                  : undefined
+              }
+            />
           </ScatterChart>
         </ChartContainer>
       </CardContent>

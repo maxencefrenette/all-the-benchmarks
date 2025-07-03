@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import type { LLMData } from "@/lib/data-loader"
 import CostScoreChart from "./cost-score-chart"
 import LeaderboardTable from "./leaderboard-table"
@@ -13,13 +13,26 @@ export default function LeaderboardSection({
   llmData: LLMData[]
 }) {
   const [showDeprecated, setShowDeprecated] = useState(false)
-  const filtered = showDeprecated
-    ? llmData
-    : llmData.filter((m) => !m.deprecated)
+  const sorted = useMemo(
+    () => [...llmData].sort((a, b) => a.slug.localeCompare(b.slug)),
+    [llmData],
+  )
+
+  const chartData = useMemo(
+    () =>
+      sorted.map((m) =>
+        showDeprecated || !m.deprecated ? m : { ...m, hidden: true },
+      ),
+    [sorted, showDeprecated],
+  )
+
+  const tableData = showDeprecated
+    ? sorted
+    : sorted.filter((m) => !m.deprecated)
 
   return (
     <div className="space-y-4">
-      <CostScoreChart llmData={filtered} />
+      <CostScoreChart llmData={chartData} />
       <div className="flex items-center justify-center gap-2">
         <Switch
           id="deprecated-toggle"
@@ -28,7 +41,7 @@ export default function LeaderboardSection({
         />
         <Label htmlFor="deprecated-toggle">Show deprecated models</Label>
       </div>
-      <LeaderboardTable llmData={filtered} />
+      <LeaderboardTable llmData={tableData} />
     </div>
   )
 }
