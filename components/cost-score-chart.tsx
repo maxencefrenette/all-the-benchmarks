@@ -11,7 +11,7 @@ import {
 } from "recharts"
 import { Card, CardContent } from "@/components/ui/card"
 import { LLMData } from "@/lib/data-loader"
-import { ChartConfig, ChartContainer } from "./ui/chart"
+import { ChartContainer } from "./ui/chart"
 
 type Props = {
   llmData: LLMData[]
