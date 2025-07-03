@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid } from "recharts"
+import { ScatterChart, Scatter, XAxis, YAxis } from "recharts"
 import { LLMData } from "@/lib/data-loader"
 import { PROVIDER_COLORS } from "@/lib/provider-colors"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
@@ -54,7 +54,6 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
         }}
       >
         <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 0 }}>
-          <CartesianGrid />
           <XAxis
             dataKey="normalizedCost"
             type="number"
