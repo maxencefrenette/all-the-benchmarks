@@ -9,17 +9,40 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
 
 type Props = {
   llmData: LLMData[]
+  showDeprecated: boolean
 }
 
-export default function CostScoreChart({ llmData }: Props) {
+export default function CostScoreChart({ llmData, showDeprecated }: Props) {
+  const sorted = React.useMemo(
+    () => [...llmData].sort((a, b) => a.slug.localeCompare(b.slug)),
+    [llmData],
+  )
   const groups = React.useMemo(() => {
     const map: Record<string, LLMData[]> = {}
-    for (const item of llmData) {
+    for (const item of sorted) {
       if (!map[item.provider]) map[item.provider] = []
       map[item.provider].push(item)
     }
     return map
-  }, [llmData])
+  }, [sorted])
+
+  const visible = React.useMemo(
+    () => sorted.filter((m) => showDeprecated || !m.deprecated),
+    [sorted, showDeprecated],
+  )
+
+  const costDomain = React.useMemo(() => {
+    let min = Infinity
+    let max = -Infinity
+    for (const item of visible) {
+      if (item.normalizedCost !== undefined) {
+        min = Math.min(min, item.normalizedCost)
+        max = Math.max(max, item.normalizedCost)
+      }
+    }
+    if (!isFinite(min) || !isFinite(max)) return [0, 1]
+    return [min, max]
+  }, [visible])
 
   if (!llmData.length) return null
 
@@ -43,7 +66,7 @@ export default function CostScoreChart({ llmData }: Props) {
               type="number"
               name="Cost"
               scale="log"
-              domain={["dataMin", "dataMax"]}
+              domain={costDomain as [number, number]}
               tickFormatter={(v) => v && v.toFixed(2)}
             />
             <YAxis
@@ -73,7 +96,11 @@ export default function CostScoreChart({ llmData }: Props) {
             {Object.entries(groups).map(([provider, data]) => (
               <Scatter
                 key={provider}
-                data={data}
+                data={data.map((d) =>
+                  showDeprecated || !d.deprecated
+                    ? d
+                    : { ...d, normalizedCost: NaN, averageScore: NaN },
+                )}
                 name={provider}
                 fill={PROVIDER_COLORS[provider]}
               />
