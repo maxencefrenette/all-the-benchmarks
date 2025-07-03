@@ -45,9 +45,18 @@ export default function CostScoreChart({ llmData }: Props) {
               labelFormatter={(_, payload) =>
                 (payload?.[0]?.payload as LLMData).model
               }
-              formatter={(value: number) =>
-                typeof value === "number" ? value.toFixed(2) : value
-              }
+              itemSorter={(a, b) => {
+                const order: Record<string, number> = { Score: 0, Cost: 1 }
+                return (
+                  (order[a.name as string] ?? 0) -
+                  (order[b.name as string] ?? 0)
+                )
+              }}
+              formatter={(value: number | string, name: string) => (
+                <span>
+                  {name}: {typeof value === "number" ? value.toFixed(2) : value}
+                </span>
+              )}
               content={<ChartTooltipContent />}
             />
             <Scatter data={llmData} fill="hsl(240,100%,60%)" />
