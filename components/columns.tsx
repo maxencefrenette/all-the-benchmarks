@@ -10,11 +10,27 @@ import {
   PopoverContent,
 } from "@/components/ui/popover"
 import { Input } from "@/components/ui/input"
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip"
 
 import type { TableRow } from "@/lib/data-loader"
 
-const ScoreCell = ({ score }: { score: number }) => (
-  <Badge variant="secondary">{score.toFixed(1)}</Badge>
+const ScoreCell = ({
+  score,
+  benchmarks,
+}: {
+  score: number
+  benchmarks: string[]
+}) => (
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Badge variant="secondary">{score.toFixed(1)}</Badge>
+    </TooltipTrigger>
+    <TooltipContent>{benchmarks.join(", ")}</TooltipContent>
+  </Tooltip>
 )
 
 const CostCell = ({ cost }: { cost: number | null }) => {
@@ -108,9 +124,10 @@ export const columns: ColumnDef<TableRow>[] = [
     },
     cell: ({ row }) => {
       const score = row.getValue("averageScore") as number
+      const benchmarks = row.original.benchmarks
       return (
         <div className="font-semibold">
-          <ScoreCell score={score} />
+          <ScoreCell score={score} benchmarks={benchmarks} />
         </div>
       )
     },
