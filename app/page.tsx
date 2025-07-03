@@ -1,8 +1,7 @@
-import LeaderboardTable from "@/components/leaderboard-table"
+import LeaderboardSection from "@/components/leaderboard-section"
 import NavigationPills from "@/components/navigation-pills"
 import Image from "next/image"
 import { loadLLMData } from "@/lib/data-loader"
-import CostScoreChart from "@/components/cost-score-chart"
 
 export default async function Home() {
   const llmData = await loadLLMData()
@@ -26,8 +25,7 @@ export default async function Home() {
         </p>
       </div>
       <NavigationPills />
-      <CostScoreChart llmData={llmData} />
-      <LeaderboardTable llmData={llmData} />
+      <LeaderboardSection llmData={llmData} />
     </main>
   )
 }

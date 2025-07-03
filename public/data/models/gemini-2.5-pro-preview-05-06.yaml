@@ -3,3 +3,4 @@ provider: Google
 aliases:
   - gemini-2.5-pro-preview-05-06
   - Gemini 2.5 Pro Preview (May 06 2025)
+deprecated: true

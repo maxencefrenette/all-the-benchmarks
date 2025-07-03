@@ -1,6 +1,7 @@
 import { parse } from "yaml"
 import fs from "fs/promises"
 import path from "path"
+import { type TableRow, transformToTableData } from "./table-utils"
 
 export interface BenchmarkResult {
   score: number
@@ -13,17 +14,10 @@ export interface LLMData {
   slug: string
   model: string
   provider: string
+  deprecated?: boolean
   benchmarks: Record<string, BenchmarkResult>
   averageScore?: number
   normalizedCost?: number
-}
-
-export interface TableRow {
-  id: string
-  model: string
-  provider: string
-  averageScore: number
-  costPerTask: number | null
 }
 
 export async function loadLLMData(): Promise<LLMData[]> {
@@ -49,6 +43,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
         model: string
         provider: string
         aliases?: string[]
+        deprecated?: boolean
       }
       if (!data.model || !data.provider) {
         throw new Error(`Invalid data structure for ${slug}`)
@@ -57,6 +52,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
         slug,
         model: data.model,
         provider: data.provider,
+        ...(data.deprecated ? { deprecated: true } : {}),
         benchmarks: {},
       }
       aliasMap[data.model] = slug
@@ -176,12 +172,5 @@ export async function loadLLMData(): Promise<LLMData[]> {
   return results.sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0))
 }
 
-export function transformToTableData(llmData: LLMData[]): TableRow[] {
-  return llmData.map((llm) => ({
-    id: llm.model.toLowerCase().replace(/\s+/g, "-"),
-    model: llm.model,
-    provider: llm.provider,
-    averageScore: llm.averageScore || 0,
-    costPerTask: llm.normalizedCost ?? null,
-  }))
-}
+export { transformToTableData }
+export type { TableRow }
