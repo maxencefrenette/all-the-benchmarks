@@ -1,7 +1,7 @@
 "use client"
 
 import type { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown, Search } from "lucide-react"
+import { ArrowUpDown, Search, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -181,9 +181,9 @@ export const columns: ColumnDef<TableRow>[] = [
     cell: ({ row }) => (
       <Link
         href={`/models/${row.original.slug}`}
-        className="text-primary underline"
+        className="text-primary underline flex"
       >
-        View
+        <ChevronRight className="h-4 w-4" />
       </Link>
     ),
   },
