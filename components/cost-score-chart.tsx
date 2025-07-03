@@ -1,7 +1,14 @@
 "use client"
 
 import React from "react"
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid } from "recharts"
+import {
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ZAxis,
+} from "recharts"
 import { LLMData } from "@/lib/data-loader"
 import { PROVIDER_COLORS } from "@/lib/provider-colors"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
@@ -79,6 +86,7 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
               position: "insideLeft",
             }}
           />
+          <ZAxis range={[144, 144]} />
           <ChartTooltip
             labelFormatter={(_, payload) =>
               (payload?.[0]?.payload as LLMData).model
