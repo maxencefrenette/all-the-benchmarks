@@ -1,0 +1,7 @@
+model: Claude 4 Opus (Thinking)
+provider: Anthropic
+aliases:
+  - claude-4-opus-20250514-thinking-32k
+  - Claude 4 Opus (thinking)
+  - Claude Opus 4 (Thinking 16K)
+  - claude-opus-4-20250514 (32k thinking)
