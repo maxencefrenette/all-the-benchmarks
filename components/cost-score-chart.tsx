@@ -6,6 +6,8 @@ import { LLMData } from "@/lib/data-loader"
 import { PROVIDER_COLORS } from "@/lib/provider-colors"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
 
+const BASE_TICKS = [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30] as const
+
 type Props = {
   llmData: LLMData[]
   showDeprecated: boolean
@@ -43,6 +45,11 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
     return [min, max]
   }, [visible])
 
+  const ticks = React.useMemo(
+    () => BASE_TICKS.filter((t) => t >= costDomain[0] && t <= costDomain[1]),
+    [costDomain],
+  )
+
   if (!llmData.length) return null
 
   return (
@@ -60,6 +67,7 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
             name="Cost"
             scale="log"
             domain={costDomain as [number, number]}
+            ticks={ticks}
             tickFormatter={(v) => v && v.toFixed(2)}
             label={{
               value: "Normalized Cost per Task",
