@@ -8,6 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { loadLLMData, loadLLMDetails } from "@/lib/data-loader"
+import { loadBenchmarks } from "@/lib/benchmark-loader"
 import { notFound } from "next/navigation"
 
 export async function generateStaticParams() {
@@ -20,10 +21,16 @@ export default async function ModelPage({
 }: {
   params: { slug: string }
 }) {
-  const model = await loadLLMDetails(params.slug)
+  const [model, benchmarks] = await Promise.all([
+    loadLLMDetails(params.slug),
+    loadBenchmarks(),
+  ])
   if (!model) return notFound()
-  const entries = Object.entries(model.benchmarks).sort((a, b) =>
-    a[0].localeCompare(b[0]),
+  const benchNames = benchmarks
+    .map((b) => b.benchmark)
+    .sort((a, b) => a.localeCompare(b))
+  const entries = benchNames.map(
+    (name) => [name, model.benchmarks[name]] as const,
   )
 
   return (
@@ -43,9 +50,11 @@ export default async function ModelPage({
           {entries.map(([name, res]) => (
             <TableRow key={name}>
               <TableCell>{name}</TableCell>
-              <TableCell className="text-right">{res.score}</TableCell>
               <TableCell className="text-right">
-                {res.costPerTask !== undefined
+                {res?.score !== undefined ? res.score : "—"}
+              </TableCell>
+              <TableCell className="text-right">
+                {res?.costPerTask !== undefined
                   ? res.costPerTask.toFixed(2)
                   : "—"}
               </TableCell>
