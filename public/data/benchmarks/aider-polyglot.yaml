@@ -122,19 +122,63 @@ cost_per_task:
   o3 (high) + gpt-4.1: 0.0784
   o3-pro (high): 0.6503
 model_name_mapping:
-  gpt-4o-2024-11-20: gpt-4o
-  gpt-4o-2024-08-06: gpt-4o
-  DeepSeek R1: deepseek-r1
-  chatgpt-4o-latest (2025-02-15): gpt-4o
-  Gemini 2.5 Pro Preview 03-25: gemini-2.5-pro-preview-03-25
-  chatgpt-4o-latest (2025-03-29): gpt-4o
-  o4-mini (high): o4-mini-high
-  Gemini 2.5 Pro Preview 05-06: gemini-2.5-pro-preview-05-06
-  claude-sonnet-4-20250514 (no thinking): claude-sonnet-4-nothinking
-  claude-sonnet-4-20250514 (32k thinking): claude-sonnet-4-thinking
-  claude-opus-4-20250514 (no think): claude-opus-4-nothinking
-  claude-opus-4-20250514 (32k thinking): claude-opus-4-thinking
-  gemini-2.5-pro-preview-06-05 (default think): gemini-2.5-pro-06-05
-  DeepSeek R1 (0528): deepseek-r1-0528
+  o3-pro (high): null
+  gemini-2.5-pro-preview-06-05 (32k think): null
   o3 (high): o3-high
+  gemini-2.5-pro-preview-06-05 (default think): gemini-2.5-pro-06-05
+  o3 (high) + gpt-4.1: null
+  Gemini 2.5 Pro Preview 05-06: gemini-2.5-pro-preview-05-06
   o3: o3-medium
+  Gemini 2.5 Pro Preview 03-25: gemini-2.5-pro-preview-03-25
+  o4-mini (high): o4-mini-high
+  claude-opus-4-20250514 (32k thinking): claude-opus-4-thinking
+  DeepSeek R1 (0528): deepseek-r1-0528
+  claude-opus-4-20250514 (no think): claude-opus-4-nothinking
+  claude-3-7-sonnet-20250219 (32k thinking tokens): null
+  DeepSeek R1 + claude-3-5-sonnet-20241022: null
+  o1-2024-12-17 (high): null
+  claude-sonnet-4-20250514 (32k thinking): claude-sonnet-4-thinking
+  o3-mini (high): null
+  claude-3-7-sonnet-20250219 (no thinking): null
+  Qwen3 235B A22B diff, no think, Alibaba API: null
+  DeepSeek R1: deepseek-r1
+  claude-sonnet-4-20250514 (no thinking): claude-sonnet-4-nothinking
+  DeepSeek V3 (0324): null
+  gemini-2.5-flash-preview-05-20 (24k think): null
+  Quasar Alpha: null
+  o3-mini (medium): null
+  Grok 3 Beta: null
+  Optimus Alpha: null
+  gpt-4.1: null
+  claude-3-5-sonnet-20241022: null
+  Grok 3 Mini Beta (high): null
+  DeepSeek Chat V3 (prev): null
+  gemini-2.5-flash-preview-04-17 (default): null
+  chatgpt-4o-latest (2025-03-29): gpt-4o
+  gpt-4.5-preview: null
+  gemini-2.5-flash-preview-05-20 (no think): null
+  Qwen3 32B: null
+  gemini-exp-1206: null
+  Gemini 2.0 Pro exp-02-05: null
+  Grok 3 Mini Beta (low): null
+  o1-mini-2024-09-12: null
+  gpt-4.1-mini: null
+  claude-3-5-haiku-20241022: null
+  chatgpt-4o-latest (2025-02-15): gpt-4o
+  QwQ-32B + Qwen 2.5 Coder Instruct: null
+  gpt-4o-2024-08-06: gpt-4o
+  gemini-2.0-flash-exp: null
+  qwen-max-2025-01-25: null
+  QwQ-32B: null
+  gpt-4o-2024-11-20: gpt-4o
+  gemini-2.0-flash-thinking-exp-01-21: null
+  DeepSeek Chat V2.5: null
+  Qwen2.5-Coder-32B-Instruct: null
+  Llama 4 Maverick: null
+  yi-lightning: null
+  command-a-03-2025-quality: null
+  Codestral 25.01: null
+  openhands-lm-32b-v0.1: null
+  gpt-4.1-nano: null
+  gemma-3-27b-it: null
+  gpt-4o-mini-2024-07-18: null

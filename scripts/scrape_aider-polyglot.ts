@@ -1,6 +1,7 @@
 import path from "path"
 import { fileURLToPath } from "url"
 import { curl, saveBenchmarkResults } from "./utils"
+import YAML from "yaml"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
