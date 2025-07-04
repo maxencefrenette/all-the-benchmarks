@@ -1,7 +1,2 @@
 model: Claude 4 Sonnet (Thinking)
 provider: Anthropic
-aliases:
-  - claude-4-sonnet-20250514-thinking-64k
-  - Claude 4 Sonnet (thinking)
-  - Claude Sonnet 4 (Thinking 16K)
-  - claude-sonnet-4-20250514 (32k thinking)

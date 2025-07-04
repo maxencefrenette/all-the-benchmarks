@@ -1,9 +1,2 @@
 model: o3 (medium)
 provider: OpenAI
-aliases:
-  - o3-2025-04-16-medium
-  - o3 (medium)
-  - o3 (Medium)
-  - o3 (medium) (April 2025)
-  - o3
-  - o3-2025-04-16

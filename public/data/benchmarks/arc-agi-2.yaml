@@ -120,3 +120,17 @@ cost_per_task:
   Magistral Medium: 0.1079
   Magistral Medium (Thinking): 0.123
   Gemini 2.5 Pro (Thinking 1K): 0.0885
+model_name_mapping:
+  Claude Opus 4 (Thinking 16K): claude-opus-4-thinking
+  o3 (High): o3-high
+  o4-mini (High): o4-mini-high
+  Claude Sonnet 4 (Thinking 16K): claude-sonnet-4-thinking
+  Gemini 2.5 Pro (Thinking 32K): gemini-2.5-pro-06-05
+  o3 (Medium): o3-medium
+  Gemini 2.5 Flash (Preview) (Thinking 24K): gemini-2.5-flash-thinking
+  o3 (Low): o3-low
+  Deepseek R1 (05/28): deepseek-r1-0528
+  GPT-4.5: gpt-4.5-preview
+  GPT-4.1: gpt-4.1
+  GPT-4o: gpt-4o
+  Grok 3: grok-3

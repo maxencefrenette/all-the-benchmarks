@@ -1,7 +1,2 @@
 model: o3 (high)
 provider: OpenAI
-aliases:
-  - o3-2025-04-16-high
-  - o3 (high)
-  - o3 (High)
-  - o3 (high) (April 2025)

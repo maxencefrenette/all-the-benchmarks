@@ -1,11 +1,2 @@
 model: GPT-4o
 provider: OpenAI
-aliases:
-  - gpt-4o-2024-05-13
-  - gpt-4o-2024-08-06
-  - gpt-4o-2024-11-20
-  - "GPT-4o 08-06"
-  - gpt-4o-latest-20250326
-  - chatgpt-4o-latest-2025-03-27
-  - "chatgpt-4o-latest (2025-02-15)"
-  - "chatgpt-4o-latest (2025-03-29)"
