@@ -52,19 +52,19 @@ results:
   gemma-3n-e4b-it: 27.85
   gemini-2.5-flash-lite-preview-06-17-highthinking: 57.53
 model_name_mapping:
-  o3-pro-2025-06-10-high: null
+  o3-pro-2025-06-10-high: o3-pro-high
   o3-2025-04-16-high: o3-high
   claude-4-opus-20250514-thinking-32k: claude-opus-4-thinking
   claude-4-sonnet-20250514-thinking-64k: claude-sonnet-4-thinking
   o3-2025-04-16-medium: o3-medium
   o4-mini-2025-04-16-high: o4-mini-high
   gemini-2.5-pro-preview-06-05-highthinking: null
-  deepseek-r1-0528: null
-  gemini-2.5-pro-preview-06-05-default: null
+  deepseek-r1-0528: deepseek-r1-0528
+  gemini-2.5-pro-preview-06-05-default: gemini-2.5-pro-06-05
   claude-3-7-sonnet-20250219-thinking-64k: null
-  o4-mini-2025-04-16-medium: null
+  o4-mini-2025-04-16-medium: o4-mini-medium
   claude-4-opus-20250514-base: claude-opus-4-nothinking
-  deepseek-r1: null
+  deepseek-r1: deepseek-r1
   qwen3-235b-a22b-thinking: null
   gemini-2.5-flash-preview-05-20: gemini-2.5-flash-thinking
   qwen3-32b-thinking: null

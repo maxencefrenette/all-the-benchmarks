@@ -122,7 +122,7 @@ cost_per_task:
   o3 (high) + gpt-4.1: 0.0784
   o3-pro (high): 0.6503
 model_name_mapping:
-  o3-pro (high): null
+  o3-pro (high): o3-pro-high
   gemini-2.5-pro-preview-06-05 (32k think): null
   o3 (high): o3-high
   gemini-2.5-pro-preview-06-05 (default think): gemini-2.5-pro-06-05
@@ -149,7 +149,7 @@ model_name_mapping:
   o3-mini (medium): null
   Grok 3 Beta: null
   Optimus Alpha: null
-  gpt-4.1: null
+  gpt-4.1: gpt-4.1
   claude-3-5-sonnet-20241022: null
   Grok 3 Mini Beta (high): null
   DeepSeek Chat V3 (prev): null

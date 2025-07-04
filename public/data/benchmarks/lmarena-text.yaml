@@ -213,17 +213,17 @@ results:
   llama-13b: 948
   stablelm-tuned-alpha-7b: 939
 model_name_mapping:
-  gemini-2.5-pro: null
+  gemini-2.5-pro: gemini-2.5-pro-06-05
   o3-2025-04-16: o3-medium
-  chatgpt-4o-latest-20250326: null
+  chatgpt-4o-latest-20250326: gpt-4o
   gpt-4.5-preview-2025-02-27: gpt-4.5-preview
   claude-opus-4-20250514: null
   gemini-2.5-flash: null
-  deepseek-r1-0528: null
+  deepseek-r1-0528: deepseek-r1-0528
   gpt-4.1-2025-04-14: gpt-4.1
   grok-3-preview-02-24: grok-3
   o1-2024-12-17: null
-  o4-mini-2025-04-16: null
+  o4-mini-2025-04-16: o4-mini-medium
   deepseek-v3-0324: null
   qwen3-235b-a22b-no-thinking: null
   deepseek-r1: null

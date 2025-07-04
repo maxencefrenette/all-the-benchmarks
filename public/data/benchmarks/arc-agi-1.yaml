@@ -126,7 +126,7 @@ model_name_mapping:
   Avg. Mturker: null
   o3-preview (Low)*: null
   o3 (High): o3-high
-  o3-Pro (High): null
+  o3-Pro (High): o3-pro-high
   o4-mini (High): o4-mini-high
   o3-Pro (Medium): null
   ARChitects: null

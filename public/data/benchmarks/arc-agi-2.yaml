@@ -126,7 +126,7 @@ model_name_mapping:
   o3 (High): o3-high
   o4-mini (High): o4-mini-high
   Claude Sonnet 4 (Thinking 16K): claude-sonnet-4-thinking
-  o3-Pro (High): null
+  o3-Pro (High): o3-pro-high
   Gemini 2.5 Pro (Thinking 32K): gemini-2.5-pro-06-05
   Claude Opus 4 (Thinking 8K): null
   Gemini 2.5 Pro (Thinking 16K): null
