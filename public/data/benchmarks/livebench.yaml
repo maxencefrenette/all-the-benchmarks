@@ -69,7 +69,7 @@ model_name_mapping:
   gemini-2.5-flash-preview-05-20: gemini-2.5-flash-thinking
   qwen3-32b-thinking: null
   claude-4-sonnet-20250514-base: claude-sonnet-4-nothinking
-  grok-3-mini-beta-high: grok-3-mini
+  grok-3-mini-beta-high: grok-3-mini-high
   qwen3-30b-a3b-thinking: null
   gpt-4.5-preview-2025-02-27: gpt-4.5-preview
   claude-3-7-sonnet-20250219-base: null
