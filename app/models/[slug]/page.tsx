@@ -1,4 +1,5 @@
 import NavigationPills from "@/components/navigation-pills"
+import PageHeader from "@/components/page-header"
 import {
   Table,
   TableBody,
@@ -35,8 +36,7 @@ export default async function ModelPage({
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-3xl space-y-6">
-      <h1 className="text-4xl font-bold text-center">{model.model}</h1>
-      <p className="text-center text-muted-foreground">{model.provider}</p>
+      <PageHeader title={model.model} subtitle={model.provider} />
       <NavigationPills />
       <Table>
         <TableHeader>

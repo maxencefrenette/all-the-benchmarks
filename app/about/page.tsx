@@ -1,4 +1,5 @@
 import NavigationPills from "@/components/navigation-pills"
+import PageHeader from "@/components/page-header"
 
 export const metadata = {
   title: "About",
@@ -8,10 +9,10 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="container mx-auto px-4 py-8 max-w-3xl space-y-6">
-      <h1 className="text-4xl font-bold text-center">About</h1>
-      <p className="text-center text-muted-foreground">
-        Overview of this project and how average scores are computed.
-      </p>
+      <PageHeader
+        title="About"
+        subtitle="Overview of this project and how average scores are computed."
+      />
       <NavigationPills />
       <div className="space-y-6">
         <section className="space-y-2">
