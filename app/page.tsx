@@ -11,7 +11,7 @@ export default async function Home() {
       <PageHeader
         iconSrc="/favicon.png"
         title="All the benchmarks!"
-        subtitle="Sortable and filterable comparison of LLM performance across key benchmarks"
+        subtitle="A single score to compare frontier LLMs"
       />
       <NavigationPills />
       <LeaderboardSection llmData={llmData} />

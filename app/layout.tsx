@@ -3,8 +3,7 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: "All the Benchmarks!",
-  description:
-    "Sortable and filterable comparison of LLM performance across key benchmarks",
+  description: "A single score to compare frontier LLMs",
   generator: "v0.dev",
   icons: {
     icon: "/favicon.png",
