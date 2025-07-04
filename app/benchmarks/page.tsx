@@ -1,5 +1,6 @@
 import { loadBenchmarks } from "@/lib/benchmark-loader"
 import NavigationPills from "@/components/navigation-pills"
+import PageHeader from "@/components/page-header"
 
 export const metadata = {
   title: "Benchmarks",
@@ -10,10 +11,10 @@ export default async function BenchmarksPage() {
   const benchmarks = await loadBenchmarks()
   return (
     <main className="container mx-auto px-4 py-8 max-w-3xl space-y-6">
-      <h1 className="text-4xl font-bold text-center">Benchmarks</h1>
-      <p className="text-center text-muted-foreground">
-        Models are evaluated on the following benchmarks.
-      </p>
+      <PageHeader
+        title="Benchmarks"
+        subtitle="Models are evaluated on the following benchmarks."
+      />
       <NavigationPills />
       <ul className="space-y-4">
         {benchmarks.map((b) => (
