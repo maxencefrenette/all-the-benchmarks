@@ -1,15 +1,20 @@
 import { chromium } from "playwright"
 import fs from "fs/promises"
 import path from "path"
+import { fileURLToPath } from "url"
 import YAML from "yaml"
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 async function main() {
   const browser = await chromium.launch({
     headless: true,
   })
 
+  const context = await browser.newContext({ ignoreHTTPSErrors: true })
+  const page = await context.newPage()
+
   try {
-    const page = await browser.newPage()
     await page.goto("https://artificialanalysis.ai/leaderboards/models")
     await page.waitForLoadState("networkidle")
 

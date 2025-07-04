@@ -1,7 +1,10 @@
 import fs from "fs/promises"
 import path from "path"
+import { fileURLToPath } from "url"
 import { execSync } from "child_process"
 import YAML from "yaml"
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 function curl(url: string): string {
   return execSync(`curl -sL ${url}`, { encoding: "utf8" })
