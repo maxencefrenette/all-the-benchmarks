@@ -32,6 +32,21 @@ export async function saveBenchmarkResults(
     delete yamlObj.cost_per_task
   }
 
+  const existingMap = (yamlObj.model_name_mapping || {}) as Record<
+    string,
+    string | null
+  >
+  const sortedModels = Object.entries(results)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name]) => name)
+  const newMap: Record<string, string | null> = {}
+  for (const name of sortedModels) {
+    newMap[name] = Object.prototype.hasOwnProperty.call(existingMap, name)
+      ? existingMap[name]
+      : null
+  }
+  yamlObj.model_name_mapping = newMap
+
   await fs.writeFile(outPath, YAML.stringify(yamlObj))
   console.log(`Wrote ${outPath}`)
 }

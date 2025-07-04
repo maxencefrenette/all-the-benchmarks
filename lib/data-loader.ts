@@ -69,7 +69,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
         description: string
         results: Record<string, number>
         cost_per_task?: Record<string, number>
-        model_name_mapping?: Record<string, string>
+        model_name_mapping?: Record<string, string | null>
       }
       if (!data.benchmark || !data.results) {
         throw new Error(`Invalid benchmark structure for ${slug}`)
@@ -78,7 +78,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
         for (const [alias, slugName] of Object.entries(
           data.model_name_mapping,
         )) {
-          aliasMap[alias] = slugName
+          if (slugName) aliasMap[alias] = slugName
         }
       }
       const costMap = data.cost_per_task || {}
