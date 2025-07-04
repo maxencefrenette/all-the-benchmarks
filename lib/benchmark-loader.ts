@@ -36,3 +36,42 @@ export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
   }
   return benchmarks.sort((a, b) => a.benchmark.localeCompare(b.benchmark))
 }
+
+export interface BenchmarkDetails extends BenchmarkInfo {
+  results: Record<string, number>
+  cost_per_task?: Record<string, number>
+  model_name_mapping?: Record<string, string | null>
+}
+
+export async function loadBenchmarkDetails(
+  slug: string,
+): Promise<BenchmarkDetails | null> {
+  const benchmarkDir = path.join(process.cwd(), "public", "data", "benchmarks")
+  try {
+    const text = await fs.readFile(
+      path.join(benchmarkDir, `${slug}.yaml`),
+      "utf8",
+    )
+    const data = parse(text) as {
+      benchmark: string
+      description: string
+      results: Record<string, number>
+      cost_per_task?: Record<string, number>
+      model_name_mapping?: Record<string, string | null>
+    }
+    if (!data.benchmark || !data.results) {
+      throw new Error(`Invalid benchmark structure for ${slug}`)
+    }
+    return {
+      slug,
+      benchmark: data.benchmark,
+      description: data.description,
+      results: data.results,
+      cost_per_task: data.cost_per_task,
+      model_name_mapping: data.model_name_mapping,
+    }
+  } catch (error) {
+    console.error(`Failed to load benchmark details for ${slug}:`, error)
+    return null
+  }
+}
