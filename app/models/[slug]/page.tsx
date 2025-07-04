@@ -42,10 +42,10 @@ export default async function ModelPage({
         <TableHeader>
           <TableRow>
             <TableHead>Benchmark</TableHead>
-            <TableHead className="text-right">Score</TableHead>
-            <TableHead className="text-right">Normalized</TableHead>
-            <TableHead className="text-right">Cost</TableHead>
+            <TableHead className="text-right">Raw Score</TableHead>
+            <TableHead className="text-right">Normalized Score</TableHead>
             <TableHead className="text-right">Raw Cost</TableHead>
+            <TableHead className="text-right">Normalized Cost</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -61,13 +61,13 @@ export default async function ModelPage({
                   : "—"}
               </TableCell>
               <TableCell className="text-right">
-                {res?.normalizedCost !== undefined
-                  ? res.normalizedCost.toFixed(2)
+                {res?.costPerTask !== undefined
+                  ? res.costPerTask.toFixed(2)
                   : "—"}
               </TableCell>
               <TableCell className="text-right">
-                {res?.costPerTask !== undefined
-                  ? res.costPerTask.toFixed(2)
+                {res?.normalizedCost !== undefined
+                  ? res.normalizedCost.toFixed(2)
                   : "—"}
               </TableCell>
             </TableRow>
