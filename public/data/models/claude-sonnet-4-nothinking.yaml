@@ -1,6 +1,2 @@
 model: Claude 4 Sonnet (No Thinking)
 provider: Anthropic
-aliases:
-  - claude-sonnet-4-20250514 (no thinking)
-  - claude-4-sonnet-20250514-base
-  - Claude 4 Sonnet (no thinking)

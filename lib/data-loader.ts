@@ -42,7 +42,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
       const data = parse(text) as {
         model: string
         provider: string
-        aliases?: string[]
         deprecated?: boolean
       }
       if (!data.model || !data.provider) {
@@ -56,9 +55,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
         benchmarks: {},
       }
       aliasMap[data.model] = slug
-      for (const alias of data.aliases || []) {
-        aliasMap[alias] = slug
-      }
     } catch (error) {
       console.error(`Failed to load model data for ${slug}:`, error)
     }
@@ -73,9 +69,17 @@ export async function loadLLMData(): Promise<LLMData[]> {
         description: string
         results: Record<string, number>
         cost_per_task?: Record<string, number>
+        model_name_mapping?: Record<string, string>
       }
       if (!data.benchmark || !data.results) {
         throw new Error(`Invalid benchmark structure for ${slug}`)
+      }
+      if (data.model_name_mapping) {
+        for (const [alias, slugName] of Object.entries(
+          data.model_name_mapping,
+        )) {
+          aliasMap[alias] = slugName
+        }
       }
       const costMap = data.cost_per_task || {}
       for (const [rawName, score] of Object.entries(data.results)) {

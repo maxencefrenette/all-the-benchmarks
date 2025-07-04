@@ -1,5 +1,3 @@
 model: DeepSeek R1
 provider: DeepSeek
-aliases:
-  - deepseek-r1
 deprecated: true

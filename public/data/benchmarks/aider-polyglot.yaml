@@ -121,3 +121,20 @@ cost_per_task:
   o3: 0.0611
   o3 (high) + gpt-4.1: 0.0784
   o3-pro (high): 0.6503
+model_name_mapping:
+  gpt-4o-2024-11-20: gpt-4o
+  gpt-4o-2024-08-06: gpt-4o
+  DeepSeek R1: deepseek-r1
+  chatgpt-4o-latest (2025-02-15): gpt-4o
+  Gemini 2.5 Pro Preview 03-25: gemini-2.5-pro-preview-03-25
+  chatgpt-4o-latest (2025-03-29): gpt-4o
+  o4-mini (high): o4-mini-high
+  Gemini 2.5 Pro Preview 05-06: gemini-2.5-pro-preview-05-06
+  claude-sonnet-4-20250514 (no thinking): claude-sonnet-4-nothinking
+  claude-sonnet-4-20250514 (32k thinking): claude-sonnet-4-thinking
+  claude-opus-4-20250514 (no think): claude-opus-4-nothinking
+  claude-opus-4-20250514 (32k thinking): claude-opus-4-thinking
+  gemini-2.5-pro-preview-06-05 (default think): gemini-2.5-pro-06-05
+  DeepSeek R1 (0528): deepseek-r1-0528
+  o3 (high): o3-high
+  o3: o3-medium

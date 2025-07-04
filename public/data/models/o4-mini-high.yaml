@@ -1,7 +1,2 @@
 model: o4-mini (high)
 provider: OpenAI
-aliases:
-  - o4-mini-2025-04-16-high
-  - o4-mini (high)
-  - o4-mini (High)
-  - o4-mini (high) (April 2025)

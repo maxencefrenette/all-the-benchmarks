@@ -51,3 +51,20 @@ results:
   gemma-3n-e2b-it: 21.74
   gemma-3n-e4b-it: 27.85
   gemini-2.5-flash-lite-preview-06-17-highthinking: 57.53
+model_name_mapping:
+  chatgpt-4o-latest-2025-03-27: gpt-4o
+  claude-4-opus-20250514-base: claude-opus-4-nothinking
+  claude-4-opus-20250514-thinking-32k: claude-opus-4-thinking
+  claude-4-sonnet-20250514-base: claude-sonnet-4-nothinking
+  claude-4-sonnet-20250514-thinking-64k: claude-sonnet-4-thinking
+  gemini-2.5-flash-preview-05-20: gemini-2.5-flash-thinking
+  gpt-4.1-2025-04-14: gpt-4.1
+  gpt-4.1-mini-2025-04-14: gpt-4.1-mini
+  gpt-4.1-nano-2025-04-14: gpt-4.1-nano
+  gpt-4.5-preview-2025-02-27: gpt-4.5-preview
+  gpt-4o-2024-11-20: gpt-4o
+  grok-3-beta: grok-3
+  grok-3-mini-beta-high: grok-3-mini
+  o3-2025-04-16-high: o3-high
+  o3-2025-04-16-medium: o3-medium
+  o4-mini-2025-04-16-high: o4-mini-high

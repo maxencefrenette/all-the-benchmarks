@@ -120,3 +120,17 @@ cost_per_task:
   GPT-4.1-Mini: 0.0078
   Llama 4 Scout: 0.0041
   GPT-4.1-Nano: 0.0021
+model_name_mapping:
+  o3 (High): o3-high
+  o4-mini (High): o4-mini-high
+  o3 (Medium): o3-medium
+  o3 (Low): o3-low
+  Claude Sonnet 4 (Thinking 16K): claude-sonnet-4-thinking
+  Gemini 2.5 Pro (Thinking 32K): gemini-2.5-pro-06-05
+  Claude Opus 4 (Thinking 16K): claude-opus-4-thinking
+  Gemini 2.5 Flash (Preview) (Thinking 24K): gemini-2.5-flash-thinking
+  Deepseek R1 (05/28): deepseek-r1-0528
+  GPT-4.5: gpt-4.5-preview
+  GPT-4.1: gpt-4.1
+  Grok 3: grok-3
+  GPT-4o: gpt-4o

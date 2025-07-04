@@ -350,3 +350,8 @@ cost_per_task:
   Llama 3 8B: 1
   Gemma 3 4B: 0
   Ministral 3B: 0
+model_name_mapping:
+  o3: o3-medium
+  o4-mini (high): o4-mini-high
+  GPT-4.1: gpt-4.1
+  Grok 3: grok-3

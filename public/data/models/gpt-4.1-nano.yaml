@@ -1,5 +1,2 @@
 model: GPT-4.1 Nano
 provider: OpenAI
-aliases:
-  - gpt-4.1-nano-2025-04-14
-  - gpt-4.1-nano
