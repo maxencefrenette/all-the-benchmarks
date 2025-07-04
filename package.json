@@ -17,6 +17,7 @@
     "scrape:aider-polyglot": "tsx scripts/scrape_aider-polyglot.ts",
     "scrape:hle": "tsx scripts/scrape_hle.ts",
     "scrape:gpqa-diamond": "tsx scripts/scrape_gpqa_diamond.ts",
+    "scrape:artificial-analysis-index": "tsx scripts/scrape_artificial_analysis_index.ts",
     "start": "next start"
   },
   "dependencies": {
