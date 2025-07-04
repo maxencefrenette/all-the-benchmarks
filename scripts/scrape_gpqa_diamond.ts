@@ -1,8 +1,7 @@
 import { chromium } from "playwright"
-import fs from "fs/promises"
 import path from "path"
 import { fileURLToPath } from "url"
-import YAML from "yaml"
+import { saveBenchmarkResults } from "./utils"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -42,11 +41,6 @@ async function main() {
     }
 
     // Save results to yaml
-    const yamlObj = {
-      benchmark: "GPQA Diamond",
-      description: "Score on GPQA Diamond benchmark",
-      results,
-    }
     const outPath = path.join(
       __dirname,
       "..",
@@ -55,8 +49,7 @@ async function main() {
       "benchmarks",
       "gpqa-diamond.yaml",
     )
-    await fs.writeFile(outPath, YAML.stringify(yamlObj))
-    console.log(`Wrote ${outPath}`)
+    await saveBenchmarkResults(outPath, results)
   } catch (error) {
     console.error("Error during scraping:", error)
   } finally {

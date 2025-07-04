@@ -1,8 +1,6 @@
-import fs from "fs/promises"
 import path from "path"
 import { fileURLToPath } from "url"
-import YAML from "yaml"
-import { curl } from "./utils"
+import { curl, saveBenchmarkResults } from "./utils"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -47,13 +45,6 @@ async function main(): Promise<void> {
     }
   }
 
-  const yamlObj = {
-    benchmark: dataset.displayName,
-    description: "Accuracy on ARC-AGI-2",
-    results,
-    cost_per_task: costPerTask,
-  }
-
   const outPath = path.join(
     __dirname,
     "..",
@@ -62,8 +53,7 @@ async function main(): Promise<void> {
     "benchmarks",
     "arc-agi-2.yaml",
   )
-  await fs.writeFile(outPath, YAML.stringify(yamlObj))
-  console.log(`Wrote ${outPath}`)
+  await saveBenchmarkResults(outPath, results, costPerTask)
 }
 
 main().catch((err) => {

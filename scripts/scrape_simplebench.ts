@@ -1,9 +1,7 @@
-import fs from "fs/promises"
 import path from "path"
 import { fileURLToPath } from "url"
-import YAML from "yaml"
 import vm from "vm"
-import { curl } from "./utils"
+import { curl, saveBenchmarkResults } from "./utils"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -26,11 +24,6 @@ async function main(): Promise<void> {
     const score = parseFloat(entry.score.replace(/%/, ""))
     results[entry.model] = score
   }
-  const yamlObj = {
-    benchmark: "SimpleBench",
-    description: "Score (AVG@5) on SimpleBench",
-    results,
-  }
   const outPath = path.join(
     __dirname,
     "..",
@@ -39,8 +32,7 @@ async function main(): Promise<void> {
     "benchmarks",
     "simplebench.yaml",
   )
-  await fs.writeFile(outPath, YAML.stringify(yamlObj))
-  console.log(`Wrote ${outPath}`)
+  await saveBenchmarkResults(outPath, results)
 }
 
 main().catch((err) => {
