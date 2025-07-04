@@ -47,3 +47,9 @@ test("loadLLMData merges aliases and sorts results", async () => {
   const alias = llmData.find((d) => d.slug === "grok-3-preview-02-24")
   expect(alias).toBeUndefined()
 })
+
+test("loadLLMData marks deprecated models", async () => {
+  const llmData = await loadLLMData()
+  const deprecated = llmData.find((d) => d.slug === "deepseek-r1")
+  expect(deprecated?.deprecated).toBe(true)
+})
