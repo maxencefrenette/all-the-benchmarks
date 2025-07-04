@@ -5,6 +5,7 @@ import { type TableRow, transformToTableData } from "./table-utils"
 
 export interface BenchmarkResult {
   score: number
+  normalizedScore?: number
   description: string
   costPerTask?: number
   normalizedCost?: number
@@ -125,8 +126,12 @@ export async function loadLLMData(): Promise<LLMData[]> {
   const results = Object.values(llmMap).map((llm) => {
     const normalised = Object.entries(llm.benchmarks).map(([name, result]) => {
       const { min, max } = benchmarkStats[name]
-      if (max === min) return 1
-      return (result.score - min) / (max - min)
+      let value = 1
+      if (max !== min) {
+        value = (result.score - min) / (max - min)
+      }
+      result.normalizedScore = value * 100
+      return value
     })
     llm.averageScore =
       (normalised.reduce((sum, score) => sum + score, 0) /
