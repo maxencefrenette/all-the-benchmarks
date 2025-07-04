@@ -6,8 +6,10 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "next lint",
-    "prettier": "prettier --check .",
+    "lint": "next lint --fix",
+    "lint:check": "next lint",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
     "test": "vitest run",
     "scrape:livebench": "tsx scripts/scrape_livebench.ts",
     "scrape:simplebench": "tsx scripts/scrape_simplebench.ts",
