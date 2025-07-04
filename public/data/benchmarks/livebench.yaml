@@ -13,18 +13,18 @@ results:
   command-r-08-2024: 27.15
   command-r-plus-08-2024: 30.14
   deepseek-r1: 65.15
-  deepseek-r1-0528: 69.39
+  deepseek-r1-0528: 70.1
   deepseek-r1-distill-llama-70b: 48.53
   deepseek-r1-distill-qwen-32b: 41.44
   deepseek-v3-0324: 55.99
   gemini-2.0-flash-lite-001: 46.78
-  gemini-2.5-flash-preview-04-17: 62.8
-  gemini-2.5-flash-preview-05-20: 64.32
-  gemini-2.5-pro-preview-05-06: 71.99
+  gemini-2.5-flash-preview-05-20: 64.42
+  gemini-2.5-pro-preview-06-05-default: 69.39
+  gemini-2.5-pro-preview-06-05-highthinking: 70.95
   gemma-3-27b-it: 42
   gpt-4.1-2025-04-14: 55.9
   gpt-4.1-mini-2025-04-14: 51.57
-  gpt-4.1-nano-2025-04-14: 40.4
+  gpt-4.1-nano-2025-04-14: 40.51
   gpt-4.5-preview-2025-02-27: 58.65
   gpt-4o-2024-11-20: 47.43
   grok-3-beta: 56.05
@@ -34,8 +34,9 @@ results:
   mistral-large-2411: 43.31
   mistral-medium-2505: 50.65
   mistral-small-2503: 40.55
-  o3-2025-04-16-high: 74.42
+  o3-2025-04-16-high: 74.61
   o3-2025-04-16-medium: 71.98
+  o3-pro-2025-06-10-high: 74.72
   o4-mini-2025-04-16-high: 71.52
   o4-mini-2025-04-16-medium: 66.87
   phi-4-reasoning-plus: 49.27
@@ -44,3 +45,9 @@ results:
   qwen3-235b-a22b-thinking: 64.93
   qwen3-30b-a3b-thinking: 59.02
   qwen3-32b-thinking: 63.71
+  command-a-03-2025: 44.17
+  gemma-3-12b-it: 37.08
+  gemma-3-4b-it: 23.33
+  gemma-3n-e2b-it: 21.74
+  gemma-3n-e4b-it: 27.85
+  gemini-2.5-flash-lite-preview-06-17-highthinking: 57.53
