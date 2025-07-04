@@ -151,7 +151,7 @@ model_name_mapping:
   Optimus Alpha: null
   gpt-4.1: gpt-4.1
   claude-3-5-sonnet-20241022: null
-  Grok 3 Mini Beta (high): null
+  Grok 3 Mini Beta (high): grok-3-mini-high
   DeepSeek Chat V3 (prev): null
   gemini-2.5-flash-preview-04-17 (default): null
   chatgpt-4o-latest (2025-03-29): gpt-4o
