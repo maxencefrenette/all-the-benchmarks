@@ -1,8 +1,8 @@
 import fs from "fs/promises"
 import path from "path"
 import { fileURLToPath } from "url"
-import { execSync } from "child_process"
 import YAML from "yaml"
+import { curl } from "./utils"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -12,10 +12,6 @@ interface Categories {
 
 interface Row {
   [column: string]: string
-}
-
-function curl(url: string): string {
-  return execSync(`curl -sL ${url}`, { encoding: "utf8" })
 }
 
 function getLatestDate(): string {
