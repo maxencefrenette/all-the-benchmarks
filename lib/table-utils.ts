@@ -5,7 +5,6 @@ export interface TableRow {
   provider: string
   averageScore: number
   costPerTask: number | null
-  benchmarks: string[]
 }
 
 export function transformToTableData(
@@ -15,7 +14,6 @@ export function transformToTableData(
     provider: string
     averageScore?: number
     normalizedCost?: number | null
-    benchmarks?: Record<string, unknown>
   }[],
 ): TableRow[] {
   return llmData.map((llm) => ({
@@ -25,6 +23,5 @@ export function transformToTableData(
     provider: llm.provider,
     averageScore: llm.averageScore || 0,
     costPerTask: llm.normalizedCost ?? null,
-    benchmarks: llm.benchmarks ? Object.keys(llm.benchmarks) : [],
   }))
 }
