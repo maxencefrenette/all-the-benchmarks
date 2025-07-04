@@ -33,6 +33,7 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
   )
 
   const costDomain = React.useMemo(() => {
+    const FACTOR = 1.2
     let min = Infinity
     let max = -Infinity
     for (const item of visible) {
@@ -42,7 +43,7 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
       }
     }
     if (!isFinite(min) || !isFinite(max)) return [0, 1]
-    return [min, max]
+    return [min / FACTOR, max * FACTOR]
   }, [visible])
 
   const ticks = React.useMemo(
