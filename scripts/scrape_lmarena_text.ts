@@ -1,8 +1,6 @@
-import fs from "fs/promises"
 import path from "path"
 import { fileURLToPath } from "url"
-import YAML from "yaml"
-import { curl } from "./utils"
+import { curl, saveBenchmarkResults } from "./utils"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -20,11 +18,6 @@ async function main(): Promise<void> {
       results[model] = score
     }
   }
-  const yamlObj = {
-    benchmark: "LMArena Text",
-    description: "Elo score on LMArena Text leaderboard",
-    results,
-  }
   const outPath = path.join(
     __dirname,
     "..",
@@ -33,8 +26,7 @@ async function main(): Promise<void> {
     "benchmarks",
     "lmarena-text.yaml",
   )
-  await fs.writeFile(outPath, YAML.stringify(yamlObj))
-  console.log(`Wrote ${outPath}`)
+  await saveBenchmarkResults(outPath, results)
 }
 
 main().catch((err) => {

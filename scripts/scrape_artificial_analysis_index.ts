@@ -1,8 +1,7 @@
 import { chromium } from "playwright"
-import fs from "fs/promises"
 import path from "path"
 import { fileURLToPath } from "url"
-import YAML from "yaml"
+import { saveBenchmarkResults } from "./utils"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -94,12 +93,6 @@ async function main() {
     }
 
     // Save results to yaml
-    const yamlObj = {
-      benchmark: "Artificial Analysis Index",
-      description: "Score on Artificial Analysis Index benchmark",
-      results: resultsMap,
-      cost_per_task: costPerTaskMap,
-    }
     const outPath = path.join(
       __dirname,
       "..",
@@ -108,8 +101,7 @@ async function main() {
       "benchmarks",
       "artificial-analysis-index.yaml",
     )
-    await fs.writeFile(outPath, YAML.stringify(yamlObj))
-    console.log(`Wrote ${outPath}`)
+    await saveBenchmarkResults(outPath, resultsMap, costPerTaskMap)
   } catch (error) {
     console.error("Error during scraping:", error)
   } finally {
