@@ -34,6 +34,11 @@ export default function AboutPage() {
             all models. Individual scores are normalised using min–max
             normalisation and then averaged to produce the leaderboard ranking.
           </p>
+          <pre className="font-mono text-sm bg-muted p-4 rounded">
+            normalized<sub>i,j</sub> = (score<sub>i,j</sub> − min<sub>j</sub>) /
+            (max<sub>j</sub> − min<sub>j</sub>){"\n"}average<sub>i</sub> = (1 /
+            B)∑<sub>j</sub> normalized<sub>i,j</sub>× 100
+          </pre>
           <p>
             This approach ensures that benchmarks with different scales
             contribute equally to the final average.
@@ -50,6 +55,11 @@ export default function AboutPage() {
             average cost across this intersection is inverted and applied as a
             scaling factor.
           </p>
+          <pre className="font-mono text-sm bg-muted p-4 rounded">
+            factor<sub>j</sub> = 1 / mean<sub>j</sub>
+            {"\n"}cost′<sub>i,j</sub> = cost<sub>i,j</sub> × factor<sub>j</sub>
+            {"\n"}CPT<sub>i</sub> = (1 / B)∑<sub>j</sub> cost′<sub>i,j</sub>
+          </pre>
           <p>
             Each model&rsquo;s cost per task figure is then the mean of its
             normalised costs across the available benchmarks, allowing fair
