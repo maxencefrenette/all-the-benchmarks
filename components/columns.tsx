@@ -12,6 +12,12 @@ import {
   PopoverContent,
 } from "@/components/ui/popover"
 import { Input } from "@/components/ui/input"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 import type { TableRow } from "@/lib/data-loader"
 
@@ -126,10 +132,16 @@ export const columns: ColumnDef<TableRow>[] = [
             {score.toFixed(1)}
           </Badge>
           {count < 5 && (
-            <AlertCircle
-              className="h-4 w-4 text-yellow-600"
-              title="Fewer than 5 benchmarks"
-            />
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <AlertCircle className="h-4 w-4 text-yellow-600" />
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  {`This model has only been evaluated on ${count} out of ${row.original.totalBenchmarks} benchmarks`}
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           )}
         </div>
       )
