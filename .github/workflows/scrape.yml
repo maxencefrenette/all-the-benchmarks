@@ -26,11 +26,11 @@ jobs:
           pnpm scrape:livebench
           pnpm scrape:simplebench
           pnpm scrape:lmarena-text
-          pnpm scrape:arc-agi-1
-          pnpm scrape:arc-agi-2
+          pnpm scrape:arc-agi
           pnpm scrape:aider-polyglot
           pnpm scrape:hle
           pnpm scrape:gpqa-diamond
+          pnpm scrape:artificial-analysis-index
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v6
