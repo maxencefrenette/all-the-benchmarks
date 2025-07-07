@@ -388,7 +388,7 @@ model_name_mapping:
   DeepSeek V3 0324 (Mar '25): null
   Claude 4 Sonnet: null
   GPT-4.5 (Preview): null
-  GPT-4.1 mini: null
+  GPT-4.1 mini: gpt-4.1-mini
   GPT-4.1: gpt-4.1
   Gemini 2.0 Flash Thinking exp. (Jan '25): null
   DeepSeek R1 0528 Qwen3 8B: null
@@ -429,7 +429,7 @@ model_name_mapping:
   GPT-4o (Nov '24): null
   Gemini 2.0 Flash-Lite (Feb '25): null
   Llama 3.3 70B: null
-  GPT-4.1 nano: null
+  GPT-4.1 nano: gpt-4.1-nano
   Qwen3 14B: null
   GPT-4o (May '24): null
   Gemini 2.0 Flash-Lite (Preview): null

@@ -3,58 +3,58 @@
   model: o3 (high)
   provider: OpenAI
   averageScore: 90.25715218004336
-  costPerTask: 1.6509151031300497
+  costPerTask: 2.2841418057112444
 - id: o3-pro-high
   slug: o3-pro-high
   model: o3-pro (high)
   provider: OpenAI
-  averageScore: 88.5781114461564
-  costPerTask: 13.65773764644508
+  averageScore: 88.62740973072215
+  costPerTask: 18.90902309947468
 - id: gemini-2.5-pro-06-05
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro (06-05)
   provider: Google
-  averageScore: 87.94348787853372
-  costPerTask: 2.1481629585300466
-- id: gemini-2.5-pro-preview-03-25
-  slug: gemini-2.5-pro-preview-03-25
-  model: Gemini 2.5 Pro Preview 03-25
-  provider: Google
-  averageScore: 86.66071007114198
-  costPerTask: 2.1813103098019297
+  averageScore: 88.29113207784194
+  costPerTask: 2.9676602891832333
 - id: gemini-2.5-pro-preview-05-06
   slug: gemini-2.5-pro-preview-05-06
   model: Gemini 2.5 Pro Preview 05-06
   provider: Google
-  averageScore: 85.88433558541382
-  costPerTask: 2.69394164328446
+  averageScore: 88.2178015571845
+  costPerTask: 3.713466866774417
+- id: gemini-2.5-pro-preview-03-25
+  slug: gemini-2.5-pro-preview-03-25
+  model: Gemini 2.5 Pro Preview 03-25
+  provider: Google
+  averageScore: 87.02368647767555
+  costPerTask: 3.0246478873239435
 - id: claude-opus-4-thinking
   slug: claude-opus-4-thinking
   model: Claude 4 Opus (Thinking)
   provider: Anthropic
-  averageScore: 85.02791709390367
-  costPerTask: 4.234455108098599
+  averageScore: 85.68785679662405
+  costPerTask: 5.85368947101903
 - id: o3-medium
   slug: o3-medium
   model: o3 (medium)
   provider: OpenAI
-  averageScore: 84.15218316718436
-  costPerTask: 0.9803189570449125
+  averageScore: 84.62371873669699
+  costPerTask: 1.3566973819596049
 - id: o4-mini-high
   slug: o4-mini-high
   model: o4-mini (high)
   provider: OpenAI
-  averageScore: 78.81477839478185
-  costPerTask: 1.3433438612330855
+  averageScore: 80.98832462713298
+  costPerTask: 1.859163378301247
 - id: claude-opus-4-nothinking
   slug: claude-opus-4-nothinking
   model: Claude 4 Opus (No Thinking)
   provider: Anthropic
   averageScore: 77.8107740119079
-  costPerTask: 3.664103796251802
+  costPerTask: 4.999999999999999
 - id: claude-sonnet-4-thinking
   slug: claude-sonnet-4-thinking
   model: Claude 4 Sonnet (Thinking)
   provider: Anthropic
-  averageScore: 70.99953265370974
-  costPerTask: 1.310627914284649
+  averageScore: 71.54641495715929
+  costPerTask: 1.8090906932458548

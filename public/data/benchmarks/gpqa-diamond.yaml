@@ -219,7 +219,7 @@ model_name_mapping:
   GPT-4.1: gpt-4.1
   Llama 4 Maverick: null
   DeepSeek V3 0324 (Mar '25): null
-  GPT-4.1 mini: null
+  GPT-4.1 mini: gpt-4.1-mini
   GPT-4o (March 2025): null
   Claude 3.7 Sonnet: null
   Magistral Small: null
@@ -266,7 +266,7 @@ model_name_mapping:
   Tulu3 405B: null
   Llama 3.3 Nemotron Super 49B v1: null
   Mistral Small 3.2: null
-  GPT-4.1 nano: null
+  GPT-4.1 nano: gpt-4.1-nano
   GPT-4o (ChatGPT): null
   Grok 2: null
   Pixtral Large: null
