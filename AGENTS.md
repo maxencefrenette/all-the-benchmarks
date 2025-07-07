@@ -2,9 +2,10 @@
 
 This repository uses pnpm as package manager.
 
-- Run linting: `pnpm lint`
-- Run build: `pnpm build`
-- Run Prettier: `pnpm prettier`
+- Run linting and autofix: `pnpm lint`
+- Validate linting without fixes: `pnpm lint:check`
+- Run Prettier and write changes: `pnpm prettier`
+- Validate formatting without writing: `pnpm prettier:check`
 
 # Adding shadcn/ui components
 
