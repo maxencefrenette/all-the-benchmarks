@@ -194,7 +194,7 @@ model_name_mapping:
   Gemini 2.5 Pro (May' 25): gemini-2.5-pro-preview-05-06
   DeepSeek R1 0528 (May '25): deepseek-r1-0528
   Claude 4 Opus Thinking: claude-4-opus-thinking
-  Grok 3 mini Reasoning (high): null
+  Grok 3 mini Reasoning (high): grok-3-mini-high
   Gemini 2.5 Flash (Reasoning): gemini-2.5-flash-thinking
   o4-mini (high): o4-mini-high
   o3-mini (high): null

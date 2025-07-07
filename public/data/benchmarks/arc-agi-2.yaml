@@ -164,7 +164,7 @@ model_name_mapping:
   GPT-4.5: gpt-4.5-preview
   Claude 3.7 (16K): null
   GPT-4.1: gpt-4.1
-  Grok 3 Mini (Low): null
+  Grok 3 Mini (Low): grok-3-mini-low
   Claude 3.7 (1K): null
   Claude 3.7: null
   GPT-4o: gpt-4o

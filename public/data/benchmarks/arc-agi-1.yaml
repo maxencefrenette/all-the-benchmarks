@@ -161,7 +161,7 @@ model_name_mapping:
   Claude 3.7 (8K): null
   o1-preview: null
   Icecuber: null
-  Grok 3 Mini (Low): null
+  Grok 3 Mini (Low): grok-3-mini-low
   Gemini 2.5 Flash (Preview) (Thinking 1K): null
   Gemini 2.5 Pro (Thinking 1K): null
   Deepseek R1: null
