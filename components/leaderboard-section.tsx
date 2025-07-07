@@ -13,7 +13,7 @@ export default function LeaderboardSection({
   llmData: LLMData[]
 }) {
   const [showDeprecated, setShowDeprecated] = useState(false)
-  const [showIncomplete, setShowIncomplete] = useState(true)
+  const [showIncomplete, setShowIncomplete] = useState(false)
   const visible = llmData.filter(
     (m) =>
       (showDeprecated || !m.deprecated) &&
@@ -27,7 +27,7 @@ export default function LeaderboardSection({
         showDeprecated={showDeprecated}
         showIncomplete={showIncomplete}
       />
-      <div className="flex flex-col items-center justify-center gap-2">
+      <div className="flex items-center justify-center gap-2">
         <div className="flex items-center gap-2">
           <Switch
             id="deprecated-toggle"
