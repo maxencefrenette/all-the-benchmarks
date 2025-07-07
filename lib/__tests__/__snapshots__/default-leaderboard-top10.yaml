@@ -5,6 +5,7 @@
   averageScore: 90.25715218004336
   costPerTask: 1.6509151031300497
   benchmarkCount: 6
+  totalBenchmarks: 9
 - id: o3-pro-high
   slug: o3-pro-high
   model: o3-pro (high)
@@ -12,6 +13,7 @@
   averageScore: 88.5781114461564
   costPerTask: 13.65773764644508
   benchmarkCount: 4
+  totalBenchmarks: 9
 - id: gemini-2.5-pro-06-05
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro (06-05)
@@ -19,6 +21,7 @@
   averageScore: 87.94348787853372
   costPerTask: 2.1481629585300466
   benchmarkCount: 9
+  totalBenchmarks: 9
 - id: gemini-2.5-pro-preview-03-25
   slug: gemini-2.5-pro-preview-03-25
   model: Gemini 2.5 Pro Preview 03-25
@@ -26,6 +29,7 @@
   averageScore: 86.66071007114198
   costPerTask: 2.1813103098019297
   benchmarkCount: 5
+  totalBenchmarks: 9
 - id: gemini-2.5-pro-preview-05-06
   slug: gemini-2.5-pro-preview-05-06
   model: Gemini 2.5 Pro Preview 05-06
@@ -33,6 +37,7 @@
   averageScore: 85.88433558541382
   costPerTask: 2.69394164328446
   benchmarkCount: 4
+  totalBenchmarks: 9
 - id: claude-opus-4-thinking
   slug: claude-opus-4-thinking
   model: Claude 4 Opus (Thinking)
@@ -40,6 +45,7 @@
   averageScore: 85.02791709390367
   costPerTask: 4.234455108098599
   benchmarkCount: 5
+  totalBenchmarks: 9
 - id: o3-medium
   slug: o3-medium
   model: o3 (medium)
@@ -47,6 +53,7 @@
   averageScore: 84.15218316718436
   costPerTask: 0.9803189570449125
   benchmarkCount: 8
+  totalBenchmarks: 9
 - id: o4-mini-high
   slug: o4-mini-high
   model: o4-mini (high)
@@ -54,6 +61,7 @@
   averageScore: 78.81477839478185
   costPerTask: 1.3433438612330855
   benchmarkCount: 8
+  totalBenchmarks: 9
 - id: claude-opus-4-nothinking
   slug: claude-opus-4-nothinking
   model: Claude 4 Opus (No Thinking)
@@ -61,6 +69,7 @@
   averageScore: 77.8107740119079
   costPerTask: 3.664103796251802
   benchmarkCount: 2
+  totalBenchmarks: 9
 - id: claude-sonnet-4-thinking
   slug: claude-sonnet-4-thinking
   model: Claude 4 Sonnet (Thinking)
@@ -68,3 +77,4 @@
   averageScore: 70.99953265370974
   costPerTask: 1.310627914284649
   benchmarkCount: 5
+  totalBenchmarks: 9

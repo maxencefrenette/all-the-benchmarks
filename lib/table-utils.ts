@@ -6,6 +6,7 @@ export interface TableRow {
   averageScore: number
   costPerTask: number | null
   benchmarkCount: number
+  totalBenchmarks: number
 }
 
 export function transformToTableData(
@@ -18,6 +19,14 @@ export function transformToTableData(
     normalizedCost?: number | null
   }[],
 ): TableRow[] {
+  const benchmarkSet = new Set<string>()
+  for (const llm of llmData) {
+    for (const name of Object.keys(llm.benchmarks)) {
+      benchmarkSet.add(name)
+    }
+  }
+  const total = benchmarkSet.size
+
   return llmData.map((llm) => ({
     id: llm.slug,
     slug: llm.slug,
@@ -26,5 +35,6 @@ export function transformToTableData(
     averageScore: llm.averageScore || 0,
     costPerTask: llm.normalizedCost ?? null,
     benchmarkCount: Object.keys(llm.benchmarks).length,
+    totalBenchmarks: total,
   }))
 }

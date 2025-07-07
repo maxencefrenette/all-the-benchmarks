@@ -120,6 +120,7 @@ export const columns: ColumnDef<TableRow>[] = [
     cell: ({ row }) => {
       const score = row.getValue("averageScore") as number
       const count = row.original.benchmarkCount
+      const total = row.original.totalBenchmarks
       return (
         <div className="font-semibold flex items-center gap-1">
           <Badge variant="secondary" className="cursor-default">
@@ -128,7 +129,7 @@ export const columns: ColumnDef<TableRow>[] = [
           {count < 5 && (
             <AlertCircle
               className="h-4 w-4 text-yellow-600"
-              title="Fewer than 5 benchmarks"
+              title={`The model has only been evaluated in ${count} out of ${total} benchmarks.`}
             />
           )}
         </div>
