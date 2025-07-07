@@ -9,7 +9,14 @@ import path from "path"
 
 test("default leaderboard top 10 data", async () => {
   const llmData = await loadLLMData()
-  const tableRows = transformToTableData(llmData).slice(0, 10)
+  const tableRows = transformToTableData(llmData)
+    .slice(0, 10)
+    .map((row) => ({
+      ...row,
+      averageScore: Number(row.averageScore.toFixed(2)),
+      costPerTask:
+        row.costPerTask === null ? null : Number(row.costPerTask.toFixed(2)),
+    }))
   const yamlData = stringify(tableRows)
   const snapshotFile = path.join(
     __dirname,
