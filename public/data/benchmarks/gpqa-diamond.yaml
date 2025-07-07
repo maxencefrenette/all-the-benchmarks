@@ -204,7 +204,7 @@ model_name_mapping:
   Llama Nemotron Ultra Reasoning: null
   Claude 4 Sonnet Thinking: null
   DeepSeek R1 (Jan '25): null
-  GPT-4.5 (Preview): null
+  GPT-4.5 (Preview): gpt-4.5-preview
   MiniMax M1 80k: null
   Qwen3 235B (Reasoning): null
   Gemini 2.5 Flash (April '25) (Reasoning): null
