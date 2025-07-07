@@ -89,6 +89,7 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
           />
           <ZAxis range={[144, 144]} />
           <ChartTooltip
+            cursor={false}
             labelFormatter={(_, payload) =>
               (payload?.[0]?.payload as LLMData).model
             }
