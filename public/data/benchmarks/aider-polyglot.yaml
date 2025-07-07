@@ -155,7 +155,7 @@ model_name_mapping:
   DeepSeek Chat V3 (prev): null
   gemini-2.5-flash-preview-04-17 (default): null
   chatgpt-4o-latest (2025-03-29): gpt-4o
-  gpt-4.5-preview: null
+  gpt-4.5-preview: gpt-4.5-preview
   gemini-2.5-flash-preview-05-20 (no think): null
   Qwen3 32B: null
   gemini-exp-1206: null
