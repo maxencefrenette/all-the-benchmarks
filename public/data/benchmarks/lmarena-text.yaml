@@ -243,7 +243,7 @@ model_name_mapping:
   gemini-2.0-flash-001: null
   gemma-3-27b-it: null
   deepseek-v3: null
-  grok-3-mini-beta: grok-3-mini
+  grok-3-mini-beta: grok-3-mini-nothinking
   gemini-2.0-flash-lite-preview-02-05: null
   gemini-1.5-pro-002: null
   o3-mini: null

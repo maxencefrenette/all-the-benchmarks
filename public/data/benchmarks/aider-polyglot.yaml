@@ -147,7 +147,7 @@ model_name_mapping:
   gemini-2.5-flash-preview-05-20 (24k think): null
   Quasar Alpha: null
   o3-mini (medium): null
-  Grok 3 Beta: null
+  Grok 3 Beta: grok-3
   Optimus Alpha: null
   gpt-4.1: gpt-4.1
   claude-3-5-sonnet-20241022: null
@@ -160,7 +160,7 @@ model_name_mapping:
   Qwen3 32B: null
   gemini-exp-1206: null
   Gemini 2.0 Pro exp-02-05: null
-  Grok 3 Mini Beta (low): null
+  Grok 3 Mini Beta (low): grok-3-mini-low
   o1-mini-2024-09-12: null
   gpt-4.1-mini: gpt-4.1-mini
   claude-3-5-haiku-20241022: null
