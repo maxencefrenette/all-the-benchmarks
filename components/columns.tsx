@@ -1,7 +1,7 @@
 "use client"
 
 import type { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown, Search, ChevronRight } from "lucide-react"
+import { ArrowUpDown, Search, ChevronRight, AlertCircle } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -119,11 +119,18 @@ export const columns: ColumnDef<TableRow>[] = [
     },
     cell: ({ row }) => {
       const score = row.getValue("averageScore") as number
+      const count = row.original.benchmarkCount
       return (
-        <div className="font-semibold">
+        <div className="font-semibold flex items-center gap-1">
           <Badge variant="secondary" className="cursor-default">
             {score.toFixed(1)}
           </Badge>
+          {count < 5 && (
+            <AlertCircle
+              className="h-4 w-4 text-yellow-600"
+              title="Fewer than 5 benchmarks"
+            />
+          )}
         </div>
       )
     },
