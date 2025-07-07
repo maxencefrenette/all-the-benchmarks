@@ -13,20 +13,39 @@ export default function LeaderboardSection({
   llmData: LLMData[]
 }) {
   const [showDeprecated, setShowDeprecated] = useState(false)
-  const visible = showDeprecated
-    ? llmData
-    : llmData.filter((m) => !m.deprecated)
+  const [showIncomplete, setShowIncomplete] = useState(true)
+  const visible = llmData.filter(
+    (m) =>
+      (showDeprecated || !m.deprecated) &&
+      (showIncomplete || Object.keys(m.benchmarks).length >= 5),
+  )
 
   return (
     <div className="space-y-4">
-      <CostScoreChart llmData={llmData} showDeprecated={showDeprecated} />
-      <div className="flex items-center justify-center gap-2">
-        <Switch
-          id="deprecated-toggle"
-          checked={showDeprecated}
-          onCheckedChange={setShowDeprecated}
-        />
-        <Label htmlFor="deprecated-toggle">Show deprecated models</Label>
+      <CostScoreChart
+        llmData={llmData}
+        showDeprecated={showDeprecated}
+        showIncomplete={showIncomplete}
+      />
+      <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex items-center gap-2">
+          <Switch
+            id="deprecated-toggle"
+            checked={showDeprecated}
+            onCheckedChange={setShowDeprecated}
+          />
+          <Label htmlFor="deprecated-toggle">Show deprecated models</Label>
+        </div>
+        <div className="flex items-center gap-2">
+          <Switch
+            id="incomplete-toggle"
+            checked={showIncomplete}
+            onCheckedChange={setShowIncomplete}
+          />
+          <Label htmlFor="incomplete-toggle">
+            Show models with limited data
+          </Label>
+        </div>
       </div>
       <LeaderboardTable llmData={visible} />
     </div>
