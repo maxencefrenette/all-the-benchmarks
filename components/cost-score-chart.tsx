@@ -8,12 +8,19 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
 
 const BASE_TICKS = [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30] as const
 
+const MIN_BENCHMARKS = 5
+
 type Props = {
   llmData: LLMData[]
   showDeprecated: boolean
+  showIncomplete: boolean
 }
 
-export default function CostScoreChart({ llmData, showDeprecated }: Props) {
+export default function CostScoreChart({
+  llmData,
+  showDeprecated,
+  showIncomplete,
+}: Props) {
   const sorted = React.useMemo(
     () => [...llmData].sort((a, b) => a.slug.localeCompare(b.slug)),
     [llmData],
@@ -28,8 +35,14 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
   }, [sorted])
 
   const visible = React.useMemo(
-    () => sorted.filter((m) => showDeprecated || !m.deprecated),
-    [sorted, showDeprecated],
+    () =>
+      sorted.filter(
+        (m) =>
+          (showDeprecated || !m.deprecated) &&
+          (showIncomplete ||
+            Object.keys(m.benchmarks).length >= MIN_BENCHMARKS),
+      ),
+    [sorted, showDeprecated, showIncomplete],
   )
 
   const costDomain = React.useMemo(() => {
@@ -111,7 +124,10 @@ export default function CostScoreChart({ llmData, showDeprecated }: Props) {
               key={provider}
               data={data.map((d) =>
                 showDeprecated || !d.deprecated
-                  ? d
+                  ? showIncomplete ||
+                    Object.keys(d.benchmarks).length >= MIN_BENCHMARKS
+                    ? d
+                    : { ...d, normalizedCost: NaN, averageScore: NaN }
                   : { ...d, normalizedCost: NaN, averageScore: NaN },
               )}
               name={provider}
