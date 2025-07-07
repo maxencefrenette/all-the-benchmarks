@@ -272,6 +272,8 @@ model_name_mapping:
   gpt-4-turbo-2024-04-09: null
   gemini-1.5-pro-001: null
   gpt-4.1-nano-2025-04-14: gpt-4.1-nano
+  GPT-4.1-Mini: gpt-4.1-mini
+  GPT-4.1-Nano: gpt-4.1-nano
   deepseek-v2.5-1210: null
   amazon-nova-experimental-chat-05-14: null
   claude-3-opus-20240229: null

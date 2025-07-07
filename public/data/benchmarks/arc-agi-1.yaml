@@ -177,6 +177,6 @@ model_name_mapping:
   Magistral Small: null
   GPT-4o: gpt-4o
   Llama 4 Maverick: null
-  GPT-4.1-Mini: null
+  GPT-4.1-Mini: gpt-4.1-mini
   Llama 4 Scout: null
-  GPT-4.1-Nano: null
+  GPT-4.1-Nano: gpt-4.1-nano
