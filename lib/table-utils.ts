@@ -5,6 +5,7 @@ export interface TableRow {
   provider: string
   averageScore: number
   costPerTask: number | null
+  benchmarkCount: number
 }
 
 export function transformToTableData(
@@ -12,6 +13,7 @@ export function transformToTableData(
     slug: string
     model: string
     provider: string
+    benchmarks: Record<string, unknown>
     averageScore?: number
     normalizedCost?: number | null
   }[],
@@ -23,5 +25,6 @@ export function transformToTableData(
     provider: llm.provider,
     averageScore: llm.averageScore || 0,
     costPerTask: llm.normalizedCost ?? null,
+    benchmarkCount: Object.keys(llm.benchmarks).length,
   }))
 }
