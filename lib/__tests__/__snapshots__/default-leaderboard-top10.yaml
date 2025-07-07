@@ -5,6 +5,7 @@
   averageScore: 90.25715218004336
   costPerTask: 2.4217322308296167
   benchmarkCount: 6
+  totalBenchmarks: 9
 - id: o3-pro-high
   slug: o3-pro-high
   model: o3-pro (high)
@@ -12,6 +13,7 @@
   averageScore: 88.62740973072215
   costPerTask: 20.082836146455183
   benchmarkCount: 4
+  totalBenchmarks: 9
 - id: gemini-2.5-pro-06-05
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro (06-05)
@@ -19,6 +21,7 @@
   averageScore: 88.29113207784194
   costPerTask: 3.130512167527233
   benchmarkCount: 9
+  totalBenchmarks: 9
 - id: gemini-2.5-pro-preview-05-06
   slug: gemini-2.5-pro-preview-05-06
   model: Gemini 2.5 Pro Preview 05-06
@@ -26,6 +29,7 @@
   averageScore: 88.2178015571845
   costPerTask: 3.890476190476191
   benchmarkCount: 4
+  totalBenchmarks: 9
 - id: gemini-2.5-pro-preview-03-25
   slug: gemini-2.5-pro-preview-03-25
   model: Gemini 2.5 Pro Preview 03-25
@@ -33,6 +37,7 @@
   averageScore: 87.02368647767555
   costPerTask: 3.208216619981326
   benchmarkCount: 5
+  totalBenchmarks: 9
 - id: claude-opus-4-thinking
   slug: claude-opus-4-thinking
   model: Claude 4 Opus (Thinking)
@@ -40,6 +45,7 @@
   averageScore: 85.68785679662405
   costPerTask: 6.193164845164149
   benchmarkCount: 5
+  totalBenchmarks: 9
 - id: o3-medium
   slug: o3-medium
   model: o3 (medium)
@@ -47,6 +53,7 @@
   averageScore: 84.62371873669699
   costPerTask: 1.4375857289727487
   benchmarkCount: 8
+  totalBenchmarks: 9
 - id: o4-mini-high
   slug: o4-mini-high
   model: o4-mini (high)
@@ -54,6 +61,7 @@
   averageScore: 80.98832462713298
   costPerTask: 1.9717305231237856
   benchmarkCount: 8
+  totalBenchmarks: 9
 - id: claude-opus-4-nothinking
   slug: claude-opus-4-nothinking
   model: Claude 4 Opus (No Thinking)
@@ -61,6 +69,7 @@
   averageScore: 77.8107740119079
   costPerTask: 5.126050420168068
   benchmarkCount: 2
+  totalBenchmarks: 9
 - id: grok-3-mini-high
   slug: grok-3-mini-high
   model: Grok 3 Mini (high)
@@ -68,3 +77,4 @@
   averageScore: 72.88294134675459
   costPerTask: 0.119234360410831
   benchmarkCount: 4
+  totalBenchmarks: 9
