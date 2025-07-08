@@ -48,16 +48,6 @@
   benchmarkCount: 5
   totalBenchmarks: 9
   totalCostBenchmarks: 4
-- id: claude-opus-4-thinking
-  slug: claude-opus-4-thinking
-  model: Claude 4 Opus (Thinking)
-  provider: Anthropic
-  averageScore: 85.09
-  costPerTask: 3.99
-  costBenchmarkCount: 4
-  benchmarkCount: 7
-  totalBenchmarks: 9
-  totalCostBenchmarks: 4
 - id: o3-medium
   slug: o3-medium
   model: o3 (medium)
@@ -74,6 +64,16 @@
   provider: OpenAI
   averageScore: 80.99
   costPerTask: 1.21
+  costBenchmarkCount: 4
+  benchmarkCount: 8
+  totalBenchmarks: 9
+  totalCostBenchmarks: 4
+- id: claude-opus-4-thinking
+  slug: claude-opus-4-thinking
+  model: Claude 4 Opus (Thinking)
+  provider: Anthropic
+  averageScore: 78.55
+  costPerTask: 3.99
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9

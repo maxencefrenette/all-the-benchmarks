@@ -20,7 +20,7 @@ async function main(): Promise<void> {
   }
   const results: Record<string, number> = {}
   for (const entry of data.props.pageProps.entries) {
-    results[entry.model] = entry.score
+    results[entry.model.trim()] = entry.score
   }
   const outPath = path.join(
     __dirname,
