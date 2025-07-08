@@ -9,6 +9,13 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
 const BASE_TICKS = [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30] as const
 
 const MIN_BENCHMARKS = 5
+const MIN_COST_BENCHMARKS = 3
+
+function countCostBenchmarks(llm: LLMData) {
+  return Object.values(llm.benchmarks).filter(
+    (b) => b.normalizedCost !== undefined,
+  ).length
+}
 
 type Props = {
   llmData: LLMData[]
@@ -40,7 +47,8 @@ export default function CostScoreChart({
         (m) =>
           (showDeprecated || !m.deprecated) &&
           (showIncomplete ||
-            Object.keys(m.benchmarks).length >= MIN_BENCHMARKS),
+            (Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
+              countCostBenchmarks(m) >= MIN_COST_BENCHMARKS)),
       ),
     [sorted, showDeprecated, showIncomplete],
   )
@@ -125,7 +133,8 @@ export default function CostScoreChart({
               data={data.map((d) =>
                 showDeprecated || !d.deprecated
                   ? showIncomplete ||
-                    Object.keys(d.benchmarks).length >= MIN_BENCHMARKS
+                    (Object.keys(d.benchmarks).length >= MIN_BENCHMARKS &&
+                      countCostBenchmarks(d) >= MIN_COST_BENCHMARKS)
                     ? d
                     : { ...d, normalizedCost: NaN, averageScore: NaN }
                   : { ...d, normalizedCost: NaN, averageScore: NaN },

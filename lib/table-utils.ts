@@ -1,3 +1,5 @@
+import type { BenchmarkResult } from "./data-loader"
+
 export interface TableRow {
   id: string
   slug: string
@@ -5,6 +7,7 @@ export interface TableRow {
   provider: string
   averageScore: number
   costPerTask: number | null
+  costBenchmarkCount: number
   benchmarkCount: number
   totalBenchmarks: number
 }
@@ -34,6 +37,9 @@ export function transformToTableData(
     provider: llm.provider,
     averageScore: llm.averageScore || 0,
     costPerTask: llm.normalizedCost ?? null,
+    costBenchmarkCount: Object.values(llm.benchmarks).filter(
+      (b) => (b as BenchmarkResult).normalizedCost !== undefined,
+    ).length,
     benchmarkCount: Object.keys(llm.benchmarks).length,
     totalBenchmarks,
   }))
