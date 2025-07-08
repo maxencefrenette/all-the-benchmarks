@@ -9,6 +9,18 @@ This repository uses pnpm as package manager.
 - Run the test suite: `pnpm test`
 - Update snapshot tests: `pnpm test:update`
 
+## Project structure
+
+This repository is a Next.js application. Key directories include:
+
+- `app/` – Route handlers and page components.
+- `components/` – Shared React components built on top of shadcn/ui.
+- `hooks/` – Small React hooks used across the UI.
+- `lib/` – Helper functions for loading YAML data and computing scores.
+- `public/` – Static assets. The `data/` subdirectory stores benchmark and model YAML files.
+- `scripts/` – Scrapers that populate `public/data/benchmarks`.
+- `styles/` – Global and Tailwind CSS files.
+
 # Adding shadcn/ui components
 
 Use the shadcn/ui CLI to scaffold new components. Run `pnpm dlx shadcn-ui@latest add <component>`.
