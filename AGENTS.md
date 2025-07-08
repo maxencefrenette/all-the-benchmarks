@@ -6,6 +6,7 @@ This repository uses pnpm as package manager.
 - Validate linting without fixes: `pnpm lint:check`
 - Run Prettier and write changes: `pnpm prettier`
 - Validate formatting without writing: `pnpm prettier:check`
+- Run the test suite: `pnpm test`
 - Update snapshot tests: `pnpm test:update`
 
 # Adding shadcn/ui components
