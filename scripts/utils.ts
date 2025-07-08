@@ -34,29 +34,22 @@ export async function saveBenchmarkResults(
   }
 
   const existingMap: Record<string, string | null> = {}
-  if (yamlObj.model_name_mapping_file) {
-    const mapPath = path.join(
-      path.dirname(outPath),
-      "..",
-      "mappings",
-      yamlObj.model_name_mapping_file as string,
-    )
-    try {
-      const mapText = await fs.readFile(mapPath, "utf8")
-      Object.assign(
-        existingMap,
-        YAML.parse(mapText) as Record<string, string | null>,
-      )
-    } catch (err: any) {
-      if (err.code !== "ENOENT") throw err
-    }
-  }
-  if (yamlObj.model_name_mapping) {
+  const mapPath = path.join(
+    path.dirname(outPath),
+    "..",
+    "mappings",
+    yamlObj.model_name_mapping_file as string,
+  )
+  try {
+    const mapText = await fs.readFile(mapPath, "utf8")
     Object.assign(
       existingMap,
-      yamlObj.model_name_mapping as Record<string, string | null>,
+      YAML.parse(mapText) as Record<string, string | null>,
     )
+  } catch (err: any) {
+    if (err.code !== "ENOENT") throw err
   }
+
   const sortedModels = Object.entries(results)
     .sort((a, b) => b[1] - a[1])
     .map(([name]) => name)
@@ -66,20 +59,8 @@ export async function saveBenchmarkResults(
       ? existingMap[name]
       : null
   }
-  if (!yamlObj.model_name_mapping_file || "model_name_mapping" in yamlObj) {
-    yamlObj.model_name_mapping = newMap
-  }
-
-  if (yamlObj.model_name_mapping_file) {
-    const mapPath = path.join(
-      path.dirname(outPath),
-      "..",
-      "mappings",
-      yamlObj.model_name_mapping_file as string,
-    )
-    await fs.writeFile(mapPath, YAML.stringify(newMap))
-    console.log(`Wrote ${mapPath}`)
-  }
+  await fs.writeFile(mapPath, YAML.stringify(newMap))
+  delete yamlObj.model_name_mapping
 
   await fs.writeFile(outPath, YAML.stringify(yamlObj))
   console.log(`Wrote ${outPath}`)
