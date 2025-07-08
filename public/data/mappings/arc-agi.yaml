@@ -1,44 +1,44 @@
 ARChitects: null
+Claude 3.7: null
 Claude 3.7 (16K): null
 Claude 3.7 (1K): null
 Claude 3.7 (8K): null
-Claude 3.7: null
+Claude Opus 4: claude-opus-4-nothinking
 Claude Opus 4 (Thinking 16K): claude-opus-4-thinking
 Claude Opus 4 (Thinking 1K): null
 Claude Opus 4 (Thinking 8K): null
-Claude Opus 4: claude-opus-4-nothinking
+Claude Sonnet 4: claude-sonnet-4-nothinking
 Claude Sonnet 4 (Thinking 16K): claude-sonnet-4-thinking
 Claude Sonnet 4 (Thinking 1K): null
 Claude Sonnet 4 (Thinking 8K): null
-Claude Sonnet 4: claude-sonnet-4-nothinking
 Codex Mini (Latest): null
-Deepseek R1 (05/28): deepseek-r1-0528
 Deepseek R1: null
+Deepseek R1 (05/28): deepseek-r1-0528
 Gemini 1.5 Pro: null
 Gemini 2.0 Flash: null
+Gemini 2.5 Flash (Preview): null
 Gemini 2.5 Flash (Preview) (Thinking 16K): null
 Gemini 2.5 Flash (Preview) (Thinking 1K): null
 Gemini 2.5 Flash (Preview) (Thinking 24K): gemini-2.5-flash-thinking
 Gemini 2.5 Flash (Preview) (Thinking 8K): null
-Gemini 2.5 Flash (Preview): null
 Gemini 2.5 Pro (Thinking 16K): null
 Gemini 2.5 Pro (Thinking 1K): null
 Gemini 2.5 Pro (Thinking 32K): gemini-2.5-pro-06-05
 Gemini 2.5 Pro (Thinking 8K): null
+GPT-4.1: gpt-4.1
 GPT-4.1-Mini: gpt-4.1-mini
 GPT-4.1-Nano: gpt-4.1-nano
-GPT-4.1: gpt-4.1
 GPT-4.5: gpt-4.5-preview
-GPT-4o-mini: null
 GPT-4o: gpt-4o
-Grok 3 Mini (Low): grok-3-mini-low
+GPT-4o-mini: null
 Grok 3: grok-3
+Grok 3 Mini (Low): grok-3-mini-low
 Human Panel: null
 Icecuber: null
 Llama 4 Maverick: null
 Llama 4 Scout: null
-Magistral Medium (Thinking): null
 Magistral Medium: null
+Magistral Medium (Thinking): null
 Magistral Small: null
 o1 (Low): null
 o1 (Medium): null

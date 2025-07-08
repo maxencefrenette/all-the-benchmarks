@@ -1,81 +1,83 @@
 benchmark: LMArena Text
 description: Elo score on LMArena Text leaderboard
 results:
-  gemini-2.5-pro: 1463
-  o3-2025-04-16: 1449
-  chatgpt-4o-latest-20250326: 1441
+  gemini-2.5-pro: 1465
+  o3-2025-04-16: 1450
+  chatgpt-4o-latest-20250326: 1443
   gpt-4.5-preview-2025-02-27: 1436
   claude-opus-4-20250514: 1417
-  gemini-2.5-flash: 1415
-  deepseek-r1-0528: 1413
+  gemini-2.5-flash: 1416
+  deepseek-r1-0528: 1414
   gpt-4.1-2025-04-14: 1411
-  grok-3-preview-02-24: 1408
+  grok-3-preview-02-24: 1409
+  qwen3-235b-a22b-no-thinking: 1399
   o1-2024-12-17: 1399
-  o4-mini-2025-04-16: 1398
+  o4-mini-2025-04-16: 1399
   deepseek-v3-0324: 1396
-  qwen3-235b-a22b-no-thinking: 1396
+  minimax-m1: 1395
   deepseek-r1: 1395
   claude-sonnet-4-20250514: 1393
-  minimax-m1: 1391
   gemini-2.5-flash-lite-preview-06-17-thinking: 1387
-  claude-3-7-sonnet-20250219-thinking-32k: 1385
-  hunyuan-turbos-20250416: 1382
+  claude-3-7-sonnet-20250219-thinking-32k: 1386
+  hunyuan-turbos-20250416: 1383
   o1-preview: 1383
-  mistral-medium-2505: 1381
+  mistral-medium-2505: 1383
   claude-3-7-sonnet-20250219: 1375
   gpt-4.1-mini-2025-04-14: 1373
   qwen3-235b-a22b: 1371
-  qwen2.5-max: 1368
-  claude-3-5-sonnet-20241022: 1366
+  qwen2.5-max: 1369
   o3-mini-high: 1366
-  gemini-2.0-flash-001: 1364
-  gemma-3-27b-it: 1363
-  grok-3-mini-beta: 1356
+  claude-3-5-sonnet-20241022: 1366
+  gemma-3-27b-it: 1365
+  gemini-2.0-flash-001: 1363
   deepseek-v3: 1357
+  grok-3-mini-beta: 1354
   gemini-2.0-flash-lite-preview-02-05: 1350
+  qwen3-32b: 1347
+  llama-3.1-nemotron-ultra-253b-v1: 1345
   hunyuan-turbos-20250226: 1344
+  mistral-small-2506: 1343
   gemini-1.5-pro-002: 1348
-  o3-mini: 1347
-  qwen-plus-0125: 1343
+  o3-mini: 1346
+  command-a-03-2025: 1346
   gemma-3-12b-it: 1342
+  qwen-plus-0125: 1342
   hunyuan-turbo-0110: 1339
-  command-a-03-2025: 1345
   gpt-4o-2024-05-13: 1343
-  glm-4-plus-0111: 1337
   claude-3-5-sonnet-20240620: 1340
-  qwq-32b: 1337
+  glm-4-plus-0111: 1336
+  qwq-32b: 1336
   o1-mini: 1335
-  step-2-16k-exp-202412: 1331
-  llama-3.3-nemotron-49b-super-v1: 1326
-  llama-3.1-nemotron-ultra-253b-v1: 1326
   gemini-advanced-0514: 1334
   llama-3.1-405b-instruct-bf16: 1334
+  step-2-16k-exp-202412: 1331
+  llama-3.3-nemotron-49b-super-v1: 1326
   llama-3.1-405b-instruct-fp8: 1333
-  qwen3-32b: 1328
+  qwen3-30b-a3b: 1330
   llama-4-maverick-17b-128e-instruct: 1330
   gpt-4o-2024-08-06: 1330
   grok-2-2024-08-13: 1329
-  yi-lightning: 1327
   hunyuan-large-2025-02-10: 1322
-  gpt-4.1-nano-2025-04-14: 1320
-  amazon-nova-experimental-chat-05-14: 1319
+  yi-lightning: 1326
+  gpt-4.1-nano-2025-04-14: 1321
   deepseek-v2.5-1210: 1320
+  llama-4-scout-17b-16e-instruct: 1320
   gpt-4-turbo-2024-04-09: 1322
+  amazon-nova-experimental-chat-05-14: 1318
   gemini-1.5-pro-001: 1321
   claude-3-opus-20240229: 1319
-  gemma-3n-e4b-it: 1316
-  llama-4-scout-17b-16e-instruct: 1315
-  hunyuan-standard-2025-02-10: 1310
-  llama-3.3-70b-instruct: 1315
+  gemma-3n-e4b-it: 1315
   claude-3-5-haiku-20241022: 1315
+  llama-3.3-70b-instruct: 1315
   glm-4-plus: 1315
-  gpt-4-1106-preview: 1315
+  hunyuan-standard-2025-02-10: 1309
+  gpt-4-1106-preview: 1314
   gpt-4o-mini-2024-07-18: 1314
   qwen2.5-plus-1127: 1311
-  mistral-large-2407: 1312
   qwen-max-0919: 1311
+  magistral-medium-2506: 1306
+  mistral-large-2407: 1312
   athene-v2-chat: 1311
-  magistral-medium-2506: 1307
   gpt-4-0125-preview: 1311
   gemini-1.5-flash-002: 1309
   deepseek-v2.5: 1306
@@ -84,23 +86,22 @@ results:
   grok-2-mini-2024-08-13: 1304
   qwen2.5-72b-instruct: 1302
   mistral-large-2411: 1301
-  mistral-small-3.1-24b-instruct-2503: 1298
+  mistral-small-3.1-24b-instruct-2503: 1297
   llama-3.1-nemotron-70b-instruct: 1296
-  qwen3-30b-a3b: 1295
   llama-3.1-tulu-3-70b: 1289
-  llama-3.1-70b-instruct: 1294
-  reka-core-20240904: 1287
-  llama-3.1-nemotron-51b-instruct: 1284
+  llama-3.1-70b-instruct: 1293
   amazon-nova-pro-v1.0: 1288
-  gemma-2-27b-it: 1287
+  reka-core-20240904: 1287
   jamba-1.5-large: 1285
+  llama-3.1-nemotron-51b-instruct: 1284
+  hunyuan-large-vision: 1282
+  gemma-2-27b-it: 1287
   gemini-1.5-flash-001: 1284
   gemma-2-9b-it-simpo: 1280
-  hunyuan-large-vision: 1273
   gpt-4-0314: 1280
   command-r-plus-08-2024: 1277
-  claude-3-sonnet-20240229: 1278
   nemotron-4-340b-instruct: 1276
+  claude-3-sonnet-20240229: 1277
   llama-3-70b-instruct: 1275
   reka-flash-20240904: 1273
   qwen2.5-coder-32b-instruct: 1270
@@ -110,10 +111,10 @@ results:
   c4ai-aya-expanse-32b: 1265
   deepseek-coder-v2: 1262
   command-r-plus: 1263
-  qwen2-72b-instruct: 1261
   amazon-nova-lite-v1.0: 1261
   olmo-2-0325-32b-instruct: 1255
   gemma-2-9b-it: 1260
+  qwen2-72b-instruct: 1260
   gemini-1.5-flash-8b-001: 1259
   claude-3-haiku-20240307: 1258
   phi-4: 1257
@@ -122,10 +123,10 @@ results:
   ministral-8b-2410: 1240
   jamba-1.5-mini: 1240
   mistral-large-2402: 1238
-  hunyuan-standard-256k: 1233
+  hunyuan-standard-256k: 1232
   qwen1.5-110b-chat: 1235
   reka-flash-21b-20240226-online: 1231
-  c4ai-aya-expanse-8b: 1231
+  c4ai-aya-expanse-8b: 1230
   llama-3.1-tulu-3-8b: 1227
   gemini-pro-dev-api: 1227
   mixtral-8x22b-instruct-v0.1: 1229
@@ -137,58 +138,58 @@ results:
   mistral-medium: 1221
   gemini-pro: 1212
   gpt-3.5-turbo-0125: 1217
-  zephyr-orpo-141b-A35b-v0.1: 1211
-  llama-3.1-8b-instruct: 1213
   yi-1.5-34b-chat: 1213
-  qwen1.5-32b-chat: 1207
+  llama-3.1-8b-instruct: 1213
+  zephyr-orpo-141b-A35b-v0.1: 1210
+  qwen1.5-32b-chat: 1206
   phi-3-medium-4k-instruct: 1198
   gemma-2-2b-it: 1198
   internlm2_5-20b-chat: 1196
   mixtral-8x7b-instruct-v0.1: 1194
   dbrx-instruct-preview: 1193
+  gpt-3.5-turbo-1106: 1190
   granite-3.0-8b-instruct: 1189
-  gpt-3.5-turbo-1106: 1189
+  granite-3.1-2b-instruct: 1184
   qwen1.5-14b-chat: 1187
   wizardlm-70b: 1185
-  granite-3.1-2b-instruct: 1183
-  yi-34b-chat: 1181
   snowflake-arctic-instruct: 1182
+  yi-34b-chat: 1181
   openchat-3.5-0106: 1180
   gemma-1.1-7b-it: 1179
-  phi-3-small-8k-instruct: 1179
+  phi-3-small-8k-instruct: 1178
   openchat-3.5: 1175
   llama-3.2-3b-instruct: 1173
   tulu-2-dpo-70b: 1172
   deepseek-llm-67b-chat: 1171
   openhermes-2.5-mistral-7b: 1170
   starling-lm-7b-beta: 1172
-  vicuna-33b: 1172
+  vicuna-33b: 1171
   qwq-32b-preview: 1167
   starling-lm-7b-alpha: 1163
   granite-3.0-2b-instruct: 1161
   llama-2-70b-chat: 1162
   llama2-70b-steerlm-chat: 1154
+  dolphin-2.2.1-mistral-7b: 1149
   nous-hermes-2-mixtral-8x7b-dpo: 1152
-  dolphin-2.2.1-mistral-7b: 1150
   qwen1.5-7b-chat: 1145
   phi-3-mini-4k-instruct-june-2024: 1148
   solar-10.7b-instruct-v1.0: 1146
   falcon-180b-chat: 1139
   mistral-7b-instruct-v0.2: 1147
-  wizardlm-13b: 1144
-  mpt-30b-chat: 1141
+  wizardlm-13b: 1143
+  mpt-30b-chat: 1140
   qwen-14b-chat: 1136
-  smollm2-1.7b-instruct: 1132
   vicuna-13b: 1138
   phi-3-mini-4k-instruct: 1136
   llama-2-13b-chat: 1134
+  smollm2-1.7b-instruct: 1131
   zephyr-7b-alpha: 1126
-  phi-3-mini-128k-instruct: 1129
   zephyr-7b-beta: 1129
+  phi-3-mini-128k-instruct: 1129
   codellama-34b-instruct: 1127
   codellama-70b-instruct: 1118
   gemma-7b-it: 1128
-  llama-3.2-1b-instruct: 1125
+  llama-3.2-1b-instruct: 1124
   guanaco-33b: 1120
   palm-2: 1122
   gemma-1.1-2b-it: 1120
@@ -202,14 +203,14 @@ results:
   koala-13b: 1060
   gpt4all-13b-snoozy: 1052
   chatglm3-6b: 1054
-  mpt-7b-chat: 1047
   alpaca-13b: 1047
-  RWKV-4-Raven-14B: 1029
-  chatglm2-6b: 1023
-  oasst-pythia-12b: 1011
+  mpt-7b-chat: 1047
+  RWKV-4-Raven-14B: 1028
+  chatglm2-6b: 1022
+  oasst-pythia-12b: 1010
   fastchat-t5-3b: 976
   chatglm-6b: 968
-  dolly-v2-12b: 962
-  llama-13b: 948
+  dolly-v2-12b: 961
+  llama-13b: 947
   stablelm-tuned-alpha-7b: 939
 model_name_mapping_file: lmarena-text.yaml

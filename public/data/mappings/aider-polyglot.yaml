@@ -12,9 +12,9 @@ Codestral 25.01: null
 command-a-03-2025-quality: null
 DeepSeek Chat V2.5: null
 DeepSeek Chat V3 (prev): null
+DeepSeek R1: deepseek-r1
 DeepSeek R1 (0528): deepseek-r1-0528
 DeepSeek R1 + claude-3-5-sonnet-20241022: null
-DeepSeek R1: deepseek-r1
 DeepSeek V3 (0324): null
 Gemini 2.0 Pro exp-02-05: null
 Gemini 2.5 Pro Preview 03-25: gemini-2.5-pro-preview-03-25
@@ -28,9 +28,9 @@ gemini-2.5-pro-preview-06-05 (32k think): null
 gemini-2.5-pro-preview-06-05 (default think): gemini-2.5-pro-06-05
 gemini-exp-1206: null
 gemma-3-27b-it: null
+gpt-4.1: gpt-4.1
 gpt-4.1-mini: gpt-4.1-mini
 gpt-4.1-nano: gpt-4.1-nano
-gpt-4.1: gpt-4.1
 gpt-4.5-preview: gpt-4.5-preview
 gpt-4o-2024-08-06: gpt-4o
 gpt-4o-2024-11-20: gpt-4o
@@ -41,12 +41,12 @@ Grok 3 Mini Beta (low): grok-3-mini-low
 Llama 4 Maverick: null
 o1-2024-12-17 (high): null
 o1-mini-2024-09-12: null
-o3 (high) + gpt-4.1: null
+o3: o3-medium
 o3 (high): o3-high
+o3 (high) + gpt-4.1: null
 o3-mini (high): null
 o3-mini (medium): null
 o3-pro (high): o3-pro-high
-o3: o3-medium
 o4-mini (high): o4-mini-high
 openhands-lm-32b-v0.1: null
 Optimus Alpha: null
@@ -55,6 +55,6 @@ qwen-max-2025-01-25: null
 Qwen2.5-Coder-32B-Instruct: null
 Qwen3 235B A22B diff, no think, Alibaba API: qwen-3-235b-a22b-nothinking
 Qwen3 32B: null
-QwQ-32B + Qwen 2.5 Coder Instruct: null
 QwQ-32B: null
+QwQ-32B + Qwen 2.5 Coder Instruct: null
 yi-lightning: null

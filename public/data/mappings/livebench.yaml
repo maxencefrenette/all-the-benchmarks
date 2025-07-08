@@ -10,10 +10,10 @@ claude-4-sonnet-20250514-thinking-64k: claude-sonnet-4-thinking
 command-a-03-2025: null
 command-r-08-2024: null
 command-r-plus-08-2024: null
+deepseek-r1: deepseek-r1
 deepseek-r1-0528: deepseek-r1-0528
 deepseek-r1-distill-llama-70b: null
 deepseek-r1-distill-qwen-32b: null
-deepseek-r1: deepseek-r1
 deepseek-v3-0324: null
 gemini-2.0-flash-lite-001: null
 gemini-2.5-flash-lite-preview-06-17-highthinking: null
@@ -27,9 +27,7 @@ gemma-3n-e2b-it: null
 gemma-3n-e4b-it: null
 gpt-4.1-2025-04-14: gpt-4.1
 gpt-4.1-mini-2025-04-14: gpt-4.1-mini
-GPT-4.1-Mini: gpt-4.1-mini
 gpt-4.1-nano-2025-04-14: gpt-4.1-nano
-GPT-4.1-Nano: gpt-4.1-nano
 gpt-4.5-preview-2025-02-27: gpt-4.5-preview
 gpt-4o-2024-11-20: gpt-4o
 grok-3-beta: grok-3
