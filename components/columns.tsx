@@ -162,9 +162,22 @@ export const columns: ColumnDef<TableRow>[] = [
     },
     cell: ({ row }) => {
       const cost = row.getValue("costPerTask") as number | null
+      const count = row.original.costBenchmarkCount
       return (
-        <div className="font-semibold">
+        <div className="font-semibold flex items-center gap-1">
           <CostCell cost={cost} />
+          {cost !== null && count < 3 && (
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <AlertCircle className="h-4 w-4 text-yellow-600" />
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  {`This model's cost has only been evaluated on ${count} out of ${row.original.totalBenchmarks} benchmarks`}
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
         </div>
       )
     },

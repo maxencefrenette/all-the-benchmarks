@@ -7,6 +7,15 @@ import LeaderboardTable from "./leaderboard-table"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
 
+const MIN_BENCHMARKS = 5
+const MIN_COST_BENCHMARKS = 3
+
+function countCostBenchmarks(llm: LLMData) {
+  return Object.values(llm.benchmarks).filter(
+    (b) => b.normalizedCost !== undefined,
+  ).length
+}
+
 export default function LeaderboardSection({
   llmData,
 }: {
@@ -17,7 +26,9 @@ export default function LeaderboardSection({
   const visible = llmData.filter(
     (m) =>
       (showDeprecated || !m.deprecated) &&
-      (showIncomplete || Object.keys(m.benchmarks).length >= 5),
+      (showIncomplete ||
+        (Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
+          countCostBenchmarks(m) >= MIN_COST_BENCHMARKS)),
   )
 
   return (
