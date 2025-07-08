@@ -1,0 +1,4 @@
+provider: Google
+models:
+  gemini-2.5-flash-0520-thinking: Gemini 2.5 Flash 05-20 (Thinking)
+  gemini-2.5-flash-0520-nothinking: Gemini 2.5 Flash 05-20 (No Thinking)
