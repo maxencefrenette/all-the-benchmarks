@@ -2,6 +2,11 @@ import { execSync } from "child_process"
 import fs from "fs/promises"
 import path from "path"
 import YAML from "yaml"
+import {
+  BenchmarkFileSchema,
+  MappingFileSchema,
+  type BenchmarkFile,
+} from "../lib/yaml-schemas"
 
 export function curl(url: string): string {
   return execSync(`curl -sL ${url}`, { encoding: "utf8" })
@@ -18,10 +23,10 @@ export async function saveBenchmarkResults(
   results: Record<string, number>,
   costPerTask?: Record<string, number>,
 ): Promise<void> {
-  let yamlObj: Record<string, unknown> = {}
+  let yamlObj: Partial<BenchmarkFile> = {}
   try {
     const existing = await fs.readFile(outPath, "utf8")
-    yamlObj = YAML.parse(existing) as Record<string, unknown>
+    yamlObj = BenchmarkFileSchema.partial().parse(YAML.parse(existing))
   } catch (err: any) {
     if (err.code !== "ENOENT") throw err
   }
@@ -42,10 +47,7 @@ export async function saveBenchmarkResults(
   )
   try {
     const mapText = await fs.readFile(mapPath, "utf8")
-    Object.assign(
-      existingMap,
-      YAML.parse(mapText) as Record<string, string | null>,
-    )
+    Object.assign(existingMap, MappingFileSchema.parse(YAML.parse(mapText)))
   } catch (err: any) {
     if (err.code !== "ENOENT") throw err
   }
