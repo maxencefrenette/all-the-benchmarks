@@ -9,6 +9,8 @@ This repository uses pnpm as package manager.
 - Run the test suite: `pnpm test`
 - Update snapshot tests: `pnpm test:update`
 
+After making changes, always run `pnpm prettier`, `pnpm lint`, and `pnpm test:update` to ensure everything is working.
+
 ## Project structure
 
 This repository is a Next.js application. Key directories include:
