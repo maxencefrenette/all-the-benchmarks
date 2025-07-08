@@ -8,7 +8,19 @@ import path from "path"
 // This ensures data loading remains stable independent of the UI
 
 test("default leaderboard top 10 data", async () => {
-  const llmData = await loadLLMData()
+  const MIN_BENCHMARKS = 5
+  const MIN_COST_BENCHMARKS = 3
+  function countCostBenchmarks(llm: { benchmarks: Record<string, unknown> }) {
+    return Object.values(llm.benchmarks).filter(
+      (b) => (b as { normalizedCost?: number }).normalizedCost !== undefined,
+    ).length
+  }
+  const llmData = (await loadLLMData()).filter(
+    (m) =>
+      !m.deprecated &&
+      Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
+      countCostBenchmarks(m) >= MIN_COST_BENCHMARKS,
+  )
   const tableRows = transformToTableData(llmData)
     .slice(0, 10)
     .map((row) => ({
