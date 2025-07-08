@@ -20,6 +20,7 @@ export interface LLMData {
   slug: string
   model: string
   provider: string
+  modelSlug: string
   deprecated?: boolean
   benchmarks: Record<string, BenchmarkResult>
   averageScore?: number
@@ -46,11 +47,13 @@ export async function loadLLMData(): Promise<LLMData[]> {
       const filePath = path.join(modelDir, file)
       const text = await fs.readFile(filePath, "utf8")
       const data = ModelFileSchema.parse(parse(text))
+      const modelSlug = file.replace(/\.yaml$/, "")
       for (const [slug, name] of Object.entries(data.reasoning_efforts)) {
         llmMap[slug] = {
           slug,
           model: name,
           provider: data.provider,
+          modelSlug,
           ...(data.deprecated ? { deprecated: true } : {}),
           benchmarks: {},
         }

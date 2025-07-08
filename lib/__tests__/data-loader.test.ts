@@ -10,6 +10,7 @@ test("transformToTableData converts LLMData objects to table rows", () => {
       slug: "foo",
       model: "Foo",
       provider: "Bar",
+      modelSlug: "foo-model",
       benchmarks: {},
       averageScore: 42,
     },

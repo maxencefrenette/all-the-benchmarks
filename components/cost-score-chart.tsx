@@ -41,6 +41,15 @@ export default function CostScoreChart({
     return map
   }, [sorted])
 
+  const modelGroups = React.useMemo(() => {
+    const map: Record<string, LLMData[]> = {}
+    for (const item of sorted) {
+      if (!map[item.modelSlug]) map[item.modelSlug] = []
+      map[item.modelSlug].push(item)
+    }
+    return map
+  }, [sorted])
+
   const visible = React.useMemo(
     () =>
       sorted.filter(
@@ -155,6 +164,27 @@ export default function CostScoreChart({
               fill={PROVIDER_COLORS[provider]}
             />
           ))}
+
+          {Object.entries(modelGroups).map(([model, data]) =>
+            data.length > 1 ? (
+              <Scatter
+                key={`line-${model}`}
+                data={data.map((d) =>
+                  showDeprecated || !d.deprecated
+                    ? showIncomplete ||
+                      (Object.keys(d.benchmarks).length >= MIN_BENCHMARKS &&
+                        countCostBenchmarks(d) >= MIN_COST_BENCHMARKS)
+                      ? d
+                      : { ...d, normalizedCost: NaN, averageScore: NaN }
+                    : { ...d, normalizedCost: NaN, averageScore: NaN },
+                )}
+                name={model}
+                fill={PROVIDER_COLORS[data[0].provider]}
+                line={{ strokeDasharray: "4 4" }}
+                shape={() => null}
+              />
+            ) : null,
+          )}
         </ScatterChart>
       </ChartContainer>
     </div>
