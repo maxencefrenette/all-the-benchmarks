@@ -1,40 +1,40 @@
-Human Baseline*: null
-Gemini 2.5 Pro (06-05): gemini-2.5-pro-06-05
-Claude 4 Opus (thinking): claude-opus-4-thinking
-o3 (high): o3-high
-Gemini 2.5 Pro (03-25): gemini-2.5-pro-preview-03-25
-Claude 3.7 Sonnet (thinking): null
-Claude 4 Sonnet (thinking): claude-sonnet-4-thinking
-Claude 3.7 Sonnet: null
-o1-preview: null
-Claude 3.5 Sonnet 10-22: null
-DeepSeek R1 05/28: deepseek-r1-0528
-o1-2024-12-17 (high): null
-o4-mini (high): o4-mini-high
-o1-2024-12-17 (med): null
-Grok 3: grok-3
-GPT-4.5: gpt-4.5-preview
-Gemini-exp-1206: null
-Qwen3 235B-A22B: null
-DeepSeek R1: deepseek-r1
-Gemini 2.0 Flash Thinking: null
-Llama 4 Maverick: null
+Claude 3 Opus: null
 Claude 3.5 Sonnet 06-20: null
+Claude 3.5 Sonnet 10-22: null
+Claude 3.7 Sonnet (thinking): null
+Claude 3.7 Sonnet: null
+Claude 4 Opus (thinking): claude-opus-4-thinking
+Claude 4 Sonnet (thinking): claude-sonnet-4-thinking
+Command R+: null
+DeepSeek R1 05/28: deepseek-r1-0528
+DeepSeek R1: deepseek-r1
 DeepSeek V3 03-24: null
+DeepSeek V3: null
 Gemini 1.5 Pro 002: null
-GPT-4.1: gpt-4.1
+Gemini 2.0 Flash Exp: null
+Gemini 2.0 Flash Thinking: null
+Gemini 2.5 Pro (03-25): gemini-2.5-pro-preview-03-25
+Gemini 2.5 Pro (06-05): gemini-2.5-pro-06-05
+Gemini-exp-1206: null
+GPT-4 Turbo: null
 GPT-4.1-Mini: gpt-4.1-mini
 GPT-4.1-Nano: gpt-4.1-nano
-GPT-4 Turbo: null
-Claude 3 Opus: null
-Llama 3.1 405b instruct: null
-o3-mini (high): null
-Grok 2: null
-Mistral Large v2: null
-Llama 3.3 70b instruct: null
-DeepSeek V3: null
-Gemini 2.0 Flash Exp: null
-o1-mini: null
+GPT-4.1: gpt-4.1
+GPT-4.5: gpt-4.5-preview
 GPT-4o 08-06: gpt-4o
-Command R+: null
 GPT-4o mini: null
+Grok 2: null
+Grok 3: grok-3
+Human Baseline*: null
+Llama 3.1 405b instruct: null
+Llama 3.3 70b instruct: null
+Llama 4 Maverick: null
+Mistral Large v2: null
+o1-2024-12-17 (high): null
+o1-2024-12-17 (med): null
+o1-mini: null
+o1-preview: null
+o3 (high): o3-high
+o3-mini (high): null
+o4-mini (high): o4-mini-high
+Qwen3 235B-A22B: null
