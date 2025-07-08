@@ -1,0 +1,210 @@
+Arctic: null
+Aya Expanse 32B: null
+Aya Expanse 8B: null
+Claude 2.0: null
+Claude 2.1: null
+Claude 3 Haiku: null
+Claude 3 Opus: null
+Claude 3 Sonnet: null
+Claude 3.5 Haiku: null
+Claude 3.5 Sonnet (June): null
+Claude 3.5 Sonnet (Oct): null
+Claude 3.7 Sonnet: null
+Claude 3.7 Sonnet Thinking: null
+Claude 4 Opus: null
+Claude 4 Opus Thinking: claude-4-opus-thinking
+Claude 4 Sonnet: null
+Claude 4 Sonnet Thinking: null
+Claude Instant: null
+Codestral (Jan '25): null
+Codestral (May '24): null
+Codestral-Mamba: null
+Command A: null
+Command-R: null
+Command-R (Mar '24): null
+Command-R+: null
+Command-R+ (Apr '24): null
+DBRX: null
+DeepHermes 3 - Llama-3.1 8B: null
+DeepHermes 3 - Mistral 24B: null
+DeepSeek Coder V2 Lite: null
+DeepSeek LLM 67B (V1): null
+DeepSeek R1 (Jan '25): null
+DeepSeek R1 0528 (May '25): deepseek-r1-0528
+DeepSeek R1 0528 Qwen3 8B: null
+DeepSeek R1 Distill Llama 70B: null
+DeepSeek R1 Distill Llama 8B: null
+DeepSeek R1 Distill Qwen 1.5B: null
+DeepSeek R1 Distill Qwen 14B: null
+DeepSeek R1 Distill Qwen 32B: null
+DeepSeek V3 (Dec '24): null
+DeepSeek V3 0324 (Mar '25): null
+DeepSeek-Coder-V2: null
+DeepSeek-V2: null
+DeepSeek-V2.5: null
+DeepSeek-V2.5 (Dec '24): null
+Devstral: null
+GPT-3.5 Turbo: null
+GPT-4: null
+GPT-4 Turbo: null
+GPT-4.1: gpt-4.1
+GPT-4.1 mini: gpt-4.1-mini
+GPT-4.1 nano: gpt-4.1-nano
+GPT-4.5 (Preview): gpt-4.5-preview
+GPT-4o (Aug '24): null
+GPT-4o (ChatGPT): null
+GPT-4o (March 2025): null
+GPT-4o (May '24): null
+GPT-4o (Nov '24): null
+GPT-4o mini: null
+Gemini 1.0 Pro: null
+Gemini 1.0 Ultra: null
+Gemini 1.5 Flash (May): null
+Gemini 1.5 Flash (Sep): null
+Gemini 1.5 Flash-8B: null
+Gemini 1.5 Pro (May): null
+Gemini 1.5 Pro (Sep): null
+Gemini 2.0 Flash: null
+Gemini 2.0 Flash (exp): null
+Gemini 2.0 Flash Thinking exp. (Dec '24): null
+Gemini 2.0 Flash Thinking exp. (Jan '25): null
+Gemini 2.0 Flash-Lite (Feb '25): null
+Gemini 2.0 Flash-Lite (Preview): null
+Gemini 2.0 Pro Experimental: null
+Gemini 2.5 Flash: null
+Gemini 2.5 Flash (April '25): null
+Gemini 2.5 Flash (April '25) (Reasoning): null
+Gemini 2.5 Flash (Reasoning): gemini-2.5-flash-thinking
+Gemini 2.5 Flash-Lite: null
+Gemini 2.5 Flash-Lite (Reasoning): null
+Gemini 2.5 Pro: gemini-2.5-pro-06-05
+Gemini 2.5 Pro (Mar '25): gemini-2.5-pro-preview-03-25
+Gemini 2.5 Pro (May' 25): gemini-2.5-pro-preview-05-06
+Gemma 2 27B: null
+Gemma 2 9B: null
+Gemma 3 12B: null
+Gemma 3 1B: null
+Gemma 3 27B: null
+Gemma 3 4B: null
+Gemma 3n E4B: null
+Gemma 3n E4B (May '25): null
+Grok 2: null
+Grok 3: grok-3
+Grok 3 Reasoning Beta: null
+Grok 3 mini Reasoning (high): grok-3-mini-high
+Grok Beta: null
+Hermes 3 - Llama-3.1 70B: null
+Jamba 1.5 Large: null
+Jamba 1.5 Mini: null
+Jamba 1.6 Large: null
+Jamba 1.6 Mini: null
+Jamba Instruct: null
+LFM 40B: null
+Llama 2 Chat 13B: null
+Llama 2 Chat 70B: null
+Llama 2 Chat 7B: null
+Llama 3 70B: null
+Llama 3 8B: null
+Llama 3.1 405B: null
+Llama 3.1 70B: null
+Llama 3.1 8B: null
+Llama 3.1 Nemotron 70B: null
+Llama 3.1 Nemotron Nano 4B v1.1 (Reasoning): null
+Llama 3.2 11B (Vision): null
+Llama 3.2 1B: null
+Llama 3.2 3B: null
+Llama 3.2 90B (Vision): null
+Llama 3.3 70B: null
+Llama 3.3 Nemotron Super 49B Reasoning: null
+Llama 3.3 Nemotron Super 49B v1: null
+Llama 4 Maverick: null
+Llama 4 Scout: null
+Llama 65B: null
+Llama Nemotron Ultra Reasoning: null
+Magistral Medium: null
+Magistral Small: null
+MiniMax M1 40k: null
+MiniMax M1 80k: null
+MiniMax-Text-01: null
+Ministral 3B: null
+Ministral 8B: null
+Mistral 7B: null
+Mistral Large (Feb '24): null
+Mistral Large 2 (Jul '24): null
+Mistral Large 2 (Nov '24): null
+Mistral Medium: null
+Mistral Medium 3: null
+Mistral NeMo: null
+Mistral Saba: null
+Mistral Small (Feb '24): null
+Mistral Small (Sep '24): null
+Mistral Small 3: null
+Mistral Small 3.1: null
+Mistral Small 3.2: null
+Mixtral 8x22B: null
+Mixtral 8x7B: null
+Nova Lite: null
+Nova Micro: null
+Nova Premier: null
+Nova Pro: null
+OpenChat 3.5: null
+PALM-2: null
+Phi-3 Medium 14B: null
+Phi-3 Mini: null
+Phi-4: null
+Phi-4 Mini: null
+Phi-4 Multimodal: null
+Pixtral 12B: null
+Pixtral Large: null
+QwQ 32B-Preview: null
+QwQ-32B: null
+Qwen Chat 14B: null
+Qwen Chat 72B: null
+Qwen1.5 Chat 110B: null
+Qwen2 72B: null
+Qwen2.5 72B: null
+Qwen2.5 Coder 32B: null
+Qwen2.5 Coder 7B: null
+Qwen2.5 Instruct 32B: null
+Qwen2.5 Max: null
+Qwen2.5 Turbo: null
+Qwen3 0.6B: null
+Qwen3 0.6B (Reasoning): null
+Qwen3 1.7B: null
+Qwen3 1.7B (Reasoning): null
+Qwen3 14B: null
+Qwen3 14B (Reasoning): null
+Qwen3 235B: null
+Qwen3 235B (Reasoning): null
+Qwen3 30B A3B: null
+Qwen3 30B A3B (Reasoning): null
+Qwen3 32B: null
+Qwen3 32B (Reasoning): null
+Qwen3 4B: null
+Qwen3 4B (Reasoning): null
+Qwen3 8B: null
+Qwen3 8B (Reasoning): null
+R1 1776: null
+Reka Core: null
+Reka Edge: null
+Reka Flash: null
+Reka Flash (Feb '24): null
+Reka Flash 3: null
+Solar Mini: null
+Solar Pro 2: null
+Solar Pro 2  (Reasoning): null
+Solar Pro 2 (Reasoning): null
+Sonar: null
+Sonar Pro: null
+Sonar Reasoning: null
+Tulu3 405B: null
+Yi-Large: null
+o1: null
+o1-mini: null
+o1-preview: null
+o1-pro: null
+o3: o3-medium
+o3-mini: null
+o3-mini (high): null
+o3-pro: o3-pro-medium
+o4-mini (high): o4-mini-high
