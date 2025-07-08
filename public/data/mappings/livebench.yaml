@@ -47,6 +47,6 @@ o4-mini-2025-04-16-medium: o4-mini-medium
 phi-4-reasoning-plus: null
 qwen2.5-72b-instruct-turbo: null
 qwen2.5-max: null
-qwen3-235b-a22b-thinking: null
+qwen3-235b-a22b-thinking: qwen-3-235b-a22b-thinking
 qwen3-30b-a3b-thinking: null
 qwen3-32b-thinking: null

@@ -180,8 +180,8 @@ qwen2.5-72b-instruct: null
 qwen2.5-coder-32b-instruct: null
 qwen2.5-max: null
 qwen2.5-plus-1127: null
-qwen3-235b-a22b-no-thinking: null
-qwen3-235b-a22b: null
+qwen3-235b-a22b-no-thinking: qwen-3-235b-a22b-nothinking
+qwen3-235b-a22b: qwen-3-235b-a22b-thinking
 qwen3-30b-a3b: null
 qwen3-32b: null
 qwq-32b-preview: null

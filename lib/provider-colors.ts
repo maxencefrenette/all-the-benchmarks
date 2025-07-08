@@ -5,4 +5,5 @@ export const PROVIDER_COLORS: Record<string, string> = {
   Google: "#34A853", // google green
   DeepSeek: "#2F88FF", // deepseek blue
   xAI: "#000000", // black
+  Qwen: "#7954FF", // purple
 }
