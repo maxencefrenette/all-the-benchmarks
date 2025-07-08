@@ -10,6 +10,7 @@ export interface TableRow {
   costBenchmarkCount: number
   benchmarkCount: number
   totalBenchmarks: number
+  totalCostBenchmarks: number
 }
 
 export function transformToTableData(
@@ -23,12 +24,18 @@ export function transformToTableData(
   }[],
 ): TableRow[] {
   const benchmarkSet = new Set<string>()
+  const costBenchmarkSet = new Set<string>()
   for (const llm of llmData) {
     for (const b of Object.keys(llm.benchmarks)) {
       benchmarkSet.add(b)
+      const res = llm.benchmarks[b] as BenchmarkResult
+      if (res.normalizedCost !== undefined) {
+        costBenchmarkSet.add(b)
+      }
     }
   }
   const totalBenchmarks = benchmarkSet.size
+  const totalCostBenchmarks = costBenchmarkSet.size
 
   return llmData.map((llm) => ({
     id: llm.slug,
@@ -42,5 +49,6 @@ export function transformToTableData(
     ).length,
     benchmarkCount: Object.keys(llm.benchmarks).length,
     totalBenchmarks,
+    totalCostBenchmarks,
   }))
 }

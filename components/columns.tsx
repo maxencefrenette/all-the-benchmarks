@@ -173,7 +173,7 @@ export const columns: ColumnDef<TableRow>[] = [
                   <AlertCircle className="h-4 w-4 text-yellow-600" />
                 </TooltipTrigger>
                 <TooltipContent side="top">
-                  {`This model's cost has only been evaluated on ${count} out of ${row.original.totalBenchmarks} benchmarks`}
+                  {`This model's cost has only been evaluated on ${count} out of ${row.original.totalCostBenchmarks} benchmarks with cost data`}
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

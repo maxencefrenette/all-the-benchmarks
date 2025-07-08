@@ -7,6 +7,7 @@
   costBenchmarkCount: 3
   benchmarkCount: 6
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: o3-pro-high
   slug: o3-pro-high
   model: o3-pro (high)
@@ -16,6 +17,7 @@
   costBenchmarkCount: 3
   benchmarkCount: 4
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: gemini-2.5-pro-06-05
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro (06-05)
@@ -25,6 +27,7 @@
   costBenchmarkCount: 4
   benchmarkCount: 9
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: gemini-2.5-pro-preview-05-06
   slug: gemini-2.5-pro-preview-05-06
   model: Gemini 2.5 Pro Preview 05-06
@@ -34,6 +37,7 @@
   costBenchmarkCount: 2
   benchmarkCount: 4
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: gemini-2.5-pro-preview-03-25
   slug: gemini-2.5-pro-preview-03-25
   model: Gemini 2.5 Pro Preview 03-25
@@ -43,6 +47,7 @@
   costBenchmarkCount: 1
   benchmarkCount: 5
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: claude-opus-4-thinking
   slug: claude-opus-4-thinking
   model: Claude 4 Opus (Thinking)
@@ -52,6 +57,7 @@
   costBenchmarkCount: 3
   benchmarkCount: 5
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: o3-medium
   slug: o3-medium
   model: o3 (medium)
@@ -61,6 +67,7 @@
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: o4-mini-high
   slug: o4-mini-high
   model: o4-mini (high)
@@ -70,6 +77,7 @@
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: claude-opus-4-nothinking
   slug: claude-opus-4-nothinking
   model: Claude 4 Opus (No Thinking)
@@ -79,6 +87,7 @@
   costBenchmarkCount: 1
   benchmarkCount: 2
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: grok-3-mini-high
   slug: grok-3-mini-high
   model: Grok 3 Mini (high)
@@ -88,3 +97,4 @@
   costBenchmarkCount: 2
   benchmarkCount: 4
   totalBenchmarks: 9
+  totalCostBenchmarks: 4
