@@ -41,7 +41,7 @@ o3-2025-04-16-high: o3-high
 o3-2025-04-16-medium: o3-medium
 o3-pro-2025-06-10-high: o3-pro-high
 o4-mini-2025-04-16-high: o4-mini-high
-o4-mini-2025-04-16-medium: o4-mini-medium
+o4-mini-2025-04-16-medium: null
 phi-4-reasoning-plus: null
 qwen2.5-72b-instruct-turbo: null
 qwen2.5-max: null
