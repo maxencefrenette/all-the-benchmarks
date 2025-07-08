@@ -3,7 +3,7 @@
   model: o3 (high)
   provider: OpenAI
   averageScore: 90.26
-  costPerTask: 1.57
+  costPerTask: 1.71
   costBenchmarkCount: 3
   benchmarkCount: 6
   totalBenchmarks: 9
@@ -12,8 +12,8 @@
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro (06-05)
   provider: Google
-  averageScore: 88.29
-  costPerTask: 1.99
+  averageScore: 87.59
+  costPerTask: 2.18
   costBenchmarkCount: 4
   benchmarkCount: 9
   totalBenchmarks: 9
@@ -22,8 +22,8 @@
   slug: o3-medium
   model: o3 (medium)
   provider: OpenAI
-  averageScore: 84.55
-  costPerTask: 0.93
+  averageScore: 83.77
+  costPerTask: 1.01
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
@@ -32,8 +32,8 @@
   slug: o4-mini-high
   model: o4-mini (high)
   provider: OpenAI
-  averageScore: 80.99
-  costPerTask: 1.28
+  averageScore: 80.27
+  costPerTask: 1.39
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
@@ -42,8 +42,8 @@
   slug: claude-opus-4-thinking
   model: Claude 4 Opus (Thinking)
   provider: Anthropic
-  averageScore: 78.55
-  costPerTask: 4.2
+  averageScore: 77.89
+  costPerTask: 4.58
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
@@ -52,8 +52,8 @@
   slug: deepseek-r1-0528
   model: DeepSeek R1 (05/28)
   provider: DeepSeek
-  averageScore: 64.57
-  costPerTask: 0.26
+  averageScore: 63.85
+  costPerTask: 0.28
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
@@ -62,8 +62,8 @@
   slug: claude-sonnet-4-thinking
   model: Claude 4 Sonnet (Thinking)
   provider: Anthropic
-  averageScore: 63.11
-  costPerTask: 1.12
+  averageScore: 62.59
+  costPerTask: 1.22
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
@@ -72,29 +72,29 @@
   slug: gemini-2.5-flash-0520-thinking
   model: Gemini 2.5 Flash 05-20 (Thinking)
   provider: Google
-  averageScore: 58.34
-  costPerTask: 0.74
-  costBenchmarkCount: 3
-  benchmarkCount: 6
+  averageScore: 59.43
+  costPerTask: 0.71
+  costBenchmarkCount: 4
+  benchmarkCount: 8
   totalBenchmarks: 9
   totalCostBenchmarks: 4
 - id: claude-opus-4-nothinking
   slug: claude-opus-4-nothinking
   model: Claude 4 Opus (No Thinking)
   provider: Anthropic
-  averageScore: 49.81
-  costPerTask: 1.84
+  averageScore: 49.36
+  costPerTask: 2.01
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
   totalCostBenchmarks: 4
-- id: claude-sonnet-4-nothinking
-  slug: claude-sonnet-4-nothinking
-  model: Claude 4 Sonnet (No Thinking)
-  provider: Anthropic
-  averageScore: 40.9
-  costPerTask: 0.4
+- id: gemini-2.5-flash-0520-nothinking
+  slug: gemini-2.5-flash-0520-nothinking
+  model: Gemini 2.5 Flash 05-20 (No Thinking)
+  provider: Google
+  averageScore: 42.14
+  costPerTask: 0.09
   costBenchmarkCount: 4
-  benchmarkCount: 8
+  benchmarkCount: 5
   totalBenchmarks: 9
   totalCostBenchmarks: 4
