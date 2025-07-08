@@ -1,0 +1,4 @@
+provider: OpenAI
+models:
+  o3-pro-medium: o3-pro (medium)
+  o3-pro-high: o3-pro (high)
