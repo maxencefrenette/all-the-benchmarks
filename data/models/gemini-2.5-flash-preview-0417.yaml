@@ -1,0 +1,5 @@
+provider: Google
+deprecated: true
+models:
+  gemini-2.5-flash-preview-0417-thinking: Gemini 2.5 Flash Preview 04-17 (Thinking)
+  gemini-2.5-flash-preview-0417-nothinking: Gemini 2.5 Flash Preview 04-17 (No Thinking)
