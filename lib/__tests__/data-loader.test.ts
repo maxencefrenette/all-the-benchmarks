@@ -53,6 +53,6 @@ test("loadLLMData merges aliases and sorts results", async () => {
 
 test("loadLLMData marks deprecated models", async () => {
   const llmData = await loadLLMData()
-  const deprecated = llmData.find((d) => d.slug === "deepseek-r1")
+  const deprecated = llmData.find((d) => d.slug === "deepseek-r1-0120")
   expect(deprecated?.deprecated).toBe(true)
 })

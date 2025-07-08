@@ -3,7 +3,7 @@
   model: o3 (high)
   provider: OpenAI
   averageScore: 90.26
-  costPerTask: 1.47
+  costPerTask: 1.57
   costBenchmarkCount: 3
   benchmarkCount: 6
   totalBenchmarks: 9
@@ -13,7 +13,7 @@
   model: o3-pro (high)
   provider: OpenAI
   averageScore: 88.63
-  costPerTask: 12.26
+  costPerTask: 13.07
   costBenchmarkCount: 3
   benchmarkCount: 4
   totalBenchmarks: 9
@@ -23,7 +23,7 @@
   model: Gemini 2.5 Pro (06-05)
   provider: Google
   averageScore: 88.29
-  costPerTask: 1.89
+  costPerTask: 1.99
   costBenchmarkCount: 4
   benchmarkCount: 9
   totalBenchmarks: 9
@@ -33,7 +33,7 @@
   model: Gemini 2.5 Pro Preview 05-06
   provider: Google
   averageScore: 88.22
-  costPerTask: 2.33
+  costPerTask: 2.42
   costBenchmarkCount: 2
   benchmarkCount: 4
   totalBenchmarks: 9
@@ -43,7 +43,7 @@
   model: Gemini 2.5 Pro Preview 03-25
   provider: Google
   averageScore: 87.02
-  costPerTask: 1.99
+  costPerTask: 2.04
   costBenchmarkCount: 1
   benchmarkCount: 5
   totalBenchmarks: 9
@@ -53,7 +53,7 @@
   model: o3 (medium)
   provider: OpenAI
   averageScore: 84.55
-  costPerTask: 0.88
+  costPerTask: 0.93
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
@@ -63,7 +63,7 @@
   model: o4-mini (high)
   provider: OpenAI
   averageScore: 80.99
-  costPerTask: 1.21
+  costPerTask: 1.28
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
@@ -73,7 +73,7 @@
   model: Claude 4 Opus (Thinking)
   provider: Anthropic
   averageScore: 78.55
-  costPerTask: 3.99
+  costPerTask: 4.2
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9
@@ -93,7 +93,7 @@
   model: DeepSeek R1 (05/28)
   provider: DeepSeek
   averageScore: 64.57
-  costPerTask: 0.25
+  costPerTask: 0.26
   costBenchmarkCount: 4
   benchmarkCount: 8
   totalBenchmarks: 9

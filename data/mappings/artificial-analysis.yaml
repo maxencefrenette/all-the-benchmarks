@@ -58,10 +58,10 @@ Gemini 2.0 Flash Thinking exp. (Jan '25): null
 Gemini 2.0 Flash-Lite (Feb '25): null
 Gemini 2.0 Flash-Lite (Preview): null
 Gemini 2.0 Pro Experimental: null
-Gemini 2.5 Flash: null
-Gemini 2.5 Flash (April '25): null
-Gemini 2.5 Flash (April '25) (Reasoning): null
-Gemini 2.5 Flash (Reasoning): gemini-2.5-flash-thinking
+Gemini 2.5 Flash: gemini-2.5-flash-0520-nothinking
+Gemini 2.5 Flash (April '25): gemini-2.5-flash-preview-0417-nothinking
+Gemini 2.5 Flash (April '25) (Reasoning): gemini-2.5-flash-preview-0417-thinking
+Gemini 2.5 Flash (Reasoning): gemini-2.5-flash-0520-thinking
 Gemini 2.5 Flash-Lite: null
 Gemini 2.5 Flash-Lite (Reasoning): null
 Gemini 2.5 Pro: gemini-2.5-pro-06-05
