@@ -96,7 +96,6 @@ async function main() {
     const outPath = path.join(
       __dirname,
       "..",
-      "public",
       "data",
       "benchmarks",
       "artificial-analysis-index.yaml",

@@ -35,7 +35,6 @@ async function main(): Promise<void> {
   const outPath = path.join(
     __dirname,
     "..",
-    "public",
     "data",
     "benchmarks",
     "aider-polyglot.yaml",

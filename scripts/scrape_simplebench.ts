@@ -27,7 +27,6 @@ async function main(): Promise<void> {
   const outPath = path.join(
     __dirname,
     "..",
-    "public",
     "data",
     "benchmarks",
     "simplebench.yaml",

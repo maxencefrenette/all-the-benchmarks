@@ -22,8 +22,8 @@ export interface LLMData {
 }
 
 export async function loadLLMData(): Promise<LLMData[]> {
-  const modelDir = path.join(process.cwd(), "public", "data", "models")
-  const benchmarkDir = path.join(process.cwd(), "public", "data", "benchmarks")
+  const modelDir = path.join(process.cwd(), "data", "models")
+  const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
 
   const modelSlugs = (await fs.readdir(modelDir))
     .filter((f) => f.endsWith(".yaml"))
@@ -79,7 +79,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
       try {
         const mapPath = path.join(
           process.cwd(),
-          "public",
           "data",
           "mappings",
           data.model_name_mapping_file,
