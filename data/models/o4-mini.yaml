@@ -1,5 +1,5 @@
 provider: OpenAI
-models:
+reasoning_efforts:
   o4-mini-low: o4-mini (low)
   o4-mini-medium: o4-mini (medium)
   o4-mini-high: o4-mini (high)

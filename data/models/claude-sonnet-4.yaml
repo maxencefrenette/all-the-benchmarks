@@ -1,4 +1,4 @@
 provider: Anthropic
-models:
+reasoning_efforts:
   claude-sonnet-4-nothinking: Claude 4 Sonnet (no thinking)
   claude-sonnet-4-thinking: Claude 4 Sonnet (thinking)

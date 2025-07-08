@@ -1,3 +1,3 @@
 provider: DeepSeek
-models:
+reasoning_efforts:
   deepseek-r1-0528: DeepSeek R1 (05/28)

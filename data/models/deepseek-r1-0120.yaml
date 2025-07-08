@@ -1,4 +1,4 @@
 provider: DeepSeek
-models:
+reasoning_efforts:
   deepseek-r1-0120: DeepSeek R1 (01/20)
 deprecated: true

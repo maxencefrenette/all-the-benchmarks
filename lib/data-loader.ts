@@ -46,7 +46,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
       const filePath = path.join(modelDir, file)
       const text = await fs.readFile(filePath, "utf8")
       const data = ModelFileSchema.parse(parse(text))
-      for (const [slug, name] of Object.entries(data.models)) {
+      for (const [slug, name] of Object.entries(data.reasoning_efforts)) {
         llmMap[slug] = {
           slug,
           model: name,

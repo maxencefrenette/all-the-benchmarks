@@ -19,7 +19,7 @@ test("mapping files only reference existing slugs", async () => {
   for (const file of modelFiles) {
     const text = await fs.readFile(path.join(modelsDir, file), "utf8")
     const data = ModelFileSchema.parse(parse(text))
-    for (const slug of Object.keys(data.models)) {
+    for (const slug of Object.keys(data.reasoning_efforts)) {
       knownSlugs.add(slug)
     }
   }

@@ -1,4 +1,4 @@
 provider: OpenAI
-models:
+reasoning_efforts:
   gpt-4.5-preview: GPT-4.5 Preview
 deprecated: true
