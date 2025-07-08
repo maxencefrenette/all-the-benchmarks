@@ -10,7 +10,7 @@ This folder stores YAML files consumed by the application and populated by scrap
   model slug with `model` and `provider` fields. We are migrating to a format
   where a file can define multiple slugs using a top level `models:` mapping.
   Both formats are supported by the code while this migration is in progress.
-  Currently only the `o3` model uses the new `models:` syntax.
+  Currently the `claude-opus-4`, `claude-sonnet-4`, `o3`, `o3-pro`, and `o4-mini` models use the new `models:` syntax.
 
 ## How the code interacts with these files
 
