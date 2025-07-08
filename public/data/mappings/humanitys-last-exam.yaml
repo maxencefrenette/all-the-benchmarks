@@ -1,28 +1,28 @@
-gemini-2.5-pro-preview-06-05: gemini-2.5-pro-06-05
-o3 (high) (April 2025): o3-high
-o3 (medium) (April 2025): o3-medium
-Gemini 2.5 Pro Experimental (March 2025): gemini-2.5-pro-preview-03-25
-o4-mini (high) (April 2025): o4-mini-high
-Gemini 2.5 Pro Preview (May 06 2025): gemini-2.5-pro-preview-05-06
-o4-mini (medium) (April 2025): o4-mini-medium
-Gemini 2.5 Flash (April 2025): null
-"Gemini 2.5 Flash Preview (May 2025) ": null
-Claude Opus 4 (Thinking): claude-4-opus-thinking
-o1 Pro: null
-Claude 3.7 Sonnet (Thinking): null
-o1 (December 2024): null
-"Claude Sonnet 4 (Thinking)\n": null
 "Claude Opus 4 ": null
-Gemini 2.0 Flash Thinking (January 2025): null
-Llama 4 Maverick: null
+"Claude Sonnet 4 (Thinking)\n": null
+"Gemini 2.5 Flash Preview (May 2025) ": null
+Claude 3.5 Sonnet (October 2024): null
+Claude 3.7 Sonnet (Thinking): null
+Claude Opus 4 (Thinking): claude-4-opus-thinking
 Claude Sonnet 4: null
+Gemini 2.0 Flash Thinking (January 2025): null
+Gemini 2.5 Flash (April 2025): null
+Gemini 2.5 Pro Experimental (March 2025): gemini-2.5-pro-preview-03-25
+Gemini 2.5 Pro Preview (May 06 2025): gemini-2.5-pro-preview-05-06
+Gemini-1.5-Pro-002: null
+gemini-2.5-pro-preview-06-05: gemini-2.5-pro-06-05
 GPT 4.5 Preview: gpt-4.5-preview
-GPT-4.1: gpt-4.1
 GPT-4.1-Mini: gpt-4.1-mini
 GPT-4.1-Nano: gpt-4.1-nano
-Gemini-1.5-Pro-002: null
-Mistral Medium 3: null
-Nova Pro: null
-Claude 3.5 Sonnet (October 2024): null
-Nova Lite: null
+GPT-4.1: gpt-4.1
 GPT-4o (November 2024): null
+Llama 4 Maverick: null
+Mistral Medium 3: null
+Nova Lite: null
+Nova Pro: null
+o1 (December 2024): null
+o1 Pro: null
+o3 (high) (April 2025): o3-high
+o3 (medium) (April 2025): o3-medium
+o4-mini (high) (April 2025): o4-mini-high
+o4-mini (medium) (April 2025): o4-mini-medium

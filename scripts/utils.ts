@@ -50,9 +50,7 @@ export async function saveBenchmarkResults(
     if (err.code !== "ENOENT") throw err
   }
 
-  const sortedModels = Object.entries(results)
-    .sort((a, b) => b[1] - a[1])
-    .map(([name]) => name)
+  const sortedModels = Object.keys(results).sort((a, b) => a.localeCompare(b))
   const newMap: Record<string, string | null> = {}
   for (const name of sortedModels) {
     newMap[name] = Object.prototype.hasOwnProperty.call(existingMap, name)
