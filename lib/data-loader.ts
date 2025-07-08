@@ -21,6 +21,7 @@ export interface LLMData {
   model: string
   provider: string
   modelSlug: string
+  reasoningOrder: number
   deprecated?: boolean
   benchmarks: Record<string, BenchmarkResult>
   averageScore?: number
@@ -48,17 +49,18 @@ export async function loadLLMData(): Promise<LLMData[]> {
       const text = await fs.readFile(filePath, "utf8")
       const data = ModelFileSchema.parse(parse(text))
       const modelSlug = file.replace(/\.yaml$/, "")
-      for (const [slug, name] of Object.entries(data.reasoning_efforts)) {
+      Object.entries(data.reasoning_efforts).forEach(([slug, name], index) => {
         llmMap[slug] = {
           slug,
           model: name,
           provider: data.provider,
           modelSlug,
+          reasoningOrder: index,
           ...(data.deprecated ? { deprecated: true } : {}),
           benchmarks: {},
         }
         aliasMap[name] = slug
-      }
+      })
     } catch (error) {
       console.error(`Failed to load model data for ${file}:`, error)
     }

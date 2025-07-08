@@ -43,12 +43,15 @@ export default function CostScoreChart({
 
   const modelGroups = React.useMemo(() => {
     const map: Record<string, LLMData[]> = {}
-    for (const item of sorted) {
+    for (const item of llmData) {
       if (!map[item.modelSlug]) map[item.modelSlug] = []
       map[item.modelSlug].push(item)
     }
+    for (const list of Object.values(map)) {
+      list.sort((a, b) => a.reasoningOrder - b.reasoningOrder)
+    }
     return map
-  }, [sorted])
+  }, [llmData])
 
   const visible = React.useMemo(
     () =>
@@ -180,7 +183,10 @@ export default function CostScoreChart({
                 )}
                 name={model}
                 fill={PROVIDER_COLORS[data[0].provider]}
-                line={{ strokeDasharray: "4 4" }}
+                line={{
+                  strokeDasharray: "4 4",
+                  stroke: PROVIDER_COLORS[data[0].provider],
+                }}
                 shape={() => null}
               />
             ) : null,
