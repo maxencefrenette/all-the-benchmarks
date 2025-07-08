@@ -111,9 +111,21 @@ export default function CostScoreChart({
           <ZAxis range={[144, 144]} />
           <ChartTooltip
             cursor={false}
-            labelFormatter={(_, payload) =>
-              (payload?.[0]?.payload as LLMData).model
-            }
+            labelFormatter={(_, payload) => {
+              const llm = payload?.[0]?.payload as LLMData
+              if (!llm) return null
+              const scoreCount = Object.keys(llm.benchmarks).length
+              const costCount = countCostBenchmarks(llm)
+              return (
+                <div className="grid gap-0.5">
+                  <span>{llm.model}</span>
+                  <span className="text-xs font-normal text-muted-foreground">
+                    {scoreCount} score benchmark{scoreCount === 1 ? "" : "s"},{" "}
+                    {costCount} cost benchmark{costCount === 1 ? "" : "s"}
+                  </span>
+                </div>
+              )
+            }}
             itemSorter={(a, b) => {
               const order: Record<string, number> = { Score: 0, Cost: 1 }
               return (
