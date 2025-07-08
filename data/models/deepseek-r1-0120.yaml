@@ -1,4 +1,4 @@
 provider: DeepSeek
 models:
-  deepseek-r1-0120: DeepSeek R1
+  deepseek-r1-0120: DeepSeek R1 (01/20)
 deprecated: true

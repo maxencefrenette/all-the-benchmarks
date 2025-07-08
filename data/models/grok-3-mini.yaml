@@ -1,5 +1,5 @@
 provider: xAI
 models:
+  grok-3-mini-nothinking: Grok 3 Mini (no thinking)
   grok-3-mini-low: Grok 3 Mini (low)
   grok-3-mini-high: Grok 3 Mini (high)
-  grok-3-mini-nothinking: Grok 3 Mini (No Thinking)
