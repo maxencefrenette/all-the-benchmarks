@@ -1,3 +1,4 @@
-model: DeepSeek R1
 provider: DeepSeek
+models:
+  deepseek-r1-0120: DeepSeek R1
 deprecated: true
