@@ -5,7 +5,7 @@ export type MappingFile = z.infer<typeof MappingFileSchema>
 
 export const ModelFileSchema = z.object({
   provider: z.string(),
-  models: z.record(z.string(), z.string()),
+  reasoning_efforts: z.record(z.string(), z.string()),
   deprecated: z.boolean().optional(),
 })
 export type ModelFile = z.infer<typeof ModelFileSchema>

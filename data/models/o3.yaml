@@ -1,5 +1,5 @@
 provider: OpenAI
-models:
+reasoning_efforts:
   o3-low: o3 (low)
   o3-medium: o3 (medium)
   o3-high: o3 (high)

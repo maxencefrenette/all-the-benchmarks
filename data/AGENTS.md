@@ -6,7 +6,7 @@ This folder stores YAML files consumed by the application and populated by scrap
 
 - `benchmarks/` – Benchmark result files. Each contains `benchmark`, `description`, `results` and optionally `cost_per_task`. The scraping scripts under `scripts/` update the `results` and `cost_per_task` sections automatically.
 - `mappings/` – Model name mapping files. When a scraping script writes a benchmark file, it also ensures the corresponding mapping YAML is updated with any new model names. Mapping values that associate an alias to a known model slug are maintained manually.
-- `models/` – Model definitions. Each file lists the provider and a `models:`
+- `models/` – Model definitions. Each file lists the provider and a `reasoning_efforts:`
   mapping that associates one or more slugs with their human friendly names.
 
 ## How the code interacts with these files

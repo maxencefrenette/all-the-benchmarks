@@ -1,4 +1,4 @@
 provider: Qwen
-models:
+reasoning_efforts:
   qwen-3-235b-a22b-nothinking: Qwen3 235B A22B (no thinking)
   qwen-3-235b-a22b-thinking: Qwen3 235B A22B (thinking)
