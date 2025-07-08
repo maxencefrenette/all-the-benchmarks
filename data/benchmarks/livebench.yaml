@@ -1,5 +1,7 @@
 benchmark: LiveBench
 description: Average score across LiveBench categories
+score_weight: 1
+cost_weight: 1
 results:
   chatgpt-4o-latest-2025-03-27: 54.74
   claude-3-5-haiku-20241022: 39.51

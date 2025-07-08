@@ -14,6 +14,8 @@ export interface BenchmarkResult {
   description: string
   costPerTask?: number
   normalizedCost?: number
+  scoreWeight: number
+  costWeight: number
 }
 
 export interface LLMData {
@@ -99,6 +101,8 @@ export async function loadLLMData(): Promise<LLMData[]> {
             score: Number(score),
             description: data.description,
             ...(hasCost ? { costPerTask: Number(costMap[rawName]) } : {}),
+            scoreWeight: data.score_weight,
+            costWeight: data.cost_weight,
           }
           if (hasCost) {
             if (!benchmarkCostMap[data.benchmark]) {
@@ -131,18 +135,20 @@ export async function loadLLMData(): Promise<LLMData[]> {
 
   // Compute each model's average using min-max normalised scores
   const results = Object.values(llmMap).map((llm) => {
-    const normalised = Object.entries(llm.benchmarks).map(([name, result]) => {
+    const norm = Object.entries(llm.benchmarks).map(([name, result]) => {
       const { min, max } = benchmarkStats[name]
       let value = 1
       if (max !== min) {
         value = (result.score - min) / (max - min)
       }
       result.normalizedScore = value * 100
-      return value
+      const w = result.scoreWeight
+      return { value, weight: w }
     })
+    const totalWeight = norm.reduce((s, n) => s + n.weight, 0)
     llm.averageScore =
-      (normalised.reduce((sum, score) => sum + score, 0) /
-        (normalised.length || 1)) *
+      (norm.reduce((sum, n) => sum + n.value * n.weight, 0) /
+        (totalWeight || 1)) *
       100
     return llm
   })
@@ -172,16 +178,19 @@ export async function loadLLMData(): Promise<LLMData[]> {
 
   // apply normalization factors and compute per-model averages
   for (const llm of results) {
-    const costs: number[] = []
+    const costs: { value: number; weight: number }[] = []
     for (const [b, res] of Object.entries(llm.benchmarks)) {
       const factor = normalizationFactors[b]
       if (res.costPerTask && factor) {
         res.normalizedCost = res.costPerTask * factor
-        costs.push(res.normalizedCost)
+        const w = res.costWeight
+        costs.push({ value: res.normalizedCost, weight: w })
       }
     }
     if (costs.length > 0) {
-      llm.normalizedCost = costs.reduce((s, c) => s + c, 0) / costs.length
+      const totalWeight = costs.reduce((s, c) => s + c.weight, 0)
+      llm.normalizedCost =
+        costs.reduce((s, c) => s + c.value * c.weight, 0) / (totalWeight || 1)
     }
   }
 

@@ -39,6 +39,8 @@ export interface BenchmarkDetails extends BenchmarkInfo {
   results: Record<string, number>
   cost_per_task?: Record<string, number>
   model_name_mapping_file: string
+  score_weight: number
+  cost_weight: number
 }
 
 export async function loadBenchmarkDetails(
@@ -58,6 +60,8 @@ export async function loadBenchmarkDetails(
       results: data.results,
       cost_per_task: data.cost_per_task,
       model_name_mapping_file: data.model_name_mapping_file,
+      score_weight: data.score_weight,
+      cost_weight: data.cost_weight,
     }
   } catch (error) {
     console.error(`Failed to load benchmark details for ${slug}:`, error)

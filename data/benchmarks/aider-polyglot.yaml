@@ -1,5 +1,7 @@
 benchmark: Aider Polyglot
 description: Pass rate (PR@2) on Aider's polyglot benchmark
+score_weight: 1
+cost_weight: 1
 results:
   Gemini 2.0 Pro exp-02-05: 35.6
   gpt-4o-mini-2024-07-18: 3.6

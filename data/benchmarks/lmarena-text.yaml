@@ -1,5 +1,7 @@
 benchmark: LMArena Text
 description: Elo score on LMArena Text leaderboard
+score_weight: 1
+cost_weight: 1
 results:
   gemini-2.5-pro: 1465
   o3-2025-04-16: 1450

@@ -1,5 +1,7 @@
 benchmark: ARC-AGI-2
 description: Accuracy on ARC-AGI-2
+score_weight: 1
+cost_weight: 1
 results:
   Human Panel: 100
   Claude Opus 4 (Thinking 16K): 8.6
