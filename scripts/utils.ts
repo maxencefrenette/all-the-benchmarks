@@ -1,5 +1,6 @@
 import { execSync } from "child_process"
 import fs from "fs/promises"
+import path from "path"
 import YAML from "yaml"
 
 export function curl(url: string): string {
@@ -32,10 +33,30 @@ export async function saveBenchmarkResults(
     delete yamlObj.cost_per_task
   }
 
-  const existingMap = (yamlObj.model_name_mapping || {}) as Record<
-    string,
-    string | null
-  >
+  const existingMap: Record<string, string | null> = {}
+  if (yamlObj.model_name_mapping_file) {
+    const mapPath = path.join(
+      path.dirname(outPath),
+      "..",
+      "mappings",
+      yamlObj.model_name_mapping_file as string,
+    )
+    try {
+      const mapText = await fs.readFile(mapPath, "utf8")
+      Object.assign(
+        existingMap,
+        YAML.parse(mapText) as Record<string, string | null>,
+      )
+    } catch (err: any) {
+      if (err.code !== "ENOENT") throw err
+    }
+  }
+  if (yamlObj.model_name_mapping) {
+    Object.assign(
+      existingMap,
+      yamlObj.model_name_mapping as Record<string, string | null>,
+    )
+  }
   const sortedModels = Object.entries(results)
     .sort((a, b) => b[1] - a[1])
     .map(([name]) => name)
@@ -45,7 +66,20 @@ export async function saveBenchmarkResults(
       ? existingMap[name]
       : null
   }
-  yamlObj.model_name_mapping = newMap
+  if (!yamlObj.model_name_mapping_file || "model_name_mapping" in yamlObj) {
+    yamlObj.model_name_mapping = newMap
+  }
+
+  if (yamlObj.model_name_mapping_file) {
+    const mapPath = path.join(
+      path.dirname(outPath),
+      "..",
+      "mappings",
+      yamlObj.model_name_mapping_file as string,
+    )
+    await fs.writeFile(mapPath, YAML.stringify(newMap))
+    console.log(`Wrote ${mapPath}`)
+  }
 
   await fs.writeFile(outPath, YAML.stringify(yamlObj))
   console.log(`Wrote ${outPath}`)
