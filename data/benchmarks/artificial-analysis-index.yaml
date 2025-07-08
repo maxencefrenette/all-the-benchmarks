@@ -1,5 +1,7 @@
 benchmark: Artificial Analysis Index
 description: Score on Artificial Analysis Index benchmark
+score_weight: 1
+cost_weight: 1
 results:
   o3-pro: 71
   Gemini 2.5 Pro: 70

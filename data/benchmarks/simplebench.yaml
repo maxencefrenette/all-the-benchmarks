@@ -1,5 +1,7 @@
 benchmark: SimpleBench
 description: Score (AVG@5) on SimpleBench
+score_weight: 1
+cost_weight: 1
 results:
   Human Baseline*: 83.7
   Gemini 2.5 Pro (06-05): 62.4

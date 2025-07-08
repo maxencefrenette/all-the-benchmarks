@@ -13,6 +13,8 @@ export type ModelFile = z.infer<typeof ModelFileSchema>
 export const BenchmarkFileSchema = z.object({
   benchmark: z.string(),
   description: z.string(),
+  score_weight: z.number(),
+  cost_weight: z.number(),
   results: z.record(z.string(), z.number()),
   model_name_mapping_file: z.string(),
   cost_per_task: z.record(z.string(), z.number()).optional(),
