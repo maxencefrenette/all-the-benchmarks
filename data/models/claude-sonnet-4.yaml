@@ -1,0 +1,4 @@
+provider: Anthropic
+models:
+  claude-sonnet-4-nothinking: Claude 4 Sonnet (No Thinking)
+  claude-sonnet-4-thinking: Claude 4 Sonnet (Thinking)
