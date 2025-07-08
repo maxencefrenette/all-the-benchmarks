@@ -25,9 +25,9 @@ export async function loadLLMData(): Promise<LLMData[]> {
   const modelDir = path.join(process.cwd(), "data", "models")
   const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
 
-  const modelSlugs = (await fs.readdir(modelDir))
-    .filter((f) => f.endsWith(".yaml"))
-    .map((f) => f.replace(/\.yaml$/, ""))
+  const modelFiles = (await fs.readdir(modelDir)).filter((f) =>
+    f.endsWith(".yaml"),
+  )
 
   const benchmarkSlugs = (await fs.readdir(benchmarkDir))
     .filter((f) => f.endsWith(".yaml"))
@@ -36,28 +36,42 @@ export async function loadLLMData(): Promise<LLMData[]> {
   const aliasMap: Record<string, string> = {}
   const benchmarkCostMap: Record<string, Record<string, number>> = {}
 
-  for (const slug of modelSlugs) {
+  for (const file of modelFiles) {
     try {
-      const filePath = path.join(modelDir, `${slug}.yaml`)
+      const filePath = path.join(modelDir, file)
       const text = await fs.readFile(filePath, "utf8")
       const data = parse(text) as {
-        model: string
+        model?: string
+        models?: Record<string, string>
         provider: string
         deprecated?: boolean
       }
-      if (!data.model || !data.provider) {
-        throw new Error(`Invalid data structure for ${slug}`)
+      if (data.models) {
+        for (const [slug, name] of Object.entries(data.models)) {
+          llmMap[slug] = {
+            slug,
+            model: name,
+            provider: data.provider,
+            ...(data.deprecated ? { deprecated: true } : {}),
+            benchmarks: {},
+          }
+          aliasMap[name] = slug
+        }
+      } else if (data.model) {
+        const slug = file.replace(/\.yaml$/, "")
+        llmMap[slug] = {
+          slug,
+          model: data.model,
+          provider: data.provider,
+          ...(data.deprecated ? { deprecated: true } : {}),
+          benchmarks: {},
+        }
+        aliasMap[data.model] = slug
+      } else {
+        throw new Error(`Invalid data structure for ${file}`)
       }
-      llmMap[slug] = {
-        slug,
-        model: data.model,
-        provider: data.provider,
-        ...(data.deprecated ? { deprecated: true } : {}),
-        benchmarks: {},
-      }
-      aliasMap[data.model] = slug
     } catch (error) {
-      console.error(`Failed to load model data for ${slug}:`, error)
+      console.error(`Failed to load model data for ${file}:`, error)
     }
   }
 

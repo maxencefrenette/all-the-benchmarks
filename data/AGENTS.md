@@ -6,7 +6,11 @@ This folder stores YAML files consumed by the application and populated by scrap
 
 - `benchmarks/` – Benchmark result files. Each contains `benchmark`, `description`, `results` and optionally `cost_per_task`. The scraping scripts under `scripts/` update the `results` and `cost_per_task` sections automatically.
 - `mappings/` – Model name mapping files. When a scraping script writes a benchmark file, it also ensures the corresponding mapping YAML is updated with any new model names. Mapping values that associate an alias to a known model slug are maintained manually.
-- `models/` – Model definitions. Each YAML lists `model`, `provider` and optional `aliases`. These files are curated manually.
+- `models/` – Model definitions. Historically each YAML only described a single
+  model slug with `model` and `provider` fields. We are migrating to a format
+  where a file can define multiple slugs using a top level `models:` mapping.
+  Both formats are supported by the code while this migration is in progress.
+  Currently only the `o3` model uses the new `models:` syntax.
 
 ## How the code interacts with these files
 
