@@ -2,7 +2,7 @@ import { loadBenchmarks } from "../benchmark-loader"
 import { expect, test } from "vitest"
 
 // Ensure benchmark names come back alphabetically sorted
-// using the real data under public/data/benchmarks
+// using the real data under data/benchmarks
 
 test("loadBenchmarks returns sorted benchmarks", async () => {
   const benchmarks = await loadBenchmarks()
