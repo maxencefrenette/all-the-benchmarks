@@ -1,6 +1,7 @@
 import { parse } from "yaml"
 import fs from "fs/promises"
 import path from "path"
+import { BenchmarkFileSchema } from "./yaml-schemas"
 
 export interface BenchmarkInfo {
   slug: string
@@ -21,10 +22,7 @@ export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
         path.join(benchmarkDir, `${slug}.yaml`),
         "utf8",
       )
-      const data = parse(text) as { benchmark: string; description: string }
-      if (!data.benchmark) {
-        throw new Error(`Invalid benchmark structure for ${slug}`)
-      }
+      const data = BenchmarkFileSchema.parse(parse(text))
       benchmarks.push({
         slug,
         benchmark: data.benchmark,
@@ -52,16 +50,7 @@ export async function loadBenchmarkDetails(
       path.join(benchmarkDir, `${slug}.yaml`),
       "utf8",
     )
-    const data = parse(text) as {
-      benchmark: string
-      description: string
-      results: Record<string, number>
-      cost_per_task?: Record<string, number>
-      model_name_mapping_file: string
-    }
-    if (!data.benchmark || !data.results) {
-      throw new Error(`Invalid benchmark structure for ${slug}`)
-    }
+    const data = BenchmarkFileSchema.parse(parse(text))
     return {
       slug,
       benchmark: data.benchmark,

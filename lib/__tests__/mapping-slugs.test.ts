@@ -2,6 +2,7 @@ import { expect, test } from "vitest"
 import fs from "fs/promises"
 import path from "path"
 import { parse } from "yaml"
+import { MappingFileSchema, ModelFileSchema } from "../yaml-schemas"
 
 // Ensure all mapping files only reference slugs that exist under data/models
 
@@ -17,16 +18,14 @@ test("mapping files only reference existing slugs", async () => {
   )
   for (const file of modelFiles) {
     const text = await fs.readFile(path.join(modelsDir, file), "utf8")
-    const data = parse(text) as {
-      models: Record<string, string>
-    }
+    const data = ModelFileSchema.parse(parse(text))
     for (const slug of Object.keys(data.models)) {
       knownSlugs.add(slug)
     }
   }
   for (const file of files) {
     const text = await fs.readFile(path.join(mappingsDir, file), "utf8")
-    const mapping = parse(text) as Record<string, string | null>
+    const mapping = MappingFileSchema.parse(parse(text))
     for (const slug of Object.values(mapping)) {
       if (!slug) continue
       expect(knownSlugs.has(slug), `${file} maps to missing slug ${slug}`).toBe(
