@@ -71,14 +71,36 @@ export async function loadLLMData(): Promise<LLMData[]> {
         results: Record<string, number>
         cost_per_task?: Record<string, number>
         model_name_mapping?: Record<string, string | null>
+        model_name_mapping_file?: string
       }
       if (!data.benchmark || !data.results) {
         throw new Error(`Invalid benchmark structure for ${slug}`)
       }
-      if (data.model_name_mapping) {
-        for (const [alias, slugName] of Object.entries(
-          data.model_name_mapping,
-        )) {
+      let mapping: Record<string, string | null> | undefined =
+        data.model_name_mapping
+
+      if (data.model_name_mapping_file) {
+        try {
+          const mapPath = path.join(
+            process.cwd(),
+            "public",
+            "data",
+            "mappings",
+            data.model_name_mapping_file,
+          )
+          const mapText = await fs.readFile(mapPath, "utf8")
+          const fileMap = parse(mapText) as Record<string, string | null>
+          mapping = { ...fileMap, ...(mapping || {}) }
+        } catch (err) {
+          console.error(
+            `Failed to load model_name_mapping_file for ${slug}:`,
+            err,
+          )
+        }
+      }
+
+      if (mapping) {
+        for (const [alias, slugName] of Object.entries(mapping)) {
           if (slugName) aliasMap[alias] = slugName
         }
       }

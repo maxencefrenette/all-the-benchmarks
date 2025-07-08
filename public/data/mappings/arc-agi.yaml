@@ -1,0 +1,62 @@
+ARChitects: null
+Avg. Mturker: null
+Claude 3.7: null
+Claude 3.7 (16K): null
+Claude 3.7 (1K): null
+Claude 3.7 (8K): null
+Claude Opus 4: null
+Claude Opus 4 (Thinking 16K): claude-opus-4-thinking
+Claude Opus 4 (Thinking 1K): null
+Claude Opus 4 (Thinking 8K): null
+Claude Sonnet 4: null
+Claude Sonnet 4 (Thinking 16K): claude-sonnet-4-thinking
+Claude Sonnet 4 (Thinking 1K): null
+Claude Sonnet 4 (Thinking 8K): null
+Codex Mini (Latest): null
+Deepseek R1: null
+Deepseek R1 (05/28): deepseek-r1-0528
+GPT-4.1: gpt-4.1
+GPT-4.1-Mini: gpt-4.1-mini
+GPT-4.1-Nano: gpt-4.1-nano
+GPT-4.5: gpt-4.5-preview
+GPT-4o: gpt-4o
+GPT-4o-mini: null
+Gemini 1.5 Pro: null
+Gemini 2.0 Flash: null
+Gemini 2.5 Flash (Preview): null
+Gemini 2.5 Flash (Preview) (Thinking 16K): null
+Gemini 2.5 Flash (Preview) (Thinking 1K): null
+Gemini 2.5 Flash (Preview) (Thinking 24K): gemini-2.5-flash-thinking
+Gemini 2.5 Flash (Preview) (Thinking 8K): null
+Gemini 2.5 Pro (Thinking 16K): null
+Gemini 2.5 Pro (Thinking 1K): null
+Gemini 2.5 Pro (Thinking 32K): gemini-2.5-pro-06-05
+Gemini 2.5 Pro (Thinking 8K): null
+Grok 3: grok-3
+Grok 3 Mini (Low): grok-3-mini-low
+Human Panel: null
+Icecuber: null
+Llama 4 Maverick: null
+Llama 4 Scout: null
+Magistral Medium: null
+Magistral Medium (Thinking): null
+Magistral Small: null
+Stem Grad: null
+o1 (Low): null
+o1 (Medium): null
+o1-mini: null
+o1-preview: null
+o1-pro (Low): null
+o3 (High): o3-high
+o3 (Low): o3-low
+o3 (Medium): o3-medium
+o3-Pro (High): o3-pro-high
+o3-Pro (Low): null
+o3-Pro (Medium): null
+o3-mini (High): null
+o3-mini (Low): null
+o3-mini (Medium): null
+o3-preview (Low)*: null
+o4-mini (High): o4-mini-high
+o4-mini (Low): null
+o4-mini (Medium): null
