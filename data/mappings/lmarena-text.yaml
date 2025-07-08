@@ -31,7 +31,7 @@ command-r-plus-08-2024: null
 dbrx-instruct-preview: null
 deepseek-coder-v2: null
 deepseek-llm-67b-chat: null
-deepseek-r1: null
+deepseek-r1: deepseek-r1-0120
 deepseek-r1-0528: deepseek-r1-0528
 deepseek-v2.5: null
 deepseek-v2.5-1210: null

@@ -10,7 +10,7 @@ claude-4-sonnet-20250514-thinking-64k: claude-sonnet-4-thinking
 command-a-03-2025: null
 command-r-08-2024: null
 command-r-plus-08-2024: null
-deepseek-r1: deepseek-r1
+deepseek-r1: deepseek-r1-0120
 deepseek-r1-0528: deepseek-r1-0528
 deepseek-r1-distill-llama-70b: null
 deepseek-r1-distill-qwen-32b: null
