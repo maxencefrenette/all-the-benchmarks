@@ -18,15 +18,10 @@ test("mapping files only reference existing slugs", async () => {
   for (const file of modelFiles) {
     const text = await fs.readFile(path.join(modelsDir, file), "utf8")
     const data = parse(text) as {
-      model?: string
-      models?: Record<string, string>
+      models: Record<string, string>
     }
-    if (data.models) {
-      for (const slug of Object.keys(data.models)) {
-        knownSlugs.add(slug)
-      }
-    } else if (data.model) {
-      knownSlugs.add(file.replace(/\.yaml$/, ""))
+    for (const slug of Object.keys(data.models)) {
+      knownSlugs.add(slug)
     }
   }
   for (const file of files) {

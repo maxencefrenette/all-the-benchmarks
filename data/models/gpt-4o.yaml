@@ -1,2 +1,3 @@
-model: GPT-4o
 provider: OpenAI
+models:
+  gpt-4o: GPT-4o

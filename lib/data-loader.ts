@@ -41,8 +41,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
       const filePath = path.join(modelDir, file)
       const text = await fs.readFile(filePath, "utf8")
       const data = parse(text) as {
-        model?: string
-        models?: Record<string, string>
+        models: Record<string, string>
         provider: string
         deprecated?: boolean
       }
@@ -57,16 +56,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
           }
           aliasMap[name] = slug
         }
-      } else if (data.model) {
-        const slug = file.replace(/\.yaml$/, "")
-        llmMap[slug] = {
-          slug,
-          model: data.model,
-          provider: data.provider,
-          ...(data.deprecated ? { deprecated: true } : {}),
-          benchmarks: {},
-        }
-        aliasMap[data.model] = slug
       } else {
         throw new Error(`Invalid data structure for ${file}`)
       }
