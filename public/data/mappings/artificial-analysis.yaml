@@ -11,10 +11,10 @@ Claude 3.5 Sonnet (June): null
 Claude 3.5 Sonnet (Oct): null
 Claude 3.7 Sonnet Thinking: null
 Claude 3.7 Sonnet: null
-Claude 4 Opus Thinking: claude-4-opus-thinking
-Claude 4 Opus: null
-Claude 4 Sonnet Thinking: null
-Claude 4 Sonnet: null
+Claude 4 Opus Thinking: claude-opus-4-thinking
+Claude 4 Opus: claude-opus-4-nothinking
+Claude 4 Sonnet Thinking: claude-sonnet-4-thinking
+Claude 4 Sonnet: claude-sonnet-4-nothinking
 Claude Instant: null
 Codestral (Jan '25): null
 Codestral (May '24): null

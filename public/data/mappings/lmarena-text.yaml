@@ -19,8 +19,8 @@ claude-3-7-sonnet-20250219: null
 claude-3-haiku-20240307: null
 claude-3-opus-20240229: null
 claude-3-sonnet-20240229: null
-claude-opus-4-20250514: null
-claude-sonnet-4-20250514: null
+claude-opus-4-20250514: claude-opus-4-nothinking
+claude-sonnet-4-20250514: claude-sonnet-4-nothinking
 codellama-34b-instruct: null
 codellama-70b-instruct: null
 command-a-03-2025: null

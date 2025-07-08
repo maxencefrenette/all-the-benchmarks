@@ -6,11 +6,11 @@ Claude 3.7: null
 Claude Opus 4 (Thinking 16K): claude-opus-4-thinking
 Claude Opus 4 (Thinking 1K): null
 Claude Opus 4 (Thinking 8K): null
-Claude Opus 4: null
+Claude Opus 4: claude-opus-4-nothinking
 Claude Sonnet 4 (Thinking 16K): claude-sonnet-4-thinking
 Claude Sonnet 4 (Thinking 1K): null
 Claude Sonnet 4 (Thinking 8K): null
-Claude Sonnet 4: null
+Claude Sonnet 4: claude-sonnet-4-nothinking
 Codex Mini (Latest): null
 Deepseek R1 (05/28): deepseek-r1-0528
 Deepseek R1: null
