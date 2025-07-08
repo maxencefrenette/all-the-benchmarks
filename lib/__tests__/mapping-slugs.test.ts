@@ -11,17 +11,32 @@ test("mapping files only reference existing slugs", async () => {
   const files = (await fs.readdir(mappingsDir)).filter((f) =>
     f.endsWith(".yaml"),
   )
+  const knownSlugs = new Set<string>()
+  const modelFiles = (await fs.readdir(modelsDir)).filter((f) =>
+    f.endsWith(".yaml"),
+  )
+  for (const file of modelFiles) {
+    const text = await fs.readFile(path.join(modelsDir, file), "utf8")
+    const data = parse(text) as {
+      model?: string
+      models?: Record<string, string>
+    }
+    if (data.models) {
+      for (const slug of Object.keys(data.models)) {
+        knownSlugs.add(slug)
+      }
+    } else if (data.model) {
+      knownSlugs.add(file.replace(/\.yaml$/, ""))
+    }
+  }
   for (const file of files) {
     const text = await fs.readFile(path.join(mappingsDir, file), "utf8")
     const mapping = parse(text) as Record<string, string | null>
     for (const slug of Object.values(mapping)) {
       if (!slug) continue
-      const slugPath = path.join(modelsDir, `${slug}.yaml`)
-      const exists = await fs
-        .access(slugPath)
-        .then(() => true)
-        .catch(() => false)
-      expect(exists, `${file} maps to missing slug ${slug}`).toBe(true)
+      expect(knownSlugs.has(slug), `${file} maps to missing slug ${slug}`).toBe(
+        true,
+      )
     }
   }
 })
