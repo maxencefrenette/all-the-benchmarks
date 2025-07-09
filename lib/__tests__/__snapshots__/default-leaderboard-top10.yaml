@@ -22,7 +22,7 @@
   slug: o3-medium
   model: o3 (medium)
   provider: OpenAI
-  averageScore: 83.77
+  averageScore: 83.78
   costPerTask: 1.01
   costBenchmarkCount: 4
   benchmarkCount: 8
@@ -52,7 +52,7 @@
   slug: deepseek-r1-0528
   model: DeepSeek R1 (05/28)
   provider: DeepSeek
-  averageScore: 63.85
+  averageScore: 63.88
   costPerTask: 0.28
   costBenchmarkCount: 4
   benchmarkCount: 8
@@ -72,7 +72,7 @@
   slug: gemini-2.5-flash-0520-thinking
   model: Gemini 2.5 Flash 05-20 (thinking)
   provider: Google
-  averageScore: 59.43
+  averageScore: 59.46
   costPerTask: 0.71
   costBenchmarkCount: 4
   benchmarkCount: 8
@@ -82,7 +82,7 @@
   slug: claude-opus-4-nothinking
   model: Claude 4 Opus (no thinking)
   provider: Anthropic
-  averageScore: 49.36
+  averageScore: 49.38
   costPerTask: 2.01
   costBenchmarkCount: 4
   benchmarkCount: 8

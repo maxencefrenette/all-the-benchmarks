@@ -123,8 +123,8 @@ llama-3.2-1b-instruct: null
 llama-3.2-3b-instruct: null
 llama-3.3-70b-instruct: null
 llama-3.3-nemotron-49b-super-v1: null
-llama-4-maverick-17b-128e-instruct: null
-llama-4-scout-17b-16e-instruct: null
+llama-4-maverick-17b-128e-instruct: llama-4-maverick
+llama-4-scout-17b-16e-instruct: llama-4-scout
 llama2-70b-steerlm-chat: null
 magistral-medium-2506: null
 minimax-m1: null
