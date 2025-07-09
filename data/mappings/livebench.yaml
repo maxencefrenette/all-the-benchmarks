@@ -33,7 +33,7 @@ gpt-4o-2024-11-20: gpt-4o
 grok-3-beta: grok-3
 grok-3-mini-beta-high: grok-3-mini-high
 hunyuan-turbos-20250313: null
-llama4-maverick-instruct-basic: null
+llama4-maverick-instruct-basic: llama-4-maverick
 mistral-large-2411: null
 mistral-medium-2505: null
 mistral-small-2503: null
