@@ -21,8 +21,8 @@ Gemini 2.5 Pro Preview 03-25: gemini-2.5-pro-preview-03-25
 Gemini 2.5 Pro Preview 05-06: gemini-2.5-pro-preview-05-06
 gemini-2.0-flash-exp: null
 gemini-2.0-flash-thinking-exp-01-21: null
-gemini-2.5-flash-preview-04-17 (default): gemini-2.5-flash-preview-0417-nothinking
-gemini-2.5-flash-preview-05-20 (24k think): gemini-2.5-flash-0520-thinking
+gemini-2.5-flash-preview-04-17 (default): gemini-2.5-flash-0520-thinking
+gemini-2.5-flash-preview-05-20 (24k think): null
 gemini-2.5-flash-preview-05-20 (no think): gemini-2.5-flash-0520-nothinking
 gemini-2.5-pro-preview-06-05 (32k think): null
 gemini-2.5-pro-preview-06-05 (default think): gemini-2.5-pro-06-05
