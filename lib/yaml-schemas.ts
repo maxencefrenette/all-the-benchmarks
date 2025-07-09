@@ -1,4 +1,4 @@
-import { z } from "zod/v4"
+import { z } from "zod"
 
 export const MappingFileSchema = z.record(z.string(), z.string().nullable())
 export type MappingFile = z.infer<typeof MappingFileSchema>
