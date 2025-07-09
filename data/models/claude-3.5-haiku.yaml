@@ -1,0 +1,3 @@
+provider: Anthropic
+reasoning_efforts:
+  claude-3.5-haiku: Claude 3.5 Haiku
