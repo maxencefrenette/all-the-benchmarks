@@ -1,4 +1,4 @@
-chatgpt-4o-latest-2025-03-27: gpt-4o
+chatgpt-4o-latest-2025-03-27: null
 claude-3-5-haiku-20241022: null
 claude-3-5-sonnet-20241022: null
 claude-3-7-sonnet-20250219-base: null
@@ -29,7 +29,7 @@ gpt-4.1-2025-04-14: gpt-4.1
 gpt-4.1-mini-2025-04-14: gpt-4.1-mini
 gpt-4.1-nano-2025-04-14: gpt-4.1-nano
 gpt-4.5-preview-2025-02-27: gpt-4.5-preview
-gpt-4o-2024-11-20: gpt-4o
+gpt-4o-2024-11-20: gpt-4o-2024-11-20
 grok-3-beta: grok-3
 grok-3-mini-beta-high: grok-3-mini-high
 hunyuan-turbos-20250313: null

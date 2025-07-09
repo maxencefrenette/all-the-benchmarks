@@ -1,0 +1,3 @@
+provider: OpenAI
+reasoning_efforts:
+  gpt-4o-2024-11-20: GPT-4o 2024-11-20

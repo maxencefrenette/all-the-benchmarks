@@ -82,11 +82,11 @@ GPT-4.1: gpt-4.1
 GPT-4.1 mini: gpt-4.1-mini
 GPT-4.1 nano: gpt-4.1-nano
 GPT-4.5 (Preview): gpt-4.5-preview
-GPT-4o (Aug '24): null
+GPT-4o (Aug '24): gpt-4o-2024-08-06
 GPT-4o (ChatGPT): null
 GPT-4o (March 2025): null
-GPT-4o (May '24): null
-GPT-4o (Nov '24): null
+GPT-4o (May '24): gpt-4o-2024-05-13
+GPT-4o (Nov '24): gpt-4o-2024-11-20
 GPT-4o mini: null
 Grok 2: null
 Grok 3: grok-3
