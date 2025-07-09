@@ -1,5 +1,5 @@
 provider: Google
 deprecated: true
 reasoning_efforts:
-  gemini-2.5-flash-preview-0417-thinking: Gemini 2.5 Flash Preview 04-17 (thinking)
-  gemini-2.5-flash-preview-0417-nothinking: Gemini 2.5 Flash Preview 04-17 (no thinking)
+  gemini-2.5-flash-preview-0417-thinking: Gemini 2.5 Flash Preview 04/17 (thinking)
+  gemini-2.5-flash-preview-0417-nothinking: Gemini 2.5 Flash Preview 04/17 (no thinking)
