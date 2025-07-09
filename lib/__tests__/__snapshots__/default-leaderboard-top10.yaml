@@ -10,7 +10,7 @@
   totalCostBenchmarks: 4
 - id: gemini-2.5-pro-06-05
   slug: gemini-2.5-pro-06-05
-  model: Gemini 2.5 Pro (06/05)
+  model: Gemini 2.5 Pro 06/05
   provider: Google
   averageScore: 87.59
   costPerTask: 2.18
@@ -50,7 +50,7 @@
   totalCostBenchmarks: 4
 - id: deepseek-r1-0528
   slug: deepseek-r1-0528
-  model: DeepSeek R1 (05/28)
+  model: DeepSeek R1 05/28
   provider: DeepSeek
   averageScore: 63.88
   costPerTask: 0.28
@@ -70,7 +70,7 @@
   totalCostBenchmarks: 4
 - id: gemini-2.5-flash-0520-thinking
   slug: gemini-2.5-flash-0520-thinking
-  model: Gemini 2.5 Flash 05-20 (thinking)
+  model: Gemini 2.5 Flash 05/20 (thinking)
   provider: Google
   averageScore: 59.46
   costPerTask: 0.71
@@ -90,7 +90,7 @@
   totalCostBenchmarks: 4
 - id: gemini-2.5-flash-0520-nothinking
   slug: gemini-2.5-flash-0520-nothinking
-  model: Gemini 2.5 Flash 05-20 (no thinking)
+  model: Gemini 2.5 Flash 05/20 (no thinking)
   provider: Google
   averageScore: 42.14
   costPerTask: 0.09
