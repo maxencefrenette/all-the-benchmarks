@@ -10,6 +10,7 @@ const BASE_TICKS = [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30] as const
 
 const MIN_BENCHMARKS = 5
 const MIN_COST_BENCHMARKS = 3
+const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000
 
 function countCostBenchmarks(llm: LLMData) {
   return Object.values(llm.benchmarks).filter(
@@ -55,13 +56,17 @@ export default function CostScoreChart({
 
   const visible = React.useMemo(
     () =>
-      sorted.filter(
-        (m) =>
-          (showDeprecated || !m.deprecated) &&
-          (showIncomplete ||
-            (Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
-              countCostBenchmarks(m) >= MIN_COST_BENCHMARKS)),
-      ),
+      sorted.filter((m) => {
+        const isNew =
+          m.releaseDate && Date.now() - m.releaseDate.getTime() < ONE_WEEK_MS
+        return (
+          isNew ||
+          ((showDeprecated || !m.deprecated) &&
+            (showIncomplete ||
+              (Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
+                countCostBenchmarks(m) >= MIN_COST_BENCHMARKS)))
+        )
+      }),
     [sorted, showDeprecated, showIncomplete],
   )
 
@@ -154,15 +159,19 @@ export default function CostScoreChart({
           {Object.entries(groups).map(([provider, data]) => (
             <Scatter
               key={provider}
-              data={data.map((d) =>
-                showDeprecated || !d.deprecated
+              data={data.map((d) => {
+                const isNew =
+                  d.releaseDate &&
+                  Date.now() - d.releaseDate.getTime() < ONE_WEEK_MS
+                return showDeprecated || !d.deprecated || isNew
                   ? showIncomplete ||
                     (Object.keys(d.benchmarks).length >= MIN_BENCHMARKS &&
-                      countCostBenchmarks(d) >= MIN_COST_BENCHMARKS)
+                      countCostBenchmarks(d) >= MIN_COST_BENCHMARKS) ||
+                    isNew
                     ? d
                     : { ...d, normalizedCost: NaN, averageScore: NaN }
-                  : { ...d, normalizedCost: NaN, averageScore: NaN },
-              )}
+                  : { ...d, normalizedCost: NaN, averageScore: NaN }
+              })}
               name={provider}
               fill={PROVIDER_COLORS[provider]}
             />
@@ -172,15 +181,19 @@ export default function CostScoreChart({
             data.length > 1 ? (
               <Scatter
                 key={`line-${model}`}
-                data={data.map((d) =>
-                  showDeprecated || !d.deprecated
+                data={data.map((d) => {
+                  const isNew =
+                    d.releaseDate &&
+                    Date.now() - d.releaseDate.getTime() < ONE_WEEK_MS
+                  return showDeprecated || !d.deprecated || isNew
                     ? showIncomplete ||
                       (Object.keys(d.benchmarks).length >= MIN_BENCHMARKS &&
-                        countCostBenchmarks(d) >= MIN_COST_BENCHMARKS)
+                        countCostBenchmarks(d) >= MIN_COST_BENCHMARKS) ||
+                      isNew
                       ? d
                       : { ...d, normalizedCost: NaN, averageScore: NaN }
-                    : { ...d, normalizedCost: NaN, averageScore: NaN },
-                )}
+                    : { ...d, normalizedCost: NaN, averageScore: NaN }
+                })}
                 name={model}
                 fill={PROVIDER_COLORS[data[0].provider]}
                 line={{
