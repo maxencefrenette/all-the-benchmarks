@@ -36,6 +36,8 @@ jobs:
           pnpm scrape:hle
           pnpm scrape:gpqa-diamond
           pnpm scrape:artificial-analysis-index
+      - name: Update tests
+        run: pnpm test:update
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v6
