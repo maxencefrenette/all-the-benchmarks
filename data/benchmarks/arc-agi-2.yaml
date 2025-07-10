@@ -62,6 +62,7 @@ results:
   Magistral Medium: 0
   Magistral Medium (Thinking): 0
   Gemini 2.5 Pro (Thinking 1K): 0
+model_name_mapping_file: arc-agi.yaml
 cost_per_task:
   Human Panel: 17
   Claude Opus 4 (Thinking 16K): 1.9284
@@ -122,4 +123,3 @@ cost_per_task:
   Magistral Medium: 0.1079
   Magistral Medium (Thinking): 0.123
   Gemini 2.5 Pro (Thinking 1K): 0.0885
-model_name_mapping_file: arc-agi.yaml
