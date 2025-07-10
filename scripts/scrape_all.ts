@@ -9,6 +9,7 @@ const scripts = [
   "scrape:hle",
   "scrape:gpqa-diamond",
   "scrape:artificial-analysis-index",
+  "scrape:weirdml",
 ]
 
 for (const script of scripts) {
