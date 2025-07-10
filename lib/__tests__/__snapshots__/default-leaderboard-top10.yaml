@@ -22,7 +22,7 @@
   slug: o3-medium
   model: o3 (medium)
   provider: OpenAI
-  averageScore: 84.36
+  averageScore: 82.78
   costPerTask: 1.01
   costBenchmarkCount: 4
   benchmarkCount: 8
@@ -48,6 +48,16 @@
   benchmarkCount: 8
   totalBenchmarks: 9
   totalCostBenchmarks: 4
+- id: deepseek-r1-0528
+  slug: deepseek-r1-0528
+  model: DeepSeek R1 05/28
+  provider: DeepSeek
+  averageScore: 65.94
+  costPerTask: 0.28
+  costBenchmarkCount: 4
+  benchmarkCount: 8
+  totalBenchmarks: 9
+  totalCostBenchmarks: 4
 - id: claude-sonnet-4-thinking
   slug: claude-sonnet-4-thinking
   model: Claude 4 Sonnet (thinking)
@@ -58,21 +68,11 @@
   benchmarkCount: 8
   totalBenchmarks: 9
   totalCostBenchmarks: 4
-- id: deepseek-r1-0528
-  slug: deepseek-r1-0528
-  model: DeepSeek R1 05/28
-  provider: DeepSeek
-  averageScore: 64.61
-  costPerTask: 0.28
-  costBenchmarkCount: 4
-  benchmarkCount: 8
-  totalBenchmarks: 9
-  totalCostBenchmarks: 4
 - id: gemini-2.5-flash-0520-thinking
   slug: gemini-2.5-flash-0520-thinking
   model: Gemini 2.5 Flash 05/20 (thinking)
   provider: Google
-  averageScore: 60.47
+  averageScore: 61.27
   costPerTask: 0.62
   costBenchmarkCount: 4
   benchmarkCount: 8
@@ -82,7 +82,7 @@
   slug: claude-opus-4-nothinking
   model: Claude 4 Opus (no thinking)
   provider: Anthropic
-  averageScore: 53.4
+  averageScore: 51.39
   costPerTask: 2.03
   costBenchmarkCount: 4
   benchmarkCount: 8
