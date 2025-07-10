@@ -1,3 +1,4 @@
 provider: OpenAI
+release_date: 2025-04-14
 reasoning_efforts:
   gpt-4.1: GPT-4.1
