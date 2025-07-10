@@ -50,7 +50,7 @@ deepseek-v3: null
 deepseek-v3-0324: null
 dolly-v2-12b: null
 dolphin-2.2.1-mistral-7b: null
-early-grok-3: null
+early-grok-3: grok-3
 falcon-180b-chat: null
 fastchat-t5-3b: null
 gemini-1.5-flash-001: null
