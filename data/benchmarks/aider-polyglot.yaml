@@ -63,6 +63,7 @@ results:
   o3: 76.9
   o3 (high) + gpt-4.1: 78.2
   o3-pro (high): 84.9
+model_name_mapping_file: aider-polyglot.yaml
 cost_per_task:
   Gemini 2.0 Pro exp-02-05: 0
   gpt-4o-mini-2024-07-18: 0.0014
@@ -123,4 +124,3 @@ cost_per_task:
   o3: 0.0611
   o3 (high) + gpt-4.1: 0.0784
   o3-pro (high): 0.6503
-model_name_mapping_file: aider-polyglot.yaml
