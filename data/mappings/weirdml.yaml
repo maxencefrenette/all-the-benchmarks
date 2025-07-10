@@ -1,4 +1,4 @@
-claude-3.6-sonnet: null
+claude-3.6-sonnet: claude-3.5-sonnet-v2
 claude-4-opus-20250522 (thinking 16k): claude-opus-4-thinking
 claude-4-sonnet-20250522 (no thinking): claude-sonnet-4-nothinking
 claude-4-sonnet-20250522 (thinking 16k): claude-sonnet-4-thinking

@@ -7,8 +7,8 @@ Claude 3 Haiku: null
 Claude 3 Opus: null
 Claude 3 Sonnet: null
 Claude 3.5 Haiku: claude-3.5-haiku
-Claude 3.5 Sonnet (June): null
-Claude 3.5 Sonnet (Oct): null
+Claude 3.5 Sonnet (June): claude-3.5-sonnet
+Claude 3.5 Sonnet (Oct): claude-3.5-sonnet-v2
 Claude 3.7 Sonnet: null
 Claude 3.7 Sonnet Thinking: null
 Claude 4 Opus: claude-opus-4-nothinking
