@@ -20,8 +20,8 @@ claude-1: null
 claude-2.0: null
 claude-2.1: null
 claude-3-5-haiku-20241022: claude-3.5-haiku
-claude-3-5-sonnet-20240620: null
-claude-3-5-sonnet-20241022: null
+claude-3-5-sonnet-20240620: claude-3.5-sonnet
+claude-3-5-sonnet-20241022: claude-3.5-sonnet-v2
 claude-3-7-sonnet-20250219: null
 claude-3-7-sonnet-20250219-thinking-32k: null
 claude-3-haiku-20240307: null
