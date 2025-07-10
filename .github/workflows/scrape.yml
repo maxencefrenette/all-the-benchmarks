@@ -21,6 +21,8 @@ jobs:
         with:
           node-version: 20
           cache: "pnpm"
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install
       - name: Run scraping scripts
         run: |
           pnpm scrape:livebench
