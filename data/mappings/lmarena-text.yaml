@@ -46,8 +46,8 @@ deepseek-r1-0528: deepseek-r1-0528
 deepseek-v2-api-0628: null
 deepseek-v2.5: null
 deepseek-v2.5-1210: null
-deepseek-v3: null
-deepseek-v3-0324: null
+deepseek-v3: deepseek-v3-1224
+deepseek-v3-0324: deepseek-v3-0324
 dolly-v2-12b: null
 dolphin-2.2.1-mistral-7b: null
 early-grok-3: grok-3
