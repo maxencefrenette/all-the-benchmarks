@@ -1,3 +1,4 @@
 provider: Anthropic
+release_date: 2024-10-22
 reasoning_efforts:
   claude-3.5-haiku: Claude 3.5 Haiku

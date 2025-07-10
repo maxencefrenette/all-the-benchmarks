@@ -1,4 +1,5 @@
 provider: Anthropic
+release_date: 2025-05-22
 reasoning_efforts:
   claude-sonnet-4-nothinking: Claude 4 Sonnet (no thinking)
   claude-sonnet-4-thinking: Claude 4 Sonnet (thinking)
