@@ -211,7 +211,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
 
       if (mapping) {
         for (const [alias, slugName] of Object.entries(mapping)) {
-          if (slugName) aliasMap[alias] = slugName
+          aliasMap[alias] = slugName
         }
       }
       const costMap = data.cost_per_task || {}
