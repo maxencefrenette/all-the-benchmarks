@@ -10,4 +10,6 @@ test("loadBenchmarks returns sorted benchmarks", async () => {
   const names = benchmarks.map((b) => b.benchmark)
   const sorted = [...names].sort((a, b) => a.localeCompare(b))
   expect(names).toEqual(sorted)
+  expect(benchmarks[0].modelCount).toBeGreaterThan(0)
+  expect(typeof benchmarks[0].hasCost).toBe("boolean")
 })
