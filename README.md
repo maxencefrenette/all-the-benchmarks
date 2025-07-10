@@ -4,4 +4,4 @@ This project aggregates scores from popular large language model benchmarks into
 
 The goal is to provide a clear comparison of how leading models perform across different tasks. Benchmark results are scraped from official leaderboards, normalized, and averaged so that each benchmark contributes equally to the overall ranking.
 
-Visit `/about` for more details on the methodology.
+Visit the [About page](https://all-the-benchmarks.vercel.app/about) for more details on the methodology.
