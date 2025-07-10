@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 
 const MIN_BENCHMARKS = 5
 const MIN_COST_BENCHMARKS = 3
+const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000
 
 function countCostBenchmarks(llm: LLMData) {
   return Object.values(llm.benchmarks).filter(
@@ -23,13 +24,17 @@ export default function LeaderboardSection({
 }) {
   const [showDeprecated, setShowDeprecated] = useState(false)
   const [showIncomplete, setShowIncomplete] = useState(false)
-  const visible = llmData.filter(
-    (m) =>
-      (showDeprecated || !m.deprecated) &&
-      (showIncomplete ||
-        (Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
-          countCostBenchmarks(m) >= MIN_COST_BENCHMARKS)),
-  )
+  const visible = llmData.filter((m) => {
+    const isNew =
+      m.releaseDate && Date.now() - m.releaseDate.getTime() < ONE_WEEK_MS
+    return (
+      isNew ||
+      ((showDeprecated || !m.deprecated) &&
+        (showIncomplete ||
+          (Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
+            countCostBenchmarks(m) >= MIN_COST_BENCHMARKS)))
+    )
+  })
 
   return (
     <div className="space-y-4">

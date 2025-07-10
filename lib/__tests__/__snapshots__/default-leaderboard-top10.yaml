@@ -1,3 +1,13 @@
+- id: grok-4
+  slug: grok-4
+  model: Grok 4
+  provider: xAI
+  averageScore: 100
+  costPerTask: 4.22
+  costBenchmarkCount: 3
+  benchmarkCount: 4
+  totalBenchmarks: 10
+  totalCostBenchmarks: 5
 - id: o3-pro-high
   slug: o3-pro-high
   model: o3-pro (high)
@@ -84,16 +94,6 @@
   provider: Anthropic
   averageScore: 61.79
   costPerTask: 1.16
-  costBenchmarkCount: 5
-  benchmarkCount: 9
-  totalBenchmarks: 10
-  totalCostBenchmarks: 5
-- id: gemini-2.5-flash-0520-thinking
-  slug: gemini-2.5-flash-0520-thinking
-  model: Gemini 2.5 Flash 05/20 (thinking)
-  provider: Google
-  averageScore: 57.59
-  costPerTask: 0.53
   costBenchmarkCount: 5
   benchmarkCount: 9
   totalBenchmarks: 10
