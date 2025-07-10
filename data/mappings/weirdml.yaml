@@ -1,21 +1,21 @@
 claude-3.6-sonnet: null
-claude-4-opus-20250522 (thinking 16k): null
-claude-4-sonnet-20250522 (no thinking): null
-claude-4-sonnet-20250522 (thinking 16k): null
-deepseek-r1-0528: null
+claude-4-opus-20250522 (thinking 16k): claude-opus-4-thinking
+claude-4-sonnet-20250522 (no thinking): claude-sonnet-4-nothinking
+claude-4-sonnet-20250522 (thinking 16k): claude-sonnet-4-thinking
+deepseek-r1-0528: deepseek-r1-0528
 deepseek-v3-0324: null
-gemini-2.5-flash (thinking 16k): null
+gemini-2.5-flash (thinking 16k): gemini-2.5-flash-0520-thinking
 gemini-2.5-flash-lite-preview-06-17 (thinking 16k): null
-gemini-2.5-pro (thinking 16k): null
-gpt-4.1-2025-04-14: null
-gpt-4.1-mini-2025-04-14: null
-gpt-4.1-nano-2025-04-14: null
-gpt-4.5-preview: null
-grok-3: null
-grok-3-mini (high): null
-llama-4-maverick: null
-o3-2025-04-16 (high): null
-o3-pro-2025-06-10 (high): null
-o4-mini-2025-04-16 (high): null
-qwen3-235b-a22b (thinking): null
+gemini-2.5-pro (thinking 16k): gemini-2.5-pro-06-05
+gpt-4.1-2025-04-14: gpt-4.1
+gpt-4.1-mini-2025-04-14: gpt-4.1-mini
+gpt-4.1-nano-2025-04-14: gpt-4.1-nano
+gpt-4.5-preview: gpt-4.5-preview
+grok-3: grok-3
+grok-3-mini (high): grok-3-mini-high
+llama-4-maverick: llama-4-maverick
+o3-2025-04-16 (high): o3-high
+o3-pro-2025-06-10 (high): o3-pro-high
+o4-mini-2025-04-16 (high): o4-mini-high
+qwen3-235b-a22b (thinking): qwen-3-235b-a22b-thinking
 qwen3-30b-a3b (thinking): null
