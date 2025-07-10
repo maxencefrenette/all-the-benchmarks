@@ -180,7 +180,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
           ...(data.deprecated ? { deprecated: true } : {}),
           benchmarks: {},
         }
-        aliasMap[name] = slug
       })
     } catch (error) {
       console.error(`Failed to load model data for ${file}:`, error)
@@ -217,7 +216,8 @@ export async function loadLLMData(): Promise<LLMData[]> {
       }
       const costMap = data.cost_per_task || {}
       for (const [rawName, score] of Object.entries(data.results)) {
-        const mappedSlug = aliasMap[rawName] || rawName
+        const mappedSlug = aliasMap[rawName]
+        if (!mappedSlug) continue
         const llm = llmMap[mappedSlug]
         if (llm) {
           const hasCost = costMap[rawName] && costMap[rawName] > 0
