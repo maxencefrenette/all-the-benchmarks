@@ -1,4 +1,5 @@
 provider: OpenAI
+release_date: 2025-02-27
 reasoning_efforts:
   gpt-4.5-preview: GPT-4.5 Preview
 deprecated: true
