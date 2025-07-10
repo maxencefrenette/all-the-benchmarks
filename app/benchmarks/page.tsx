@@ -2,6 +2,14 @@ import { loadBenchmarks } from "@/lib/benchmark-loader"
 import Link from "next/link"
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 
 export const metadata = {
   title: "Benchmarks",
@@ -17,18 +25,38 @@ export default async function BenchmarksPage() {
         subtitle="Models are evaluated on the following benchmarks."
       />
       <NavigationPills />
-      <ul className="space-y-4">
-        {benchmarks.map((b) => (
-          <li key={b.slug} className="border rounded-lg p-4">
-            <Link href={`/benchmarks/${b.slug}`} className="space-y-1 block">
-              <h2 className="font-semibold text-lg">{b.benchmark}</h2>
-              {b.description && (
-                <p className="text-muted-foreground text-sm">{b.description}</p>
-              )}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Benchmark</TableHead>
+            <TableHead className="text-right">Models</TableHead>
+            <TableHead className="text-right">Cost data?</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {benchmarks.map((b) => (
+            <TableRow key={b.slug}>
+              <TableCell>
+                <Link
+                  href={`/benchmarks/${b.slug}`}
+                  className="space-y-1 block"
+                >
+                  <div className="font-semibold">{b.benchmark}</div>
+                  {b.description && (
+                    <p className="text-muted-foreground text-sm">
+                      {b.description}
+                    </p>
+                  )}
+                </Link>
+              </TableCell>
+              <TableCell className="text-right">{b.modelCount}</TableCell>
+              <TableCell className="text-right">
+                {b.hasCost ? "Yes" : "No"}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </main>
   )
 }

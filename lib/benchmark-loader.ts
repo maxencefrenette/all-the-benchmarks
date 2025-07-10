@@ -7,6 +7,8 @@ export interface BenchmarkInfo {
   slug: string
   benchmark: string
   description: string
+  modelCount: number
+  hasCost: boolean
 }
 
 export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
@@ -27,6 +29,8 @@ export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
         slug,
         benchmark: data.benchmark,
         description: data.description,
+        modelCount: Object.keys(data.results).length,
+        hasCost: !!data.cost_per_task,
       })
     } catch (error) {
       console.error(`Failed to load benchmark info for ${slug}:`, error)
@@ -57,6 +61,8 @@ export async function loadBenchmarkDetails(
       slug,
       benchmark: data.benchmark,
       description: data.description,
+      modelCount: Object.keys(data.results).length,
+      hasCost: !!data.cost_per_task,
       results: data.results,
       cost_per_task: data.cost_per_task,
       model_name_mapping_file: data.model_name_mapping_file,
