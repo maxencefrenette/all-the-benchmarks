@@ -2,3 +2,4 @@ provider: Anthropic
 release_date: 2024-06-20
 reasoning_efforts:
   claude-3.5-sonnet: Claude 3.5 Sonnet
+deprecated: true
