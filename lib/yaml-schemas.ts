@@ -7,6 +7,10 @@ export const ModelFileSchema = z.object({
   provider: z.string(),
   reasoning_efforts: z.record(z.string(), z.string()),
   deprecated: z.boolean().optional(),
+  release_date: z.iso
+    .date()
+    .transform((str) => new Date(str))
+    .optional(),
 })
 export type ModelFile = z.infer<typeof ModelFileSchema>
 

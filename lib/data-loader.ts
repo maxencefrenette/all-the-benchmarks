@@ -25,6 +25,7 @@ export interface LLMData {
   modelSlug: string
   reasoningOrder: number
   deprecated?: boolean
+  releaseDate?: Date
   benchmarks: Record<string, BenchmarkResult>
   averageScore?: number
   normalizedCost?: number
@@ -178,6 +179,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
           modelSlug,
           reasoningOrder: index,
           ...(data.deprecated ? { deprecated: true } : {}),
+          ...(data.release_date ? { releaseDate: data.release_date } : {}),
           benchmarks: {},
         }
       })

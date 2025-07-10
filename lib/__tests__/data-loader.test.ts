@@ -58,3 +58,9 @@ test("loadLLMData marks deprecated models", async () => {
   const deprecated = llmData.find((d) => d.slug === "deepseek-r1-0120")
   expect(deprecated?.deprecated).toBe(true)
 })
+
+test("loadLLMData parses release dates", async () => {
+  const llmData = await loadLLMData()
+  const grok4 = llmData.find((d) => d.slug === "grok-4")
+  expect(grok4?.releaseDate).toEqual(new Date("2025-07-09"))
+})
