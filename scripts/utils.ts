@@ -31,6 +31,24 @@ export async function saveBenchmarkResults(
     if (err.code !== "ENOENT") throw err
   }
 
+  const existingResults = yamlObj.results as Record<string, number> | undefined
+  const existingCosts = yamlObj.cost_per_task as
+    | Record<string, number>
+    | undefined
+  const resultsEmpty = !results || Object.keys(results).length === 0
+  const costsEmpty =
+    costPerTask === undefined || Object.keys(costPerTask).length === 0
+
+  if (
+    (resultsEmpty &&
+      existingResults &&
+      Object.keys(existingResults).length > 0) ||
+    (costsEmpty && existingCosts && Object.keys(existingCosts).length > 0)
+  ) {
+    console.warn(`Skipping update for ${outPath} because new data is empty`)
+    return
+  }
+
   yamlObj.results = results
   if (costPerTask && Object.keys(costPerTask).length > 0) {
     yamlObj.cost_per_task = costPerTask
