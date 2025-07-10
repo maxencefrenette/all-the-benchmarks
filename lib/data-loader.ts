@@ -160,19 +160,30 @@ export async function loadLLMData(): Promise<LLMData[]> {
 
   // compute normalization factors for benchmark costs
   const costBenchmarks = Object.keys(benchmarkCostMap)
+  const benchmarkSets: Record<string, Set<string>> = {}
+  for (const b of costBenchmarks) {
+    benchmarkSets[b] = new Set(Object.keys(benchmarkCostMap[b]))
+  }
+  const overlapping = costBenchmarks.filter((b) =>
+    costBenchmarks.some(
+      (other) =>
+        other !== b &&
+        [...benchmarkSets[b]].some((m) => benchmarkSets[other].has(m)),
+    ),
+  )
   let intersection = new Set<string>()
-  if (costBenchmarks.length > 0) {
-    intersection = new Set(Object.keys(benchmarkCostMap[costBenchmarks[0]]))
-    for (const b of costBenchmarks.slice(1)) {
+  if (overlapping.length > 0) {
+    intersection = new Set(benchmarkSets[overlapping[0]])
+    for (const b of overlapping.slice(1)) {
       intersection = new Set(
-        [...intersection].filter((m) => benchmarkCostMap[b][m] !== undefined),
+        [...intersection].filter((m) => benchmarkSets[b].has(m)),
       )
     }
   }
 
   const normalizationFactors: Record<string, number> = {}
   if (intersection.size > 0) {
-    for (const b of costBenchmarks) {
+    for (const b of overlapping) {
       const values = [...intersection].map((m) => benchmarkCostMap[b][m])
       const mean = values.reduce((sum, c) => sum + c, 0) / (values.length || 1)
       if (mean > 0) {
