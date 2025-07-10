@@ -3,6 +3,7 @@ description: Score on Artificial Analysis Index benchmark
 score_weight: 1
 cost_weight: 1
 results:
+  Grok 4: 73
   o3-pro: 71
   Gemini 2.5 Pro: 70
   o3: 70
@@ -133,6 +134,7 @@ results:
   Solar Mini: 33
   Reka Flash (Feb '24): 33
   Reka Edge: 33
+  Grok-1: 33
   Qwen2 72B: 33
   Nova Lite: 33
   Gemma 2 27B: 32
@@ -212,9 +214,11 @@ results:
   Mistral 7B: 10
   Llama 3.2 1B: 10
   Llama 2 Chat 7B: 8
+model_name_mapping_file: artificial-analysis.yaml
 cost_per_task:
   o1: 2767
   Claude 4 Opus Thinking: 2036
+  Grok 4: 1630
   Claude 3.7 Sonnet Thinking: 1485
   Gemini 2.5 Pro (May' 25): 1335
   Gemini 2.5 Pro: 971
@@ -352,4 +356,3 @@ cost_per_task:
   Llama 3.2 3B: 1
   Gemma 3 4B: 0
   Ministral 3B: 0
-model_name_mapping_file: artificial-analysis.yaml
