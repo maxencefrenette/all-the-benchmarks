@@ -21,6 +21,7 @@ export const BenchmarkFileSchema = z.object({
   cost_weight: z.number(),
   results: z.record(z.string(), z.number()),
   model_name_mapping_file: z.string(),
+  private_holdout: z.boolean(),
   cost_per_task: z.record(z.string(), z.number()).optional(),
 })
 export type BenchmarkFile = z.infer<typeof BenchmarkFileSchema>

@@ -64,6 +64,7 @@ results:
   Magistral Medium (Thinking): 0
   Gemini 2.5 Pro (Thinking 1K): 0
 model_name_mapping_file: arc-agi.yaml
+private_holdout: true
 cost_per_task:
   Human Panel: 17
   Grok 4 (Thinking): 2.1659

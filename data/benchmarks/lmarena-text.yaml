@@ -257,3 +257,4 @@ results:
   dolly-v2-12b: 838.059076177231
   llama-13b: 815.4062969581935
 model_name_mapping_file: lmarena-text.yaml
+private_holdout: true

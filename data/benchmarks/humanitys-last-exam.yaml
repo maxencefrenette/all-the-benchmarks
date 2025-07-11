@@ -30,3 +30,4 @@ results:
   Nova Lite: 3.64
   GPT-4o (November 2024): 2.72
 model_name_mapping_file: humanitys-last-exam.yaml
+private_holdout: false

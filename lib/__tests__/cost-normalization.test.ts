@@ -45,6 +45,7 @@ test("adding non-overlapping cost benchmark does not change costs", async () => 
         cost_weight: 1,
         results,
         model_name_mapping_file: "test.yaml",
+        private_holdout: false,
         cost_per_task: costs,
       }),
     )

@@ -64,6 +64,7 @@ results:
   Llama 4 Scout: 0.5
   GPT-4.1-Nano: 0
 model_name_mapping_file: arc-agi.yaml
+private_holdout: true
 cost_per_task:
   Human Panel: 17
   Stem Grad: 10

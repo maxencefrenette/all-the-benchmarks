@@ -215,6 +215,7 @@ results:
   Llama 3.2 1B: 10
   Llama 2 Chat 7B: 8
 model_name_mapping_file: artificial-analysis.yaml
+private_holdout: false
 cost_per_task:
   o1: 2767
   Claude 4 Opus Thinking: 2036

@@ -190,3 +190,4 @@ results:
   Llama 3.2 1B: 20
   Llama 2 Chat 7B: 23
 model_name_mapping_file: artificial-analysis.yaml
+private_holdout: false

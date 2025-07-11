@@ -9,6 +9,7 @@ export interface BenchmarkInfo {
   description: string
   modelCount: number
   hasCost: boolean
+  privateHoldout: boolean
 }
 
 export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
@@ -31,6 +32,7 @@ export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
         description: data.description,
         modelCount: Object.keys(data.results).length,
         hasCost: !!data.cost_per_task,
+        privateHoldout: data.private_holdout,
       })
     } catch (error) {
       console.error(`Failed to load benchmark info for ${slug}:`, error)
@@ -63,6 +65,7 @@ export async function loadBenchmarkDetails(
       description: data.description,
       modelCount: Object.keys(data.results).length,
       hasCost: !!data.cost_per_task,
+      privateHoldout: data.private_holdout,
       results: data.results,
       cost_per_task: data.cost_per_task,
       model_name_mapping_file: data.model_name_mapping_file,
