@@ -42,3 +42,4 @@ results:
   Command R+: 17.4
   GPT-4o mini: 10.7
 model_name_mapping_file: simplebench.yaml
+private_holdout: true

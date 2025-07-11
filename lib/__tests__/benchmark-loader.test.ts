@@ -12,4 +12,5 @@ test("loadBenchmarks returns sorted benchmarks", async () => {
   expect(names).toEqual(sorted)
   expect(benchmarks[0].modelCount).toBeGreaterThan(0)
   expect(typeof benchmarks[0].hasCost).toBe("boolean")
+  expect(typeof benchmarks[0].privateHoldout).toBe("boolean")
 })

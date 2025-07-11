@@ -25,6 +25,7 @@ results:
   llama-4-maverick: 23.62
   gpt-4.1-nano-2025-04-14: 19.04
 model_name_mapping_file: weirdml.yaml
+private_holdout: false
 cost_per_task:
   o3-pro-2025-06-10 (high): 5.228346341463415
   gemini-2.5-pro (thinking 16k): 0.8231632972631578

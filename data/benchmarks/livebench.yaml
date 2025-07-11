@@ -54,3 +54,4 @@ results:
   gemma-3n-e4b-it: 27.85
   gemini-2.5-flash-lite-preview-06-17-highthinking: 57.53
 model_name_mapping_file: livebench.yaml
+private_holdout: true

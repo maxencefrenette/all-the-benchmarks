@@ -31,6 +31,7 @@ export default async function BenchmarksPage() {
             <TableHead>Benchmark</TableHead>
             <TableHead className="text-right">Models</TableHead>
             <TableHead className="text-right">Cost data?</TableHead>
+            <TableHead className="text-right">Private holdout?</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -52,6 +53,9 @@ export default async function BenchmarksPage() {
               <TableCell className="text-right">{b.modelCount}</TableCell>
               <TableCell className="text-right">
                 {b.hasCost ? "Yes" : "No"}
+              </TableCell>
+              <TableCell className="text-right">
+                {b.privateHoldout ? "Yes" : "No"}
               </TableCell>
             </TableRow>
           ))}
