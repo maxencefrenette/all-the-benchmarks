@@ -12,7 +12,7 @@
   slug: o3-pro-high
   model: o3-pro (high)
   provider: OpenAI
-  averageScore: 83.83
+  averageScore: 83.91
   costPerTask: 12.22
   costBenchmarkCount: 4
   benchmarkCount: 5
@@ -22,7 +22,7 @@
   slug: o3-high
   model: o3 (high)
   provider: OpenAI
-  averageScore: 83.77
+  averageScore: 83.84
   costPerTask: 1.41
   costBenchmarkCount: 4
   benchmarkCount: 7
@@ -32,7 +32,7 @@
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro 06/05
   provider: Google
-  averageScore: 83.61
+  averageScore: 83.65
   costPerTask: 1.95
   costBenchmarkCount: 5
   benchmarkCount: 10
@@ -42,7 +42,7 @@
   slug: o3-medium
   model: o3 (medium)
   provider: OpenAI
-  averageScore: 78.36
+  averageScore: 78.39
   costPerTask: 0.96
   costBenchmarkCount: 4
   benchmarkCount: 8
@@ -52,7 +52,7 @@
   slug: o4-mini-high
   model: o4-mini (high)
   provider: OpenAI
-  averageScore: 76.09
+  averageScore: 76.14
   costPerTask: 1.18
   costBenchmarkCount: 5
   benchmarkCount: 9
@@ -62,7 +62,7 @@
   slug: claude-opus-4-thinking
   model: Claude 4 Opus (thinking)
   provider: Anthropic
-  averageScore: 71.57
+  averageScore: 71.65
   costPerTask: 4.57
   costBenchmarkCount: 5
   benchmarkCount: 9
@@ -82,7 +82,7 @@
   slug: deepseek-r1-0528
   model: DeepSeek R1 05/28
   provider: DeepSeek
-  averageScore: 63.37
+  averageScore: 63.38
   costPerTask: 0.26
   costBenchmarkCount: 5
   benchmarkCount: 9
@@ -92,7 +92,7 @@
   slug: claude-sonnet-4-thinking
   model: Claude 4 Sonnet (thinking)
   provider: Anthropic
-  averageScore: 61.79
+  averageScore: 61.84
   costPerTask: 1.16
   costBenchmarkCount: 5
   benchmarkCount: 9

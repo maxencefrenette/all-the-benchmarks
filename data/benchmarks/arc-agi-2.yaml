@@ -4,7 +4,7 @@ score_weight: 1
 cost_weight: 1
 results:
   Human Panel: 100
-  Grok 4 (Thinking): 16.2
+  Grok 4 (Thinking): 16
   Claude Opus 4 (Thinking 16K): 8.6
   o3 (High): 6.5
   o4-mini (High): 6.1

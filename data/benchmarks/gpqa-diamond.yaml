@@ -96,6 +96,7 @@ results:
   Grok 2: 51
   Gemini 1.5 Flash (Sep): 46
   Mistral Large 2 (Nov '24): 49
+  Devstral Medium: 49
   Qwen3 1.7B (Reasoning): 36
   Gemma 3 27B: 43
   Grok Beta: 47
@@ -113,7 +114,7 @@ results:
   Qwen3 4B: 40
   Claude 3 Opus: 49
   Claude 3.5 Haiku: 41
-  Devstral: 43
+  Devstral Small (May '25): 43
   Mistral Saba: 42
   DeepSeek R1 Distill Llama 8B: 30
   Gemma 3 12B: 35
@@ -122,6 +123,7 @@ results:
   Llama 3.2 90B (Vision): 43
   Qwen2 72B: 37
   Nova Lite: 43
+  Devstral Small: 41
   Gemma 2 27B: 36
   Gemini 1.5 Flash-8B: 36
   DeepHermes 3 - Mistral 24B: 38

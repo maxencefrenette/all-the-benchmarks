@@ -100,6 +100,7 @@ results:
   Gemini 1.5 Flash (Sep): 39
   GPT-4 Turbo: 39
   Mistral Large 2 (Nov '24): 38
+  Devstral Medium: 38
   Qwen3 1.7B (Reasoning): 38
   Gemma 3 27B: 38
   Grok Beta: 38
@@ -121,7 +122,7 @@ results:
   Claude 3.5 Haiku: 35
   Gemini 2.0 Flash Thinking exp. (Dec '24): 35
   DeepSeek-V2.5: 35
-  Devstral: 34
+  Devstral Small (May '25): 34
   Mistral Saba: 34
   DeepSeek R1 Distill Llama 8B: 34
   Reka Core: 34
@@ -137,6 +138,7 @@ results:
   Grok-1: 33
   Qwen2 72B: 33
   Nova Lite: 33
+  Devstral Small: 32
   Gemma 2 27B: 32
   Gemini 1.5 Flash-8B: 31
   DeepHermes 3 - Mistral 24B: 30
@@ -335,7 +337,7 @@ cost_per_task:
   Mistral Small 3.1: 2
   Command-R: 2
   Qwen2.5 Coder 32B: 2
-  Devstral: 2
+  Devstral Small (May '25): 2
   DeepSeek R1 Distill Llama 8B: 2
   Gemini 1.5 Flash (Sep): 2
   Llama 3.1 8B: 2
