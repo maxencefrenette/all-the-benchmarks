@@ -15,7 +15,7 @@ interface Row {
 function getLatestDate(): string {
   const json = JSON.parse(
     curl(
-      "https://api.github.com/repos/LiveBench/livebench.github.io/contents/public",
+      "https://api.github.com/repos/LiveBench/livebench.github.io/contents?ref=gh-pages",
     ),
   ) as Array<{ name: string }>
   const dates = json
@@ -54,10 +54,10 @@ function computeGlobalAverage(row: Row, categories: Categories): number {
 async function main(): Promise<void> {
   const date = getLatestDate()
   const csv = curl(
-    `https://raw.githubusercontent.com/LiveBench/livebench.github.io/main/public/table_${date}.csv`,
+    `https://raw.githubusercontent.com/LiveBench/livebench.github.io/gh-pages/table_${date}.csv`,
   )
   const categoriesText = curl(
-    `https://raw.githubusercontent.com/LiveBench/livebench.github.io/main/public/categories_${date}.json`,
+    `https://raw.githubusercontent.com/LiveBench/livebench.github.io/gh-pages/categories_${date}.json`,
   )
   const categories: Categories = JSON.parse(categoriesText)
   const rows = parseCSV(csv)
