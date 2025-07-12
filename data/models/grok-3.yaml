@@ -1,3 +1,4 @@
 provider: xAI
+deprecated: true
 reasoning_efforts:
   grok-3: Grok 3
