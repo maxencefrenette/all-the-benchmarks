@@ -8,6 +8,8 @@ import {
   ProcessedBenchmarkFileSchema,
 } from "./yaml-schemas"
 
+const USE_PRECOMPUTED_NORMALIZED_COST = false
+
 export interface BenchmarkResult {
   score: number
   normalizedScore?: number
@@ -200,14 +202,20 @@ export async function loadLLMData(): Promise<LLMData[]> {
         const llm = llmMap[modelSlug]
         if (!llm) continue
         const hasCost = result.cost !== undefined && result.cost > 0
+        const normalized =
+          USE_PRECOMPUTED_NORMALIZED_COST &&
+          result.normalized_cost !== undefined
+            ? Number(result.normalized_cost)
+            : undefined
         llm.benchmarks[data.benchmark] = {
           score: Number(result.score),
           description: data.description,
           ...(hasCost ? { costPerTask: Number(result.cost) } : {}),
+          ...(normalized !== undefined ? { normalizedCost: normalized } : {}),
           scoreWeight: data.score_weight,
           costWeight: data.cost_weight,
         }
-        if (hasCost) {
+        if (hasCost && !USE_PRECOMPUTED_NORMALIZED_COST) {
           if (!benchmarkCostMap[data.benchmark]) {
             benchmarkCostMap[data.benchmark] = {}
           }
@@ -222,8 +230,24 @@ export async function loadLLMData(): Promise<LLMData[]> {
   const benchmarkStats = collectScoreRanges(llmMap)
   const results = applyScoreNormalization(llmMap, benchmarkStats)
 
-  const normalizationFactors = computeCostFactors(benchmarkCostMap)
-  applyCostNormalization(results, normalizationFactors)
+  if (USE_PRECOMPUTED_NORMALIZED_COST) {
+    for (const llm of results) {
+      const costs: { value: number; weight: number }[] = []
+      for (const res of Object.values(llm.benchmarks)) {
+        if (res.normalizedCost !== undefined) {
+          costs.push({ value: res.normalizedCost, weight: res.costWeight })
+        }
+      }
+      if (costs.length > 0) {
+        const totalWeight = costs.reduce((s, c) => s + c.weight, 0)
+        llm.normalizedCost =
+          costs.reduce((s, c) => s + c.value * c.weight, 0) / (totalWeight || 1)
+      }
+    }
+  } else {
+    const normalizationFactors = computeCostFactors(benchmarkCostMap)
+    applyCostNormalization(results, normalizationFactors)
+  }
 
   return results.sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0))
 }
