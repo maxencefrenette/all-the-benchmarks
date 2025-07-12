@@ -2,6 +2,7 @@ import { execSync } from "child_process"
 import fs from "fs/promises"
 import path from "path"
 import YAML from "yaml"
+import { chromium } from "playwright"
 import {
   BenchmarkFileSchema,
   MappingFileSchema,
@@ -82,4 +83,82 @@ export async function saveBenchmarkResults(
 
   await fs.writeFile(outPath, YAML.stringify(yamlObj))
   console.log(`Wrote ${outPath}`)
+}
+
+export interface ArtificialAnalysisOptions {
+  url: string
+  resultsSelector: string
+  costSelector: string
+  filterRegex?: RegExp
+}
+
+export async function scrapeArtificialAnalysisBenchmark(
+  options: ArtificialAnalysisOptions,
+): Promise<{
+  results: Record<string, number>
+  costPerTask: Record<string, number>
+}> {
+  const {
+    url,
+    resultsSelector,
+    costSelector,
+    filterRegex = /20 of \d+ models selected/,
+  } = options
+  const browser = await chromium.launch({ headless: true })
+  const context = await browser.newContext({ ignoreHTTPSErrors: true })
+  const page = await context.newPage()
+
+  try {
+    await page.goto(url)
+    await page.waitForLoadState("networkidle")
+
+    const filterButton = await page
+      .getByText(filterRegex, { exact: true })
+      .nth(0)
+    await filterButton.click()
+
+    const opts = await page.$$("div[role='option'][aria-selected='false']")
+    for (const o of opts) {
+      await o.click()
+    }
+
+    async function collect(
+      selector: string,
+      parse: (t: string) => number,
+    ): Promise<{ names: string[]; values: number[] }> {
+      const container = await page.locator(selector)
+      const svg = await container.locator("svg[role='img']").first()
+      const outer = await svg.locator("g").first()
+      const namesGroup = await outer.locator("> g").nth(-3)
+      const nameNodes = await namesGroup.locator("text").all()
+      const names = await Promise.all(
+        nameNodes.map(async (n) =>
+          (await n.locator("tspan").allTextContents()).join(" ").trim(),
+        ),
+      )
+      const valuesGroup = await outer.locator("> g").nth(-2)
+      const texts = await valuesGroup.locator("text").allTextContents()
+      const values = texts.map(parse)
+      return { names, values }
+    }
+
+    const scoreData = await collect(resultsSelector, (t) => parseInt(t))
+    const costData = await collect(costSelector, (t) =>
+      parseInt(t.replace(/,/g, "")),
+    )
+
+    const results: Record<string, number> = {}
+    for (let i = 0; i < scoreData.names.length; i++) {
+      results[scoreData.names[i]] = scoreData.values[i]
+    }
+
+    const costPerTask: Record<string, number> = {}
+    for (let i = 0; i < costData.names.length; i++) {
+      costPerTask[costData.names[i]] = costData.values[i]
+    }
+
+    return { results, costPerTask }
+  } finally {
+    await browser.close()
+  }
 }
