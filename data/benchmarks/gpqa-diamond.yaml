@@ -280,6 +280,7 @@ cost_per_task:
   Sonar: 0
   DeepSeek V3 0324 (Mar '25): 0
   DeepSeek R1 Distill Qwen 14B: 0
+  Devstral Medium: 0
   Llama 4 Maverick: 0
   DeepSeek R1 0528 Qwen3 8B: 0
   Qwen3 8B: 0
@@ -322,6 +323,7 @@ cost_per_task:
   Qwen2.5 Instruct 32B: 0
   Llama 3.2 11B (Vision): 0
   Qwen3 1.7B: 0
+  Devstral Small: 0
   Devstral Small (May '25): 0
   Mistral Small 3.1: 0
   Mistral 7B: 0
@@ -345,6 +347,7 @@ cost_per_task:
   Llama 3.2 3B: 0
   LFM 40B: 0
   Nova Micro: 0
+  Gemma 3n E4B: 0
   Llama 3 8B: 0
   Gemma 3 4B: 0
   Ministral 3B: 0
