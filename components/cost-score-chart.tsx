@@ -109,7 +109,7 @@ export default function CostScoreChart({
             ticks={ticks}
             tickFormatter={(v) => v && v.toFixed(2)}
             label={{
-              value: "Normalized Cost per Task",
+              value: "Normalized Cost per Task ($)",
               position: "insideBottom",
               offset: -10,
             }}
