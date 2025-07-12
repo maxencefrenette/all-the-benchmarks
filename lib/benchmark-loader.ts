@@ -7,6 +7,8 @@ export interface BenchmarkInfo {
   slug: string
   benchmark: string
   description: string
+  website?: string
+  github?: string
   modelCount: number
   hasCost: boolean
   privateHoldout: boolean
@@ -30,6 +32,8 @@ export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
         slug,
         benchmark: data.benchmark,
         description: data.description,
+        website: data.website,
+        github: data.github,
         modelCount: Object.keys(data.results).length,
         hasCost: !!data.cost_per_task,
         privateHoldout: data.private_holdout,
@@ -63,6 +67,8 @@ export async function loadBenchmarkDetails(
       slug,
       benchmark: data.benchmark,
       description: data.description,
+      website: data.website,
+      github: data.github,
       modelCount: Object.keys(data.results).length,
       hasCost: !!data.cost_per_task,
       privateHoldout: data.private_holdout,

@@ -1,5 +1,7 @@
 benchmark: WeirdML
 description: Average accuracy across WeirdML tasks
+website: https://weirdml.ai
+github: https://github.com/abhimanyudwivedi/weirdML
 score_weight: 1
 cost_weight: 1
 results:

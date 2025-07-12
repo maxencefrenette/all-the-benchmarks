@@ -1,5 +1,7 @@
 benchmark: Artificial Analysis Index
 description: Score on Artificial Analysis Index benchmark
+website: https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index
+github: https://github.com/NokkelaAI/artificial-analysis-intelligence-index
 score_weight: 1
 cost_weight: 1
 results:

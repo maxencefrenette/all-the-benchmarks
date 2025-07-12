@@ -1,5 +1,7 @@
 benchmark: LiveBench
 description: Average score across LiveBench categories
+website: https://livebench.ai
+github: https://github.com/LiveBench/livebench.github.io
 score_weight: 1
 cost_weight: 1
 results:

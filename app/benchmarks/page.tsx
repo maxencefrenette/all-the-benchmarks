@@ -29,6 +29,8 @@ export default async function BenchmarksPage() {
         <TableHeader>
           <TableRow>
             <TableHead>Benchmark</TableHead>
+            <TableHead>Website</TableHead>
+            <TableHead>GitHub</TableHead>
             <TableHead className="text-right">Models</TableHead>
             <TableHead className="text-right">Cost data?</TableHead>
             <TableHead className="text-right">Private holdout?</TableHead>
@@ -49,6 +51,20 @@ export default async function BenchmarksPage() {
                     </p>
                   )}
                 </Link>
+              </TableCell>
+              <TableCell>
+                {b.website && (
+                  <Link href={b.website} target="_blank" className="underline">
+                    Website
+                  </Link>
+                )}
+              </TableCell>
+              <TableCell>
+                {b.github && (
+                  <Link href={b.github} target="_blank" className="underline">
+                    GitHub
+                  </Link>
+                )}
               </TableCell>
               <TableCell className="text-right">{b.modelCount}</TableCell>
               <TableCell className="text-right">

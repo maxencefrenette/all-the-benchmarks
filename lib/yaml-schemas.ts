@@ -17,6 +17,8 @@ export type ModelFile = z.infer<typeof ModelFileSchema>
 export const BenchmarkFileSchema = z.object({
   benchmark: z.string(),
   description: z.string(),
+  website: z.string().url().optional(),
+  github: z.string().url().optional(),
   score_weight: z.number(),
   cost_weight: z.number(),
   results: z.record(z.string(), z.number()),

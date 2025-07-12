@@ -1,5 +1,7 @@
 benchmark: SimpleBench
 description: Score (AVG@5) on SimpleBench
+website: https://simple-bench.com
+github: https://github.com/simple-bench/SimpleBench
 score_weight: 1
 cost_weight: 1
 results:

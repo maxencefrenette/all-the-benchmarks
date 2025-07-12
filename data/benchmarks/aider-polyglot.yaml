@@ -1,5 +1,7 @@
 benchmark: Aider Polyglot
 description: Pass rate (PR@2) on Aider's polyglot benchmark
+website: https://aider.ai
+github: https://github.com/Aider-AI/polyglot-benchmark
 score_weight: 1
 cost_weight: 1
 results:
