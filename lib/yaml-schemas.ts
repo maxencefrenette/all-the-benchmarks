@@ -33,6 +33,7 @@ export const ProcessedBenchmarkFileSchema = z.record(
   z.object({
     score: z.number(),
     cost: z.number().optional(),
+    normalized_cost: z.number().optional(),
   }),
 )
 export type ProcessedBenchmarkFile = z.infer<
