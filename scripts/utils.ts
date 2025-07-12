@@ -102,7 +102,7 @@ export async function scrapeArtificialAnalysisBenchmark(
     url,
     resultsSelector,
     costSelector,
-    filterRegex = /20 of \d+ models selected/,
+    filterRegex = /\d+ of \d+ models selected/,
   } = options
   const browser = await chromium.launch({ headless: true })
   const context = await browser.newContext({ ignoreHTTPSErrors: true })
