@@ -14,7 +14,7 @@ This folder stores YAML files consumed by the application and populated by scrap
 - `lib/data-loader.ts` reads all YAML from `models/`, `benchmarks/` and `mappings/` to merge benchmark scores and compute per‑model statistics used throughout the site.
 - `lib/benchmark-loader.ts` loads benchmark metadata and details from `benchmarks/` for individual benchmark pages.
 - Next.js route handlers in `app/` call these loader functions to build pages.
-- Scraping utilities in `scripts/` (e.g. `scrape_livebench.ts`) download data from external leaderboards and call `saveBenchmarkResults` from `scripts/utils.ts` to update files in `benchmarks/` and `mappings/`.
+- Scraping utilities in `scripts/` (e.g. `scrape_livebench.ts`) download data from external leaderboards and call `saveBenchmarkResults` from `scripts/utils.ts` to update benchmark files. After scraping, run `uv run update_mappings.py` from `scripts_python/` to add any new models to the mapping files.
 
 ## Generation details
 
