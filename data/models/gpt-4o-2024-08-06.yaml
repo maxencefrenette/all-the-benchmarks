@@ -1,3 +1,4 @@
 provider: OpenAI
+deprecated: true
 reasoning_efforts:
   gpt-4o-2024-08-06: GPT-4o 2024-08-06
