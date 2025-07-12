@@ -1,10 +1,61 @@
 import pandas as pd
 import yaml
 from pathlib import Path
+import numpy as np
 
 
-def process_benchmark(file_path: Path, mapping_dir: Path, out_dir: Path) -> None:
-    """Process a single benchmark YAML and write mapped results."""
+def compute_normalization_factors(
+    cost_map: dict[str, dict[str, float]], iterations: int = 20
+) -> dict[str, float]:
+    """Return per-benchmark factors using rank 1 SVD via ALS."""
+    benchmarks = list(cost_map.keys())
+    models = sorted({m for costs in cost_map.values() for m in costs})
+    b_count, m_count = len(benchmarks), len(models)
+    if b_count == 0 or m_count == 0:
+        return {}
+
+    # matrices of observed costs and mask
+    C = np.zeros((b_count, m_count), dtype=float)
+    W = np.zeros((b_count, m_count), dtype=bool)
+    for i, bench in enumerate(benchmarks):
+        for j, model in enumerate(models):
+            val = cost_map[bench].get(model)
+            if val is not None:
+                C[i, j] = float(val)
+                W[i, j] = True
+
+    u = np.ones(b_count, dtype=float)
+    v = np.ones(m_count, dtype=float)
+
+    for _ in range(iterations):
+        # update v
+        for j in range(m_count):
+            mask = W[:, j]
+            if mask.any():
+                numerator = np.dot(u[mask], C[mask, j])
+                denominator = np.dot(u[mask], u[mask])
+                if denominator:
+                    v[j] = numerator / denominator
+        # update u
+        for i in range(b_count):
+            mask = W[i]
+            if mask.any():
+                numerator = np.dot(v[mask], C[i, mask])
+                denominator = np.dot(v[mask], v[mask])
+                if denominator:
+                    u[i] = numerator / denominator
+
+    factors = {benchmarks[i]: (1.0 / u[i] if u[i] else 1.0) for i in range(b_count)}
+    return factors
+
+
+def process_benchmark(
+    file_path: Path, mapping_dir: Path, out_dir: Path
+) -> dict[str, float]:
+    """Process a single benchmark YAML and write mapped results.
+
+    Returns a mapping of model slug to cost for this benchmark.
+    """
     data = yaml.safe_load(file_path.read_text())
     mapping_file = mapping_dir / data.get("model_name_mapping_file", "")
     mapping = {}
@@ -23,14 +74,19 @@ def process_benchmark(file_path: Path, mapping_dir: Path, out_dir: Path) -> None
     df = df[["slug", "score", "cost"]].sort_values(by="score", ascending=False)
 
     output = {}
+    cost_out: dict[str, float] = {}
     for _, row in df.iterrows():
         entry = {"score": float(row["score"])}
         if pd.notna(row.get("cost")):
-            entry["cost"] = float(row["cost"])
+            cost_val = float(row["cost"])
+            entry["cost"] = cost_val
+            cost_out[row["slug"]] = cost_val
         output[row["slug"]] = entry
 
     out_path = out_dir / file_path.name
     out_path.write_text(yaml.safe_dump(output, sort_keys=False))
+
+    return cost_out
 
 
 def main() -> None:
@@ -40,8 +96,28 @@ def main() -> None:
     out_dir = root / "data" / "benchmarks_processed"
     out_dir.mkdir(exist_ok=True)
 
+    cost_data: dict[str, dict[str, float]] = {}
+
     for bench_file in bench_dir.glob("*.yaml"):
-        process_benchmark(bench_file, mapping_dir, out_dir)
+        costs = process_benchmark(bench_file, mapping_dir, out_dir)
+        if costs:
+            cost_data[bench_file.stem] = costs
+
+    if cost_data:
+        factors = compute_normalization_factors(cost_data)
+        for bench, factor in factors.items():
+            proc_path = out_dir / f"{bench}.yaml"
+            if not proc_path.exists():
+                continue
+            data = yaml.safe_load(proc_path.read_text()) or {}
+            updated = False
+            for entry in data.values():
+                cost_val = entry.get("cost")
+                if cost_val is not None:
+                    entry["normalized_cost"] = float(cost_val * factor)
+                    updated = True
+            if updated:
+                proc_path.write_text(yaml.safe_dump(data, sort_keys=False))
 
 
 if __name__ == "__main__":
