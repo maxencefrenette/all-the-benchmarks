@@ -1,0 +1,36 @@
+gemini-2.5-pro-06-05:
+  score: 62.4
+claude-opus-4-thinking:
+  score: 58.8
+o3-high:
+  score: 53.1
+gemini-2.5-pro-preview-03-25:
+  score: 51.6
+claude-sonnet-4-thinking:
+  score: 45.5
+claude-3.5-sonnet-v2:
+  score: 41.4
+deepseek-r1-0528:
+  score: 40.8
+o4-mini-high:
+  score: 38.7
+grok-3:
+  score: 36.1
+gpt-4.5-preview:
+  score: 34.5
+qwen-3-235b-a22b-thinking:
+  score: 31.0
+deepseek-r1-0120:
+  score: 30.9
+llama-4-maverick:
+  score: 27.7
+claude-3.5-sonnet:
+  score: 27.5
+deepseek-v3-0324:
+  score: 27.2
+gpt-4.1:
+  score: 27.0
+deepseek-v3-1224:
+  score: 18.9
+gpt-4o-2024-08-06:
+  score: 17.8

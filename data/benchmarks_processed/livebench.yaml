@@ -1,0 +1,52 @@
+o3-pro-high:
+  score: 74.72
+o3-high:
+  score: 74.61
+claude-opus-4-thinking:
+  score: 72.93
+grok-4:
+  score: 72.11
+claude-sonnet-4-thinking:
+  score: 72.08
+o3-medium:
+  score: 71.98
+o4-mini-high:
+  score: 71.52
+deepseek-r1-0528:
+  score: 70.1
+gemini-2.5-pro-06-05:
+  score: 69.39
+o4-mini-medium:
+  score: 66.87
+claude-opus-4-nothinking:
+  score: 65.93
+deepseek-r1-0120:
+  score: 65.15
+qwen-3-235b-a22b-thinking:
+  score: 64.93
+gemini-2.5-flash-0520-thinking:
+  score: 64.42
+claude-sonnet-4-nothinking:
+  score: 63.37
+grok-3-mini-high:
+  score: 62.36
+gpt-4.5-preview:
+  score: 58.65
+grok-3:
+  score: 56.05
+deepseek-v3-0324:
+  score: 55.99
+gpt-4.1:
+  score: 55.9
+claude-3.5-sonnet-v2:
+  score: 51.8
+gpt-4.1-mini:
+  score: 51.57
+llama-4-maverick:
+  score: 47.78
+gpt-4o-2024-11-20:
+  score: 47.43
+gpt-4.1-nano:
+  score: 40.51
+claude-3.5-haiku:
+  score: 39.51
