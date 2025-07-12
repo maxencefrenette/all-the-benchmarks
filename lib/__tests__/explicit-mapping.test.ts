@@ -36,6 +36,8 @@ test("loadLLMData ignores unmapped slugs", async () => {
       results: { A: 1, "model-a": 2 },
       model_name_mapping_file: "map.yaml",
       private_holdout: false,
+      website: null,
+      github: null,
     }),
   )
 
@@ -49,6 +51,8 @@ test("loadLLMData ignores unmapped slugs", async () => {
       results: { "model-a": 5 },
       model_name_mapping_file: "map.yaml",
       private_holdout: false,
+      website: null,
+      github: null,
     }),
   )
 
