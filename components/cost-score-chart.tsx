@@ -143,11 +143,9 @@ export default function CostScoreChart({
                 </div>
               )
             }}
-            itemSorter={(a, b) => {
+            itemSorter={(item) => {
               const order: Record<string, number> = { Score: 0, Cost: 1 }
-              return (
-                (order[a.name as string] ?? 0) - (order[b.name as string] ?? 0)
-              )
+              return order[item.name as string] ?? 0
             }}
             formatter={(value: number | string, name: string) => (
               <span>
@@ -200,7 +198,7 @@ export default function CostScoreChart({
                   strokeDasharray: "4 4",
                   stroke: PROVIDER_COLORS[data[0].provider],
                 }}
-                shape={() => null}
+                shape={() => <></>}
               />
             ) : null,
           )}

@@ -3,6 +3,7 @@
 import * as React from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { DayPicker } from "react-day-picker"
+import type { CustomComponents } from "react-day-picker"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
@@ -53,10 +54,16 @@ function Calendar({
         day_hidden: "invisible",
         ...classNames,
       }}
-      components={{
-        IconLeft: (props) => <ChevronLeft {...props} className="h-4 w-4" />,
-        IconRight: (props) => <ChevronRight {...props} className="h-4 w-4" />,
-      }}
+      components={
+        {
+          IconLeft: (props: React.SVGProps<SVGSVGElement>) => (
+            <ChevronLeft {...props} className="h-4 w-4" />
+          ),
+          IconRight: (props: React.SVGProps<SVGSVGElement>) => (
+            <ChevronRight {...props} className="h-4 w-4" />
+          ),
+        } as Partial<CustomComponents>
+      }
       {...props}
     />
   )
