@@ -10,21 +10,21 @@ grok-4:
 gemini-2.5-pro-06-05:
   score: 79.1
   cost: 0.2026
-gemini-2.5-pro-preview-05-06:
-  score: 76.9
-  cost: 0.1663
 o3-medium:
   score: 76.9
   cost: 0.0611
+gemini-2.5-pro-preview-05-06:
+  score: 76.9
+  cost: 0.1663
 gemini-2.5-pro-preview-03-25:
   score: 72.9
   cost: 0.0
-o4-mini-high:
-  score: 72.0
-  cost: 0.0873
 claude-opus-4-thinking:
   score: 72.0
   cost: 0.2922
+o4-mini-high:
+  score: 72.0
+  cost: 0.0873
 deepseek-r1-0528:
   score: 71.4
   cost: 0.0214

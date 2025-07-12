@@ -1,17 +1,15 @@
 grok-4:
   score: 73.0
   cost: 1630.0
-o3-pro-medium:
-  score: 71.0
+o4-mini-high:
+  score: 70.0
+  cost: 323.0
 gemini-2.5-pro-06-05:
   score: 70.0
   cost: 971.0
 o3-medium:
   score: 70.0
   cost: 390.0
-o4-mini-high:
-  score: 70.0
-  cost: 323.0
 gemini-2.5-pro-preview-03-25:
   score: 69.0
   cost: 859.0
@@ -45,23 +43,21 @@ deepseek-r1-0120:
 claude-opus-4-nothinking:
   score: 58.0
   cost: 551.0
-gemini-2.5-flash-0520-nothinking:
-  score: 53.0
-  cost: 11.0
-deepseek-v3-0324:
-  score: 53.0
-  cost: 13.0
-claude-sonnet-4-nothinking:
-  score: 53.0
-  cost: 119.0
-gpt-4.5-preview:
-  score: 53.0
 gpt-4.1-mini:
   score: 53.0
   cost: 16.0
 gpt-4.1:
   score: 53.0
   cost: 65.0
+deepseek-v3-0324:
+  score: 53.0
+  cost: 13.0
+claude-sonnet-4-nothinking:
+  score: 53.0
+  cost: 119.0
+gemini-2.5-flash-0520-nothinking:
+  score: 53.0
+  cost: 11.0
 grok-3:
   score: 51.0
   cost: 154.0

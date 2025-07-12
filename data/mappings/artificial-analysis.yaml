@@ -1,6 +1,9 @@
+Arctic: null
 Aya Expanse 32B: null
 Aya Expanse 8B: null
+Claude 2.0: null
 Claude 2.1: null
+Claude 3 Haiku: null
 Claude 3 Opus: null
 Claude 3 Sonnet: null
 Claude 3.5 Haiku: claude-3.5-haiku
@@ -25,6 +28,7 @@ DBRX: null
 DeepHermes 3 - Llama-3.1 8B: null
 DeepHermes 3 - Mistral 24B: null
 DeepSeek Coder V2 Lite: null
+DeepSeek LLM 67B (V1): null
 DeepSeek R1 (Jan '25): deepseek-r1-0120
 DeepSeek R1 0528 (May '25): deepseek-r1-0528
 DeepSeek R1 0528 Qwen3 8B: null
@@ -35,10 +39,15 @@ DeepSeek R1 Distill Qwen 14B: null
 DeepSeek R1 Distill Qwen 32B: null
 DeepSeek V3 (Dec '24): deepseek-v3-1224
 DeepSeek V3 0324 (Mar '25): deepseek-v3-0324
+DeepSeek-Coder-V2: null
+DeepSeek-V2: null
+DeepSeek-V2.5: null
+DeepSeek-V2.5 (Dec '24): null
 Devstral Medium: null
 Devstral Small: null
 Devstral Small (May '25): null
 Gemini 1.0 Pro: null
+Gemini 1.0 Ultra: null
 Gemini 1.5 Flash (May): null
 Gemini 1.5 Flash (Sep): null
 Gemini 1.5 Flash-8B: null
@@ -46,6 +55,7 @@ Gemini 1.5 Pro (May): null
 Gemini 1.5 Pro (Sep): null
 Gemini 2.0 Flash: null
 Gemini 2.0 Flash (exp): null
+Gemini 2.0 Flash Thinking exp. (Dec '24): null
 Gemini 2.0 Flash Thinking exp. (Jan '25): null
 Gemini 2.0 Flash-Lite (Feb '25): null
 Gemini 2.0 Flash-Lite (Preview): null
@@ -67,10 +77,13 @@ Gemma 3 27B: null
 Gemma 3 4B: null
 Gemma 3n E4B: null
 Gemma 3n E4B (May '25): null
+GPT-3.5 Turbo: null
+GPT-4: null
 GPT-4 Turbo: null
 GPT-4.1: gpt-4.1
 GPT-4.1 mini: gpt-4.1-mini
 GPT-4.1 nano: gpt-4.1-nano
+GPT-4.5 (Preview): null
 GPT-4o (Aug '24): gpt-4o-2024-08-06
 GPT-4o (ChatGPT): null
 GPT-4o (March 2025): null
@@ -80,8 +93,10 @@ GPT-4o mini: null
 Grok 2: null
 Grok 3: grok-3
 Grok 3 mini Reasoning (high): grok-3-mini-high
+Grok 3 Reasoning Beta: null
 Grok 4: grok-4
 Grok Beta: null
+Grok-1: null
 Hermes 3 - Llama-3.1 70B: null
 Jamba 1.5 Large: null
 Jamba 1.5 Mini: null
@@ -108,6 +123,7 @@ Llama 3.3 Nemotron Super 49B Reasoning: null
 Llama 3.3 Nemotron Super 49B v1: null
 Llama 4 Maverick: llama-4-maverick
 Llama 4 Scout: llama-4-scout
+Llama 65B: null
 Llama Nemotron Ultra Reasoning: null
 Magistral Medium: null
 Magistral Small: null
@@ -137,11 +153,15 @@ Nova Premier: null
 Nova Pro: null
 o1: null
 o1-mini: null
+o1-preview: null
+o1-pro: null
 o3: o3-medium
 o3-mini: null
 o3-mini (high): null
+o3-pro: null
 o4-mini (high): o4-mini-high
 OpenChat 3.5: null
+PALM-2: null
 Phi-3 Medium 14B: null
 Phi-3 Mini: null
 Phi-4: null
@@ -149,6 +169,9 @@ Phi-4 Mini: null
 Phi-4 Multimodal: null
 Pixtral 12B: null
 Pixtral Large: null
+Qwen Chat 14B: null
+Qwen Chat 72B: null
+Qwen1.5 Chat 110B: null
 Qwen2 72B: null
 Qwen2.5 72B: null
 Qwen2.5 Coder 32B: null
@@ -174,10 +197,17 @@ Qwen3 8B: null
 Qwen3 8B (Reasoning): null
 QwQ 32B-Preview: null
 QwQ-32B: null
+R1 1776: null
+Reka Core: null
+Reka Edge: null
+Reka Flash: null
+Reka Flash (Feb '24): null
 Reka Flash 3: null
+Solar Mini: null
 Solar Pro 2: null
 Solar Pro 2  (Reasoning): null
 Sonar: null
 Sonar Pro: null
+Sonar Reasoning: null
 Tulu3 405B: null
 Yi-Large: null
