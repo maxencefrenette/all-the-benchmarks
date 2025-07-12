@@ -1,7 +1,7 @@
 benchmark: GPQA Diamond
 description: Score on GPQA Diamond benchmark
-website: https://artificialanalysis.ai/leaderboards/models
-github: https://github.com/idavidrein/gpqa
+website: https://artificialanalysis.ai/evaluations/gpqa-diamond
+github: null
 score_weight: 1
 cost_weight: 1
 results:

@@ -18,6 +18,7 @@ export const metadata = {
 
 export default async function BenchmarksPage() {
   const benchmarks = await loadBenchmarks()
+  console.log(benchmarks)
   return (
     <main className="container mx-auto px-4 py-8 max-w-3xl space-y-6">
       <PageHeader
