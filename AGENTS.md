@@ -22,6 +22,7 @@ This repository is a Next.js application. Key directories include:
 - `public/` – Static assets.
 - `data/` – Benchmark and model YAML files.
 - `scripts/` – Scrapers that populate `data/benchmarks`.
+- `scripts_python/` – Python utilities for processing benchmark data using `uv`.
 - `styles/` – Global and Tailwind CSS files.
 
 # Adding shadcn/ui components
@@ -46,6 +47,10 @@ To add a new model to the leaderboard:
 - Create a new YAML file in `data/models/` containing the `model` name and `provider`.
 - Look at the benchmark YAML files `results` keys to find all the aliases for the model.
 - Add every variant or version string as an entry under `aliases`.
+
+## Processing benchmark data with Python
+
+Run `uv run process_data.py` from `scripts_python/` to convert raw YAML into `data/benchmarks_processed`.
 
 # Editing this file
 
