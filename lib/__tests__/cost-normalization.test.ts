@@ -9,6 +9,9 @@ test("adding non-overlapping cost benchmark does not change costs", async () => 
   const tmp = await fs.mkdtemp(path.join(os.tmpdir(), "benchtest-"))
   await fs.mkdir(path.join(tmp, "data", "models"), { recursive: true })
   await fs.mkdir(path.join(tmp, "data", "benchmarks"), { recursive: true })
+  await fs.mkdir(path.join(tmp, "data", "benchmarks_processed"), {
+    recursive: true,
+  })
   await fs.mkdir(path.join(tmp, "data", "mappings"), { recursive: true })
 
   const mappingPath = path.join(tmp, "data", "mappings", "test.yaml")
@@ -30,6 +33,7 @@ test("adding non-overlapping cost benchmark does not change costs", async () => 
   )
 
   const benchDir = path.join(tmp, "data", "benchmarks")
+  const processedDir = path.join(tmp, "data", "benchmarks_processed")
   async function writeBench(
     name: string,
     results: Record<string, number>,
@@ -50,6 +54,19 @@ test("adding non-overlapping cost benchmark does not change costs", async () => 
         website: null,
         github: null,
       }),
+    )
+
+    // write processed version
+    const processed: Record<string, { score: number; cost?: number }> = {}
+    for (const [alias, score] of Object.entries(results)) {
+      const slug = mapping[alias as keyof typeof mapping]
+      if (!slug) continue
+      processed[slug] = { score, cost: costs[alias] }
+      if (processed[slug].cost === undefined) delete processed[slug].cost
+    }
+    await fs.writeFile(
+      path.join(processedDir, `${name}.yaml`),
+      stringify(processed),
     )
   }
 
