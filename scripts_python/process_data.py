@@ -69,6 +69,7 @@ def process_benchmark(
 
     cost_map = data.get("cost_per_task", {})
     cost_series = pd.Series(cost_map, name="cost")
+    cost_series = cost_series.replace(0, np.nan)
     df = df.merge(cost_series, left_on="alias", right_index=True, how="left")
 
     df = df[["slug", "score", "cost"]].sort_values(by="score", ascending=False)
