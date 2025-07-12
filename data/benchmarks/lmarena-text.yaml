@@ -1,5 +1,7 @@
 benchmark: LMArena Text
 description: Elo score on LMArena Text leaderboard
+website: https://lmarena.ai/leaderboard
+github: null
 score_weight: 1
 cost_weight: 1
 results:

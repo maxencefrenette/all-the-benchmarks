@@ -1,5 +1,7 @@
 benchmark: ARC-AGI-1
 description: Accuracy on ARC-AGI-1
+website: https://arcprize.org/leaderboard
+github: https://github.com/fchollet/ARC-AGI
 score_weight: 1
 cost_weight: 1
 results:

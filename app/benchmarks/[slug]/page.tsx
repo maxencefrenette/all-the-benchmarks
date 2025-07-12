@@ -1,5 +1,6 @@
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
+import Link from "next/link"
 import {
   Table,
   TableBody,
@@ -45,6 +46,20 @@ export default async function BenchmarkPage({
   return (
     <main className="container mx-auto px-4 py-8 max-w-3xl space-y-6">
       <PageHeader title={info.benchmark} subtitle={info.description} />
+      {(info.website || info.github) && (
+        <div className="flex justify-center gap-4 text-sm">
+          {info.website && (
+            <Link href={info.website} target="_blank" className="underline">
+              Website
+            </Link>
+          )}
+          {info.github && (
+            <Link href={info.github} target="_blank" className="underline">
+              GitHub
+            </Link>
+          )}
+        </div>
+      )}
       <NavigationPills />
       <Table>
         <TableHeader>

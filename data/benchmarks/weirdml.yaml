@@ -1,5 +1,7 @@
 benchmark: WeirdML
 description: Average accuracy across WeirdML tasks
+website: https://htihle.github.io/weirdml.html
+github: null
 score_weight: 1
 cost_weight: 1
 results:

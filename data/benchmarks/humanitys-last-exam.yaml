@@ -1,5 +1,7 @@
 benchmark: Humanity's Last Exam
 description: Score on Scale's Humanity's Last Exam
+website: https://scale.com/leaderboard/humanitys_last_exam
+github: null
 score_weight: 1
 cost_weight: 1
 results:
