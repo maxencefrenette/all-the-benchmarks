@@ -1,0 +1,7 @@
+[project]
+name = "scripts-python"
+version = "0.1.0"
+description = "Python scripts for all-the-benchmarks"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
