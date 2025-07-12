@@ -4,10 +4,15 @@ from pathlib import Path
 import numpy as np
 
 
+from typing import Optional
+
+
 def compute_normalization_factors(
     cost_map: dict[str, dict[str, float]], iterations: int = 20
-) -> dict[str, float]:
-    """Return per-benchmark factors using rank 1 SVD via ALS."""
+) -> dict[str, Optional[float]]:
+    """Return per-benchmark factors using rank 1 SVD via ALS.
+
+    Benchmarks that lack cost information receive ``None`` as the factor."""
     benchmarks = list(cost_map.keys())
     models = sorted({m for costs in cost_map.values() for m in costs})
     b_count, m_count = len(benchmarks), len(models)
@@ -45,7 +50,9 @@ def compute_normalization_factors(
                 if denominator:
                     u[i] = numerator / denominator
 
-    factors = {benchmarks[i]: (1.0 / u[i] if u[i] else 1.0) for i in range(b_count)}
+    factors = {
+        benchmarks[i]: (1.0 / u[i] if u[i] else None) for i in range(b_count)
+    }
     return factors
 
 
@@ -114,7 +121,7 @@ def main() -> None:
             updated = False
             for entry in data.values():
                 cost_val = entry.get("cost")
-                if cost_val is not None:
+                if cost_val is not None and factor is not None:
                     entry["normalized_cost"] = float(cost_val * factor)
                     updated = True
             if updated:
