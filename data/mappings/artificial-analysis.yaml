@@ -1,6 +1,5 @@
 Aya Expanse 32B: null
 Aya Expanse 8B: null
-Claude 2.0: null
 Claude 2.1: null
 Claude 3 Opus: null
 Claude 3 Sonnet: null
@@ -68,11 +67,10 @@ Gemma 3 27B: null
 Gemma 3 4B: null
 Gemma 3n E4B: null
 Gemma 3n E4B (May '25): null
-GPT-3.5 Turbo: null
+GPT-4 Turbo: null
 GPT-4.1: gpt-4.1
 GPT-4.1 mini: gpt-4.1-mini
 GPT-4.1 nano: gpt-4.1-nano
-GPT-4.5 (Preview): gpt-4.5-preview
 GPT-4o (Aug '24): gpt-4o-2024-08-06
 GPT-4o (ChatGPT): null
 GPT-4o (March 2025): null
@@ -142,7 +140,6 @@ o1-mini: null
 o3: o3-medium
 o3-mini: null
 o3-mini (high): null
-o3-pro: o3-pro-medium
 o4-mini (high): o4-mini-high
 OpenChat 3.5: null
 Phi-3 Medium 14B: null
@@ -152,7 +149,6 @@ Phi-4 Mini: null
 Phi-4 Multimodal: null
 Pixtral 12B: null
 Pixtral Large: null
-Qwen1.5 Chat 110B: null
 Qwen2 72B: null
 Qwen2.5 72B: null
 Qwen2.5 Coder 32B: null
@@ -183,6 +179,5 @@ Solar Pro 2: null
 Solar Pro 2  (Reasoning): null
 Sonar: null
 Sonar Pro: null
-Sonar Reasoning: null
 Tulu3 405B: null
 Yi-Large: null
