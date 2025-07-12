@@ -1,0 +1,93 @@
+o3-pro-high:
+  score: 84.9
+  cost: 0.6503
+o3-high:
+  score: 81.3
+  cost: 0.0943
+grok-4:
+  score: 79.6
+  cost: 0.265
+gemini-2.5-pro-06-05:
+  score: 79.1
+  cost: 0.2026
+gemini-2.5-pro-preview-05-06:
+  score: 76.9
+  cost: 0.1663
+o3-medium:
+  score: 76.9
+  cost: 0.0611
+gemini-2.5-pro-preview-03-25:
+  score: 72.9
+  cost: 0.0
+o4-mini-high:
+  score: 72.0
+  cost: 0.0873
+claude-opus-4-thinking:
+  score: 72.0
+  cost: 0.2922
+deepseek-r1-0528:
+  score: 71.4
+  cost: 0.0214
+claude-opus-4-nothinking:
+  score: 70.7
+  cost: 0.305
+claude-sonnet-4-thinking:
+  score: 61.3
+  cost: 0.1181
+qwen-3-235b-a22b-nothinking:
+  score: 59.6
+  cost: 0.0
+deepseek-r1-0120:
+  score: 56.9
+  cost: 0.0241
+claude-sonnet-4-nothinking:
+  score: 56.4
+  cost: 0.0703
+deepseek-v3-0324:
+  score: 55.1
+  cost: 0.005
+grok-3:
+  score: 53.3
+  cost: 0.049
+gpt-4.1:
+  score: 52.4
+  cost: 0.0438
+claude-3.5-sonnet-v2:
+  score: 51.6
+  cost: 0.064
+grok-3-mini-high:
+  score: 49.3
+  cost: 0.0033
+deepseek-v3-1224:
+  score: 48.4
+  cost: 0.0015
+gemini-2.5-flash-0520-thinking:
+  score: 47.1
+  cost: 0.0082
+gpt-4.5-preview:
+  score: 44.9
+  cost: 0.8178
+gemini-2.5-flash-0520-nothinking:
+  score: 44.0
+  cost: 0.005
+grok-3-mini-low:
+  score: 34.7
+  cost: 0.0035
+gpt-4.1-mini:
+  score: 32.4
+  cost: 0.0089
+claude-3.5-haiku:
+  score: 28.0
+  cost: 0.0269
+gpt-4o-2024-08-06:
+  score: 23.1
+  cost: 0.0312
+gpt-4o-2024-11-20:
+  score: 18.2
+  cost: 0.0299
+llama-4-maverick:
+  score: 15.6
+  cost: 0.0
+gpt-4.1-nano:
+  score: 8.9
+  cost: 0.0019

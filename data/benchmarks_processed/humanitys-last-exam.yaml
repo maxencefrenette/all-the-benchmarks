@@ -1,0 +1,36 @@
+gemini-2.5-pro-06-05:
+  score: 21.64
+o3-high:
+  score: 20.32
+o3-medium:
+  score: 19.2
+gemini-2.5-pro-preview-03-25:
+  score: 18.16
+o4-mini-high:
+  score: 18.08
+gemini-2.5-pro-preview-05-06:
+  score: 17.8
+o4-mini-medium:
+  score: 14.28
+gemini-2.5-flash-preview-0417-thinking:
+  score: 12.08
+gemini-2.5-flash-0520-thinking:
+  score: 10.96
+claude-opus-4-thinking:
+  score: 10.72
+claude-sonnet-4-thinking:
+  score: 7.76
+claude-opus-4-nothinking:
+  score: 6.68
+llama-4-maverick:
+  score: 5.68
+claude-sonnet-4-nothinking:
+  score: 5.52
+gpt-4.5-preview:
+  score: 5.44
+gpt-4.1:
+  score: 5.4
+claude-3.5-sonnet-v2:
+  score: 4.08
+gpt-4o-2024-11-20:
+  score: 2.72
