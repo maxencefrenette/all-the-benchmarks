@@ -27,3 +27,14 @@ export const BenchmarkFileSchema = z.object({
   cost_per_task: z.record(z.string(), z.number()).optional(),
 })
 export type BenchmarkFile = z.infer<typeof BenchmarkFileSchema>
+
+export const ProcessedBenchmarkFileSchema = z.record(
+  z.string(),
+  z.object({
+    score: z.number(),
+    cost: z.number().optional(),
+  }),
+)
+export type ProcessedBenchmarkFile = z.infer<
+  typeof ProcessedBenchmarkFileSchema
+>

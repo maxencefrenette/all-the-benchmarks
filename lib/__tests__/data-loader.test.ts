@@ -34,7 +34,7 @@ test("transformToTableData converts LLMData objects to table rows", () => {
   ])
 })
 
-test("loadLLMData merges aliases and sorts results", async () => {
+test("loadLLMData returns sorted results", async () => {
   const llmData = await loadLLMData()
 
   // should return some data
@@ -45,12 +45,10 @@ test("loadLLMData merges aliases and sorts results", async () => {
   const sorted = [...scores].sort((a, b) => b - a)
   expect(scores).toEqual(sorted)
 
-  // aliases like `grok-3-preview-02-24` should map to `grok-3`
+  // ensure at least one known model is loaded
   const grok = llmData.find((d) => d.slug === "grok-3")
   expect(grok).toBeDefined()
   expect(grok?.benchmarks["LMArena Text"]).toBeDefined()
-  const alias = llmData.find((d) => d.slug === "grok-3-preview-02-24")
-  expect(alias).toBeUndefined()
 })
 
 test("loadLLMData marks deprecated models", async () => {

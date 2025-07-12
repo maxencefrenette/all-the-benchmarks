@@ -4,8 +4,8 @@ import path from "path"
 import { type TableRow, transformToTableData } from "./table-utils"
 import {
   BenchmarkFileSchema,
-  MappingFileSchema,
   ModelFileSchema,
+  ProcessedBenchmarkFileSchema,
 } from "./yaml-schemas"
 
 export interface BenchmarkResult {
@@ -153,6 +153,7 @@ function applyCostNormalization(
 export async function loadLLMData(): Promise<LLMData[]> {
   const modelDir = path.join(process.cwd(), "data", "models")
   const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
+  const processedDir = path.join(process.cwd(), "data", "benchmarks_processed")
 
   const modelFiles = (await fs.readdir(modelDir)).filter((f) =>
     f.endsWith(".yaml"),
@@ -162,7 +163,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
     .filter((f) => f.endsWith(".yaml"))
     .map((f) => f.replace(/\.yaml$/, ""))
   const llmMap: Record<string, LLMData> = {}
-  const aliasMap: Record<string, string> = {}
   const benchmarkCostMap: Record<string, Record<string, number>> = {}
 
   for (const file of modelFiles) {
@@ -193,51 +193,25 @@ export async function loadLLMData(): Promise<LLMData[]> {
       const filePath = path.join(benchmarkDir, `${slug}.yaml`)
       const text = await fs.readFile(filePath, "utf8")
       const data = BenchmarkFileSchema.parse(parse(text))
-      let mapping: Record<string, string | null> | undefined
-      try {
-        const mapPath = path.join(
-          process.cwd(),
-          "data",
-          "mappings",
-          data.model_name_mapping_file,
-        )
-        const mapText = await fs.readFile(mapPath, "utf8")
-        const fileMap = MappingFileSchema.parse(parse(mapText))
-        mapping = fileMap
-      } catch (err) {
-        console.error(
-          `Failed to load model_name_mapping_file for ${slug}:`,
-          err,
-        )
-      }
-
-      if (mapping) {
-        for (const [alias, slugName] of Object.entries(mapping)) {
-          aliasMap[alias] = slugName
+      const procPath = path.join(processedDir, `${slug}.yaml`)
+      const procText = await fs.readFile(procPath, "utf8")
+      const results = ProcessedBenchmarkFileSchema.parse(parse(procText))
+      for (const [modelSlug, result] of Object.entries(results)) {
+        const llm = llmMap[modelSlug]
+        if (!llm) continue
+        const hasCost = result.cost !== undefined && result.cost > 0
+        llm.benchmarks[data.benchmark] = {
+          score: Number(result.score),
+          description: data.description,
+          ...(hasCost ? { costPerTask: Number(result.cost) } : {}),
+          scoreWeight: data.score_weight,
+          costWeight: data.cost_weight,
         }
-      }
-      const costMap = data.cost_per_task || {}
-      for (const [rawName, score] of Object.entries(data.results)) {
-        const mappedSlug = aliasMap[rawName]
-        if (!mappedSlug) continue
-        const llm = llmMap[mappedSlug]
-        if (llm) {
-          const hasCost = costMap[rawName] && costMap[rawName] > 0
-          llm.benchmarks[data.benchmark] = {
-            score: Number(score),
-            description: data.description,
-            ...(hasCost ? { costPerTask: Number(costMap[rawName]) } : {}),
-            scoreWeight: data.score_weight,
-            costWeight: data.cost_weight,
+        if (hasCost) {
+          if (!benchmarkCostMap[data.benchmark]) {
+            benchmarkCostMap[data.benchmark] = {}
           }
-          if (hasCost) {
-            if (!benchmarkCostMap[data.benchmark]) {
-              benchmarkCostMap[data.benchmark] = {}
-            }
-            benchmarkCostMap[data.benchmark][mappedSlug] = Number(
-              costMap[rawName],
-            )
-          }
+          benchmarkCostMap[data.benchmark][modelSlug] = Number(result.cost)
         }
       }
     } catch (error) {
