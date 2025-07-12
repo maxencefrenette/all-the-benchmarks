@@ -1,4 +1,5 @@
 import LeaderboardSection from "@/components/leaderboard-section"
+import { Suspense } from "react"
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
 import { loadLLMData } from "@/lib/data-loader"
@@ -14,7 +15,9 @@ export default async function Home() {
         subtitle="A single score to compare frontier LLMs"
       />
       <NavigationPills />
-      <LeaderboardSection llmData={llmData} />
+      <Suspense>
+        <LeaderboardSection llmData={llmData} />
+      </Suspense>
     </main>
   )
 }

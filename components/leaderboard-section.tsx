@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import type { LLMData } from "@/lib/data-loader"
 import CostScoreChart from "./cost-score-chart"
 import LeaderboardTable from "./leaderboard-table"
@@ -22,8 +22,23 @@ export default function LeaderboardSection({
 }: {
   llmData: LLMData[]
 }) {
-  const [showDeprecated, setShowDeprecated] = useState(false)
-  const [showIncomplete, setShowIncomplete] = useState(false)
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const showDeprecated = searchParams.get("deprecated") === "true"
+  const showIncomplete = searchParams.get("incomplete") === "true"
+
+  const updateParam = (key: string, value: boolean) => {
+    const params = new URLSearchParams(searchParams.toString())
+    if (value) {
+      params.set(key, "true")
+    } else {
+      params.delete(key)
+    }
+    const query = params.toString()
+    router.push(query ? `${pathname}?${query}` : pathname, { scroll: false })
+  }
   const visible = llmData.filter((m) => {
     const isNew =
       m.releaseDate && Date.now() - m.releaseDate.getTime() < ONE_WEEK_MS
@@ -48,7 +63,7 @@ export default function LeaderboardSection({
           <Switch
             id="deprecated-toggle"
             checked={showDeprecated}
-            onCheckedChange={setShowDeprecated}
+            onCheckedChange={(checked) => updateParam("deprecated", checked)}
           />
           <Label htmlFor="deprecated-toggle">Show deprecated models</Label>
         </div>
@@ -56,7 +71,7 @@ export default function LeaderboardSection({
           <Switch
             id="incomplete-toggle"
             checked={showIncomplete}
-            onCheckedChange={setShowIncomplete}
+            onCheckedChange={(checked) => updateParam("incomplete", checked)}
           />
           <Label htmlFor="incomplete-toggle">
             Show models with limited data
