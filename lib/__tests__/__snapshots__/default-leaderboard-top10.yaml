@@ -2,10 +2,10 @@
   slug: grok-4
   model: Grok 4
   provider: xAI
-  averageScore: 98.52
-  costPerTask: 4.22
-  costBenchmarkCount: 3
-  benchmarkCount: 5
+  averageScore: 97.6
+  costPerTask: 3.97
+  costBenchmarkCount: 4
+  benchmarkCount: 6
   totalBenchmarks: 10
   totalCostBenchmarks: 5
 - id: o3-pro-high

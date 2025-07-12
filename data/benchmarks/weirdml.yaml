@@ -9,6 +9,7 @@ results:
   o4-mini-2025-04-16 (high): 49.17
   claude-4-sonnet-20250522 (thinking 16k): 45.28
   claude-4-sonnet-20250522 (no thinking): 43
+  grok-4-07-09: 42.55
   claude-4-opus-20250522 (thinking 16k): 42.12
   deepseek-r1-0528: 40.88
   claude-3.6-sonnet: 39.78
@@ -18,33 +19,36 @@ results:
   gpt-4.5-preview: 37.65
   gpt-4.1-mini-2025-04-14: 37.25
   grok-3: 36.44
-  qwen3-235b-a22b (thinking): 35.88
+  qwen3-235b-a22b (thinking): 36.25
   deepseek-v3-0324: 35.09
   gemini-2.5-flash-lite-preview-06-17 (thinking 16k): 33.89
   qwen3-30b-a3b (thinking): 29.74
   llama-4-maverick: 23.62
+  grok-2-1212: 22.04
   gpt-4.1-nano-2025-04-14: 19.04
 model_name_mapping_file: weirdml.yaml
 private_holdout: false
 cost_per_task:
-  o3-pro-2025-06-10 (high): 5.228346341463415
+  o3-pro-2025-06-10 (high): 5.228346341463414
   gemini-2.5-pro (thinking 16k): 0.8231632972631578
-  o3-2025-04-16 (high): 0.4637190857142856
-  o4-mini-2025-04-16 (high): 0.38685772040816335
-  claude-4-sonnet-20250522 (thinking 16k): 0.667855163265306
-  claude-4-sonnet-20250522 (no thinking): 0.6080159361702129
+  o3-2025-04-16 (high): 0.4637190857142858
+  o4-mini-2025-04-16 (high): 0.38685772040816324
+  claude-4-sonnet-20250522 (thinking 16k): 0.6678551632653063
+  claude-4-sonnet-20250522 (no thinking): 0.6080159361702128
+  grok-4-07-09: 0.9339984292035397
   claude-4-opus-20250522 (thinking 16k): 3.3979484210526314
-  deepseek-r1-0528: 0.1420080642105263
-  claude-3.6-sonnet: 0.4931495368421054
-  grok-3-mini (high): 0.034985129999999996
+  deepseek-r1-0528: 0.14200806421052634
+  claude-3.6-sonnet: 0.4931495368421053
+  grok-3-mini (high): 0.03498513
   gemini-2.5-flash (thinking 16k): 0.21184530736842108
-  gpt-4.1-2025-04-14: 0.19657672340425536
+  gpt-4.1-2025-04-14: 0.1965767234042553
   gpt-4.5-preview: 3.1601368421052634
   gpt-4.1-mini-2025-04-14: 0.03296698105263158
   grok-3: 0.5004218315789474
-  qwen3-235b-a22b (thinking): 0.041392278230088494
-  deepseek-v3-0324: 0.027581991999999996
-  gemini-2.5-flash-lite-preview-06-17 (thinking 16k): 0.060986399999999996
+  qwen3-235b-a22b (thinking): 0.041716346870229015
+  deepseek-v3-0324: 0.027581992000000003
+  gemini-2.5-flash-lite-preview-06-17 (thinking 16k): 0.06098639999999999
   qwen3-30b-a3b (thinking): 0.016747094143646408
   llama-4-maverick: 0.012274920000000002
+  grok-2-1212: 0.22587717894736845
   gpt-4.1-nano-2025-04-14: 0.005178074782608696
