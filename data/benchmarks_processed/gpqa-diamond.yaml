@@ -1,70 +1,99 @@
 grok-4:
-  score: 88.0
-o3-pro-medium:
-  score: 85.0
+  score: 87.0
+  cost: 27.0
 gemini-2.5-pro-06-05:
   score: 84.0
+  cost: 16.0
 gemini-2.5-pro-preview-03-25:
-  score: 84.0
-o3-medium:
   score: 83.0
+  cost: 10.0
+o3-medium:
+  score: 82.0
+  cost: 10.0
 gemini-2.5-pro-preview-05-06:
   score: 82.0
+  cost: 25.0
 deepseek-r1-0528:
   score: 81.0
+  cost: 4.0
 claude-opus-4-thinking:
-  score: 80.0
+  score: 79.0
+  cost: 32.0
 grok-3-mini-high:
   score: 79.0
+  cost: 1.0
 gemini-2.5-flash-0520-thinking:
   score: 79.0
+  cost: 6.0
 o4-mini-high:
   score: 78.0
+  cost: 7.0
 claude-sonnet-4-thinking:
   score: 72.0
+  cost: 3.0
 deepseek-r1-0120:
-  score: 71.0
-gpt-4.5-preview:
-  score: 71.0
-qwen-3-235b-a22b-thinking:
   score: 70.0
+  cost: 5.0
 claude-opus-4-nothinking:
   score: 70.0
-gemini-2.5-flash-preview-0417-thinking:
+  cost: 8.0
+qwen-3-235b-a22b-thinking:
   score: 70.0
+  cost: 11.0
+gemini-2.5-flash-preview-0417-thinking:
+  score: 69.0
+  cost: 8.0
 grok-3:
   score: 69.0
-gemini-2.5-flash-0520-nothinking:
-  score: 68.0
+  cost: 3.0
 claude-sonnet-4-nothinking:
   score: 68.0
-gpt-4.1:
-  score: 67.0
+  cost: 2.0
+gemini-2.5-flash-0520-nothinking:
+  score: 68.0
+  cost: 0.0
 llama-4-maverick:
   score: 67.0
-deepseek-v3-0324:
+  cost: 0.0
+gpt-4.1:
   score: 66.0
+  cost: 1.0
 gpt-4.1-mini:
   score: 66.0
+  cost: 0.0
+deepseek-v3-0324:
+  score: 65.0
+  cost: 0.0
 qwen-3-235b-a22b-nothinking:
   score: 61.0
+  cost: 0.0
 claude-3.5-sonnet-v2:
-  score: 60.0
+  score: 59.0
+  cost: 1.0
 gemini-2.5-flash-preview-0417-nothinking:
   score: 59.0
+  cost: 0.0
 llama-4-scout:
-  score: 59.0
-deepseek-v3-1224:
-  score: 56.0
+  score: 58.0
+  cost: 0.0
 claude-3.5-sonnet:
   score: 56.0
+  cost: 1.0
+deepseek-v3-1224:
+  score: 55.0
+  cost: 0.0
 gpt-4o-2024-11-20:
   score: 54.0
+  cost: 1.0
 gpt-4o-2024-05-13:
-  score: 53.0
+  score: 52.0
+  cost: 2.0
 gpt-4o-2024-08-06:
   score: 52.0
+  cost: 1.0
 gpt-4.1-nano:
   score: 51.0
+  cost: 0.0
 claude-3.5-haiku:
-  score: 41.0
+  score: 40.0
+  cost: 0.0

@@ -1,36 +1,99 @@
+grok-4:
+  score: 23.0
+  cost: 696.0
 gemini-2.5-pro-06-05:
-  score: 21.64
-o3-high:
-  score: 20.32
+  score: 21.0
+  cost: 315.0
 o3-medium:
-  score: 19.2
-gemini-2.5-pro-preview-03-25:
-  score: 18.16
+  score: 20.0
+  cost: 165.0
 o4-mini-high:
-  score: 18.08
+  score: 17.0
+  cost: 153.0
+gemini-2.5-pro-preview-03-25:
+  score: 17.0
+  cost: 309.0
 gemini-2.5-pro-preview-05-06:
-  score: 17.8
-o4-mini-medium:
-  score: 14.28
-gemini-2.5-flash-preview-0417-thinking:
-  score: 12.08
-gemini-2.5-flash-0520-thinking:
-  score: 10.96
+  score: 15.0
+  cost: 215.0
+deepseek-r1-0528:
+  score: 14.0
+  cost: 72.0
 claude-opus-4-thinking:
-  score: 10.72
+  score: 11.0
+  cost: 546.0
+qwen-3-235b-a22b-thinking:
+  score: 11.0
+  cost: 196.0
+gemini-2.5-flash-preview-0417-thinking:
+  score: 11.0
+  cost: 150.0
+gemini-2.5-flash-0520-thinking:
+  score: 11.0
+  cost: 108.0
+grok-3-mini-high:
+  score: 11.0
+  cost: 18.0
+deepseek-r1-0120:
+  score: 9.0
+  cost: 87.0
 claude-sonnet-4-thinking:
-  score: 7.76
+  score: 8.0
+  cost: 35.0
+gemini-2.5-flash-preview-0417-nothinking:
+  score: 5.0
+  cost: 4.0
+grok-3:
+  score: 5.0
+  cost: 43.0
+gemini-2.5-flash-0520-nothinking:
+  score: 5.0
+  cost: 4.0
+deepseek-v3-0324:
+  score: 5.0
+  cost: 3.0
 claude-opus-4-nothinking:
-  score: 6.68
+  score: 5.0
+  cost: 110.0
 llama-4-maverick:
-  score: 5.68
-claude-sonnet-4-nothinking:
-  score: 5.52
-gpt-4.5-preview:
-  score: 5.44
+  score: 4.0
+  cost: 2.0
+qwen-3-235b-a22b-nothinking:
+  score: 4.0
+  cost: 4.0
 gpt-4.1:
-  score: 5.4
+  score: 4.0
+  cost: 19.0
+gpt-4.1-mini:
+  score: 4.0
+  cost: 4.0
+llama-4-scout:
+  score: 4.0
+  cost: 1.0
+claude-sonnet-4-nothinking:
+  score: 4.0
+  cost: 24.0
+gpt-4.1-nano:
+  score: 3.0
+  cost: 1.0
 claude-3.5-sonnet-v2:
-  score: 4.08
+  score: 3.0
+  cost: 15.0
+claude-3.5-sonnet:
+  score: 3.0
+  cost: 18.0
+deepseek-v3-1224:
+  score: 3.0
+  cost: 2.0
+claude-3.5-haiku:
+  score: 3.0
+  cost: 4.0
 gpt-4o-2024-11-20:
-  score: 2.72
+  score: 3.0
+  cost: 17.0
+gpt-4o-2024-08-06:
+  score: 2.0
+  cost: 13.0
+gpt-4o-2024-05-13:
+  score: 2.0
+  cost: 22.0

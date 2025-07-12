@@ -37,12 +37,12 @@ o3-low:
 o3-pro-medium:
   score: 1.9
   cost: 4.7441
-gemini-2.5-flash-0520-nothinking:
-  score: 1.7
-  cost: 0.057
 o4-mini-low:
   score: 1.7
   cost: 0.05
+gemini-2.5-flash-0520-nothinking:
+  score: 1.7
+  cost: 0.057
 deepseek-r1-0120:
   score: 1.3
   cost: 0.08
