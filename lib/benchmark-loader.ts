@@ -12,6 +12,8 @@ export interface BenchmarkInfo {
   description: string
   website?: string
   github?: string
+  scoreWeight: number
+  costWeight: number
   modelCount: number
   hasCost: boolean
   privateHoldout: boolean
@@ -43,6 +45,8 @@ export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
         description: data.description,
         website: data.website ?? undefined,
         github: data.github ?? undefined,
+        scoreWeight: data.score_weight,
+        costWeight: data.cost_weight,
         modelCount: Object.keys(results).length,
         hasCost: Object.values(results).some((r) => r.cost !== undefined),
         privateHoldout: data.private_holdout,
@@ -89,6 +93,8 @@ export async function loadBenchmarkDetails(
       description: data.description,
       website: data.website ?? undefined,
       github: data.github ?? undefined,
+      scoreWeight: data.score_weight,
+      costWeight: data.cost_weight,
       modelCount: Object.keys(results).length,
       hasCost: Object.keys(costMap).length > 0,
       privateHoldout: data.private_holdout,
