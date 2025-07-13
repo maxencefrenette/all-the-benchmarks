@@ -79,7 +79,9 @@ def process_benchmark(
     cost_series = cost_series.replace(0, np.nan)
     df = df.merge(cost_series, left_on="alias", right_index=True, how="left")
 
-    df = df[["slug", "score", "cost"]].sort_values(by="score", ascending=False)
+    df = df[["slug", "score", "cost"]].sort_values(
+        by=["score", "cost", "slug"], ascending=[False, True, True]
+    )
 
     min_score = df["score"].min()
     max_score = df["score"].max()
