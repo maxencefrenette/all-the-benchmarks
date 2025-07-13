@@ -18,7 +18,9 @@ export const metadata = {
 }
 
 export default async function BenchmarksPage() {
-  const benchmarks = await loadBenchmarks()
+  const benchmarks = (await loadBenchmarks()).filter(
+    (b) => b.scoreWeight !== 0 || b.costWeight !== 0,
+  )
   return (
     <main className="container mx-auto px-4 py-8 max-w-3xl space-y-6">
       <PageHeader
@@ -32,6 +34,8 @@ export default async function BenchmarksPage() {
             <TableHead>Benchmark</TableHead>
             <TableHead>Website</TableHead>
             <TableHead>GitHub</TableHead>
+            <TableHead className="text-right">Score weight</TableHead>
+            <TableHead className="text-right">Cost weight</TableHead>
             <TableHead className="text-right">Models</TableHead>
             <TableHead className="text-right">Cost data?</TableHead>
             <TableHead className="text-right">Private holdout?</TableHead>
@@ -63,6 +67,8 @@ export default async function BenchmarksPage() {
                   </Link>
                 )}
               </TableCell>
+              <TableCell className="text-right">{b.scoreWeight}</TableCell>
+              <TableCell className="text-right">{b.costWeight}</TableCell>
               <TableCell className="text-right">{b.modelCount}</TableCell>
               <TableCell className="text-right">
                 {b.hasCost ? "Yes" : "No"}
