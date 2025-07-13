@@ -23,50 +23,34 @@ def compute_normalization_factors(
     to the least squares objective – effectively the same as repeating the
     benchmark ``weight`` times.
     """
-    benchmarks = list(cost_map.keys())
-    models = sorted({m for costs in cost_map.values() for m in costs})
-    b_count, m_count = len(benchmarks), len(models)
-    if b_count == 0 or m_count == 0:
+
+    df = pd.DataFrame(cost_map).T
+    if df.empty:
         return {}
 
-    row_weights = np.array(
-        [weights.get(b, 1.0) if weights else 1.0 for b in benchmarks],
+    weights_series = pd.Series(
+        {b: (weights.get(b, 1.0) if weights else 1.0) for b in df.index},
         dtype=float,
     )
 
-    # matrices of observed costs and mask
-    C = np.zeros((b_count, m_count), dtype=float)
-    W = np.zeros((b_count, m_count), dtype=bool)
-    for i, bench in enumerate(benchmarks):
-        for j, model in enumerate(models):
-            val = cost_map[bench].get(model)
-            if val is not None:
-                C[i, j] = float(val)
-                W[i, j] = True
+    u = pd.Series(1.0, index=df.index, dtype=float)
+    v = pd.Series(1.0, index=df.columns, dtype=float)
 
-    u = np.ones(b_count, dtype=float)
-    v = np.ones(m_count, dtype=float)
+    mask = df.notna()
+    filled = df.fillna(0.0)
 
     for _ in range(iterations):
-        # update v
-        for j in range(m_count):
-            mask = W[:, j]
-            if mask.any():
-                numerator = np.dot(row_weights[mask] * u[mask], C[mask, j])
-                denominator = np.dot(row_weights[mask] * u[mask], u[mask])
-                if denominator:
-                    v[j] = numerator / denominator
-        # update u
-        for i in range(b_count):
-            mask = W[i]
-            if mask.any():
-                numerator = np.dot(v[mask], C[i, mask])
-                denominator = np.dot(v[mask], v[mask])
-                if denominator:
-                    u[i] = numerator / denominator
+        # update v using vectorized operations
+        numerator_v = (filled.mul(weights_series * u, axis=0)).sum(axis=0)
+        denominator_v = (mask.mul(weights_series * u * u, axis=0)).sum(axis=0)
+        v = numerator_v.div(denominator_v).fillna(v)
 
-    factors = {benchmarks[i]: (1.0 / u[i] if u[i] else None) for i in range(b_count)}
-    return factors
+        # update u
+        numerator_u = (filled.mul(v, axis=1)).sum(axis=1)
+        denominator_u = (mask.mul(v * v, axis=1)).sum(axis=1)
+        u = numerator_u.div(denominator_u).fillna(u)
+
+    return {bench: (1.0 / val if val else None) for bench, val in u.items()}
 
 
 def process_benchmark(
@@ -113,26 +97,24 @@ def process_benchmark(
 
 def build_output(df: pd.DataFrame, factor: Optional[float]) -> Dict[str, Dict[str, float]]:
     """Return a mapping ready for YAML serialization."""
+
     out_df = df.copy()
     if factor is not None:
         out_df["normalized_cost"] = out_df["cost"] * factor
-    else:
-        out_df["normalized_cost"] = np.nan
 
-    out_df["score"] = out_df["score"].apply(lambda x: round_sig(x, 5))
-    out_df["normalized_score"] = out_df["normalized_score"].apply(lambda x: round_sig(x, 5))
-    out_df["cost"] = out_df["cost"].apply(lambda x: round_sig(float(x), 5) if pd.notna(x) else x)
-    out_df["normalized_cost"] = out_df["normalized_cost"].apply(lambda x: round_sig(float(x), 5) if pd.notna(x) else x)
+    for col in ["score", "normalized_score", "cost", "normalized_cost"]:
+        if col in out_df.columns:
+            out_df[col] = out_df[col].apply(
+                lambda x: round_sig(float(x), 5) if pd.notna(x) else x
+            )
 
-    result: Dict[str, Dict[str, float]] = {}
-    for row in out_df.itertuples(index=False):
-        entry = {"score": row.score, "normalized_score": row.normalized_score}
-        if not pd.isna(row.cost):
-            entry["cost"] = row.cost
-        if not pd.isna(row.normalized_cost):
-            entry["normalized_cost"] = row.normalized_cost
-        result[row.slug] = entry
-    return result
+    records = out_df.set_index("slug").to_dict(orient="index")
+    # remove NaN entries
+    cleaned = {
+        slug: {k: v for k, v in vals.items() if pd.notna(v)}
+        for slug, vals in records.items()
+    }
+    return cleaned
 
 
 def main() -> None:

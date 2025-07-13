@@ -3,7 +3,7 @@
   model: Grok 4
   provider: xAI
   averageScore: 94.31
-  costPerTask: 465
+  costPerTask: 478
   costBenchmarkCount: 8
   benchmarkCount: 9
   totalBenchmarks: 11
@@ -13,7 +13,7 @@
   model: Gemini 2.5 Pro 06/05
   provider: Google
   averageScore: 84.08
-  costPerTask: 268
+  costPerTask: 276
   costBenchmarkCount: 8
   benchmarkCount: 11
   totalBenchmarks: 11
@@ -23,7 +23,7 @@
   model: o3-pro (high)
   provider: OpenAI
   averageScore: 83.91
-  costPerTask: 1590
+  costPerTask: 1730
   costBenchmarkCount: 4
   benchmarkCount: 5
   totalBenchmarks: 11
@@ -33,7 +33,7 @@
   model: o3 (high)
   provider: OpenAI
   averageScore: 82.31
-  costPerTask: 182
+  costPerTask: 199
   costBenchmarkCount: 4
   benchmarkCount: 6
   totalBenchmarks: 11
@@ -43,7 +43,7 @@
   model: o3 (medium)
   provider: OpenAI
   averageScore: 79.71
-  costPerTask: 129
+  costPerTask: 132
   costBenchmarkCount: 7
   benchmarkCount: 9
   totalBenchmarks: 11
@@ -53,7 +53,7 @@
   model: o4-mini (high)
   provider: OpenAI
   averageScore: 76.1
-  costPerTask: 135
+  costPerTask: 141
   costBenchmarkCount: 8
   benchmarkCount: 10
   totalBenchmarks: 11
@@ -63,7 +63,7 @@
   model: Claude 4 Opus (thinking)
   provider: Anthropic
   averageScore: 74.54
-  costPerTask: 606
+  costPerTask: 628
   costBenchmarkCount: 8
   benchmarkCount: 10
   totalBenchmarks: 11
@@ -73,7 +73,7 @@
   model: Grok 3 Mini (high)
   provider: xAI
   averageScore: 66.59
-  costPerTask: 12.9
+  costPerTask: 12.8
   costBenchmarkCount: 6
   benchmarkCount: 7
   totalBenchmarks: 11
@@ -83,7 +83,7 @@
   model: DeepSeek R1 05/28
   provider: DeepSeek
   averageScore: 65.2
-  costPerTask: 46.7
+  costPerTask: 47.1
   costBenchmarkCount: 8
   benchmarkCount: 11
   totalBenchmarks: 11
@@ -93,7 +93,7 @@
   model: Claude 4 Sonnet (thinking)
   provider: Anthropic
   averageScore: 64.81
-  costPerTask: 128
+  costPerTask: 135
   costBenchmarkCount: 8
   benchmarkCount: 10
   totalBenchmarks: 11
