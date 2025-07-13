@@ -1,5 +1,6 @@
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
+import Link from "next/link"
 
 export const metadata = {
   title: "About",
@@ -65,6 +66,26 @@ export default function AboutPage() {
             Each model&rsquo;s cost per task figure is then the mean of its
             normalised costs across the available benchmarks, allowing fair
             comparison across tasks with different price scales.
+          </p>
+        </section>
+        <section className="space-y-2">
+          <h2 className="text-2xl font-semibold">Why Cost Per Task?</h2>
+          <p>
+            Pricing is often reported per thousand output tokens, but the amount
+            of text produced by different benchmarks varies widely.{" "}
+            <Link
+              href="https://epoch.ai/data-insights/output-length"
+              target="_blank"
+              className="underline"
+            >
+              Epoch AI&rsquo;s analysis
+            </Link>{" "}
+            highlights just how large these differences can be.
+          </p>
+          <p>
+            Expressing prices as a total cost per task avoids distorted
+            comparisons and reflects a better estimate of how much these models
+            cost to run on real-world tasks.
           </p>
         </section>
       </div>
