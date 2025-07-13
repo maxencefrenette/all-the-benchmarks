@@ -33,7 +33,7 @@ def update_all_mappings(bench_dir: Path, mapping_dir: Path) -> None:
     mapping_df = mapping_df.drop_duplicates(subset=["alias", "model_name_mapping_file"])
 
     merged_df = pd.merge(bench_df, mapping_df, on=["alias", "model_name_mapping_file"], how="left")
-    merged_df = merged_df.sort_values("alias")
+    merged_df = merged_df.sort_values("alias", key=lambda x: x.str.lower())
 
     # Write to mapping files
     for model_name_mapping_file, df in merged_df.groupby("model_name_mapping_file"):
