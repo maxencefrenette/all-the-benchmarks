@@ -2,10 +2,14 @@ import pandas as pd
 import yaml
 from pathlib import Path
 import numpy as np
-
+from math import log10, floor
 
 from typing import Optional
 
+def round_sig(x: float, sig: int) -> float:
+    if x == 0:
+        return 0
+    return round(x, sig - 1 - floor(log10(abs(x))))
 
 def compute_normalization_factors(
     cost_map: dict[str, dict[str, float]], iterations: int = 20
@@ -94,13 +98,13 @@ def process_benchmark(
     cost_out: dict[str, float] = {}
     for _, row in df.iterrows():
         entry = {
-            "score": float(row["score"]),
-            "normalized_score": float(row["normalized"]),
+            "score": round_sig(row["score"], 5),
+            "normalized_score": round_sig(row["normalized"], 5),
         }
         if pd.notna(row.get("cost")):
             cost_val = float(row["cost"])
-            entry["cost"] = cost_val
-            cost_out[row["slug"]] = cost_val
+            entry["cost"] = round_sig(cost_val, 5)
+            cost_out[row["slug"]] = round_sig(cost_val, 5)
         output[row["slug"]] = entry
 
     out_path = out_dir / file_path.name
@@ -134,7 +138,7 @@ def main() -> None:
             for entry in data.values():
                 cost_val = entry.get("cost")
                 if cost_val is not None and factor is not None:
-                    entry["normalized_cost"] = float(cost_val * factor)
+                    entry["normalized_cost"] = round_sig(float(cost_val * factor), 5)
                     updated = True
             if updated:
                 proc_path.write_text(yaml.safe_dump(data, sort_keys=False))
