@@ -12,6 +12,7 @@ import {
 import { loadBenchmarks, loadBenchmarkDetails } from "@/lib/benchmark-loader"
 import { loadLLMData } from "@/lib/data-loader"
 import { notFound } from "next/navigation"
+import { formatSigFig } from "@/lib/utils"
 
 export async function generateStaticParams() {
   const benches = await loadBenchmarks()
@@ -83,7 +84,7 @@ export default async function BenchmarkPage({
               </TableCell>
               <TableCell className="text-right">
                 {entry.costPerTask !== undefined
-                  ? entry.costPerTask.toFixed(2)
+                  ? formatSigFig(entry.costPerTask)
                   : "—"}
               </TableCell>
               <TableCell className="text-right">

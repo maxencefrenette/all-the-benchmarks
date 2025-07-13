@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { PROVIDER_COLORS } from "@/lib/provider-colors"
+import { formatSigFig } from "@/lib/utils"
 import {
   Popover,
   PopoverTrigger,
@@ -23,7 +24,7 @@ import type { TableRow } from "@/lib/data-loader"
 
 const CostCell = ({ cost }: { cost: number | null }) => {
   if (cost === null || Number.isNaN(cost)) return null
-  return <Badge variant="secondary">{cost.toFixed(2)}</Badge>
+  return <Badge variant="secondary">{formatSigFig(cost)}</Badge>
 }
 
 export const columns: ColumnDef<TableRow>[] = [

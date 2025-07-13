@@ -3,6 +3,7 @@ import { transformToTableData } from "../table-utils"
 import { stringify } from "yaml"
 import { expect, test } from "vitest"
 import path from "path"
+import { formatSigFig } from "../utils"
 
 // Snapshot of the data that appears in the top 10 rows of the default leaderboard
 // This ensures data loading remains stable independent of the UI
@@ -29,7 +30,7 @@ test("default leaderboard top 10 data", async () => {
       ...row,
       averageScore: Number(row.averageScore.toFixed(2)),
       costPerTask:
-        row.costPerTask === null ? null : Number(row.costPerTask.toFixed(2)),
+        row.costPerTask === null ? null : Number(formatSigFig(row.costPerTask)),
     }))
   const yamlData = stringify(tableRows)
   const snapshotFile = path.join(

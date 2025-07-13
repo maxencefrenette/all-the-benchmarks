@@ -5,6 +5,7 @@ import { ScatterChart, Scatter, XAxis, YAxis, ZAxis } from "recharts"
 import { LLMData } from "@/lib/data-loader"
 import { PROVIDER_COLORS } from "@/lib/provider-colors"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart"
+import { formatSigFig } from "@/lib/utils"
 
 const BASE_TICKS = [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30] as const
 
@@ -107,7 +108,7 @@ export default function CostScoreChart({
             scale="log"
             domain={costDomain as [number, number]}
             ticks={ticks}
-            tickFormatter={(v) => v && v.toFixed(2)}
+            tickFormatter={(v) => (v ? formatSigFig(v) : "")}
             label={{
               value: "Normalized Cost per Task ($)",
               position: "insideBottom",
@@ -149,7 +150,8 @@ export default function CostScoreChart({
             }}
             formatter={(value: number | string, name: string) => (
               <span>
-                {name}: {typeof value === "number" ? value.toFixed(2) : value}
+                {name}:{" "}
+                {typeof value === "number" ? formatSigFig(value) : value}
               </span>
             )}
             content={<ChartTooltipContent />}
