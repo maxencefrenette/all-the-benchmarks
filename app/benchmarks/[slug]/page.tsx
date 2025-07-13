@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table"
 import { loadBenchmarks, loadBenchmarkDetails } from "@/lib/benchmark-loader"
 import { loadLLMData } from "@/lib/data-loader"
+import BenchmarkCostScoreChart from "@/components/benchmark-cost-score-chart"
 import { notFound } from "next/navigation"
 import { formatSigFig } from "@/lib/utils"
 
@@ -32,17 +33,24 @@ export default async function BenchmarkPage({
   const entries = llms
     .map((m) => {
       const res = m.benchmarks[info.benchmark]
-      return res ? { slug: m.slug, model: m.model, ...res } : null
+      return res
+        ? { slug: m.slug, model: m.model, provider: m.provider, ...res }
+        : null
     })
     .filter(Boolean) as {
     slug: string
     model: string
+    provider: string
     score: number
     normalizedScore?: number
     normalizedCost?: number
     costPerTask?: number
   }[]
   entries.sort((a, b) => b.score - a.score)
+
+  const chartEntries = entries.filter(
+    (e) => e.costPerTask !== undefined && e.costPerTask > 0,
+  )
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-7xl space-y-6">
@@ -62,6 +70,9 @@ export default async function BenchmarkPage({
         </div>
       )}
       <NavigationPills />
+      {info.hasCost && chartEntries.length > 0 && (
+        <BenchmarkCostScoreChart entries={chartEntries} />
+      )}
       <div className="p-6">
         <div className="rounded-md border">
           <Table>
