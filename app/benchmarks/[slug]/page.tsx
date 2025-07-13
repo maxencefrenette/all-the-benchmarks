@@ -1,6 +1,7 @@
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
 import BenchmarkSection from "@/components/benchmark-section"
+import { Suspense } from "react"
 import Link from "next/link"
 import { loadBenchmarks, loadBenchmarkDetails } from "@/lib/benchmark-loader"
 import { loadLLMData } from "@/lib/data-loader"
@@ -41,7 +42,9 @@ export default async function BenchmarkPage({
         </div>
       )}
       <NavigationPills />
-      <BenchmarkSection llmData={relevant} benchmark={info.benchmark} />
+      <Suspense>
+        <BenchmarkSection llmData={relevant} benchmark={info.benchmark} />
+      </Suspense>
     </main>
   )
 }
