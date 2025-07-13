@@ -1,54 +1,81 @@
 gemini-2.5-pro-06-05:
   score: 1476.9263077420123
+  normalized_score: 100.0
 gemini-2.5-pro-preview-05-06:
   score: 1446.0
+  normalized_score: 86.11075286231592
 o3-medium:
   score: 1426.6561982026758
+  normalized_score: 77.4232999019862
 deepseek-r1-0528:
   score: 1424.8097579247376
+  normalized_score: 76.5940491049239
 grok-3:
   score: 1422.3587775741196
+  normalized_score: 75.49329462419759
 gemini-2.5-flash-0520-thinking:
   score: 1418.346053508553
+  normalized_score: 73.69114880365807
 gpt-4.5-preview:
   score: 1413.8911784267991
+  normalized_score: 71.69042949716497
 gemini-2.5-flash-preview-0417-thinking:
   score: 1398.3921769173858
+  normalized_score: 64.72970647302122
 qwen-3-235b-a22b-nothinking:
   score: 1391.6336371425677
+  normalized_score: 61.69439330193761
 gpt-4.1:
   score: 1384.1078203495802
+  normalized_score: 58.31449000980488
 deepseek-v3-0324:
   score: 1382.3376186831824
+  normalized_score: 57.519478570571934
 deepseek-r1-0120:
   score: 1374.1096291973786
+  normalized_score: 53.82422402004732
 claude-opus-4-nothinking:
   score: 1369.8518153434156
+  normalized_score: 51.91200645507723
 qwen-3-235b-a22b-thinking:
   score: 1366.5358044408013
+  normalized_score: 50.42275997528813
 o4-mini-medium:
   score: 1362.9101971625923
+  normalized_score: 48.794471337300436
 grok-3-mini-nothinking:
   score: 1359.2248603796975
+  normalized_score: 47.139357710732945
 claude-sonnet-4-nothinking:
   score: 1343.3328863105821
+  normalized_score: 40.002147630793175
 gpt-4.1-mini:
   score: 1336.9089088322212
+  normalized_score: 37.11708900859419
 deepseek-v3-1224:
   score: 1334.3590864065122
+  normalized_score: 35.97194377744297
 gpt-4o-2024-05-13:
   score: 1300.8352577225469
+  normalized_score: 20.916129631208914
 claude-3.5-sonnet-v2:
   score: 1299.21207665053
+  normalized_score: 20.18714629292869
 llama-4-maverick:
   score: 1291.562367468064
+  normalized_score: 16.751601957891673
 gpt-4.1-nano:
   score: 1287.4528461349744
+  normalized_score: 14.905983726028605
 claude-3.5-sonnet:
   score: 1284.0583528315947
+  normalized_score: 13.381490185087513
 gpt-4o-2024-08-06:
   score: 1281.0877384686455
+  normalized_score: 12.04736399770223
 llama-4-scout:
   score: 1277.4989646636727
+  normalized_score: 10.43561756116268
 claude-3.5-haiku:
   score: 1254.2626353669734
+  normalized_score: 0.0
