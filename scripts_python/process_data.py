@@ -1,10 +1,10 @@
 import pandas as pd
 import yaml
 from pathlib import Path
-import numpy as np
 from math import log10, floor
+from typing import Optional, Tuple, Dict
 
-from typing import Optional
+import numpy as np
 
 def round_sig(x: float, sig: int) -> float:
     if x == 0:
@@ -61,13 +61,15 @@ def compute_normalization_factors(
 
 
 def process_benchmark(
-    file_path: Path, mapping_dir: Path, out_dir: Path
-) -> dict[str, float]:
-    """Process a single benchmark YAML and write mapped results.
+    file_path: Path, mapping_dir: Path
+) -> Tuple[pd.DataFrame, Dict[str, float]]:
+    """Parse a single benchmark YAML and return a DataFrame of results.
 
-    Returns a mapping of model slug to cost for this benchmark.
+    The returned ``dict`` maps model slugs to their cost for use when
+    computing normalization factors.
     """
     data = yaml.safe_load(file_path.read_text())
+
     mapping_file = mapping_dir / data.get("model_name_mapping_file", "")
     mapping = {}
     if mapping_file.exists():
@@ -79,38 +81,47 @@ def process_benchmark(
     df.dropna(subset=["slug"], inplace=True)
 
     cost_map = data.get("cost_per_task", {})
-    cost_series = pd.Series(cost_map, name="cost")
-    cost_series = cost_series.replace(0, np.nan)
+    cost_series = pd.Series(cost_map).replace(0, np.nan).rename("cost")
     df = df.merge(cost_series, left_on="alias", right_index=True, how="left")
 
-    df = df[["slug", "score", "cost"]].sort_values(
-        by=["score", "cost", "slug"], ascending=[False, True, True]
-    )
+    df = df.sort_values(by=["score", "cost", "slug"], ascending=[False, True, True])
 
     min_score = df["score"].min()
     max_score = df["score"].max()
     if max_score != min_score:
-        df["normalized"] = (df["score"] - min_score) / (max_score - min_score) * 100
+        df["normalized_score"] = (df["score"] - min_score) / (max_score - min_score) * 100
     else:
-        df["normalized"] = 100.0
+        df["normalized_score"] = 100.0
 
-    output = {}
-    cost_out: dict[str, float] = {}
-    for _, row in df.iterrows():
-        entry = {
-            "score": round_sig(row["score"], 5),
-            "normalized_score": round_sig(row["normalized"], 5),
-        }
-        if pd.notna(row.get("cost")):
-            cost_val = float(row["cost"])
-            entry["cost"] = round_sig(cost_val, 5)
-            cost_out[row["slug"]] = round_sig(cost_val, 5)
-        output[row["slug"]] = entry
+    df = df[["slug", "score", "normalized_score", "cost"]]
 
-    out_path = out_dir / file_path.name
-    out_path.write_text(yaml.safe_dump(output, sort_keys=False))
+    cost_out = df.set_index("slug")["cost"].dropna().to_dict()
 
-    return cost_out
+    return df, cost_out
+
+
+def build_output(df: pd.DataFrame, factor: Optional[float]) -> Dict[str, Dict[str, float]]:
+    """Return a mapping ready for YAML serialization."""
+    out_df = df.copy()
+    if factor is not None:
+        out_df["normalized_cost"] = out_df["cost"] * factor
+    else:
+        out_df["normalized_cost"] = np.nan
+
+    out_df["score"] = out_df["score"].apply(lambda x: round_sig(x, 5))
+    out_df["normalized_score"] = out_df["normalized_score"].apply(lambda x: round_sig(x, 5))
+    out_df["cost"] = out_df["cost"].apply(lambda x: round_sig(float(x), 5) if pd.notna(x) else x)
+    out_df["normalized_cost"] = out_df["normalized_cost"].apply(lambda x: round_sig(float(x), 5) if pd.notna(x) else x)
+
+    result: Dict[str, Dict[str, float]] = {}
+    for row in out_df.itertuples(index=False):
+        entry = {"score": row.score, "normalized_score": row.normalized_score}
+        if not pd.isna(row.cost):
+            entry["cost"] = row.cost
+        if not pd.isna(row.normalized_cost):
+            entry["normalized_cost"] = row.normalized_cost
+        result[row.slug] = entry
+    return result
 
 
 def main() -> None:
@@ -120,28 +131,22 @@ def main() -> None:
     out_dir = root / "data" / "benchmarks_processed"
     out_dir.mkdir(exist_ok=True)
 
-    cost_data: dict[str, dict[str, float]] = {}
+    cost_data: Dict[str, Dict[str, float]] = {}
+    frames: Dict[str, pd.DataFrame] = {}
 
     for bench_file in bench_dir.glob("*.yaml"):
-        costs = process_benchmark(bench_file, mapping_dir, out_dir)
+        df, costs = process_benchmark(bench_file, mapping_dir)
+        frames[bench_file.stem] = df
         if costs:
             cost_data[bench_file.stem] = costs
 
-    if cost_data:
-        factors = compute_normalization_factors(cost_data)
-        for bench, factor in factors.items():
-            proc_path = out_dir / f"{bench}.yaml"
-            if not proc_path.exists():
-                continue
-            data = yaml.safe_load(proc_path.read_text()) or {}
-            updated = False
-            for entry in data.values():
-                cost_val = entry.get("cost")
-                if cost_val is not None and factor is not None:
-                    entry["normalized_cost"] = round_sig(float(cost_val * factor), 5)
-                    updated = True
-            if updated:
-                proc_path.write_text(yaml.safe_dump(data, sort_keys=False))
+    factors = compute_normalization_factors(cost_data) if cost_data else {}
+
+    for bench_name, df in frames.items():
+        factor = factors.get(bench_name)
+        out_dict = build_output(df, factor)
+        out_path = out_dir / f"{bench_name}.yaml"
+        out_path.write_text(yaml.safe_dump(out_dict, sort_keys=False))
 
 
 if __name__ == "__main__":
