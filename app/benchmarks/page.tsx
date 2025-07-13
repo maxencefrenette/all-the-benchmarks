@@ -28,66 +28,78 @@ export default async function BenchmarksPage() {
         subtitle="Models are evaluated on the following benchmarks."
       />
       <NavigationPills />
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Benchmark</TableHead>
-            <TableHead>Website</TableHead>
-            <TableHead>GitHub</TableHead>
-            <TableHead className="text-right">Score weight</TableHead>
-            <TableHead className="text-right">Cost weight</TableHead>
-            <TableHead className="text-right">Models</TableHead>
-            <TableHead className="text-right">Cost data?</TableHead>
-            <TableHead className="text-right">Private holdout?</TableHead>
-            <TableHead className="text-right">Details</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {benchmarks.map((b) => (
-            <TableRow key={b.slug}>
-              <TableCell className="space-y-1">
-                <div className="font-semibold">{b.benchmark}</div>
-                {b.description && (
-                  <p className="text-muted-foreground text-sm">
-                    {b.description}
-                  </p>
-                )}
-              </TableCell>
-              <TableCell>
-                {b.website && (
-                  <Link href={b.website} target="_blank" className="underline">
-                    Website
-                  </Link>
-                )}
-              </TableCell>
-              <TableCell>
-                {b.github && (
-                  <Link href={b.github} target="_blank" className="underline">
-                    GitHub
-                  </Link>
-                )}
-              </TableCell>
-              <TableCell className="text-right">{b.scoreWeight}</TableCell>
-              <TableCell className="text-right">{b.costWeight}</TableCell>
-              <TableCell className="text-right">{b.modelCount}</TableCell>
-              <TableCell className="text-right">
-                {b.hasCost ? "Yes" : "No"}
-              </TableCell>
-              <TableCell className="text-right">
-                {b.privateHoldout ? "Yes" : "No"}
-              </TableCell>
-              <TableCell className="text-right">
-                <Link
-                  href={`/benchmarks/${b.slug}`}
-                  className="text-primary underline flex justify-end"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </Link>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <div className="p-6">
+        <div className="rounded-md border">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Benchmark</TableHead>
+                <TableHead>Website</TableHead>
+                <TableHead>GitHub</TableHead>
+                <TableHead className="text-right">Score weight</TableHead>
+                <TableHead className="text-right">Cost weight</TableHead>
+                <TableHead className="text-right">Models</TableHead>
+                <TableHead className="text-right">Cost data?</TableHead>
+                <TableHead className="text-right">Private holdout?</TableHead>
+                <TableHead className="text-right">Details</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {benchmarks.map((b) => (
+                <TableRow key={b.slug}>
+                  <TableCell className="space-y-1">
+                    <div className="font-semibold">{b.benchmark}</div>
+                    {b.description && (
+                      <p className="text-muted-foreground text-sm">
+                        {b.description}
+                      </p>
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    {b.website && (
+                      <Link
+                        href={b.website}
+                        target="_blank"
+                        className="underline"
+                      >
+                        Website
+                      </Link>
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    {b.github && (
+                      <Link
+                        href={b.github}
+                        target="_blank"
+                        className="underline"
+                      >
+                        GitHub
+                      </Link>
+                    )}
+                  </TableCell>
+                  <TableCell className="text-right">{b.scoreWeight}</TableCell>
+                  <TableCell className="text-right">{b.costWeight}</TableCell>
+                  <TableCell className="text-right">{b.modelCount}</TableCell>
+                  <TableCell className="text-right">
+                    {b.hasCost ? "Yes" : "No"}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    {b.privateHoldout ? "Yes" : "No"}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <Link
+                      href={`/benchmarks/${b.slug}`}
+                      className="text-primary underline flex justify-end"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </Link>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
     </main>
   )
 }
