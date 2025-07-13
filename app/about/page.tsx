@@ -50,14 +50,15 @@ export default function AboutPage() {
             <em>Cost Per Task</em> metric shown on the leaderboard.
           </p>
           <p>
-            Costs are normalised separately from accuracy scores. Only models
-            with prices reported for all cost-enabled benchmarks are considered
-            when calculating normalisation factors. For each benchmark the
-            average cost across this intersection is inverted and applied as a
-            scaling factor.
+            Costs are normalised separately from accuracy scores. A matrix of
+            available price data is decomposed using a rank‑1 singular value
+            decomposition (SVD) solved with alternating least squares. The
+            inverse of the resulting benchmark coefficients gives a
+            normalisation factor for each benchmark.
           </p>
           <pre className="font-mono text-sm bg-muted p-4 rounded">
-            factor<sub>j</sub> = 1 / mean<sub>j</sub>
+            C ≈ u vᵀ
+            {"\n"}factor<sub>j</sub> = 1 / u<sub>j</sub>
             {"\n"}cost′<sub>i,j</sub> = cost<sub>i,j</sub> × factor<sub>j</sub>
             {"\n"}CPT<sub>i</sub> = (1 / B)∑<sub>j</sub> cost′<sub>i,j</sub>
           </pre>
