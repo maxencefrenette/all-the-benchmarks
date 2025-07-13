@@ -1,5 +1,6 @@
 import { loadBenchmarks } from "@/lib/benchmark-loader"
 import Link from "next/link"
+import { ChevronRight } from "lucide-react"
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
 import {
@@ -18,7 +19,6 @@ export const metadata = {
 
 export default async function BenchmarksPage() {
   const benchmarks = await loadBenchmarks()
-  console.log(benchmarks)
   return (
     <main className="container mx-auto px-4 py-8 max-w-3xl space-y-6">
       <PageHeader
@@ -35,23 +35,19 @@ export default async function BenchmarksPage() {
             <TableHead className="text-right">Models</TableHead>
             <TableHead className="text-right">Cost data?</TableHead>
             <TableHead className="text-right">Private holdout?</TableHead>
+            <TableHead className="text-right">Details</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {benchmarks.map((b) => (
             <TableRow key={b.slug}>
-              <TableCell>
-                <Link
-                  href={`/benchmarks/${b.slug}`}
-                  className="space-y-1 block"
-                >
-                  <div className="font-semibold">{b.benchmark}</div>
-                  {b.description && (
-                    <p className="text-muted-foreground text-sm">
-                      {b.description}
-                    </p>
-                  )}
-                </Link>
+              <TableCell className="space-y-1">
+                <div className="font-semibold">{b.benchmark}</div>
+                {b.description && (
+                  <p className="text-muted-foreground text-sm">
+                    {b.description}
+                  </p>
+                )}
               </TableCell>
               <TableCell>
                 {b.website && (
@@ -73,6 +69,14 @@ export default async function BenchmarksPage() {
               </TableCell>
               <TableCell className="text-right">
                 {b.privateHoldout ? "Yes" : "No"}
+              </TableCell>
+              <TableCell className="text-right">
+                <Link
+                  href={`/benchmarks/${b.slug}`}
+                  className="text-primary underline flex justify-end"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Link>
               </TableCell>
             </TableRow>
           ))}
