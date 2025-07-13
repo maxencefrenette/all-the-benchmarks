@@ -62,40 +62,44 @@ export default async function BenchmarkPage({
         </div>
       )}
       <NavigationPills />
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Model</TableHead>
-            <TableHead className="text-right">Raw Score</TableHead>
-            <TableHead className="text-right">Normalized Score</TableHead>
-            <TableHead className="text-right">Raw Cost</TableHead>
-            <TableHead className="text-right">Normalized Cost</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {entries.map((entry) => (
-            <TableRow key={entry.slug}>
-              <TableCell>{entry.model}</TableCell>
-              <TableCell className="text-right">{entry.score}</TableCell>
-              <TableCell className="text-right">
-                {entry.normalizedScore !== undefined
-                  ? entry.normalizedScore.toFixed(1)
-                  : "—"}
-              </TableCell>
-              <TableCell className="text-right">
-                {entry.costPerTask !== undefined
-                  ? formatSigFig(entry.costPerTask)
-                  : "—"}
-              </TableCell>
-              <TableCell className="text-right">
-                {entry.normalizedCost !== undefined
-                  ? entry.normalizedCost.toFixed(2)
-                  : "—"}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <div className="p-6">
+        <div className="rounded-md border">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Model</TableHead>
+                <TableHead className="text-right">Raw Score</TableHead>
+                <TableHead className="text-right">Normalized Score</TableHead>
+                <TableHead className="text-right">Raw Cost</TableHead>
+                <TableHead className="text-right">Normalized Cost</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {entries.map((entry) => (
+                <TableRow key={entry.slug}>
+                  <TableCell>{entry.model}</TableCell>
+                  <TableCell className="text-right">{entry.score}</TableCell>
+                  <TableCell className="text-right">
+                    {entry.normalizedScore !== undefined
+                      ? entry.normalizedScore.toFixed(1)
+                      : "—"}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    {entry.costPerTask !== undefined
+                      ? formatSigFig(entry.costPerTask)
+                      : "—"}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    {entry.normalizedCost !== undefined
+                      ? entry.normalizedCost.toFixed(2)
+                      : "—"}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
     </main>
   )
 }
