@@ -4,58 +4,42 @@ from typing import Dict, Optional
 import pandas as pd
 import yaml
 
+def load_benchmark(bench_file: Path) -> pd.DataFrame:
+    """Load benchmark YAML file."""
+    data = yaml.safe_load(bench_file.read_text())
+    model_name_mapping_file = data.get("model_name_mapping_file")
+    raw_model_names = set(data.get("results", {}).keys()) | set(data.get("costs", {}).keys())
+    df = pd.DataFrame({
+        "alias": list(raw_model_names),
+        "model_name_mapping_file": [model_name_mapping_file] * len(raw_model_names),
+    })
+    return df
 
-def update_mapping(bench_file: Path, mapping_dir: Path) -> None:
-    """Update mapping file for a single benchmark YAML."""
-    data = yaml.safe_load(bench_file.read_text()) or {}
-    mapping_name = data.get("model_name_mapping_file")
-    if not mapping_name:
-        return
-    map_path = mapping_dir / mapping_name
-    existing: Dict[str, Optional[str]] = {}
-    if map_path.exists():
-        existing = yaml.safe_load(map_path.read_text()) or {}
-
-    results = data.get("results", {})
-
-    # Merge new model names with existing mapping entries
-    for name in results.keys():
-        existing.setdefault(name, None)
-
-    # Write models in sorted order for stable diffs
-    df = pd.DataFrame({"alias": list(existing.keys()), "slug": list(existing.values())})
-    df = df.sort_values("alias")
-    sorted_map = dict(zip(df["alias"], df["slug"]))
-    map_path.write_text(yaml.safe_dump(sorted_map, sort_keys=False))
-
+def load_mapping(mapping_file: Path) -> pd.DataFrame:
+    """Load mapping file."""
+    data = yaml.safe_load(mapping_file.read_text())
+    df = pd.DataFrame({
+        "alias": list(data.keys()),
+        "slug": list(data.values()),
+        "model_name_mapping_file": [mapping_file.name] * len(data),
+    })
+    return df
 
 def update_all_mappings(bench_dir: Path, mapping_dir: Path) -> None:
     """Update mapping files for all benchmarks, merging shared files."""
-    mappings: Dict[str, Dict[str, Optional[str]]] = {}
 
-    for bench_file in bench_dir.glob("*.yaml"):
-        data = yaml.safe_load(bench_file.read_text()) or {}
-        mapping_name = data.get("model_name_mapping_file")
-        if not mapping_name:
-            continue
-        results = data.get("results", {})
+    bench_df = pd.concat([load_benchmark(bench_file) for bench_file in bench_dir.glob("*.yaml")])
+    mapping_df = pd.concat([load_mapping(mapping_file) for mapping_file in mapping_dir.glob("*.yaml")])
+    mapping_df = mapping_df.drop_duplicates(subset=["alias", "model_name_mapping_file"])
 
-        if mapping_name not in mappings:
-            map_path = mapping_dir / mapping_name
-            existing = {}
-            if map_path.exists():
-                existing = yaml.safe_load(map_path.read_text()) or {}
-            mappings[mapping_name] = existing
+    merged_df = pd.merge(bench_df, mapping_df, on=["alias", "model_name_mapping_file"], how="left")
+    merged_df = merged_df.sort_values("alias")
 
-        for name in results.keys():
-            mappings[mapping_name].setdefault(name, None)
-
-    for mapping_name, entries in mappings.items():
-        df = pd.DataFrame({"alias": list(entries.keys()), "slug": list(entries.values())})
-        df = df.sort_values("alias")
-        sorted_map = dict(zip(df["alias"], df["slug"]))
-        map_path = mapping_dir / mapping_name
-        map_path.write_text(yaml.safe_dump(sorted_map, sort_keys=False))
+    # Write to mapping files
+    for model_name_mapping_file, df in merged_df.groupby("model_name_mapping_file"):
+        mapping_file = mapping_dir / model_name_mapping_file
+        mapping_file.write_text(yaml.safe_dump(dict(zip(df["alias"], df["slug"])), sort_keys=False))
+    
 
 
 def main() -> None:
