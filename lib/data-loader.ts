@@ -31,7 +31,9 @@ export interface LLMData {
   normalizedCost?: number
 }
 
-function computeAverageScores(llmMap: Record<string, LLMData>): LLMData[] {
+export function computeAverageScores(
+  llmMap: Record<string, LLMData>,
+): LLMData[] {
   return Object.values(llmMap).map((llm) => {
     const weighted: { value: number; weight: number }[] = []
     for (const result of Object.values(llm.benchmarks)) {
