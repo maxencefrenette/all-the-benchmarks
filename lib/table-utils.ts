@@ -23,19 +23,25 @@ export function transformToTableData(
     normalizedCost?: number | null
   }[],
 ): TableRow[] {
-  const benchmarkSet = new Set<string>()
-  const costBenchmarkSet = new Set<string>()
+  const benchmarkWeights: Record<string, number> = {}
+  const costBenchmarkWeights: Record<string, number> = {}
   for (const llm of llmData) {
-    for (const b of Object.keys(llm.benchmarks)) {
-      benchmarkSet.add(b)
-      const res = llm.benchmarks[b] as BenchmarkResult
+    for (const [name, bench] of Object.entries(llm.benchmarks)) {
+      const res = bench as BenchmarkResult
+      benchmarkWeights[name] = res.scoreWeight
       if (res.normalizedCost !== undefined) {
-        costBenchmarkSet.add(b)
+        costBenchmarkWeights[name] = res.costWeight
       }
     }
   }
-  const totalBenchmarks = benchmarkSet.size
-  const totalCostBenchmarks = costBenchmarkSet.size
+  const totalBenchmarks = Object.values(benchmarkWeights).reduce(
+    (s, w) => s + w,
+    0,
+  )
+  const totalCostBenchmarks = Object.values(costBenchmarkWeights).reduce(
+    (s, w) => s + w,
+    0,
+  )
 
   return llmData.map((llm) => ({
     id: llm.slug,
@@ -44,10 +50,14 @@ export function transformToTableData(
     provider: llm.provider,
     averageScore: llm.averageScore || 0,
     costPerTask: llm.normalizedCost ?? null,
-    costBenchmarkCount: Object.values(llm.benchmarks).filter(
-      (b) => (b as BenchmarkResult).normalizedCost !== undefined,
-    ).length,
-    benchmarkCount: Object.keys(llm.benchmarks).length,
+    costBenchmarkCount: Object.values(llm.benchmarks).reduce((s, b) => {
+      const res = b as BenchmarkResult
+      return res.normalizedCost !== undefined ? s + res.costWeight : s
+    }, 0),
+    benchmarkCount: Object.values(llm.benchmarks).reduce((s, b) => {
+      const res = b as BenchmarkResult
+      return s + res.scoreWeight
+    }, 0),
     totalBenchmarks,
     totalCostBenchmarks,
   }))
