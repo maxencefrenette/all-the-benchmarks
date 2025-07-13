@@ -9,7 +9,7 @@ export default function LeaderboardTable({ llmData }: { llmData: LLMData[] }) {
   const tableData: TableRow[] = transformToTableData(llmData)
 
   return (
-    <div className="p-6 pt-0">
+    <div className="p-6">
       <DataTable columns={columns} data={tableData} />
     </div>
   )
