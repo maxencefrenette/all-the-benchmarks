@@ -57,12 +57,19 @@ test("adding non-overlapping cost benchmark does not change costs", async () => 
     )
 
     // write processed version
-    const processed: Record<string, { score: number; cost?: number }> = {}
+    const processed: Record<
+      string,
+      { score: number; cost?: number; normalized_cost?: number }
+    > = {}
     for (const [alias, score] of Object.entries(results)) {
       const slug = mapping[alias as keyof typeof mapping]
       if (!slug) continue
-      processed[slug] = { score, cost: costs[alias] }
-      if (processed[slug].cost === undefined) delete processed[slug].cost
+      const cost = costs[alias]
+      processed[slug] = { score }
+      if (cost !== undefined) {
+        processed[slug].cost = cost
+        processed[slug].normalized_cost = cost
+      }
     }
     await fs.writeFile(
       path.join(processedDir, `${name}.yaml`),
