@@ -1,5 +1,6 @@
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
+import BenchmarkCostScoreChart from "@/components/benchmark-cost-score-chart"
 import Link from "next/link"
 import {
   Table,
@@ -32,11 +33,14 @@ export default async function BenchmarkPage({
   const entries = llms
     .map((m) => {
       const res = m.benchmarks[info.benchmark]
-      return res ? { slug: m.slug, model: m.model, ...res } : null
+      return res
+        ? { slug: m.slug, model: m.model, provider: m.provider, ...res }
+        : null
     })
     .filter(Boolean) as {
     slug: string
     model: string
+    provider: string
     score: number
     normalizedScore?: number
     normalizedCost?: number
@@ -62,6 +66,18 @@ export default async function BenchmarkPage({
         </div>
       )}
       <NavigationPills />
+      {entries.some((e) => e.costPerTask !== undefined) && (
+        <BenchmarkCostScoreChart
+          entries={
+            entries.filter((e) => e.costPerTask !== undefined) as {
+              model: string
+              provider: string
+              score: number
+              costPerTask: number
+            }[]
+          }
+        />
+      )}
       <div className="p-6">
         <div className="rounded-md border">
           <Table>
