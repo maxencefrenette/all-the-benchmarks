@@ -78,4 +78,4 @@ llama-4-scout:
   normalized_score: 10.436
 claude-3.5-haiku:
   score: 1254.3
-  normalized_score: 0
+  normalized_score: 0.0

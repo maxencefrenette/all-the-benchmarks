@@ -8,6 +8,7 @@ const scripts = [
   "scrape:aider-polyglot",
   "scrape:hle",
   "scrape:gpqa-diamond",
+  "scrape:mmlu-pro",
   "scrape:matharena",
   "scrape:artificial-analysis-index",
   "scrape:weirdml",

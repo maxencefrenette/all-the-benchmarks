@@ -1,3 +1,4 @@
+RWKV-4-Raven-14B: null
 alpaca-13b: null
 amazon-nova-experimental-chat-05-14: null
 amazon-nova-lite-v1.0: null
@@ -227,7 +228,6 @@ reka-flash-20240904: null
 reka-flash-21b-20240226: null
 reka-flash-21b-20240226-online: null
 reka-flash-preview-20240611: null
-RWKV-4-Raven-14B: null
 smollm2-1.7b-instruct: null
 snowflake-arctic-instruct: null
 solar-10.7b-instruct-v1.0: null

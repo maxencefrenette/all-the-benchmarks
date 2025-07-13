@@ -75,4 +75,4 @@ gpt-4.1-nano:
   normalized_score: 2.8401
 claude-3.5-haiku:
   score: 39.51
-  normalized_score: 0
+  normalized_score: 0.0

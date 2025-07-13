@@ -20,6 +20,7 @@
     "scrape:aider-polyglot": "tsx scripts/scrape_aider-polyglot.ts",
     "scrape:hle": "tsx scripts/scrape_hle.ts",
     "scrape:gpqa-diamond": "tsx scripts/scrape_gpqa_diamond.ts",
+    "scrape:mmlu-pro": "tsx scripts/scrape_mmlu-pro.ts",
     "scrape:matharena": "tsx scripts/scrape_matharena.ts",
     "scrape:artificial-analysis-index": "tsx scripts/scrape_artificial_analysis_index.ts",
     "scrape:weirdml": "tsx scripts/scrape_weirdml.ts",
