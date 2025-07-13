@@ -126,22 +126,25 @@ def main() -> None:
 
     cost_data: Dict[str, Dict[str, float]] = {}
     weights: Dict[str, float] = {}
-    frames: Dict[str, pd.DataFrame] = {}
+    frames: list[pd.DataFrame] = []
 
     for bench_file in bench_dir.glob("*.yaml"):
         df, costs, weight = process_benchmark(bench_file, mapping_dir)
-        frames[bench_file.stem] = df
+        df["benchmark"] = bench_file.stem
+        frames.append(df)
         if costs:
             cost_data[bench_file.stem] = costs
         weights[bench_file.stem] = weight
+
+    all_df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
 
     factors = (
         compute_normalization_factors(cost_data, weights) if cost_data else {}
     )
 
-    for bench_name, df in frames.items():
+    for bench_name, df in all_df.groupby("benchmark"):
         factor = factors.get(bench_name)
-        out_dict = build_output(df, factor)
+        out_dict = build_output(df.drop(columns="benchmark"), factor)
         out_path = out_dir / f"{bench_name}.yaml"
         out_path.write_text(yaml.safe_dump(out_dict, sort_keys=False))
 
