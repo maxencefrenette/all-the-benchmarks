@@ -5,7 +5,7 @@ import yaml
 # Add scripts_python directory to path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from update_mappings import update_mapping
+from update_mappings import update_all_mappings, update_mapping
 
 
 def test_update_mapping(tmp_path: Path):
@@ -68,3 +68,34 @@ def test_union_across_multiple_benchmarks(tmp_path: Path):
         "Model A": "slug-a",
         "Model B": None,
     }
+
+
+def test_update_all_mappings_sorted(tmp_path: Path):
+    bench1 = tmp_path / "b1.yaml"
+    bench2 = tmp_path / "b2.yaml"
+    mapping_dir = tmp_path
+
+    bench1.write_text(
+        yaml.safe_dump(
+            {
+                "model_name_mapping_file": "map.yaml",
+                "results": {"b": 0.1, "a": 0.2},
+            },
+            sort_keys=False,
+        )
+    )
+
+    bench2.write_text(
+        yaml.safe_dump(
+            {
+                "model_name_mapping_file": "map.yaml",
+                "results": {"c": 0.3},
+            },
+            sort_keys=False,
+        )
+    )
+
+    update_all_mappings(tmp_path, mapping_dir)
+
+    mapping = yaml.safe_load((mapping_dir / "map.yaml").read_text())
+    assert list(mapping.keys()) == ["a", "b", "c"]
