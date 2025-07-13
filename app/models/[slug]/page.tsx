@@ -11,6 +11,7 @@ import {
 import { loadLLMData, loadLLMDetails } from "@/lib/data-loader"
 import { loadBenchmarks } from "@/lib/benchmark-loader"
 import { notFound } from "next/navigation"
+import { formatSigFig } from "@/lib/utils"
 
 export async function generateStaticParams() {
   const data = await loadLLMData()
@@ -62,7 +63,7 @@ export default async function ModelPage({
               </TableCell>
               <TableCell className="text-right">
                 {res?.costPerTask !== undefined
-                  ? res.costPerTask.toFixed(2)
+                  ? formatSigFig(res.costPerTask)
                   : "—"}
               </TableCell>
               <TableCell className="text-right">
