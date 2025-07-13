@@ -1,11 +1,16 @@
 import sys
 from pathlib import Path
 import yaml
+import pytest
 
 # Add scripts_python directory to path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from process_data import process_benchmark, build_output
+from process_data import (
+    process_benchmark,
+    build_output,
+    compute_normalization_factors,
+)
 
 
 def test_process_benchmark(tmp_path: Path):
@@ -33,7 +38,7 @@ def test_process_benchmark(tmp_path: Path):
     }
     (mapping_dir / "map.yaml").write_text(yaml.safe_dump(mapping_data, sort_keys=False))
 
-    df, costs = process_benchmark(bench_file, mapping_dir)
+    df, costs, weight = process_benchmark(bench_file, mapping_dir)
     output = build_output(df, None)
 
     expected = {
@@ -41,6 +46,7 @@ def test_process_benchmark(tmp_path: Path):
         "slug-b": {"score": 0.5, "cost": 0.2, "normalized_score": 0.0},
     }
     assert output == expected
+    assert weight == 1.0
 
 
 def test_zero_cost_ignored(tmp_path: Path):
@@ -66,7 +72,7 @@ def test_zero_cost_ignored(tmp_path: Path):
     }
     (mapping_dir / "map.yaml").write_text(yaml.safe_dump(mapping_data, sort_keys=False))
 
-    df, costs = process_benchmark(bench_file, mapping_dir)
+    df, costs, weight = process_benchmark(bench_file, mapping_dir)
     output = build_output(df, None)
 
     expected = {
@@ -75,3 +81,49 @@ def test_zero_cost_ignored(tmp_path: Path):
     }
     assert output == expected
     assert costs == {"slug-a": 0.1}
+    assert weight == 1.0
+
+
+def test_compute_normalization_factors_weighted() -> None:
+    cost_map = {
+        "b1": {"m1": 1.0, "m2": 2.0},
+        "b2": {"m1": 3.0, "m2": 6.0},
+    }
+    weights = {"b1": 1.0, "b2": 4.0}
+
+    unweighted = compute_normalization_factors(cost_map)
+    weighted = compute_normalization_factors(cost_map, weights)
+
+    assert unweighted["b1"] == pytest.approx(2.0)
+    assert unweighted["b2"] == pytest.approx(2.0 / 3.0, rel=1e-6)
+
+    assert weighted["b1"] == pytest.approx(2.6, rel=1e-6)
+    assert weighted["b2"] == pytest.approx(13.0 / 15.0, rel=1e-6)
+
+
+def test_weight_equivalence_repetition() -> None:
+    """A weight of 2 is equivalent to repeating the benchmark twice."""
+    single_map = {"b": {"m1": 1.0, "m2": 2.0}}
+    single_weight = {"b": 2.0}
+
+    repeated_map = {"b1": {"m1": 1.0, "m2": 2.0}, "b2": {"m1": 1.0, "m2": 2.0}}
+    repeated_weight = {"b1": 1.0, "b2": 1.0}
+
+    single = compute_normalization_factors(single_map, single_weight)
+    repeated = compute_normalization_factors(repeated_map, repeated_weight)
+
+    assert single["b"] == pytest.approx(repeated["b1"], rel=1e-6)
+    assert repeated["b1"] == pytest.approx(repeated["b2"], rel=1e-6)
+
+
+def test_weight_scaling_equivalence() -> None:
+    """Scaling all weights by a constant shouldn't change the result."""
+    cost_map = {"A": {"m": 1.0}, "B": {"m": 4.0}}
+    weights_a = {"A": 0.5, "B": 1.0}
+    weights_b = {"A": 1.0, "B": 2.0}
+
+    f_a = compute_normalization_factors(cost_map, weights_a)
+    f_b = compute_normalization_factors(cost_map, weights_b)
+
+    assert f_a["A"] == pytest.approx(f_b["A"], rel=1e-6)
+    assert f_a["B"] == pytest.approx(f_b["B"], rel=1e-6)

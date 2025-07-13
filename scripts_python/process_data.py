@@ -12,16 +12,27 @@ def round_sig(x: float, sig: int) -> float:
     return round(x, sig - 1 - floor(log10(abs(x))))
 
 def compute_normalization_factors(
-    cost_map: dict[str, dict[str, float]], iterations: int = 20
+    cost_map: dict[str, dict[str, float]],
+    weights: Optional[dict[str, float]] = None,
+    iterations: int = 20,
 ) -> dict[str, Optional[float]]:
     """Return per-benchmark factors using rank 1 SVD via ALS.
 
-    Benchmarks that lack cost information receive ``None`` as the factor."""
+    Benchmarks that lack cost information receive ``None`` as the factor. If
+    ``weights`` is provided, each benchmark contributes ``weight`` times as much
+    to the least squares objective – effectively the same as repeating the
+    benchmark ``weight`` times.
+    """
     benchmarks = list(cost_map.keys())
     models = sorted({m for costs in cost_map.values() for m in costs})
     b_count, m_count = len(benchmarks), len(models)
     if b_count == 0 or m_count == 0:
         return {}
+
+    row_weights = np.array(
+        [weights.get(b, 1.0) if weights else 1.0 for b in benchmarks],
+        dtype=float,
+    )
 
     # matrices of observed costs and mask
     C = np.zeros((b_count, m_count), dtype=float)
@@ -41,8 +52,8 @@ def compute_normalization_factors(
         for j in range(m_count):
             mask = W[:, j]
             if mask.any():
-                numerator = np.dot(u[mask], C[mask, j])
-                denominator = np.dot(u[mask], u[mask])
+                numerator = np.dot(row_weights[mask] * u[mask], C[mask, j])
+                denominator = np.dot(row_weights[mask] * u[mask], u[mask])
                 if denominator:
                     v[j] = numerator / denominator
         # update u
@@ -54,19 +65,17 @@ def compute_normalization_factors(
                 if denominator:
                     u[i] = numerator / denominator
 
-    factors = {
-        benchmarks[i]: (1.0 / u[i] if u[i] else None) for i in range(b_count)
-    }
+    factors = {benchmarks[i]: (1.0 / u[i] if u[i] else None) for i in range(b_count)}
     return factors
 
 
 def process_benchmark(
     file_path: Path, mapping_dir: Path
-) -> Tuple[pd.DataFrame, Dict[str, float]]:
+) -> Tuple[pd.DataFrame, Dict[str, float], float]:
     """Parse a single benchmark YAML and return a DataFrame of results.
 
-    The returned ``dict`` maps model slugs to their cost for use when
-    computing normalization factors.
+    Returns a tuple of the DataFrame, a mapping of model slug to cost, and the
+    benchmark's ``cost_weight`` for normalization purposes.
     """
     data = yaml.safe_load(file_path.read_text())
 
@@ -97,7 +106,9 @@ def process_benchmark(
 
     cost_out = df.set_index("slug")["cost"].dropna().to_dict()
 
-    return df, cost_out
+    weight = float(data.get("cost_weight", 1))
+
+    return df, cost_out, weight
 
 
 def build_output(df: pd.DataFrame, factor: Optional[float]) -> Dict[str, Dict[str, float]]:
@@ -132,15 +143,19 @@ def main() -> None:
     out_dir.mkdir(exist_ok=True)
 
     cost_data: Dict[str, Dict[str, float]] = {}
+    weights: Dict[str, float] = {}
     frames: Dict[str, pd.DataFrame] = {}
 
     for bench_file in bench_dir.glob("*.yaml"):
-        df, costs = process_benchmark(bench_file, mapping_dir)
+        df, costs, weight = process_benchmark(bench_file, mapping_dir)
         frames[bench_file.stem] = df
         if costs:
             cost_data[bench_file.stem] = costs
+        weights[bench_file.stem] = weight
 
-    factors = compute_normalization_factors(cost_data) if cost_data else {}
+    factors = (
+        compute_normalization_factors(cost_data, weights) if cost_data else {}
+    )
 
     for bench_name, df in frames.items():
         factor = factors.get(bench_name)
