@@ -18,6 +18,7 @@ results:
   o4-mini (high): 78
   o3-mini (high): 77
   Claude 3.7 Sonnet Thinking: 77
+  Kimi k2: 76
   o3-mini: 74
   o1: 74
   Llama Nemotron Ultra Reasoning: 72
@@ -124,6 +125,7 @@ results:
   Hermes 3 - Llama-3.1 70B: 40
   Claude 3 Sonnet: 40
   Qwen3 4B: 39
+  Jamba 1.7 Large: 39
   Jamba 1.6 Large: 38
   DeepHermes 3 - Mistral 24B: 38
   Mistral Small (Sep '24): 38
@@ -151,6 +153,7 @@ results:
   Phi-3 Medium 14B: 32
   Gemini 1.5 Flash (May): 32
   Command-R+ (Apr '24): 32
+  Jamba 1.7 Mini: 32
   Llama 2 Chat 13B: 32
   Phi-3 Mini: 31
   Claude 2.1: 31
@@ -253,6 +256,7 @@ cost_per_task:
   Nova Premier: 1
   Jamba 1.5 Large: 1
   Mistral Large (Feb '24): 1
+  Kimi k2: 1
   QwQ-32B: 1
   Grok 3 mini Reasoning (high): 1
   Command-R+: 1

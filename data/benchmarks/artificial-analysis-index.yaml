@@ -30,6 +30,7 @@ results:
   Qwen3 32B (Reasoning): 59
   QwQ-32B: 58
   Claude 4 Opus: 58
+  Kimi k2: 57
   Claude 3.7 Sonnet Thinking: 57
   o1-pro: 56
   Grok 3 Reasoning Beta: 56
@@ -144,6 +145,7 @@ results:
   Gemma 2 27B: 32
   Gemini 1.5 Flash-8B: 31
   DeepHermes 3 - Mistral 24B: 30
+  Jamba 1.7 Large: 30
   Jamba 1.5 Large: 29
   Hermes 3 - Llama-3.1 70B: 29
   DeepSeek-Coder-V2: 29
@@ -203,6 +205,7 @@ results:
   Llama 3.2 3B: 20
   DeepSeek R1 Distill Qwen 1.5B: 19
   Jamba 1.5 Mini: 18
+  Jamba 1.7 Mini: 18
   Jamba 1.6 Mini: 18
   Mixtral 8x7B: 17
   Qwen3 0.6B: 17
@@ -275,6 +278,7 @@ cost_per_task:
   QwQ-32B: 54
   Command-R+: 52
   Jamba 1.5 Large: 52
+  Kimi k2: 51
   Grok 3 mini Reasoning (high): 49
   Mistral Medium: 47
   Pixtral Large: 42

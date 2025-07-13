@@ -13,7 +13,6 @@ async function main() {
       url: "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
       resultsSelector: "#humanitys-last-exam-benchmark-leaderboard-results",
       costSelector: "#humanitys-last-exam-benchmark-leaderboard-cost-breakdown",
-      filterRegex: /\d+ of \d+ models selected/,
     })
 
     const outPath = path.join(

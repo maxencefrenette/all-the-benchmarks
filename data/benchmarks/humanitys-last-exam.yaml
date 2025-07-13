@@ -33,6 +33,7 @@ results:
   Sonar: 7
   Magistral Small: 7
   Gemini 2.0 Flash Thinking exp. (Jan '25): 7
+  Kimi k2: 7
   Gemini 2.0 Pro Experimental: 6
   DBRX: 6
   Qwen3 30B A3B (Reasoning): 6
@@ -109,6 +110,7 @@ results:
   Codestral (Jan '25): 4
   Phi-3 Medium 14B: 4
   Aya Expanse 32B: 4
+  Jamba 1.7 Mini: 4
   Gemini 1.5 Flash-8B: 4
   Command-R+ (Apr '24): 4
   Qwen2.5 Max: 4
@@ -157,6 +159,7 @@ results:
   Claude 3.5 Sonnet (Oct): 3
   Devstral Medium: 3
   Solar Pro 2: 3
+  Jamba 1.7 Large: 3
   Claude 3 Sonnet: 3
   Claude Instant: 3
   Grok 2: 3
@@ -254,6 +257,7 @@ cost_per_task:
   QwQ 32B-Preview: 9
   Mistral Large 2 (Nov '24): 9
   Pixtral Large: 9
+  Kimi k2: 9
   Gemini 1.5 Pro (Sep): 8
   Jamba 1.6 Large: 8
   Gemini 2.5 Flash-Lite: 8

@@ -65,7 +65,6 @@ export interface ArtificialAnalysisOptions {
   url: string
   resultsSelector: string
   costSelector: string
-  filterRegex?: RegExp
 }
 
 export async function scrapeArtificialAnalysisBenchmark(
@@ -74,12 +73,7 @@ export async function scrapeArtificialAnalysisBenchmark(
   results: Record<string, number>
   costPerTask: Record<string, number>
 }> {
-  const {
-    url,
-    resultsSelector,
-    costSelector,
-    filterRegex = /\d+ of \d+ models selected/,
-  } = options
+  const { url, resultsSelector, costSelector } = options
   const browser = await chromium.launch({ headless: true })
   const context = await browser.newContext({ ignoreHTTPSErrors: true })
   const page = await context.newPage()
@@ -89,7 +83,7 @@ export async function scrapeArtificialAnalysisBenchmark(
     await page.waitForLoadState("networkidle")
 
     const filterButton = await page
-      .getByText(filterRegex, { exact: true })
+      .getByText(/\d+ of \d+ models selected/, { exact: true })
       .nth(0)
     await filterButton.click()
 
