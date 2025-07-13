@@ -8,8 +8,6 @@ import {
   ProcessedBenchmarkFileSchema,
 } from "./yaml-schemas"
 
-const USE_PRECOMPUTED_NORMALIZED_COST = true
-
 export interface BenchmarkResult {
   score: number
   normalizedScore?: number
@@ -82,76 +80,6 @@ function applyScoreNormalization(
   })
 }
 
-/**
- * Determine a cost normalisation factor for each benchmark by comparing models
- * that appear in multiple cost benchmarks. Each factor is the inverse of the
- * average cost across overlapping models.
- */
-function computeCostFactors(
-  benchmarkCostMap: Record<string, Record<string, number>>,
-): Record<string, number> {
-  const costBenchmarks = Object.keys(benchmarkCostMap)
-  const benchmarkSets: Record<string, Set<string>> = {}
-  for (const b of costBenchmarks) {
-    benchmarkSets[b] = new Set(Object.keys(benchmarkCostMap[b]))
-  }
-
-  const overlapping = costBenchmarks.filter((b) =>
-    costBenchmarks.some(
-      (other) =>
-        other !== b &&
-        [...benchmarkSets[b]].some((m) => benchmarkSets[other].has(m)),
-    ),
-  )
-
-  let intersection = new Set<string>()
-  if (overlapping.length > 0) {
-    intersection = new Set(benchmarkSets[overlapping[0]])
-    for (const b of overlapping.slice(1)) {
-      intersection = new Set(
-        [...intersection].filter((m) => benchmarkSets[b].has(m)),
-      )
-    }
-  }
-
-  const factors: Record<string, number> = {}
-  if (intersection.size > 0) {
-    for (const b of overlapping) {
-      const values = [...intersection].map((m) => benchmarkCostMap[b][m])
-      const mean = values.reduce((sum, c) => sum + c, 0) / (values.length || 1)
-      if (mean > 0) {
-        factors[b] = 1 / mean
-      }
-    }
-  }
-  return factors
-}
-
-/**
- * Apply cost normalisation factors to each model and compute a weighted average
- * cost. Models without cost benchmarks remain unaffected.
- */
-function applyCostNormalization(
-  llms: LLMData[],
-  factors: Record<string, number>,
-): void {
-  for (const llm of llms) {
-    const costs: { value: number; weight: number }[] = []
-    for (const [b, res] of Object.entries(llm.benchmarks)) {
-      const factor = factors[b]
-      if (res.costPerTask && factor) {
-        res.normalizedCost = res.costPerTask * factor
-        costs.push({ value: res.normalizedCost, weight: res.costWeight })
-      }
-    }
-    if (costs.length > 0) {
-      const totalWeight = costs.reduce((s, c) => s + c.weight, 0)
-      llm.normalizedCost =
-        costs.reduce((s, c) => s + c.value * c.weight, 0) / (totalWeight || 1)
-    }
-  }
-}
-
 export async function loadLLMData(): Promise<LLMData[]> {
   const modelDir = path.join(process.cwd(), "data", "models")
   const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
@@ -165,7 +93,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
     .filter((f) => f.endsWith(".yaml"))
     .map((f) => f.replace(/\.yaml$/, ""))
   const llmMap: Record<string, LLMData> = {}
-  const benchmarkCostMap: Record<string, Record<string, number>> = {}
 
   for (const file of modelFiles) {
     try {
@@ -203,7 +130,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
         if (!llm) continue
         const hasCost = result.cost !== undefined && result.cost > 0
         const normalized =
-          USE_PRECOMPUTED_NORMALIZED_COST &&
           result.normalized_cost !== undefined
             ? Number(result.normalized_cost)
             : undefined
@@ -215,12 +141,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
           scoreWeight: data.score_weight,
           costWeight: data.cost_weight,
         }
-        if (hasCost && !USE_PRECOMPUTED_NORMALIZED_COST) {
-          if (!benchmarkCostMap[data.benchmark]) {
-            benchmarkCostMap[data.benchmark] = {}
-          }
-          benchmarkCostMap[data.benchmark][modelSlug] = Number(result.cost)
-        }
       }
     } catch (error) {
       console.error(`Failed to load benchmark data for ${slug}:`, error)
@@ -230,23 +150,18 @@ export async function loadLLMData(): Promise<LLMData[]> {
   const benchmarkStats = collectScoreRanges(llmMap)
   const results = applyScoreNormalization(llmMap, benchmarkStats)
 
-  if (USE_PRECOMPUTED_NORMALIZED_COST) {
-    for (const llm of results) {
-      const costs: { value: number; weight: number }[] = []
-      for (const res of Object.values(llm.benchmarks)) {
-        if (res.normalizedCost !== undefined) {
-          costs.push({ value: res.normalizedCost, weight: res.costWeight })
-        }
-      }
-      if (costs.length > 0) {
-        const totalWeight = costs.reduce((s, c) => s + c.weight, 0)
-        llm.normalizedCost =
-          costs.reduce((s, c) => s + c.value * c.weight, 0) / (totalWeight || 1)
+  for (const llm of results) {
+    const costs: { value: number; weight: number }[] = []
+    for (const res of Object.values(llm.benchmarks)) {
+      if (res.normalizedCost !== undefined) {
+        costs.push({ value: res.normalizedCost, weight: res.costWeight })
       }
     }
-  } else {
-    const normalizationFactors = computeCostFactors(benchmarkCostMap)
-    applyCostNormalization(results, normalizationFactors)
+    if (costs.length > 0) {
+      const totalWeight = costs.reduce((s, c) => s + c.weight, 0)
+      llm.normalizedCost =
+        costs.reduce((s, c) => s + c.value * c.weight, 0) / (totalWeight || 1)
+    }
   }
 
   return results.sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0))
