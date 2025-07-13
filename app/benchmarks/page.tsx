@@ -22,7 +22,7 @@ export default async function BenchmarksPage() {
     (b) => b.scoreWeight !== 0 || b.costWeight !== 0,
   )
   return (
-    <main className="container mx-auto px-4 py-8 max-w-3xl space-y-6">
+    <main className="container mx-auto px-4 py-8 max-w-7xl space-y-6">
       <PageHeader
         title="Benchmarks"
         subtitle="Models are evaluated on the following benchmarks."

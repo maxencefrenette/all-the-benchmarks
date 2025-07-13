@@ -45,7 +45,7 @@ export default async function BenchmarkPage({
   entries.sort((a, b) => b.score - a.score)
 
   return (
-    <main className="container mx-auto px-4 py-8 max-w-3xl space-y-6">
+    <main className="container mx-auto px-4 py-8 max-w-7xl space-y-6">
       <PageHeader title={info.benchmark} subtitle={info.description} />
       {(info.website || info.github) && (
         <div className="flex justify-center gap-4 text-sm">
