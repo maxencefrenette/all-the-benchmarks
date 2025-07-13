@@ -25,6 +25,9 @@ deepseek-r1-0528:
 gemini-2.5-pro-06-05:
   score: 69.39
   normalized_score: 84.862
+claude-3.7-sonnet-thinking:
+  score: 67.43
+  normalized_score: 79.296
 o4-mini-medium:
   score: 66.87
   normalized_score: 77.705
@@ -49,6 +52,9 @@ grok-3-mini-high:
 gpt-4.5-preview:
   score: 58.65
   normalized_score: 54.36
+claude-3.7-sonnet-nothinking:
+  score: 58.48
+  normalized_score: 53.877
 grok-3:
   score: 56.05
   normalized_score: 46.975

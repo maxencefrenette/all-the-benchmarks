@@ -1,0 +1,6 @@
+provider: Anthropic
+release_date: 2025-02-24
+deprecated: true
+reasoning_efforts:
+  claude-3.7-sonnet-nothinking: Claude 3.7 Sonnet (no thinking)
+  claude-3.7-sonnet-thinking: Claude 3.7 Sonnet (thinking)

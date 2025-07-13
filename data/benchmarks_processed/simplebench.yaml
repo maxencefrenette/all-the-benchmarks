@@ -10,9 +10,15 @@ o3-high:
 gemini-2.5-pro-preview-03-25:
   score: 51.6
   normalized_score: 75.785
+claude-3.7-sonnet-thinking:
+  score: 46.4
+  normalized_score: 64.126
 claude-sonnet-4-thinking:
   score: 45.5
   normalized_score: 62.108
+claude-3.7-sonnet-nothinking:
+  score: 44.9
+  normalized_score: 60.762
 claude-3.5-sonnet-v2:
   score: 41.4
   normalized_score: 52.915

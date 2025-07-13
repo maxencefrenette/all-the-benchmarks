@@ -1,8 +1,8 @@
 Claude 3 Opus: null
 Claude 3.5 Sonnet 06-20: claude-3.5-sonnet
 Claude 3.5 Sonnet 10-22: claude-3.5-sonnet-v2
-Claude 3.7 Sonnet: null
-Claude 3.7 Sonnet (thinking): null
+Claude 3.7 Sonnet: claude-3.7-sonnet-nothinking
+Claude 3.7 Sonnet (thinking): claude-3.7-sonnet-thinking
 Claude 4 Opus (thinking): claude-opus-4-thinking
 Claude 4 Sonnet (thinking): claude-sonnet-4-thinking
 Command R+: null

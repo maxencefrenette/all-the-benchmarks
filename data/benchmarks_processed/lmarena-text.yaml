@@ -55,6 +55,12 @@ gpt-4.1-mini:
 deepseek-v3-1224:
   score: 1334.4
   normalized_score: 35.972
+claude-3.7-sonnet-thinking:
+  score: 1313.2
+  normalized_score: 26.472
+claude-3.7-sonnet-nothinking:
+  score: 1306.3
+  normalized_score: 23.353
 gpt-4o-2024-05-13:
   score: 1300.8
   normalized_score: 20.916

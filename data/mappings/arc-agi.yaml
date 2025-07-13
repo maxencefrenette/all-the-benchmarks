@@ -1,7 +1,7 @@
 ARChitects: null
 Avg. Mturker: null
-Claude 3.7: null
-Claude 3.7 (16K): null
+Claude 3.7: claude-3.7-sonnet-nothinking
+Claude 3.7 (16K): claude-3.7-sonnet-thinking
 Claude 3.7 (1K): null
 Claude 3.7 (8K): null
 Claude Opus 4: claude-opus-4-nothinking
