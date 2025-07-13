@@ -1,0 +1,347 @@
+benchmark: MMLU Pro
+description: Score on Scale's MMLU Pro benchmark
+website: https://artificialanalysis.ai/evaluations/mmlu-pro
+github: null
+score_weight: 1
+cost_weight: 1
+results:
+  Claude 4 Opus Thinking: 87
+  Grok 4: 86
+  Gemini 2.5 Pro: 86
+  Claude 4 Opus: 86
+  Gemini 2.5 Pro (Mar '25): 85
+  o3: 85
+  DeepSeek R1 0528 (May '25): 84
+  Claude 4 Sonnet Thinking: 84
+  DeepSeek R1 (Jan '25): 84
+  o1: 84
+  Gemini 2.5 Pro (May' 25): 83
+  Claude 3.7 Sonnet Thinking: 83
+  Claude 4 Sonnet: 83
+  o4-mini (high): 83
+  Gemini 2.5 Flash (Reasoning): 83
+  Grok 3 mini Reasoning (high): 82
+  Qwen3 235B (Reasoning): 82
+  Llama Nemotron Ultra Reasoning: 82
+  Kimi k2: 82
+  DeepSeek V3 0324 (Mar '25): 81
+  MiniMax M1 80k: 81
+  Llama 4 Maverick: 80
+  Gemini 2.5 Flash: 80
+  MiniMax M1 40k: 80
+  GPT-4.1: 80
+  Gemini 2.0 Pro Experimental: 80
+  Claude 3.7 Sonnet: 80
+  GPT-4o (March 2025): 80
+  o3-mini (high): 80
+  Gemini 2.5 Flash (April '25) (Reasoning): 80
+  Grok 3: 79
+  Gemini 2.0 Flash Thinking exp. (Jan '25): 79
+  Qwen3 32B (Reasoning): 79
+  DeepSeek R1 Distill Llama 70B: 79
+  o3-mini: 79
+  Llama 3.3 Nemotron Super 49B Reasoning: 78
+  Gemini 2.5 Flash (April '25): 78
+  Gemini 2.0 Flash (exp): 78
+  GPT-4.1 mini: 78
+  Gemini 2.0 Flash: 77
+  Qwen3 30B A3B (Reasoning): 77
+  Qwen3 14B (Reasoning): 77
+  GPT-4o (ChatGPT): 77
+  Claude 3.5 Sonnet (Oct): 77
+  Solar Pro 2  (Reasoning): 76
+  QwQ-32B: 76
+  Qwen3 235B: 76
+  Qwen2.5 Max: 76
+  Mistral Medium 3: 76
+  Gemini 2.5 Flash-Lite (Reasoning): 75
+  MiniMax-Text-01: 75
+  Sonar Pro: 75
+  Magistral Medium: 75
+  Llama 4 Scout: 75
+  DeepSeek V3 (Dec '24): 75
+  Claude 3.5 Sonnet (June): 75
+  Gemini 1.5 Pro (Sep): 75
+  GPT-4o (Nov '24): 74
+  Magistral Small: 74
+  Qwen3 8B (Reasoning): 74
+  o1-mini: 74
+  DeepSeek R1 Distill Qwen 14B: 74
+  GPT-4o (May '24): 74
+  DeepSeek R1 Distill Qwen 32B: 73
+  DeepSeek R1 0528 Qwen3 8B: 73
+  Nova Premier: 73
+  Llama 3.1 405B: 73
+  Qwen3 32B: 72
+  Solar Pro 2: 72
+  Gemini 2.0 Flash-Lite (Feb '25): 72
+  Gemini 2.5 Flash-Lite: 72
+  Qwen2.5 72B: 72
+  Tulu3 405B: 71
+  Phi-4: 71
+  Llama 3.3 70B: 71
+  Command A: 71
+  Qwen3 30B A3B: 71
+  Grok 2: 70
+  Devstral Medium: 70
+  Grok Beta: 70
+  Pixtral Large: 70
+  Llama 3.3 Nemotron Super 49B v1: 69
+  Mistral Large 2 (Nov '24): 69
+  Qwen2.5 Instruct 32B: 69
+  Qwen3 4B (Reasoning): 69
+  Claude 3 Opus: 69
+  GPT-4 Turbo: 69
+  Nova Pro: 69
+  Llama 3.1 Nemotron 70B: 69
+  Sonar: 68
+  Mistral Large 2 (Jul '24): 68
+  Mistral Small 3.2: 68
+  Gemini 1.5 Flash (Sep): 68
+  Llama 3.1 70B: 67
+  Qwen3 14B: 67
+  Llama 3.2 90B (Vision): 67
+  Gemma 3 27B: 66
+  Reka Flash 3: 66
+  Mistral Small 3.1: 65
+  GPT-4.1 nano: 65
+  Gemini 1.5 Pro (May): 65
+  Mistral Small 3: 65
+  GPT-4o mini: 64
+  QwQ 32B-Preview: 64
+  Qwen3 8B: 64
+  Qwen2.5 Coder 32B: 63
+  Claude 3.5 Haiku: 63
+  Qwen2.5 Turbo: 63
+  Devstral Small (May '25): 63
+  Devstral Small: 62
+  Qwen2 72B: 62
+  Mistral Saba: 61
+  Gemma 3 12B: 59
+  Nova Lite: 59
+  Qwen3 4B: 58
+  Yi-Large: 58
+  DeepHermes 3 - Mistral 24B: 58
+  Claude 3 Sonnet: 57
+  Gemma 2 27B: 57
+  Llama 3 70B: 57
+  Gemini 1.5 Flash (May): 57
+  Jamba 1.5 Large: 57
+  Hermes 3 - Llama-3.1 70B: 57
+  Qwen3 1.7B (Reasoning): 57
+  Gemini 1.5 Flash-8B: 56
+  Jamba 1.6 Large: 56
+  Llama 3.1 Nemotron Nano 4B v1.1 (Reasoning): 55
+  DeepSeek R1 Distill Llama 8B: 54
+  Phi-3 Medium 14B: 54
+  Mixtral 8x22B: 53
+  Nova Micro: 53
+  Mistral Small (Sep '24): 52
+  Mistral Large (Feb '24): 51
+  Gemma 2 9B: 49
+  Claude 2.1: 49
+  Mistral Medium: 49
+  Gemma 3n E4B: 48
+  Claude 2.0: 48
+  Phi-4 Multimodal: 48
+  Gemma 3n E4B (May '25): 48
+  Llama 3.1 8B: 47
+  Qwen2.5 Coder 7B: 47
+  Pixtral 12B: 47
+  Phi-4 Mini: 46
+  Llama 3.2 11B (Vision): 46
+  GPT-3.5 Turbo: 46
+  Codestral (Jan '25): 44
+  Phi-3 Mini: 43
+  Claude Instant: 43
+  Command-R+ (Apr '24): 43
+  Gemini 1.0 Pro: 43
+  DeepSeek Coder V2 Lite: 42
+  Command-R+: 42
+  LFM 40B: 42
+  Mistral Small (Feb '24): 41
+  Gemma 3 4B: 41
+  Qwen3 1.7B: 41
+  Llama 2 Chat 70B: 40
+  Llama 2 Chat 13B: 40
+  Llama 3 8B: 40
+  Mistral NeMo: 39
+  DBRX: 39
+  Ministral 8B: 38
+  Mixtral 8x7B: 38
+  Aya Expanse 32B: 37
+  Jamba 1.5 Mini: 37
+  Jamba 1.6 Mini: 36
+  DeepHermes 3 - Llama-3.1 8B: 36
+  Qwen3 0.6B (Reasoning): 34
+  Llama 3.2 3B: 34
+  Jamba Instruct: 34
+  Ministral 3B: 33
+  Command-R (Mar '24): 33
+  Command-R: 33
+  Codestral (May '24): 33
+  Aya Expanse 8B: 31
+  OpenChat 3.5: 31
+  DeepSeek R1 Distill Qwen 1.5B: 26
+  Mistral 7B: 24
+  Qwen3 0.6B: 23
+  Codestral-Mamba: 20
+  Llama 3.2 1B: 20
+  Llama 2 Chat 7B: 16
+  Gemma 3 1B: 13
+model_name_mapping_file: artificial-analysis.yaml
+private_holdout: false
+cost_per_task:
+  o1: 1095
+  Claude 4 Opus Thinking: 1083
+  Gemini 2.5 Pro (May' 25): 837
+  Claude 3.7 Sonnet Thinking: 654
+  Grok 4: 637
+  Magistral Medium: 440
+  Gemini 2.5 Pro: 430
+  Claude 4 Opus: 337
+  Gemini 2.5 Pro (Mar '25): 298
+  Qwen3 235B (Reasoning): 284
+  Claude 4 Sonnet Thinking: 250
+  Claude 3 Opus: 235
+  Qwen3 32B (Reasoning): 215
+  Gemini 2.5 Flash (April '25) (Reasoning): 174
+  o3: 173
+  DeepSeek R1 (Jan '25): 151
+  MiniMax M1 40k: 142
+  o3-mini (high): 139
+  Gemini 2.5 Flash (Reasoning): 135
+  Magistral Small: 125
+  GPT-4 Turbo: 115
+  Qwen3 14B (Reasoning): 106
+  Qwen3 0.6B (Reasoning): 106
+  o4-mini (high): 105
+  DeepSeek R1 0528 (May '25): 95
+  Qwen3 8B (Reasoning): 79
+  Claude 4 Sonnet: 75
+  Grok 3: 75
+  GPT-4o (March 2025): 70
+  Qwen3 30B A3B (Reasoning): 69
+  Claude 3.7 Sonnet: 62
+  o3-mini: 60
+  Grok Beta: 60
+  GPT-4o (May '24): 60
+  Claude 2.1: 58
+  o1-mini: 56
+  Claude 3.5 Sonnet (June): 55
+  Qwen3 1.7B (Reasoning): 54
+  GPT-4o (ChatGPT): 52
+  Reka Flash 3: 50
+  Command A: 50
+  Claude 3.5 Sonnet (Oct): 50
+  Claude 2.0: 49
+  Sonar Pro: 47
+  Llama Nemotron Ultra Reasoning: 46
+  Command-R+ (Apr '24): 40
+  Nova Premier: 40
+  Qwen2.5 Max: 39
+  GPT-4o (Nov '24): 39
+  Claude 3 Sonnet: 38
+  Mistral Large (Feb '24): 37
+  Qwen3 4B (Reasoning): 35
+  QwQ-32B: 34
+  Kimi k2: 34
+  GPT-4.1: 33
+  Jamba 1.5 Large: 33
+  Mistral Medium: 29
+  Command-R+: 28
+  DeepSeek R1 Distill Llama 70B: 27
+  Gemini 2.5 Flash-Lite (Reasoning): 27
+  Jamba 1.6 Large: 26
+  Llama 3.1 405B: 25
+  Pixtral Large: 24
+  Mixtral 8x22B: 23
+  Mistral Large 2 (Nov '24): 23
+  Grok 3 mini Reasoning (high): 20
+  Mistral Large 2 (Jul '24): 20
+  Qwen3 32B: 17
+  Gemini 1.5 Pro (Sep): 16
+  Qwen3 235B: 14
+  Gemini 1.5 Pro (May): 14
+  QwQ 32B-Preview: 13
+  Claude 3.5 Haiku: 12
+  Nova Pro: 12
+  DeepSeek R1 Distill Qwen 32B: 9
+  GPT-4.1 mini: 9
+  Sonar: 8
+  DeepSeek R1 Distill Qwen 14B: 8
+  Mistral Medium 3: 8
+  Gemini 2.5 Flash-Lite: 8
+  DeepSeek V3 0324 (Mar '25): 7
+  Llama 4 Maverick: 7
+  Gemini 1.0 Pro: 6
+  Gemini 2.5 Flash (April '25): 6
+  DeepSeek V3 (Dec '24): 6
+  Mistral Small (Feb '24): 6
+  Devstral Medium: 6
+  Gemini 2.5 Flash: 6
+  Aya Expanse 32B: 5
+  Llama 3.1 70B: 5
+  Qwen3 14B: 5
+  Llama 3.3 70B: 5
+  MiniMax-Text-01: 5
+  Qwen3 30B A3B: 5
+  Aya Expanse 8B: 5
+  Claude Instant: 5
+  DeepSeek R1 0528 Qwen3 8B: 4
+  Qwen3 8B: 4
+  Mixtral 8x7B: 4
+  Llama 3.2 90B (Vision): 4
+  Codestral (Jan '25): 4
+  Gemma 2 27B: 4
+  Llama 4 Scout: 4
+  Llama 3 70B: 3
+  GPT-3.5 Turbo: 3
+  MiniMax M1 80k: 3
+  Command-R (Mar '24): 3
+  Phi-4: 3
+  Mistral Saba: 2
+  GPT-4o mini: 2
+  Llama 3.1 Nemotron 70B: 2
+  Phi-3 Medium 14B: 2
+  Mistral Small (Sep '24): 2
+  Codestral (May '24): 2
+  Qwen3 4B: 2
+  Jamba 1.5 Mini: 2
+  GPT-4.1 nano: 2
+  Jamba 1.6 Mini: 2
+  Gemini 2.0 Flash: 2
+  Qwen2.5 Instruct 32B: 2
+  Mistral Small 3.2: 1
+  Mistral 7B: 1
+  Qwen3 1.7B: 1
+  Llama 3.2 11B (Vision): 1
+  Gemini 2.0 Flash-Lite (Feb '25): 1
+  Mistral Small 3: 1
+  Mistral Small 3.1: 1
+  DeepSeek R1 Distill Llama 8B: 1
+  Devstral Small (May '25): 1
+  Qwen2.5 Coder 32B: 1
+  Llama 3.1 8B: 1
+  Devstral Small: 1
+  Gemini 1.5 Flash (Sep): 1
+  Command-R: 1
+  Qwen2.5 Turbo: 1
+  Pixtral 12B: 1
+  Gemma 2 9B: 1
+  Nova Lite: 1
+  Gemini 1.5 Flash (May): 1
+  Llama 2 Chat 7B: 1
+  Mistral NeMo: 1
+  Gemma 3 12B: 1
+  Ministral 8B: 1
+  LFM 40B: 0
+  Gemini 1.5 Flash-8B: 0
+  Nova Micro: 0
+  Llama 3.2 1B: 0
+  Qwen3 0.6B: 0
+  Llama 3.2 3B: 0
+  Gemma 3n E4B: 0
+  Llama 3 8B: 0
+  Gemma 3 4B: 0
+  Ministral 3B: 0
