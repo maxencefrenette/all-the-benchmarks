@@ -1,0 +1,73 @@
+benchmark: MathArena AIME 2025
+description: Accuracy on MathArena AIME 2025 competition
+website: https://matharena.ai/
+github: https://github.com/eth-sri/matharena
+score_weight: 1
+cost_weight: 1
+results:
+  Claude-3.5-Sonnet: 3.3333333333333335
+  Claude-3.7-Sonnet (Think): 49.16666666666668
+  Claude-Opus-4.0 (Think): 69.16666666666669
+  DeepSeek-R1: 70
+  DeepSeek-R1-0528: 89.16666666666666
+  DeepSeek-R1-Distill-1.5B: 20
+  DeepSeek-R1-Distill-14B: 49.16666666666667
+  DeepSeek-R1-Distill-32B: 60.00000000000001
+  DeepSeek-R1-Distill-70B: 55
+  DeepSeek-V3: 25
+  DeepSeek-V3-03-24: 50
+  Grok 3 Mini (high): 81.66666666666666
+  Grok 3 Mini (low): 65.00000000000001
+  Grok 4: 90.83333333333331
+  QwQ-32B: 65.83333333333334
+  QwQ-32B-Preview: 33.33333333333333
+  Qwen3-235B-A22B: 80.83333333333333
+  Qwen3-30B-A3B: 70
+  gemini-2.0-flash: 27.499999999999996
+  gemini-2.0-flash-thinking: 53.33333333333335
+  gemini-2.0-pro: 27.499999999999996
+  gemini-2.5-flash (think): 70.83333333333334
+  gemini-2.5-pro: 87.49999999999999
+  gemini-2.5-pro-05-06: 83.33333333333334
+  gpt-4o: 11.666666666666668
+  o1 (medium): 81.66666666666667
+  o3 (high): 89.16666666666666
+  o3-mini (high): 86.66666666666666
+  o3-mini (low): 48.333333333333336
+  o3-mini (medium): 76.66666666666666
+  o4-mini (high): 91.66666666666664
+  o4-mini (low): 61.66666666666668
+  o4-mini (medium): 84.16666666666669
+model_name_mapping_file: matharena.yaml
+private_holdout: false
+cost_per_task:
+  Claude-3.5-Sonnet: 1.0873439999999999
+  Claude-3.7-Sonnet (Think): 44.382057
+  Claude-Opus-4.0 (Think): 137.893785
+  DeepSeek-R1: 9.593758999999997
+  DeepSeek-R1-0528: 5.775422759999999
+  DeepSeek-R1-Distill-1.5B: 0.37417446000000004
+  DeepSeek-R1-Distill-14B: 2.4139760000000003
+  DeepSeek-R1-Distill-70B: 2.56836
+  DeepSeek-V3: 0.4024775
+  DeepSeek-V3-03-24: 0.5246675999999999
+  Grok 3 Mini (high): 1.1152088
+  Grok 3 Mini (low): 0.3499958
+  Grok 4: 23.588388
+  QwQ-32B: 2.3575787999999993
+  QwQ-32B-Preview: 1.1986512000000002
+  Qwen3-235B-A22B: 1.0787862
+  Qwen3-30B-A3B: 0.6496527
+  gemini-2.0-flash: 0.135576
+  gemini-2.0-pro: 1.8546592
+  gemini-2.5-flash (think): 10.029940400000001
+  gemini-2.5-pro: 16.11023
+  gpt-4o: 1.0982000000000003
+  o1 (medium): 85.44400500000002
+  o3 (high): 58.51596999999998
+  o3-mini (high): 6.043276800000001
+  o3-mini (low): 1.2753488000000004
+  o3-mini (medium): 3.2926916000000004
+  o4-mini (high): 7.474192
+  o4-mini (low): 1.4040708000000002
+  o4-mini (medium): 3.3135123999999996

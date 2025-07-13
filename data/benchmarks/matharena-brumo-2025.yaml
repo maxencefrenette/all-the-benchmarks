@@ -1,0 +1,46 @@
+benchmark: MathArena BRUMO 2025
+description: Accuracy on MathArena BRUMO 2025 competition
+website: https://matharena.ai/
+github: https://github.com/eth-sri/matharena
+score_weight: 1
+cost_weight: 1
+results:
+  Claude-3.7-Sonnet (Think): 65.83333333333334
+  Claude-Opus-4.0 (Think): 81.66666666666669
+  DeepSeek-R1: 80.83333333333333
+  DeepSeek-R1-0528: 92.49999999999999
+  DeepSeek-R1-Distill-14B: 68.33333333333334
+  DeepSeek-R1-Distill-32B: 68.33333333333334
+  DeepSeek-R1-Distill-70B: 66.66666666666667
+  Grok 3 Mini (high): 85.00000000000001
+  Grok 3 Mini (low): 65.83333333333334
+  Grok 4: 94.99999999999999
+  Qwen3-235B-A22B: 86.66666666666666
+  Qwen3-30B-A3B: 77.50000000000001
+  gemini-2.5-flash (think): 83.33333333333331
+  gemini-2.5-pro: 89.99999999999999
+  gemini-2.5-pro-05-06: 89.16666666666664
+  o3 (high): 95.83333333333331
+  o4-mini (high): 86.66666666666664
+  o4-mini (low): 65.83333333333333
+  o4-mini (medium): 84.16666666666669
+model_name_mapping_file: matharena.yaml
+private_holdout: false
+cost_per_task:
+  Claude-3.7-Sonnet (Think): 39.655761000000005
+  Claude-Opus-4.0 (Think): 120.64292999999998
+  DeepSeek-R1: 2.3831834000000005
+  DeepSeek-R1-0528: 4.917444779999999
+  DeepSeek-R1-Distill-14B: 0.19752165
+  DeepSeek-R1-Distill-70B: 0.6731005999999999
+  Grok 3 Mini (high): 0.8948421999999999
+  Grok 3 Mini (low): 0.32923569999999996
+  Grok 4: 19.902402000000002
+  Qwen3-235B-A22B: 0.8800408
+  Qwen3-30B-A3B: 0.5256773
+  gemini-2.5-flash (think): 8.985271599999999
+  gemini-2.5-pro: 21.42418
+  o3 (high): 48.44452
+  o4-mini (high): 4.9861306
+  o4-mini (low): 1.0038292
+  o4-mini (medium): 2.5613280000000005
