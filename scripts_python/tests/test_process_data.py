@@ -41,8 +41,8 @@ def test_process_benchmark(tmp_path: Path):
     output = yaml.safe_load(output_path.read_text())
 
     expected = {
-        "slug-a": {"score": 0.9, "cost": 0.1},
-        "slug-b": {"score": 0.5, "cost": 0.2},
+        "slug-a": {"score": 0.9, "cost": 0.1, "normalized_score": 100.0},
+        "slug-b": {"score": 0.5, "cost": 0.2, "normalized_score": 0.0},
     }
     assert output == expected
 
@@ -78,8 +78,8 @@ def test_zero_cost_ignored(tmp_path: Path):
     output = yaml.safe_load(output_path.read_text())
 
     expected = {
-        "slug-a": {"score": 1.0, "cost": 0.1},
-        "slug-b": {"score": 0.8},
+        "slug-a": {"score": 1.0, "cost": 0.1, "normalized_score": 100.0},
+        "slug-b": {"score": 0.8, "normalized_score": 0.0},
     }
     assert output == expected
     assert costs == {"slug-a": 0.1}

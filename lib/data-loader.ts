@@ -31,45 +31,16 @@ export interface LLMData {
   normalizedCost?: number
 }
 
-type BenchmarkStats = Record<string, { min: number; max: number }>
-
-/**
- * Scan benchmark results to find the min and max score for each benchmark.
- */
-function collectScoreRanges(llmMap: Record<string, LLMData>): BenchmarkStats {
-  const stats: BenchmarkStats = {}
-  for (const llm of Object.values(llmMap)) {
-    for (const [name, result] of Object.entries(llm.benchmarks)) {
-      const s = stats[name] ?? {
-        min: Number.POSITIVE_INFINITY,
-        max: Number.NEGATIVE_INFINITY,
-      }
-      s.min = Math.min(s.min, result.score)
-      s.max = Math.max(s.max, result.score)
-      stats[name] = s
-    }
-  }
-  return stats
-}
-
-/**
- * Normalise each benchmark score using min-max scaling and compute the
- * weighted average for every model.
- */
-function applyScoreNormalization(
-  llmMap: Record<string, LLMData>,
-  stats: BenchmarkStats,
-): LLMData[] {
+function computeAverageScores(llmMap: Record<string, LLMData>): LLMData[] {
   return Object.values(llmMap).map((llm) => {
     const weighted: { value: number; weight: number }[] = []
-    for (const [name, result] of Object.entries(llm.benchmarks)) {
-      const { min, max } = stats[name]
-      let value = 1
-      if (max !== min) {
-        value = (result.score - min) / (max - min)
+    for (const result of Object.values(llm.benchmarks)) {
+      if (result.normalizedScore !== undefined) {
+        weighted.push({
+          value: result.normalizedScore / 100,
+          weight: result.scoreWeight,
+        })
       }
-      result.normalizedScore = value * 100
-      weighted.push({ value, weight: result.scoreWeight })
     }
     const totalWeight = weighted.reduce((s, n) => s + n.weight, 0)
     llm.averageScore =
@@ -133,11 +104,16 @@ export async function loadLLMData(): Promise<LLMData[]> {
           result.normalized_cost !== undefined
             ? Number(result.normalized_cost)
             : undefined
+        const normScore =
+          result.normalized_score !== undefined
+            ? Number(result.normalized_score)
+            : undefined
         llm.benchmarks[data.benchmark] = {
           score: Number(result.score),
           description: data.description,
           ...(hasCost ? { costPerTask: Number(result.cost) } : {}),
           ...(normalized !== undefined ? { normalizedCost: normalized } : {}),
+          ...(normScore !== undefined ? { normalizedScore: normScore } : {}),
           scoreWeight: data.score_weight,
           costWeight: data.cost_weight,
         }
@@ -147,8 +123,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
     }
   }
 
-  const benchmarkStats = collectScoreRanges(llmMap)
-  const results = applyScoreNormalization(llmMap, benchmarkStats)
+  const results = computeAverageScores(llmMap)
 
   for (const llm of results) {
     const costs: { value: number; weight: number }[] = []

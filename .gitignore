@@ -2,3 +2,4 @@ node_modules
 .next
 .venv
 tsconfig.tsbuildinfo
+__pycache__/

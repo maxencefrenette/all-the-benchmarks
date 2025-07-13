@@ -81,10 +81,20 @@ def process_benchmark(
 
     df = df[["slug", "score", "cost"]].sort_values(by="score", ascending=False)
 
+    min_score = df["score"].min()
+    max_score = df["score"].max()
+    if max_score != min_score:
+        df["normalized"] = (df["score"] - min_score) / (max_score - min_score) * 100
+    else:
+        df["normalized"] = 100.0
+
     output = {}
     cost_out: dict[str, float] = {}
     for _, row in df.iterrows():
-        entry = {"score": float(row["score"])}
+        entry = {
+            "score": float(row["score"]),
+            "normalized_score": float(row["normalized"]),
+        }
         if pd.notna(row.get("cost")):
             cost_val = float(row["cost"])
             entry["cost"] = cost_val

@@ -32,6 +32,7 @@ export const ProcessedBenchmarkFileSchema = z.record(
   z.string(),
   z.object({
     score: z.number(),
+    normalized_score: z.number(),
     cost: z.number().optional(),
     normalized_cost: z.number().optional(),
   }),
