@@ -8,7 +8,7 @@ import {
   ProcessedBenchmarkFileSchema,
 } from "./yaml-schemas"
 
-const USE_PRECOMPUTED_NORMALIZED_COST = false
+const USE_PRECOMPUTED_NORMALIZED_COST = true
 
 export interface BenchmarkResult {
   score: number
