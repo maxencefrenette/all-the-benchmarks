@@ -1,19 +1,10 @@
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
-import BenchmarkCostScoreChart from "@/components/benchmark-cost-score-chart"
+import BenchmarkSection from "@/components/benchmark-section"
 import Link from "next/link"
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
 import { loadBenchmarks, loadBenchmarkDetails } from "@/lib/benchmark-loader"
 import { loadLLMData } from "@/lib/data-loader"
 import { notFound } from "next/navigation"
-import { formatSigFig } from "@/lib/utils"
 
 export async function generateStaticParams() {
   const benches = await loadBenchmarks()
@@ -30,23 +21,7 @@ export default async function BenchmarkPage({
     loadLLMData(),
   ])
   if (!info) return notFound()
-  const entries = llms
-    .map((m) => {
-      const res = m.benchmarks[info.benchmark]
-      return res
-        ? { slug: m.slug, model: m.model, provider: m.provider, ...res }
-        : null
-    })
-    .filter(Boolean) as {
-    slug: string
-    model: string
-    provider: string
-    score: number
-    normalizedScore?: number
-    normalizedCost?: number
-    costPerTask?: number
-  }[]
-  entries.sort((a, b) => b.score - a.score)
+  const relevant = llms.filter((m) => m.benchmarks[info.benchmark])
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-7xl space-y-6">
@@ -66,56 +41,7 @@ export default async function BenchmarkPage({
         </div>
       )}
       <NavigationPills />
-      {entries.some((e) => e.costPerTask !== undefined) && (
-        <BenchmarkCostScoreChart
-          entries={
-            entries.filter((e) => e.costPerTask !== undefined) as {
-              model: string
-              provider: string
-              score: number
-              costPerTask: number
-            }[]
-          }
-        />
-      )}
-      <div className="p-6">
-        <div className="rounded-md border">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Model</TableHead>
-                <TableHead className="text-right">Raw Score</TableHead>
-                <TableHead className="text-right">Normalized Score</TableHead>
-                <TableHead className="text-right">Raw Cost</TableHead>
-                <TableHead className="text-right">Normalized Cost</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {entries.map((entry) => (
-                <TableRow key={entry.slug}>
-                  <TableCell>{entry.model}</TableCell>
-                  <TableCell className="text-right">{entry.score}</TableCell>
-                  <TableCell className="text-right">
-                    {entry.normalizedScore !== undefined
-                      ? entry.normalizedScore.toFixed(1)
-                      : "—"}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {entry.costPerTask !== undefined
-                      ? formatSigFig(entry.costPerTask)
-                      : "—"}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    {entry.normalizedCost !== undefined
-                      ? entry.normalizedCost.toFixed(2)
-                      : "—"}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </div>
+      <BenchmarkSection llmData={relevant} benchmark={info.benchmark} />
     </main>
   )
 }
