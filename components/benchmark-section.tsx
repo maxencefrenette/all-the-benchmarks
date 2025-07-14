@@ -28,11 +28,20 @@ export default function BenchmarkSection({ llmData, benchmark }: Props) {
       .map((m) => {
         const res = m.benchmarks[benchmark]
         return res
-          ? { slug: m.slug, model: m.model, provider: m.provider, ...res }
+          ? {
+              slug: m.slug,
+              modelSlug: m.modelSlug,
+              reasoningOrder: m.reasoningOrder,
+              model: m.model,
+              provider: m.provider,
+              ...res,
+            }
           : null
       })
       .filter(Boolean) as {
       slug: string
+      modelSlug: string
+      reasoningOrder: number
       model: string
       provider: string
       score: number
@@ -48,14 +57,7 @@ export default function BenchmarkSection({ llmData, benchmark }: Props) {
     <div className="space-y-4">
       {entries.some((e) => e.costPerTask !== undefined) && (
         <BenchmarkCostScoreChart
-          entries={
-            entries.filter((e) => e.costPerTask !== undefined) as {
-              model: string
-              provider: string
-              score: number
-              costPerTask: number
-            }[]
-          }
+          entries={entries.filter((e) => e.costPerTask !== undefined)}
         />
       )}
       <LeaderboardToggles />
