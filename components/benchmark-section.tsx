@@ -1,6 +1,5 @@
 "use client"
 
-import { useSearchParams } from "next/navigation"
 import BenchmarkCostScoreChart from "@/components/benchmark-cost-score-chart"
 import LeaderboardToggles from "@/components/leaderboard-toggles"
 import type { LLMData } from "@/lib/data-loader"
@@ -13,16 +12,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { MIN_BENCHMARKS, MIN_COST_BENCHMARKS } from "@/lib/settings"
 import React from "react"
-
-const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000
-
-function countCostBenchmarks(llm: LLMData) {
-  return Object.values(llm.benchmarks).filter(
-    (b) => b.normalizedCost !== undefined,
-  ).length
-}
+import { useModelFilter } from "@/hooks/use-model-filter"
 
 type Props = {
   llmData: LLMData[]
@@ -30,26 +21,7 @@ type Props = {
 }
 
 export default function BenchmarkSection({ llmData, benchmark }: Props) {
-  const searchParams = useSearchParams()
-
-  const showDeprecated = searchParams.get("deprecated") === "true"
-  const showIncomplete = searchParams.get("incomplete") === "true"
-
-  const visible = React.useMemo(
-    () =>
-      llmData.filter((m) => {
-        const isNew =
-          m.releaseDate && Date.now() - m.releaseDate.getTime() < ONE_WEEK_MS
-        return (
-          isNew ||
-          ((showDeprecated || !m.deprecated) &&
-            (showIncomplete ||
-              (Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
-                countCostBenchmarks(m) >= MIN_COST_BENCHMARKS)))
-        )
-      }),
-    [llmData, showDeprecated, showIncomplete],
-  )
+  const { models: visible } = useModelFilter(llmData)
 
   const entries = React.useMemo(() => {
     const list = visible
