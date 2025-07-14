@@ -2,7 +2,7 @@ import pandas as pd
 import yaml
 from pathlib import Path
 from math import log10, floor
-from typing import Optional, Tuple, Dict
+from typing import Optional, Dict
 
 import numpy as np
 
@@ -24,7 +24,7 @@ def load_benchmark(file_path: Path) -> pd.DataFrame:
     df["benchmark"] = file_path.stem
     df["cost_weight"] = data.get("cost_weight", 1.0)
     df["score_weight"] = data.get("score_weight", 1.0)
-    df["model_name_mapping_file"] = data["model_name_mapping_file"]
+    df["model_name_mapping_file"] = Path(data["model_name_mapping_file"]).stem
 
     return df
 
@@ -76,46 +76,23 @@ def compute_normalization_factors(
     return {bench: (1.0 / val if val else None) for bench, val in u.items()}
 
 
-def process_benchmark(
-    file_path: Path, mapping_dir: Path
-) -> Tuple[pd.DataFrame, Dict[str, float], float]:
-    """Parse a single benchmark YAML and return a DataFrame of results.
+def normalize_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
+    """Add a ``normalized_score`` column per benchmark."""
 
-    Returns a tuple of the DataFrame, a mapping of model slug to cost, and the
-    benchmark's ``cost_weight`` for normalization purposes.
-    """
-    data = yaml.safe_load(file_path.read_text())
+    df = df.copy()
+    df["cost"] = df["cost"].replace(0, np.nan)
 
-    mapping_file = mapping_dir / data.get("model_name_mapping_file", "")
-    mapping = {}
-    if mapping_file.exists():
-        mapping = yaml.safe_load(mapping_file.read_text()) or {}
+    def _norm(group: pd.DataFrame) -> pd.DataFrame:
+        min_score = group["score"].min()
+        max_score = group["score"].max()
+        if max_score != min_score:
+            group["normalized_score"] = (group["score"] - min_score) / (max_score - min_score) * 100
+        else:
+            group["normalized_score"] = 100.0
+        return group
 
-    results = data.get("results", {})
-    df = pd.DataFrame(list(results.items()), columns=["alias", "score"])
-    df["slug"] = df["alias"].map(mapping)
-    df.dropna(subset=["slug"], inplace=True)
+    return df.groupby("benchmark", group_keys=False).apply(_norm)
 
-    cost_map = data.get("cost_per_task", {})
-    cost_series = pd.Series(cost_map).replace(0, np.nan).rename("cost")
-    df = df.merge(cost_series, left_on="alias", right_index=True, how="left")
-
-    df = df.sort_values(by=["score", "cost", "slug"], ascending=[False, True, True])
-
-    min_score = df["score"].min()
-    max_score = df["score"].max()
-    if max_score != min_score:
-        df["normalized_score"] = (df["score"] - min_score) / (max_score - min_score) * 100
-    else:
-        df["normalized_score"] = 100.0
-
-    df = df[["slug", "score", "normalized_score", "cost"]]
-
-    cost_out = df.set_index("slug")["cost"].dropna().to_dict()
-
-    weight = float(data.get("cost_weight", 1))
-
-    return df, cost_out, weight
 
 
 def build_output(df: pd.DataFrame, factor: Optional[float]) -> Dict[str, Dict[str, float]]:
@@ -147,32 +124,51 @@ def main() -> None:
     out_dir = root / "data" / "benchmarks_processed"
     out_dir.mkdir(exist_ok=True)
 
-    cost_data: Dict[str, Dict[str, float]] = {}
-    weights: Dict[str, float] = {}
-    frames: list[pd.DataFrame] = []
+    benchmarks_df = pd.concat(
+        [load_benchmark(f) for f in bench_dir.glob("*.yaml")]
+    )
+    mapping_df = pd.concat(
+        [load_mapping_file(f) for f in mapping_dir.glob("*.yaml")]
+    )
+    benchmarks_df = benchmarks_df.merge(
+        mapping_df,
+        on=["alias", "model_name_mapping_file"],
+        how="left",
+    )
+    benchmarks_df = benchmarks_df.dropna(subset=["slug"])[
+        [
+            "benchmark",
+            "slug",
+            "score",
+            "cost",
+            "cost_weight",
+            "score_weight",
+        ]
+    ]
 
-    benchmarks_df = pd.concat([load_benchmark(bench_file) for bench_file in bench_dir.glob("*.yaml")])
-    mapping_df = pd.concat([load_mapping_file(mapping_file) for mapping_file in mapping_dir.glob("*.yaml")])
-    benchmarks_df = benchmarks_df.merge(mapping_df, on="alias", how="left")
-    benchmarks_df = benchmarks_df[["benchmark", "slug", "score", "cost", "cost_weight", "score_weight"]]
+    benchmarks_df = normalize_benchmarks(benchmarks_df)
 
-    for bench_file in bench_dir.glob("*.yaml"):
-        df, costs, weight = process_benchmark(bench_file, mapping_dir)
-        df["benchmark"] = bench_file.stem
-        frames.append(df)
-        if costs:
-            cost_data[bench_file.stem] = costs
-        weights[bench_file.stem] = weight
+    cost_data = (
+        benchmarks_df.dropna(subset=["cost"])
+        .groupby("benchmark")
+        .apply(lambda g: g.set_index("slug")["cost"].to_dict())
+        .to_dict()
+    )
 
-    all_df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+    weights = (
+        benchmarks_df.groupby("benchmark")["cost_weight"].first().to_dict()
+    )
 
     factors = (
         compute_normalization_factors(cost_data, weights) if cost_data else {}
     )
 
-    for bench_name, df in all_df.groupby("benchmark"):
+    for bench_name, df in benchmarks_df.groupby("benchmark"):
         factor = factors.get(bench_name)
-        out_dict = build_output(df.drop(columns="benchmark"), factor)
+        out_dict = build_output(
+            df[["slug", "score", "normalized_score", "cost"]],
+            factor,
+        )
         out_path = out_dir / f"{bench_name}.yaml"
         out_path.write_text(yaml.safe_dump(out_dict, sort_keys=False))
 
