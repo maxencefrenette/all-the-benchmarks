@@ -82,6 +82,8 @@ export default function CostScoreChart({
       entries={entries}
       xLabel="Normalized Cost per Task ($)"
       yLabel="Average Normalized Score"
+      yDomain={[0, 100]}
+      yTicks={[0, 25, 50, 75, 100]}
       renderTooltip={renderTooltip}
     />
   )
