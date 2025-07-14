@@ -11,6 +11,29 @@ def round_sig(x: float, sig: int) -> float:
         return 0
     return round(x, sig - 1 - floor(log10(abs(x))))
 
+def load_benchmark(file_path: Path) -> pd.DataFrame:
+    data = yaml.safe_load(file_path.read_text())
+
+    results = data.get("results", {})
+    results_df = pd.DataFrame(list(results.items()), columns=["alias", "score"])
+    cost_per_task = data.get("cost_per_task", {})
+    cost_df = pd.DataFrame(list(cost_per_task.items()), columns=["alias", "cost"])
+
+    df = pd.merge(results_df, cost_df, on="alias", how="outer")
+    df = df.drop_duplicates(subset=["alias"])
+    df["benchmark"] = file_path.stem
+    df["cost_weight"] = data.get("cost_weight", 1.0)
+    df["score_weight"] = data.get("score_weight", 1.0)
+    df["model_name_mapping_file"] = data["model_name_mapping_file"]
+
+    return df
+
+def load_mapping_file(file_path: Path) -> pd.DataFrame:
+    data = yaml.safe_load(file_path.read_text())
+    df = pd.DataFrame(list(data.items()), columns=["alias", "slug"])
+    df["model_name_mapping_file"] = file_path.stem
+    return df
+
 def compute_normalization_factors(
     cost_map: dict[str, dict[str, float]],
     weights: Optional[dict[str, float]] = None,
@@ -127,6 +150,11 @@ def main() -> None:
     cost_data: Dict[str, Dict[str, float]] = {}
     weights: Dict[str, float] = {}
     frames: list[pd.DataFrame] = []
+
+    benchmarks_df = pd.concat([load_benchmark(bench_file) for bench_file in bench_dir.glob("*.yaml")])
+    mapping_df = pd.concat([load_mapping_file(mapping_file) for mapping_file in mapping_dir.glob("*.yaml")])
+    benchmarks_df = benchmarks_df.merge(mapping_df, on="alias", how="left")
+    benchmarks_df = benchmarks_df[["benchmark", "slug", "score", "cost", "cost_weight", "score_weight"]]
 
     for bench_file in bench_dir.glob("*.yaml"):
         df, costs, weight = process_benchmark(bench_file, mapping_dir)
