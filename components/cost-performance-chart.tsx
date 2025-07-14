@@ -38,15 +38,6 @@ export default function CostPerformanceChart({
 }: Props) {
   const data = React.useMemo(() => entries.filter((e) => e.cost > 0), [entries])
 
-  const groups = React.useMemo(() => {
-    const map: Record<string, CostPerformanceEntry[]> = {}
-    for (const item of data) {
-      if (!map[item.provider]) map[item.provider] = []
-      map[item.provider].push(item)
-    }
-    return map
-  }, [data])
-
   const lineGroups = React.useMemo(() => {
     const map: Record<string, CostPerformanceEntry[]> = {}
     for (const item of data) {
@@ -132,12 +123,14 @@ export default function CostPerformanceChart({
             )}
             content={<ChartTooltipContent />}
           />
-          {Object.entries(groups).map(([provider, items]) => (
+          {data.map((item) => (
             <Scatter
-              key={provider}
-              data={items}
-              name={provider}
-              fill={PROVIDER_COLORS[provider]}
+              key={
+                (item.meta as { modelSlug?: string })?.modelSlug ?? item.label
+              }
+              data={[item]}
+              name={item.provider}
+              fill={PROVIDER_COLORS[item.provider]}
             />
           ))}
           {Object.entries(lineGroups).map(([key, items]) =>
