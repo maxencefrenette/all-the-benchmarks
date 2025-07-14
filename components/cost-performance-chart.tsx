@@ -24,6 +24,8 @@ type Props = {
   xLabel: string
   yLabel: string
   renderTooltip?: (entry: CostPerformanceEntry) => React.ReactNode
+  yDomain?: [number, number]
+  yTicks?: number[]
 }
 
 export default function CostPerformanceChart({
@@ -31,6 +33,8 @@ export default function CostPerformanceChart({
   xLabel,
   yLabel,
   renderTooltip,
+  yDomain,
+  yTicks,
 }: Props) {
   const data = React.useMemo(() => entries.filter((e) => e.cost > 0), [entries])
 
@@ -104,7 +108,8 @@ export default function CostPerformanceChart({
             dataKey="score"
             type="number"
             name="Score"
-            domain={[0, "dataMax"] as [number, number | string]}
+            {...(yDomain ? { domain: yDomain as [number, number] } : {})}
+            {...(yTicks ? { ticks: yTicks } : {})}
             label={{ value: yLabel, angle: -90, position: "insideLeft" }}
           />
           <ZAxis range={[144, 144]} />
