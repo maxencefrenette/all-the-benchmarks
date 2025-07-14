@@ -138,6 +138,7 @@ export default function CostPerformanceChart({
               data={items}
               name={provider}
               fill={PROVIDER_COLORS[provider]}
+              isAnimationActive={false}
             />
           ))}
           {Object.entries(lineGroups).map(([key, items]) =>
@@ -152,6 +153,7 @@ export default function CostPerformanceChart({
                   stroke: PROVIDER_COLORS[items[0].provider],
                 }}
                 shape={() => <></>}
+                isAnimationActive={false}
               />
             ) : null,
           )}
