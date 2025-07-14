@@ -10,6 +10,8 @@ type Entry = {
   provider: string
   score: number
   costPerTask: number
+  modelSlug: string
+  reasoningOrder: number
 }
 
 type Props = {
@@ -25,6 +27,8 @@ export default function BenchmarkCostScoreChart({ entries }: Props) {
         provider: e.provider,
         cost: e.costPerTask,
         score: e.score,
+        connectKey: e.modelSlug,
+        meta: { reasoningOrder: e.reasoningOrder },
       })) as CostPerformanceEntry[]
   }, [entries])
 
