@@ -19,7 +19,7 @@ export const metadata = {
 
 export default async function BenchmarksPage() {
   const benchmarks = (await loadBenchmarks()).filter(
-    (b) => b.scoreWeight !== 0 || b.costWeight !== 0,
+    (b) => (b.scoreWeight !== 0 || b.costWeight !== 0) && b.modelCount > 0,
   )
   return (
     <main className="container mx-auto px-4 py-8 max-w-7xl space-y-6">
