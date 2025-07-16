@@ -1,5 +1,6 @@
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
+import ModelCostScoreChart from "@/components/model-cost-score-chart"
 import {
   Table,
   TableBody,
@@ -39,6 +40,12 @@ export default async function ModelPage({
     <main className="container mx-auto px-4 py-8 max-w-7xl space-y-6">
       <PageHeader title={model.model} subtitle={model.provider} />
       <NavigationPills />
+      <ModelCostScoreChart
+        provider={model.provider}
+        entries={entries
+          .filter(([, res]) => res !== undefined)
+          .map(([benchmark, res]) => ({ benchmark, result: res! }))}
+      />
       <div className="p-6">
         <div className="rounded-md border">
           <Table>
