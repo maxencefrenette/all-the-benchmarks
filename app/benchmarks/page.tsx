@@ -1,6 +1,6 @@
 import { loadBenchmarks } from "@/lib/benchmark-loader"
 import Link from "next/link"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, CheckCircle, XCircle } from "lucide-react"
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
 import {
@@ -81,10 +81,22 @@ export default async function BenchmarksPage() {
                   <TableCell className="text-right">{b.costWeight}</TableCell>
                   <TableCell className="text-right">{b.modelCount}</TableCell>
                   <TableCell className="text-right">
-                    {b.hasCost ? "Yes" : "No"}
+                    {b.hasCost ? (
+                      <CheckCircle className="h-4 w-4 text-green-600 mx-auto" />
+                    ) : (
+                      <XCircle className="h-4 w-4 text-red-600 mx-auto" />
+                    )}
+                    <span className="sr-only">{b.hasCost ? "Yes" : "No"}</span>
                   </TableCell>
                   <TableCell className="text-right">
-                    {b.privateHoldout ? "Yes" : "No"}
+                    {b.privateHoldout ? (
+                      <CheckCircle className="h-4 w-4 text-green-600 mx-auto" />
+                    ) : (
+                      <XCircle className="h-4 w-4 text-red-600 mx-auto" />
+                    )}
+                    <span className="sr-only">
+                      {b.privateHoldout ? "Yes" : "No"}
+                    </span>
                   </TableCell>
                   <TableCell className="text-right">
                     <Link
