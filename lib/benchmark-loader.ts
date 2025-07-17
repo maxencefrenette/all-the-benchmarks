@@ -21,7 +21,12 @@ export interface BenchmarkInfo {
 
 export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
   const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
-  const processedDir = path.join(process.cwd(), "data", "benchmarks_processed")
+  const processedDir = path.join(
+    process.cwd(),
+    "data",
+    "processed",
+    "benchmarks",
+  )
   const slugs = (await fs.readdir(benchmarkDir))
     .filter((f) => f.endsWith(".yaml"))
     .map((f) => f.replace(/\.yaml$/, ""))
@@ -67,7 +72,12 @@ export async function loadBenchmarkDetails(
   slug: string,
 ): Promise<BenchmarkDetails | null> {
   const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
-  const processedDir = path.join(process.cwd(), "data", "benchmarks_processed")
+  const processedDir = path.join(
+    process.cwd(),
+    "data",
+    "processed",
+    "benchmarks",
+  )
   try {
     const text = await fs.readFile(
       path.join(benchmarkDir, `${slug}.yaml`),
