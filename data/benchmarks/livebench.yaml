@@ -56,5 +56,6 @@ results:
   gemma-3n-e4b-it: 27.85
   gemini-2.5-flash-lite-preview-06-17-highthinking: 57.53
   grok-4-0709: 72.11
+  kimi-k2-instruct: 62.7
 model_name_mapping_file: livebench.yaml
 private_holdout: true
