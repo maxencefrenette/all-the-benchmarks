@@ -18,7 +18,7 @@ results:
   o4-mini (high): 78
   o3-mini (high): 77
   Claude 3.7 Sonnet Thinking: 77
-  Kimi k2: 76
+  Kimi K2: 76
   o3-mini: 74
   o1: 74
   Llama Nemotron Ultra Reasoning: 72
@@ -31,6 +31,7 @@ results:
   Gemini 2.5 Flash (April '25) (Reasoning): 69
   MiniMax M1 80k: 69
   Grok 3: 69
+  Solar Pro 2 (Reasoning): 68
   Gemini 2.5 Flash: 68
   Claude 4 Sonnet: 68
   MiniMax M1 40k: 68
@@ -68,10 +69,10 @@ results:
   MiniMax-Text-01: 57
   Phi-4: 57
   Nova Premier: 56
+  Solar Pro 2: 54
   Claude 3.5 Sonnet (June): 56
   DeepSeek V3 (Dec '24): 55
   QwQ 32B-Preview: 55
-  Solar Pro 2: 54
   GPT-4o (Nov '24): 54
   Gemini 2.0 Flash-Lite (Preview): 54
   Gemini 2.0 Flash-Lite (Feb '25): 53
@@ -250,23 +251,25 @@ cost_per_task:
   Sonar Pro: 1
   GPT-4.1: 1
   Claude 3.5 Sonnet (Oct): 1
+  Kimi K2: 1
   Claude 2.0: 1
   Qwen2.5 Max: 1
   Claude 3 Sonnet: 1
   Nova Premier: 1
   Jamba 1.5 Large: 1
   Mistral Large (Feb '24): 1
-  Kimi k2: 1
   QwQ-32B: 1
   Grok 3 mini Reasoning (high): 1
   Command-R+: 1
   Mistral Medium: 1
   DeepSeek R1 Distill Llama 70B: 1
+  Jamba 1.7 Large: 1
   Pixtral Large: 1
   Jamba 1.6 Large: 1
   Llama 3.1 405B: 1
   Mistral Large 2 (Nov '24): 1
   Mixtral 8x22B: 1
+  Solar Pro 2 (Reasoning): 1
   Mistral Large 2 (Jul '24): 1
   Qwen3 32B: 0
   Gemini 2.5 Flash-Lite: 0
@@ -335,6 +338,7 @@ cost_per_task:
   Qwen2.5 Coder 32B: 0
   DeepSeek R1 Distill Llama 8B: 0
   Gemini 1.5 Flash (Sep): 0
+  Jamba 1.7 Mini: 0
   Command-R: 0
   Nova Lite: 0
   Llama 3.1 8B: 0
