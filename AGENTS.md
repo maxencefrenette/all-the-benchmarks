@@ -50,7 +50,7 @@ To add a new model to the leaderboard:
 
 ## Processing benchmark data with Python
 
-Run `uv run process_data.py` from `scripts_python/` to convert raw YAML into `data/benchmarks_processed`.
+Run `uv run process_data.py` from `scripts_python/` to convert raw YAML into `data/processed/benchmarks`.
 
 # Editing this file
 

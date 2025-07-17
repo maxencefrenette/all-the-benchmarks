@@ -56,7 +56,12 @@ export function computeAverageScores(
 export async function loadLLMData(): Promise<LLMData[]> {
   const modelDir = path.join(process.cwd(), "data", "models")
   const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
-  const processedDir = path.join(process.cwd(), "data", "benchmarks_processed")
+  const processedDir = path.join(
+    process.cwd(),
+    "data",
+    "processed",
+    "benchmarks",
+  )
 
   const modelFiles = (await fs.readdir(modelDir)).filter((f) =>
     f.endsWith(".yaml"),

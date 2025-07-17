@@ -121,7 +121,7 @@ def main() -> None:
     root = Path(__file__).resolve().parents[1]
     bench_dir = root / "data" / "benchmarks"
     mapping_dir = root / "data" / "mappings"
-    out_dir = root / "data" / "benchmarks_processed"
+    out_dir = root / "data" / "processed" / "benchmarks"
     out_dir.mkdir(exist_ok=True)
 
     benchmarks_df = pd.concat(
