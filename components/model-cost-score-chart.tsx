@@ -14,9 +14,18 @@ type Entry = {
 type Props = {
   provider: string
   entries: Entry[]
+  xDomain: [number, number]
+  yDomain?: [number, number]
+  yTicks?: number[]
 }
 
-export default function ModelCostScoreChart({ provider, entries }: Props) {
+export default function ModelCostScoreChart({
+  provider,
+  entries,
+  xDomain,
+  yDomain = [0, 100],
+  yTicks = [0, 25, 50, 75, 100],
+}: Props) {
   const items = React.useMemo(() => {
     return entries
       .filter(
@@ -44,6 +53,9 @@ export default function ModelCostScoreChart({ provider, entries }: Props) {
       entries={items}
       xLabel="Normalized Cost per Task ($)"
       yLabel="Normalized Score"
+      xDomain={xDomain}
+      yDomain={yDomain}
+      yTicks={yTicks}
       renderTooltip={renderTooltip}
     />
   )

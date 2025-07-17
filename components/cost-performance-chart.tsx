@@ -24,6 +24,7 @@ type Props = {
   xLabel: string
   yLabel: string
   renderTooltip?: (entry: CostPerformanceEntry) => React.ReactNode
+  xDomain?: [number, number]
   yDomain?: [number, number] | ["dataMin", "dataMax"]
   yTicks?: number[]
 }
@@ -33,6 +34,7 @@ export default function CostPerformanceChart({
   xLabel,
   yLabel,
   renderTooltip,
+  xDomain,
   yDomain,
   yTicks,
 }: Props) {
@@ -67,6 +69,7 @@ export default function CostPerformanceChart({
   }, [data])
 
   const costDomain = React.useMemo(() => {
+    if (xDomain) return xDomain
     const FACTOR = 1.2
     let min = Infinity
     let max = -Infinity
@@ -76,7 +79,7 @@ export default function CostPerformanceChart({
     }
     if (!isFinite(min) || !isFinite(max)) return [0, 1]
     return [min / FACTOR, max * FACTOR]
-  }, [data])
+  }, [data, xDomain])
 
   const ticks = React.useMemo(
     () => BASE_TICKS.filter((t) => t >= costDomain[0] && t <= costDomain[1]),
