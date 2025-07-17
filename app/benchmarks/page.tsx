@@ -1,6 +1,6 @@
 import { loadBenchmarks } from "@/lib/benchmark-loader"
 import Link from "next/link"
-import { ChevronRight, CheckCircle, XCircle } from "lucide-react"
+import { ChevronRight, CheckCircle, XCircle, Globe, Github } from "lucide-react"
 import NavigationPills from "@/components/navigation-pills"
 import PageHeader from "@/components/page-header"
 import {
@@ -34,8 +34,7 @@ export default async function BenchmarksPage() {
             <TableHeader>
               <TableRow>
                 <TableHead>Benchmark</TableHead>
-                <TableHead>Website</TableHead>
-                <TableHead>GitHub</TableHead>
+                <TableHead className="text-center">Links</TableHead>
                 <TableHead className="text-right">Score weight</TableHead>
                 <TableHead className="text-right">Cost weight</TableHead>
                 <TableHead className="text-right">Models</TableHead>
@@ -55,27 +54,29 @@ export default async function BenchmarksPage() {
                       </p>
                     )}
                   </TableCell>
-                  <TableCell>
-                    {b.website && (
-                      <Link
-                        href={b.website}
-                        target="_blank"
-                        className="underline"
-                      >
-                        Website
-                      </Link>
-                    )}
-                  </TableCell>
-                  <TableCell>
-                    {b.github && (
-                      <Link
-                        href={b.github}
-                        target="_blank"
-                        className="underline"
-                      >
-                        GitHub
-                      </Link>
-                    )}
+                  <TableCell className="text-center">
+                    <div className="flex justify-center gap-2">
+                      {b.website && (
+                        <Link
+                          href={b.website}
+                          target="_blank"
+                          className="text-primary"
+                        >
+                          <Globe className="h-4 w-4" />
+                          <span className="sr-only">Website</span>
+                        </Link>
+                      )}
+                      {b.github && (
+                        <Link
+                          href={b.github}
+                          target="_blank"
+                          className="text-primary"
+                        >
+                          <Github className="h-4 w-4" />
+                          <span className="sr-only">GitHub</span>
+                        </Link>
+                      )}
+                    </div>
                   </TableCell>
                   <TableCell className="text-right">{b.scoreWeight}</TableCell>
                   <TableCell className="text-right">{b.costWeight}</TableCell>
