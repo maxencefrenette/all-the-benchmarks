@@ -9,7 +9,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { loadLLMData, loadLLMDetails } from "@/lib/data-loader"
+import { loadLLMData } from "@/lib/data-loader"
+import { computeCostDomain } from "@/lib/chart-utils"
 import { loadBenchmarks } from "@/lib/benchmark-loader"
 import { notFound } from "next/navigation"
 import { formatSigFig } from "@/lib/utils"
@@ -24,11 +25,17 @@ export default async function ModelPage({
 }: {
   params: { slug: string }
 }) {
-  const [model, benchmarks] = await Promise.all([
-    loadLLMDetails(params.slug),
+  const [allModels, benchmarks] = await Promise.all([
+    loadLLMData(),
     loadBenchmarks(),
   ])
+  const model = allModels.find((m) => m.slug === params.slug)
   if (!model) return notFound()
+  const costDomain = computeCostDomain(
+    allModels
+      .map((m) => m.normalizedCost)
+      .filter((v): v is number => v !== undefined),
+  )
   const benchNames = benchmarks
     .map((b) => b.benchmark)
     .sort((a, b) => a.localeCompare(b))
@@ -45,6 +52,9 @@ export default async function ModelPage({
         entries={entries
           .filter(([, res]) => res !== undefined)
           .map(([benchmark, res]) => ({ benchmark, result: res! }))}
+        xDomain={costDomain}
+        yDomain={[0, 100]}
+        yTicks={[0, 25, 50, 75, 100]}
       />
       <div className="p-6">
         <div className="rounded-md border">
