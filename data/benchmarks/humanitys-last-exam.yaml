@@ -33,7 +33,8 @@ results:
   Sonar: 7
   Magistral Small: 7
   Gemini 2.0 Flash Thinking exp. (Jan '25): 7
-  Kimi k2: 7
+  Solar Pro 2 (Reasoning): 7
+  Kimi K2: 7
   Gemini 2.0 Pro Experimental: 6
   DBRX: 6
   Qwen3 30B A3B (Reasoning): 6
@@ -53,11 +54,11 @@ results:
   Pixtral 12B: 5
   DeepSeek Coder V2 Lite: 5
   Llama 3.2 11B (Vision): 5
-  Gemma 3 1B: 5
   Gemma 3 4B: 5
+  Gemma 3 1B: 5
   DeepSeek V3 0324 (Mar '25): 5
-  Qwen3 0.6B: 5
   Qwen3 1.7B: 5
+  Qwen3 0.6B: 5
   Llama 3.2 3B: 5
   Jamba Instruct: 5
   Gemini 2.5 Flash: 5
@@ -85,8 +86,8 @@ results:
   Gemma 3 12B: 4
   Claude 3.7 Sonnet: 4
   Mistral Small 3.1: 4
-  Qwen2.5 Coder 7B: 4
   Qwen3 1.7B (Reasoning): 4
+  Qwen2.5 Coder 7B: 4
   OpenChat 3.5: 4
   Command-R (Mar '24): 4
   QwQ 32B-Preview: 4
@@ -253,11 +254,12 @@ cost_per_task:
   Command-R+: 12
   Mistral Large (Feb '24): 11
   Jamba 1.5 Large: 11
+  Kimi K2: 10
   Mistral Medium: 9
   QwQ 32B-Preview: 9
   Mistral Large 2 (Nov '24): 9
   Pixtral Large: 9
-  Kimi k2: 9
+  Solar Pro 2 (Reasoning): 8
   Gemini 1.5 Pro (Sep): 8
   Jamba 1.6 Large: 8
   Gemini 2.5 Flash-Lite: 8
@@ -265,6 +267,7 @@ cost_per_task:
   Mixtral 8x22B: 8
   Llama 3.1 405B: 7
   Mistral Large 2 (Jul '24): 6
+  Jamba 1.7 Large: 6
   Qwen3 32B: 5
   Gemini 2.5 Flash (April '25): 4
   Qwen3 235B: 4
@@ -319,6 +322,7 @@ cost_per_task:
   Jamba 1.5 Mini: 0
   Mistral Small 3: 0
   Llama 3.2 11B (Vision): 0
+  Jamba 1.7 Mini: 0
   Qwen2.5 Instruct 32B: 0
   Mistral Small 3.1: 0
   Mistral Small 3.2: 0
