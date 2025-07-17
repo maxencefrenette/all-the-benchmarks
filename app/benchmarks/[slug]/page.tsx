@@ -27,33 +27,36 @@ export default async function BenchmarkPage({
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-7xl space-y-6">
-      <PageHeader title={info.benchmark} subtitle={info.description} />
-      {(info.website || info.github) && (
-        <div className="flex justify-center gap-2">
-          {info.website && (
-            <Link
-              href={info.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary"
-            >
-              <Globe className="h-5 w-5" />
-              <span className="sr-only">Website</span>
-            </Link>
-          )}
-          {info.github && (
-            <Link
-              href={info.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary"
-            >
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </Link>
-          )}
-        </div>
-      )}
+      <PageHeader
+        title={
+          <span className="flex items-center justify-center gap-2">
+            {info.benchmark}
+            {info.website && (
+              <Link
+                href={info.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary"
+              >
+                <Globe className="h-5 w-5" />
+                <span className="sr-only">Website</span>
+              </Link>
+            )}
+            {info.github && (
+              <Link
+                href={info.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary"
+              >
+                <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
+              </Link>
+            )}
+          </span>
+        }
+        subtitle={info.description}
+      />
       <NavigationPills />
       <Suspense>
         <BenchmarkSection llmData={relevant} benchmark={info.benchmark} />
