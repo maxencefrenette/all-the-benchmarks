@@ -3,6 +3,7 @@ import PageHeader from "@/components/page-header"
 import BenchmarkSection from "@/components/benchmark-section"
 import { Suspense } from "react"
 import Link from "next/link"
+import { Globe, Github } from "lucide-react"
 import { loadBenchmarks, loadBenchmarkDetails } from "@/lib/benchmark-loader"
 import { loadLLMData } from "@/lib/data-loader"
 import { notFound } from "next/navigation"
@@ -26,21 +27,36 @@ export default async function BenchmarkPage({
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-7xl space-y-6">
-      <PageHeader title={info.benchmark} subtitle={info.description} />
-      {(info.website || info.github) && (
-        <div className="flex justify-center gap-4 text-sm">
-          {info.website && (
-            <Link href={info.website} target="_blank" className="underline">
-              Website
-            </Link>
-          )}
-          {info.github && (
-            <Link href={info.github} target="_blank" className="underline">
-              GitHub
-            </Link>
-          )}
-        </div>
-      )}
+      <PageHeader
+        title={
+          <span className="flex items-center justify-center gap-2">
+            {info.benchmark}
+            {info.website && (
+              <Link
+                href={info.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary"
+              >
+                <Globe className="h-5 w-5" />
+                <span className="sr-only">Website</span>
+              </Link>
+            )}
+            {info.github && (
+              <Link
+                href={info.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary"
+              >
+                <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
+              </Link>
+            )}
+          </span>
+        }
+        subtitle={info.description}
+      />
       <NavigationPills />
       <Suspense>
         <BenchmarkSection llmData={relevant} benchmark={info.benchmark} />
