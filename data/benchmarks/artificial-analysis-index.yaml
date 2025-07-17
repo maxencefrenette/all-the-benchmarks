@@ -28,9 +28,10 @@ results:
   DeepSeek R1 (Jan '25): 60
   o1-preview: 60
   Qwen3 32B (Reasoning): 59
+  Solar Pro 2 (Reasoning): 58
   QwQ-32B: 58
   Claude 4 Opus: 58
-  Kimi k2: 57
+  Kimi K2: 58
   Claude 3.7 Sonnet Thinking: 57
   o1-pro: 56
   Grok 3 Reasoning Beta: 56
@@ -66,12 +67,12 @@ results:
   Qwen3 4B (Reasoning): 47
   Reka Flash 3: 47
   Qwen3 235B: 47
+  Solar Pro 2: 45
   Gemini 2.0 Flash (exp): 46
   Gemini 2.5 Flash-Lite: 46
   DeepSeek V3 (Dec '24): 46
   Qwen2.5 Max: 45
   Llama 3.1 Nemotron Nano 4B v1.1 (Reasoning): 45
-  Solar Pro 2: 45
   Gemini 1.5 Pro (Sep): 45
   Claude 3.5 Sonnet (Oct): 44
   Qwen3 32B: 44
@@ -274,19 +275,21 @@ cost_per_task:
   GPT-4.1: 65
   Qwen2.5 Max: 62
   Mistral Large (Feb '24): 61
+  Kimi K2: 56
   Gemini 2.5 Flash-Lite (Reasoning): 55
   QwQ-32B: 54
   Command-R+: 52
   Jamba 1.5 Large: 52
-  Kimi k2: 51
   Grok 3 mini Reasoning (high): 49
   Mistral Medium: 47
   Pixtral Large: 42
   Jamba 1.6 Large: 42
   Mixtral 8x22B: 41
+  Jamba 1.7 Large: 39
   Mistral Large 2 (Nov '24): 38
   Llama 3.1 405B: 38
   Mistral Large 2 (Jul '24): 36
+  Solar Pro 2 (Reasoning): 30
   Gemini 1.5 Pro (Sep): 29
   Gemini 1.5 Pro (May): 26
   Qwen3 32B: 26
@@ -340,6 +343,7 @@ cost_per_task:
   Gemini 2.0 Flash-Lite (Preview): 3
   Qwen2.5 Instruct 32B: 2
   Gemini 2.0 Flash-Lite (Feb '25): 2
+  Jamba 1.7 Mini: 2
   Mistral Small 3: 2
   Mistral Small 3.1: 2
   Command-R: 2
