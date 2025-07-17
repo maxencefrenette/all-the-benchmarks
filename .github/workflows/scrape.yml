@@ -8,6 +8,17 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        script:
+          - livebench
+          - simplebench
+          - lmarena-text
+          - arc-agi
+          - aider-polyglot
+          - hle
+          - gpqa-diamond
+          - artificial-analysis-index
     permissions:
       contents: write
       pull-requests: write
@@ -26,35 +37,27 @@ jobs:
         run: pnpm exec playwright install
       - name: Install Python dependencies
         run: pip install pandas
-      - name: Run scraping scripts
-        run: |
-          pnpm scrape:livebench
-          pnpm scrape:simplebench
-          pnpm scrape:lmarena-text
-          pnpm scrape:arc-agi
-          pnpm scrape:aider-polyglot
-          pnpm scrape:hle
-          pnpm scrape:gpqa-diamond
-          pnpm scrape:artificial-analysis-index
+      - name: Run scraping script
+        run: pnpm scrape:${{ matrix.script }}
       - name: Update tests
         run: pnpm test:update
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "chore: update benchmark data"
-          title: "Update benchmark data"
-          body: Automated scraping update
-          branch: scrape-data-${{ github.run_id }}
+          commit-message: "chore: update benchmark data for ${{ matrix.script }}"
+          title: "Update benchmark data for ${{ matrix.script }}"
+          body: Automated scraping update for ${{ matrix.script }}
+          branch: scrape-data-${{ matrix.script }}-${{ github.run_id }}
           delete-branch: true
-          labels: scrape-action
+          labels: scrape-action-${{ matrix.script }}
       - name: Close previous PRs
         if: steps.cpr.outputs.pull-request-number != ''
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           current=${{ steps.cpr.outputs.pull-request-number }}
-          for pr in $(gh pr list --label scrape-action --state open --json number --jq '.[].number'); do
+          for pr in $(gh pr list --label scrape-action-${{ matrix.script }} --state open --json number --jq '.[].number'); do
             if [ "$pr" != "$current" ]; then
               gh pr close "$pr" --delete-branch
             fi
