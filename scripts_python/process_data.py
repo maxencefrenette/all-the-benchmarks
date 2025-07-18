@@ -164,6 +164,7 @@ def main() -> None:
     )
 
     for bench_name, df in benchmarks_df.groupby("benchmark"):
+        df = df.sort_values(by=["score", "cost", "slug"], ascending=[False, True, True])
         factor = factors.get(bench_name)
         out_dict = build_output(
             df[["slug", "score", "normalized_score", "cost"]],

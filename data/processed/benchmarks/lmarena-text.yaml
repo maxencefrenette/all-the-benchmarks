@@ -1,87 +1,87 @@
 gemini-2.5-pro-06-05:
-  score: 1476.9
+  score: 1473.9
   normalized_score: 100.0
 gemini-2.5-pro-preview-05-06:
   score: 1446.0
-  normalized_score: 86.111
+  normalized_score: 87.332
 o3-medium:
-  score: 1426.7
-  normalized_score: 77.423
+  score: 1427.7
+  normalized_score: 79.047
 deepseek-r1-0528:
-  score: 1424.8
-  normalized_score: 76.594
+  score: 1423.9
+  normalized_score: 77.326
 grok-3:
-  score: 1422.4
-  normalized_score: 75.493
+  score: 1422.5
+  normalized_score: 76.679
 gemini-2.5-flash-0520-thinking:
-  score: 1418.3
-  normalized_score: 73.691
+  score: 1417.4
+  normalized_score: 74.367
 gpt-4.5-preview:
-  score: 1413.9
-  normalized_score: 71.69
+  score: 1413.2
+  normalized_score: 72.452
 gemini-2.5-flash-preview-0417-thinking:
-  score: 1398.4
-  normalized_score: 64.73
+  score: 1397.0
+  normalized_score: 65.118
 qwen-3-235b-a22b-nothinking:
-  score: 1391.6
-  normalized_score: 61.694
+  score: 1391.8
+  normalized_score: 62.761
 gpt-4.1:
-  score: 1384.1
-  normalized_score: 58.314
+  score: 1383.7
+  normalized_score: 59.054
 deepseek-v3-0324:
-  score: 1382.3
-  normalized_score: 57.519
+  score: 1381.8
+  normalized_score: 58.226
 deepseek-r1-0120:
-  score: 1374.1
-  normalized_score: 53.824
+  score: 1373.4
+  normalized_score: 54.384
 claude-opus-4-nothinking:
-  score: 1369.9
-  normalized_score: 51.912
+  score: 1367.8
+  normalized_score: 51.854
 qwen-3-235b-a22b-thinking:
-  score: 1366.5
-  normalized_score: 50.423
+  score: 1366.7
+  normalized_score: 51.332
 o4-mini-medium:
-  score: 1362.9
-  normalized_score: 48.794
+  score: 1362.7
+  normalized_score: 49.545
 grok-3-mini-nothinking:
-  score: 1359.2
-  normalized_score: 47.139
+  score: 1357.4
+  normalized_score: 47.147
 claude-sonnet-4-nothinking:
-  score: 1343.3
-  normalized_score: 40.002
+  score: 1340.6
+  normalized_score: 39.512
 gpt-4.1-mini:
-  score: 1336.9
-  normalized_score: 37.117
+  score: 1337.0
+  normalized_score: 37.885
 deepseek-v3-1224:
-  score: 1334.4
-  normalized_score: 35.972
+  score: 1333.5
+  normalized_score: 36.304
 claude-3.7-sonnet-thinking:
-  score: 1313.2
-  normalized_score: 26.472
+  score: 1312.1
+  normalized_score: 26.59
 claude-3.7-sonnet-nothinking:
-  score: 1306.3
-  normalized_score: 23.353
+  score: 1304.7
+  normalized_score: 23.225
 gpt-4o-2024-05-13:
-  score: 1300.8
-  normalized_score: 20.916
+  score: 1300.0
+  normalized_score: 21.09
 claude-3.5-sonnet-v2:
-  score: 1299.2
-  normalized_score: 20.187
+  score: 1298.1
+  normalized_score: 20.229
 llama-4-maverick:
-  score: 1291.6
-  normalized_score: 16.752
+  score: 1291.9
+  normalized_score: 17.401
 gpt-4.1-nano:
-  score: 1287.5
-  normalized_score: 14.906
+  score: 1286.9
+  normalized_score: 15.139
 claude-3.5-sonnet:
-  score: 1284.1
-  normalized_score: 13.381
+  score: 1283.2
+  normalized_score: 13.488
 gpt-4o-2024-08-06:
-  score: 1281.1
-  normalized_score: 12.047
+  score: 1280.3
+  normalized_score: 12.135
 llama-4-scout:
-  score: 1277.5
-  normalized_score: 10.436
+  score: 1278.5
+  normalized_score: 11.34
 claude-3.5-haiku:
-  score: 1254.3
+  score: 1253.5
   normalized_score: 0.0

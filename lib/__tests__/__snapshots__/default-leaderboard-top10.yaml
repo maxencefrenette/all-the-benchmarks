@@ -42,7 +42,7 @@
   slug: o3-medium
   model: o3 (medium)
   provider: OpenAI
-  averageScore: 79.71
+  averageScore: 79.89
   costPerTask: 132
   costBenchmarkCount: 7
   benchmarkCount: 9
@@ -82,7 +82,7 @@
   slug: deepseek-r1-0528
   model: DeepSeek R1 05/28
   provider: DeepSeek
-  averageScore: 65.2
+  averageScore: 65.27
   costPerTask: 47.1
   costBenchmarkCount: 8
   benchmarkCount: 11
