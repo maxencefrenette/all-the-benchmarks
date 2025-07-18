@@ -28,6 +28,7 @@ async function main(): Promise<void> {
     __dirname,
     "..",
     "data",
+    "raw",
     "benchmarks",
     "simplebench.yaml",
   )

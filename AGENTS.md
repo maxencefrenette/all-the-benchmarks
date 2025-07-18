@@ -21,7 +21,7 @@ This repository is a Next.js application. Key directories include:
 - `lib/` – Helper functions for loading YAML data and computing scores.
 - `public/` – Static assets.
 - `data/` – Benchmark and model YAML files.
-- `scripts/` – Scrapers that populate `data/benchmarks`.
+- `scripts/` – Scrapers that populate `data/raw/benchmarks`.
 - `scripts_python/` – Python utilities for processing benchmark data using `uv`.
 - `styles/` – Global and Tailwind CSS files.
 
@@ -33,7 +33,7 @@ Use the shadcn/ui CLI to scaffold new components. Run `pnpm dlx shadcn-ui@latest
 
 To add a new benchmark to the leaderboard:
 
-- Create a YAML file under `data/benchmarks/` containing the benchmark name, description and a `results` mapping.
+- Create a YAML file under `data/raw/benchmarks/` containing the benchmark name, description and a `results` mapping.
 - Create a scraping script under `scripts/` that generates the benchmark YAML and
   add a corresponding npm script in `package.json`.
 

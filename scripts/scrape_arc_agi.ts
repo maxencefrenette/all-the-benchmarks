@@ -47,7 +47,14 @@ async function main(): Promise<void> {
       }
     }
 
-    const outPath = path.join(__dirname, "..", "data", "benchmarks", fileName)
+    const outPath = path.join(
+      __dirname,
+      "..",
+      "data",
+      "raw",
+      "benchmarks",
+      fileName,
+    )
     await saveBenchmarkResults(outPath, results, costPerTask)
   }
 }

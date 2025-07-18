@@ -8,9 +8,11 @@ import { expect, test, vi } from "vitest"
 
 async function setupFile() {
   const tmp = await fs.mkdtemp(path.join(os.tmpdir(), "savebench-"))
-  await fs.mkdir(path.join(tmp, "data", "benchmarks"), { recursive: true })
+  await fs.mkdir(path.join(tmp, "data", "raw", "benchmarks"), {
+    recursive: true,
+  })
   await fs.mkdir(path.join(tmp, "data", "mappings"), { recursive: true })
-  const benchPath = path.join(tmp, "data", "benchmarks", "test.yaml")
+  const benchPath = path.join(tmp, "data", "raw", "benchmarks", "test.yaml")
   const mapPath = path.join(tmp, "data", "mappings", "map.yaml")
   await fs.writeFile(
     benchPath,
