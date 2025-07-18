@@ -25,8 +25,8 @@
     "scrape:artificial-analysis-index": "tsx scripts/scrape_artificial_analysis_index.ts",
     "scrape:weirdml": "tsx scripts/scrape_weirdml.ts",
     "scrape:all": "tsx scripts/scrape_all.ts",
-    "process:all": "uv run scripts_python/process_data.py",
-    "update:mappings": "uv run scripts_python/update_mappings.py",
+    "process:all": "uv run --directory scripts_python process_data.py",
+    "update:mappings": "uv run --directory scripts_python update_mappings.py",
     "full-pipeline": "pnpm scrape:all && pnpm update:mappings && pnpm process:all && pnpm test:update"
   },
   "dependencies": {
