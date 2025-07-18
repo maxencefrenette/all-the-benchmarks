@@ -7,4 +7,5 @@ export const PROVIDER_COLORS: Record<string, string> = {
   Meta: "#1465CE", // slightly darkened Meta blue
   xAI: "#000000", // black
   Qwen: "#7954FF", // purple
+  Moonshot: "#FF539D", // hot pink
 }
