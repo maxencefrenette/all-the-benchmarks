@@ -7,7 +7,7 @@ import { MappingFileSchema } from "../yaml-schemas"
 // Ensure no mapping file assigns multiple aliases to the same slug
 
 test("mapping files do not map multiple models to the same slug", async () => {
-  const mappingsDir = path.join(process.cwd(), "data", "mappings")
+  const mappingsDir = path.join(process.cwd(), "data", "config", "mappings")
   const files = (await fs.readdir(mappingsDir)).filter((f) =>
     f.endsWith(".yaml"),
   )

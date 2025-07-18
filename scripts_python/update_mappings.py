@@ -45,7 +45,7 @@ def update_all_mappings(bench_dir: Path, mapping_dir: Path) -> None:
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
     bench_dir = root / "data" / "raw" / "benchmarks"
-    mapping_dir = root / "data" / "mappings"
+    mapping_dir = root / "data" / "config" / "mappings"
 
     update_all_mappings(bench_dir, mapping_dir)
 

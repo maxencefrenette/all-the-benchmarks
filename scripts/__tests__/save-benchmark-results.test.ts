@@ -11,9 +11,11 @@ async function setupFile() {
   await fs.mkdir(path.join(tmp, "data", "raw", "benchmarks"), {
     recursive: true,
   })
-  await fs.mkdir(path.join(tmp, "data", "mappings"), { recursive: true })
+  await fs.mkdir(path.join(tmp, "data", "config", "mappings"), {
+    recursive: true,
+  })
   const benchPath = path.join(tmp, "data", "raw", "benchmarks", "test.yaml")
-  const mapPath = path.join(tmp, "data", "mappings", "map.yaml")
+  const mapPath = path.join(tmp, "data", "config", "mappings", "map.yaml")
   await fs.writeFile(
     benchPath,
     stringify({
