@@ -76,7 +76,7 @@ def compute_normalization_factors(
     return {bench: (1.0 / val if val else None) for bench, val in u.items()}
 
 
-def normalize_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
+def normalize_benchmark_scores(df: pd.DataFrame) -> pd.DataFrame:
     """Add a ``normalized_score`` column per benchmark."""
 
     df = df.copy()
@@ -146,7 +146,7 @@ def main() -> None:
         ]
     ]
 
-    benchmarks_df = normalize_benchmarks(benchmarks_df)
+    benchmarks_df = normalize_benchmark_scores(benchmarks_df)
 
     cost_data = (
         benchmarks_df.dropna(subset=["cost"])

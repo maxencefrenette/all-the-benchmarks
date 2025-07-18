@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from process_data import (
     load_benchmark,
     load_mapping_file,
-    normalize_benchmarks,
+    normalize_benchmark_scores,
     build_output,
     compute_normalization_factors,
 )
@@ -44,7 +44,7 @@ def test_normalize_benchmarks(tmp_path: Path):
     map_df = load_mapping_file(mapping_dir / "map.yaml")
     df = bench_df.merge(map_df, on="alias", how="left")[["benchmark", "slug", "score", "cost", "cost_weight"]]
     df = df.dropna(subset=["slug"])
-    df = normalize_benchmarks(df)
+    df = normalize_benchmark_scores(df)
     output = build_output(df[["slug", "score", "normalized_score", "cost"]], None)
 
     expected = {
@@ -82,7 +82,7 @@ def test_zero_cost_ignored(tmp_path: Path):
     map_df = load_mapping_file(mapping_dir / "map.yaml")
     df = bench_df.merge(map_df, on="alias", how="left")[["benchmark", "slug", "score", "cost", "cost_weight"]]
     df = df.dropna(subset=["slug"])
-    df = normalize_benchmarks(df)
+    df = normalize_benchmark_scores(df)
     output = build_output(df[["slug", "score", "normalized_score", "cost"]], None)
 
     expected = {
