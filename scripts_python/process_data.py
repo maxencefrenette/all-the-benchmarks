@@ -16,8 +16,10 @@ def load_benchmark(file_path: Path) -> pd.DataFrame:
 
     results = data.get("results", {})
     results_df = pd.DataFrame(list(results.items()), columns=["alias", "score"])
+    results_df["score"] = pd.to_numeric(results_df["score"], errors="coerce")
     cost_per_task = data.get("cost_per_task", {})
     cost_df = pd.DataFrame(list(cost_per_task.items()), columns=["alias", "cost"])
+    cost_df["cost"] = pd.to_numeric(cost_df["cost"], errors="coerce")
 
     df = pd.merge(results_df, cost_df, on="alias", how="outer")
     df = df.drop_duplicates(subset=["alias"])
@@ -82,16 +84,15 @@ def normalize_benchmark_scores(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df["cost"] = df["cost"].replace(0, np.nan)
 
-    def _norm(group: pd.DataFrame) -> pd.DataFrame:
-        min_score = group["score"].min()
-        max_score = group["score"].max()
-        if max_score != min_score:
-            group["normalized_score"] = (group["score"] - min_score) / (max_score - min_score) * 100
-        else:
-            group["normalized_score"] = 100.0
-        return group
-
-    return df.groupby("benchmark", group_keys=False).apply(_norm)
+    grouped = df.groupby("benchmark")
+    min_scores = grouped["score"].transform("min")
+    max_scores = grouped["score"].transform("max")
+    df["normalized_score"] = np.where(
+        max_scores != min_scores,
+        (df["score"] - min_scores) / (max_scores - min_scores) * 100,
+        100.0,
+    )
+    return df
 
 
 
@@ -124,12 +125,13 @@ def main() -> None:
     out_dir = root / "data" / "processed" / "benchmarks"
     out_dir.mkdir(exist_ok=True)
 
-    benchmarks_df = pd.concat(
-        [load_benchmark(f) for f in bench_dir.glob("*.yaml")]
-    )
-    mapping_df = pd.concat(
-        [load_mapping_file(f) for f in mapping_dir.glob("*.yaml")]
-    )
+    bench_frames = [load_benchmark(f) for f in bench_dir.glob("*.yaml")]
+    bench_frames = [df for df in bench_frames if not df.empty]
+    benchmarks_df = pd.concat(bench_frames, ignore_index=True)
+
+    map_frames = [load_mapping_file(f) for f in mapping_dir.glob("*.yaml")]
+    map_frames = [df for df in map_frames if not df.empty]
+    mapping_df = pd.concat(map_frames, ignore_index=True)
     benchmarks_df = benchmarks_df.merge(
         mapping_df,
         on=["alias", "model_name_mapping_file"],
@@ -151,7 +153,7 @@ def main() -> None:
     cost_data = (
         benchmarks_df.dropna(subset=["cost"])
         .groupby("benchmark")
-        .apply(lambda g: g.set_index("slug")["cost"].to_dict())
+        .apply(lambda g: g.set_index("slug")["cost"].to_dict(), include_groups=False)
         .to_dict()
     )
 
