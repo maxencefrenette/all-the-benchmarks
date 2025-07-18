@@ -4,6 +4,9 @@ gemini-2.5-pro-06-05:
 gemini-2.5-pro-preview-05-06:
   score: 1446.0
   normalized_score: 87.332
+grok-4:
+  score: 1443.0
+  normalized_score: 85.951
 o3-medium:
   score: 1427.7
   normalized_score: 79.047
@@ -31,9 +34,15 @@ gpt-4.1:
 deepseek-v3-0324:
   score: 1381.8
   normalized_score: 58.226
+kimi-k2:
+  score: 1374.2
+  normalized_score: 54.777
 deepseek-r1-0120:
   score: 1373.4
   normalized_score: 54.384
+claude-opus-4-thinking:
+  score: 1370.5
+  normalized_score: 53.084
 claude-opus-4-nothinking:
   score: 1367.8
   normalized_score: 51.854
@@ -43,9 +52,15 @@ qwen-3-235b-a22b-thinking:
 o4-mini-medium:
   score: 1362.7
   normalized_score: 49.545
+grok-3-mini-high:
+  score: 1360.8
+  normalized_score: 48.697
 grok-3-mini-nothinking:
   score: 1357.4
   normalized_score: 47.147
+claude-sonnet-4-thinking:
+  score: 1351.0
+  normalized_score: 44.214
 claude-sonnet-4-nothinking:
   score: 1340.6
   normalized_score: 39.512

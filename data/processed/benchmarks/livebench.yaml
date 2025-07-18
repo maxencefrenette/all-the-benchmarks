@@ -46,6 +46,9 @@ gemini-2.5-flash-0520-thinking:
 claude-sonnet-4-nothinking:
   score: 63.37
   normalized_score: 67.765
+kimi-k2:
+  score: 62.7
+  normalized_score: 65.862
 grok-3-mini-high:
   score: 62.36
   normalized_score: 64.896

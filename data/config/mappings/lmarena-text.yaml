@@ -29,7 +29,9 @@ claude-3-opus-20240229: null
 claude-3-sonnet-20240229: null
 claude-instant-1: null
 claude-opus-4-20250514: claude-opus-4-nothinking
+claude-opus-4-20250514-thinking-16k: claude-opus-4-thinking
 claude-sonnet-4-20250514: claude-sonnet-4-nothinking
+claude-sonnet-4-20250514-thinking-32k: claude-sonnet-4-thinking
 codellama-34b-instruct: null
 codellama-70b-instruct: null
 command-a-03-2025: null
@@ -119,7 +121,9 @@ granite-3.1-8b-instruct: null
 grok-2-2024-08-13: null
 grok-2-mini-2024-08-13: null
 grok-3-mini-beta: grok-3-mini-nothinking
+grok-3-mini-high: grok-3-mini-high
 grok-3-preview-02-24: grok-3
+grok-4-0709: grok-4
 guanaco-33b: null
 hunyuan-large-2025-02-10: null
 hunyuan-large-vision: null
@@ -131,6 +135,7 @@ hunyuan-turbos-20250416: null
 internlm2_5-20b-chat: null
 jamba-1.5-large: null
 jamba-1.5-mini: null
+kimi-k2-0711-preview: kimi-k2
 koala-13b: null
 llama-13b: null
 llama-2-13b-chat: null
