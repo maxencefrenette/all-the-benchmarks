@@ -120,7 +120,7 @@ def build_output(df: pd.DataFrame, factor: Optional[float]) -> Dict[str, Dict[st
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
     bench_dir = root / "data" / "raw" / "benchmarks"
-    mapping_dir = root / "data" / "mappings"
+    mapping_dir = root / "data" / "config" / "mappings"
     out_dir = root / "data" / "processed" / "benchmarks"
     out_dir.mkdir(exist_ok=True)
 
