@@ -4,11 +4,11 @@ import path from "path"
 import { parse } from "yaml"
 import { MappingFileSchema, ModelFileSchema } from "../yaml-schemas"
 
-// Ensure all mapping files only reference slugs that exist under data/models
+// Ensure all mapping files only reference slugs that exist under data/config/models
 
 test("mapping files only reference existing slugs", async () => {
   const mappingsDir = path.join(process.cwd(), "data", "mappings")
-  const modelsDir = path.join(process.cwd(), "data", "models")
+  const modelsDir = path.join(process.cwd(), "data", "config", "models")
   const files = (await fs.readdir(mappingsDir)).filter((f) =>
     f.endsWith(".yaml"),
   )
