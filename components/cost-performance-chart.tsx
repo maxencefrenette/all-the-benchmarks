@@ -10,6 +10,33 @@ const BASE_TICKS = [
   0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000, 3000, 10000,
 ] as const
 
+const Dot = ({ cx, cy, fill }: { cx?: number; cy?: number; fill?: string }) =>
+  cx == null || cy == null ? null : <circle cx={cx} cy={cy} r={7} fill={fill} />
+
+const FilteredTooltipContent = (
+  props: React.ComponentProps<typeof ChartTooltipContent>,
+) => {
+  const filtered = React.useMemo(() => {
+    if (!Array.isArray(props.payload)) return props.payload
+    const seen = new Set<string>()
+    return props.payload.filter((item): item is { dataKey: string } => {
+      if (
+        typeof item !== "object" ||
+        item === null ||
+        !("dataKey" in item) ||
+        typeof (item as { dataKey?: unknown }).dataKey !== "string"
+      ) {
+        return false
+      }
+      const key = (item as { dataKey: string }).dataKey
+      if (seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+  }, [props.payload])
+  return <ChartTooltipContent {...props} payload={filtered} />
+}
+
 export type CostPerformanceEntry = {
   label: string
   provider: string
@@ -133,7 +160,7 @@ export default function CostPerformanceChart({
                 {typeof value === "number" ? formatSigFig(value) : value}
               </span>
             )}
-            content={<ChartTooltipContent />}
+            content={<FilteredTooltipContent />}
           />
           {Object.entries(groups).map(([provider, items]) => (
             <Scatter
@@ -141,6 +168,7 @@ export default function CostPerformanceChart({
               data={items}
               name={provider}
               fill={PROVIDER_COLORS[provider]}
+              shape={Dot}
               isAnimationActive={false}
             />
           ))}
