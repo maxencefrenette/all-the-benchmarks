@@ -20,7 +20,7 @@ export interface BenchmarkInfo {
 }
 
 export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
-  const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
+  const benchmarkDir = path.join(process.cwd(), "data", "raw", "benchmarks")
   const processedDir = path.join(
     process.cwd(),
     "data",
@@ -71,7 +71,7 @@ export interface BenchmarkDetails extends BenchmarkInfo {
 export async function loadBenchmarkDetails(
   slug: string,
 ): Promise<BenchmarkDetails | null> {
-  const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
+  const benchmarkDir = path.join(process.cwd(), "data", "raw", "benchmarks")
   const processedDir = path.join(
     process.cwd(),
     "data",

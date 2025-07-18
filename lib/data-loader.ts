@@ -55,7 +55,7 @@ export function computeAverageScores(
 
 export async function loadLLMData(): Promise<LLMData[]> {
   const modelDir = path.join(process.cwd(), "data", "models")
-  const benchmarkDir = path.join(process.cwd(), "data", "benchmarks")
+  const benchmarkDir = path.join(process.cwd(), "data", "raw", "benchmarks")
   const processedDir = path.join(
     process.cwd(),
     "data",

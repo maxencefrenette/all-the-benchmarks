@@ -19,6 +19,7 @@ async function main() {
       __dirname,
       "..",
       "data",
+      "raw",
       "benchmarks",
       "gpqa-diamond.yaml",
     )

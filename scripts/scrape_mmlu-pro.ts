@@ -20,6 +20,7 @@ async function main() {
       __dirname,
       "..",
       "data",
+      "raw",
       "benchmarks",
       "mmlu-pro.yaml",
     )

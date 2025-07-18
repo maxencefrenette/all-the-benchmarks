@@ -21,6 +21,7 @@ async function main() {
       __dirname,
       "..",
       "data",
+      "raw",
       "benchmarks",
       "artificial-analysis-index.yaml",
     )
