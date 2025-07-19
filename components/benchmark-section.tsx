@@ -53,14 +53,16 @@ export default function BenchmarkSection({ llmData, benchmark }: Props) {
     return list
   }, [visible, benchmark])
 
+  const showCostChart = entries.some((e) => e.costPerTask !== undefined)
+
   return (
     <div className="space-y-4">
-      {entries.some((e) => e.costPerTask !== undefined) && (
+      {showCostChart && (
         <BenchmarkCostScoreChart
           entries={entries.filter((e) => e.costPerTask !== undefined)}
         />
       )}
-      <LeaderboardToggles />
+      {showCostChart && <LeaderboardToggles />}
       <div className="p-6">
         <div className="rounded-md border">
           <Table>
