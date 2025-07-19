@@ -6,3 +6,7 @@ Important commands:
 - Run tests `uv run pytest`
 - Process benchmark data `uv run process_data.py`
 - Add new models to the mappings files `uv run update_mappings.py`
+
+## Code Style
+
+When processing data, use idiomatic pandas instead of lists of dicts.
