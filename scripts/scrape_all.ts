@@ -1,10 +1,6 @@
 import { execSync } from "child_process"
 
-/**
- * Run all scraping scripts sequentially. The LMArena scraper is now
- * implemented in Python and executed via `uv run` through its pnpm script.
- */
-const scripts: readonly string[] = [
+const scripts = [
   "scrape:livebench",
   "scrape:simplebench",
   "scrape:lmarena-text",
