@@ -8,7 +8,10 @@ def load_benchmark(bench_file: Path) -> pd.DataFrame:
     """Load benchmark YAML file."""
     data = yaml.safe_load(bench_file.read_text())
     model_name_mapping_file = data.get("model_name_mapping_file")
-    raw_model_names = set(data.get("results", {}).keys()) | set(data.get("costs", {}).keys())
+    raw_model_names = set(data.get("results", {}).keys())
+    # Include cost data aliases as well so mappings stay in sync
+    raw_model_names |= set(data.get("cost_per_task", {}).keys())
+    raw_model_names |= set(data.get("costs", {}).keys())
     df = pd.DataFrame({
         "alias": list(raw_model_names),
         "model_name_mapping_file": [model_name_mapping_file] * len(raw_model_names),
@@ -28,8 +31,14 @@ def load_mapping(mapping_file: Path) -> pd.DataFrame:
 def update_all_mappings(bench_dir: Path, mapping_dir: Path) -> None:
     """Update mapping files for all benchmarks, merging shared files."""
 
-    bench_df = pd.concat([load_benchmark(bench_file) for bench_file in bench_dir.glob("*.yaml")])
-    mapping_df = pd.concat([load_mapping(mapping_file) for mapping_file in mapping_dir.glob("*.yaml")])
+    bench_df = pd.concat(
+        [load_benchmark(bench_file) for bench_file in bench_dir.glob("*.yaml")]
+    )
+    bench_df = bench_df.drop_duplicates(subset=["alias", "model_name_mapping_file"])
+
+    mapping_df = pd.concat(
+        [load_mapping(mapping_file) for mapping_file in mapping_dir.glob("*.yaml")]
+    )
     mapping_df = mapping_df.drop_duplicates(subset=["alias", "model_name_mapping_file"])
 
     merged_df = pd.merge(bench_df, mapping_df, on=["alias", "model_name_mapping_file"], how="left")

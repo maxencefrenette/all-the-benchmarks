@@ -27,3 +27,30 @@ def test_new_alias_written_as_null(tmp_path: Path) -> None:
 
     updated = yaml.safe_load((mapping_dir / "map.yaml").read_text())
     assert updated == {"Model A": "slug-a", "Model B": None}
+
+
+def test_removed_alias_deleted(tmp_path: Path) -> None:
+    bench_dir = tmp_path / "bench"
+    mapping_dir = tmp_path / "map"
+    bench_dir.mkdir()
+    mapping_dir.mkdir()
+
+    # Benchmark only references Model A
+    bench_data = {
+        "model_name_mapping_file": "map.yaml",
+        "results": {"Model A": 1.0},
+    }
+    (bench_dir / "bench.yaml").write_text(
+        yaml.safe_dump(bench_data, sort_keys=False)
+    )
+
+    # Mapping file contains an extra entry that should be removed
+    mapping_data = {"Model A": "slug-a", "Model B": "slug-b"}
+    (mapping_dir / "map.yaml").write_text(
+        yaml.safe_dump(mapping_data, sort_keys=False)
+    )
+
+    update_all_mappings(bench_dir, mapping_dir)
+
+    updated = yaml.safe_load((mapping_dir / "map.yaml").read_text())
+    assert updated == {"Model A": "slug-a"}
