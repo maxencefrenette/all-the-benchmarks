@@ -15,7 +15,7 @@
     "test:update": "vitest run --update",
     "scrape:livebench": "tsx scripts/scrape_livebench.ts",
     "scrape:simplebench": "tsx scripts/scrape_simplebench.ts",
-    "scrape:lmarena-text": "tsx scripts/scrape_lmarena_text.ts",
+    "scrape:lmarena-text": "uv run --directory scripts_python scrape_lmarena_text.py",
     "scrape:arc-agi": "tsx scripts/scrape_arc_agi.ts",
     "scrape:aider-polyglot": "tsx scripts/scrape_aider-polyglot.ts",
     "scrape:hle": "tsx scripts/scrape_hle.ts",
