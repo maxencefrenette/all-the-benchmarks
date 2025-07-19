@@ -21,9 +21,9 @@ results:
   o3-mini: 63
   Qwen3 235B (Reasoning): 62
   o1: 62
+  Claude 4 Sonnet Thinking: 62
   MiniMax M1 40k: 61
   Llama Nemotron Ultra Reasoning: 61
-  Claude 4 Sonnet Thinking: 61
   Gemini 2.5 Flash (April '25) (Reasoning): 60
   DeepSeek R1 (Jan '25): 60
   o1-preview: 60
@@ -259,8 +259,8 @@ cost_per_task:
   Qwen3 1.7B (Reasoning): 109
   Claude 3.7 Sonnet: 109
   GPT-4o (May '24): 109
+  QwQ-32B: 108
   Llama Nemotron Ultra Reasoning: 106
-  Grok Beta: 103
   Claude 2.1: 100
   Reka Flash 3: 100
   Claude 3.5 Sonnet (Oct): 81
@@ -277,7 +277,6 @@ cost_per_task:
   Mistral Large (Feb '24): 61
   Kimi K2: 56
   Gemini 2.5 Flash-Lite (Reasoning): 55
-  QwQ-32B: 54
   Command-R+: 52
   Jamba 1.5 Large: 52
   Grok 3 mini Reasoning (high): 49
@@ -360,6 +359,7 @@ cost_per_task:
   Nova Lite: 1
   Qwen3 0.6B: 1
   Llama 2 Chat 7B: 1
+  Hermes 3 - Llama-3.1 70B: 1
   Mistral NeMo: 1
   Gemma 3 12B: 1
   LFM 40B: 1
