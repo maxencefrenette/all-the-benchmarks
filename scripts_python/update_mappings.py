@@ -38,7 +38,13 @@ def update_all_mappings(bench_dir: Path, mapping_dir: Path) -> None:
     # Write to mapping files
     for model_name_mapping_file, df in merged_df.groupby("model_name_mapping_file"):
         mapping_file = mapping_dir / model_name_mapping_file
-        mapping_file.write_text(yaml.safe_dump(dict(zip(df["alias"], df["slug"])), sort_keys=False))
+        mapping_dict = {
+            alias: (None if pd.isna(slug) else slug)
+            for alias, slug in zip(df["alias"], df["slug"])
+        }
+        mapping_file.write_text(
+            yaml.safe_dump(mapping_dict, sort_keys=False)
+        )
     
 
 
