@@ -1,6 +1,9 @@
 gemini-2.5-pro-06-05:
   score: 62.4
   normalized_score: 100.0
+grok-4:
+  score: 60.5
+  normalized_score: 95.74
 claude-opus-4-thinking:
   score: 58.8
   normalized_score: 91.928

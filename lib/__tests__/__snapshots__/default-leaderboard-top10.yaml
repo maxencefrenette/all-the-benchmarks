@@ -2,10 +2,10 @@
   slug: grok-4
   model: Grok 4
   provider: xAI
-  averageScore: 93.47
+  averageScore: 93.68
   costPerTask: 478
   costBenchmarkCount: 8
-  benchmarkCount: 10
+  benchmarkCount: 11
   totalBenchmarks: 11
   totalCostBenchmarks: 8
 - id: gemini-2.5-pro-06-05

@@ -7,6 +7,7 @@ cost_weight: 1
 results:
   Human Baseline*: 83.7
   Gemini 2.5 Pro (06-05): 62.4
+  Grok 4: 60.5
   Claude 4 Opus (thinking): 58.8
   o3 (high): 53.1
   Gemini 2.5 Pro (03-25): 51.6
