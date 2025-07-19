@@ -35,8 +35,13 @@ jobs:
           cache: "pnpm"
       - name: Install Playwright browsers
         run: pnpm exec playwright install
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
       - name: Install Python dependencies
-        run: pip install pandas
+        run: |
+          pip install uv
+          uv --directory scripts_python sync
       - name: Run scraping script
         run: pnpm scrape:${{ matrix.script }}
       - name: Update tests
