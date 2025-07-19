@@ -1,0 +1,50 @@
+benchmark: EQ-Bench 3
+description: Elo score on EQ-Bench 3
+website: https://eqbench.com
+github: https://github.com/EQ-bench
+score_weight: 1
+cost_weight: 1
+results:
+  moonshotai/Kimi-K2-Instruct: 1549.1
+  o3: 1500
+  gemini-2.5-pro-preview-06-05: 1468.5
+  chatgpt-4o-latest-2025-03-27: 1366.5
+  chatgpt-4o-latest-2025-04-25: 1315.5
+  claude-opus-4: 1295.6
+  o4-mini: 1288.3
+  gemini-2.5-pro-preview-03-25: 1286.7
+  Qwen/Qwen3-235B-A22B: 1274.9
+  deepseek-ai/DeepSeek-R1: 1265.3
+  claude-sonnet-4: 1258.7
+  gemini-2.5-pro-preview-2025-05-07: 1246.4
+  gpt-4.1: 1230
+  qwen/qwq-32b: 1212.8
+  grok-4: 1181.2
+  deepseek-ai/DeepSeek-V3-0324: 1174.3
+  gpt-4.1-mini: 1139.9
+  mistralai/Mistral-Small-3.2-24B-Instruct-2506: 1134
+  gpt-4.5-preview-2025-02-27: 1099
+  claude-3-7-sonnet-20250219: 1081.5
+  grok-3-beta: 1077.1
+  claude-3-5-sonnet-20241022: 1069.8
+  gemini-2.5-flash-preview: 1055.8
+  google/gemma-3-27b-it: 1048.7
+  grok-3-mini-beta: 992.4
+  Qwen/Qwen3-32B: 960.2
+  gpt-4.1-nano: 911.3
+  nvidia/llama-3.1-nemotron-ultra-253b-v1:free: 886.5
+  google/gemma-3-4b-it: 863.3
+  gemini-2.0-flash-001: 783.3
+  mistralai/Mistral-Large-Instruct-2411: 771.3
+  Qwen/Qwen3-8B: 767.7
+  Qwen/Qwen3-30B-A3B: 738.4
+  qwen/qwen-2.5-72b-instruct: 700.3
+  mistralai/Mistral-Small-3.1-24B-Instruct-2503: 646
+  meta-llama/Llama-4-Maverick-17B-128E-Instruct: 628.8
+  mistralai/Mistral-Small-24B-Instruct-2501: 623.6
+  meta-llama/Llama-4-Scout-17B-16E-Instruct: 472.7
+  gpt-4-0314: 437.9
+  google/gemma-2-9b-it: 390.8
+  meta-llama/llama-3.2-1b-instruct: 200
+model_name_mapping_file: eqbench3.yaml
+private_holdout: false

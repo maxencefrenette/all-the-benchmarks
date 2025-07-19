@@ -12,6 +12,7 @@ const scripts = [
   "scrape:matharena",
   "scrape:artificial-analysis-index",
   "scrape:weirdml",
+  "scrape:eqbench3",
 ]
 
 for (const script of scripts) {
