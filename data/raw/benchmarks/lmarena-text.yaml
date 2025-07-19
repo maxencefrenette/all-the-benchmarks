@@ -6,7 +6,7 @@ score_weight: 1
 cost_weight: 1
 results:
   gemini-2.5-pro: 1473.9213239114315
-  gemini-2.5-pro-preview-05-06: 1446
+  gemini-2.5-pro-preview-05-06: 1446.0
   grok-4-0709: 1442.9575768149937
   chatgpt-4o-latest-20250326: 1428.5898920607929
   o3-2025-04-16: 1427.7408433331923
