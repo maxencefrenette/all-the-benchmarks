@@ -37,45 +37,44 @@ def load_mapping_file(file_path: Path) -> pd.DataFrame:
     return df
 
 def compute_normalization_factors(
-    cost_map: dict[str, dict[str, float]],
-    weights: Optional[dict[str, float]] = None,
+    cost_df: pd.DataFrame,
+    weights: Optional[pd.Series] = None,
     iterations: int = 20,
-) -> dict[str, Optional[float]]:
+) -> pd.Series:
     """Return per-benchmark factors using rank 1 SVD via ALS.
 
-    Benchmarks that lack cost information receive ``None`` as the factor. If
-    ``weights`` is provided, each benchmark contributes ``weight`` times as much
-    to the least squares objective – effectively the same as repeating the
-    benchmark ``weight`` times.
+    ``cost_df`` should have benchmarks as the index and model slugs as columns.
+    ``weights`` is an optional Series indexed by benchmark controlling each
+    benchmark's contribution to the least squares objective. Benchmarks that
+    lack cost information receive ``NaN`` in the resulting Series.
     """
 
-    df = pd.DataFrame(cost_map).T
-    if df.empty:
-        return {}
+    if cost_df.empty:
+        return pd.Series(dtype=float)
 
-    weights_series = pd.Series(
-        {b: (weights.get(b, 1.0) if weights else 1.0) for b in df.index},
-        dtype=float,
-    )
+    cost_df = cost_df.astype(float)
+    if weights is None:
+        weights = pd.Series(1.0, index=cost_df.index)
+    else:
+        weights = weights.reindex(cost_df.index).fillna(1.0).astype(float)
 
-    u = pd.Series(1.0, index=df.index, dtype=float)
-    v = pd.Series(1.0, index=df.columns, dtype=float)
+    u = pd.Series(1.0, index=cost_df.index, dtype=float)
+    v = pd.Series(1.0, index=cost_df.columns, dtype=float)
 
-    mask = df.notna()
-    filled = df.fillna(0.0)
+    mask = cost_df.notna()
+    filled = cost_df.fillna(0.0)
 
     for _ in range(iterations):
-        # update v using vectorized operations
-        numerator_v = (filled.mul(weights_series * u, axis=0)).sum(axis=0)
-        denominator_v = (mask.mul(weights_series * u * u, axis=0)).sum(axis=0)
+        numerator_v = (filled.mul(weights * u, axis=0)).sum(axis=0)
+        denominator_v = (mask.mul(weights * u * u, axis=0)).sum(axis=0)
         v = numerator_v.div(denominator_v).fillna(v)
 
-        # update u
         numerator_u = (filled.mul(v, axis=1)).sum(axis=1)
         denominator_u = (mask.mul(v * v, axis=1)).sum(axis=1)
         u = numerator_u.div(denominator_u).fillna(u)
 
-    return {bench: (1.0 / val if val else None) for bench, val in u.items()}
+    factors = u.apply(lambda x: 1.0 / x if x else np.nan)
+    return factors
 
 
 def normalize_benchmark_scores(df: pd.DataFrame) -> pd.DataFrame:
@@ -150,19 +149,15 @@ def main() -> None:
 
     benchmarks_df = normalize_benchmark_scores(benchmarks_df)
 
-    cost_data = (
+    cost_df = (
         benchmarks_df.dropna(subset=["cost"])
-        .groupby("benchmark")
-        .apply(lambda g: g.set_index("slug")["cost"].to_dict(), include_groups=False)
-        .to_dict()
+        .pivot_table(index="benchmark", columns="slug", values="cost", aggfunc="first")
     )
 
-    weights = (
-        benchmarks_df.groupby("benchmark")["cost_weight"].first().to_dict()
-    )
+    weights = benchmarks_df.groupby("benchmark")["cost_weight"].first()
 
     factors = (
-        compute_normalization_factors(cost_data, weights) if cost_data else {}
+        compute_normalization_factors(cost_df, weights).to_dict() if not cost_df.empty else {}
     )
 
     for bench_name, df in benchmarks_df.groupby("benchmark"):
