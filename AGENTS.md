@@ -36,6 +36,10 @@ To add a new benchmark to the leaderboard:
 - Create a YAML file under `data/raw/benchmarks/` containing the benchmark name, description and a `results` mapping.
 - Create a scraping script under `scripts/` that generates the benchmark YAML and
   add a corresponding npm script in `package.json`.
+- Run the scraping script to generate the benchmark YAML.
+- Run `pnpm process:all` to process the benchmark data.
+- Run `pnpm update:mappings` to update the mappings.
+- Add the scraping script to .github/workflows/scrape.yml
 
 # Model YAML files
 
