@@ -2,6 +2,7 @@ import sys
 from pathlib import Path
 import yaml
 import pytest
+import pandas as pd
 
 # Add scripts_python directory to path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -101,8 +102,11 @@ def test_compute_normalization_factors_weighted() -> None:
     }
     weights = {"b1": 1.0, "b2": 4.0}
 
-    unweighted = compute_normalization_factors(cost_map)
-    weighted = compute_normalization_factors(cost_map, weights)
+    cost_df = pd.DataFrame(cost_map).T
+    weight_series = pd.Series(weights)
+
+    unweighted = compute_normalization_factors(cost_df)
+    weighted = compute_normalization_factors(cost_df, weight_series)
 
     assert unweighted["b1"] == pytest.approx(2.0)
     assert unweighted["b2"] == pytest.approx(2.0 / 3.0, rel=1e-6)
@@ -119,8 +123,14 @@ def test_weight_equivalence_repetition() -> None:
     repeated_map = {"b1": {"m1": 1.0, "m2": 2.0}, "b2": {"m1": 1.0, "m2": 2.0}}
     repeated_weight = {"b1": 1.0, "b2": 1.0}
 
-    single = compute_normalization_factors(single_map, single_weight)
-    repeated = compute_normalization_factors(repeated_map, repeated_weight)
+    single_df = pd.DataFrame(single_map).T
+    single_weight_series = pd.Series(single_weight)
+
+    repeated_df = pd.DataFrame(repeated_map).T
+    repeated_weight_series = pd.Series(repeated_weight)
+
+    single = compute_normalization_factors(single_df, single_weight_series)
+    repeated = compute_normalization_factors(repeated_df, repeated_weight_series)
 
     assert single["b"] == pytest.approx(repeated["b1"], rel=1e-6)
     assert repeated["b1"] == pytest.approx(repeated["b2"], rel=1e-6)
@@ -132,8 +142,12 @@ def test_weight_scaling_equivalence() -> None:
     weights_a = {"A": 0.5, "B": 1.0}
     weights_b = {"A": 1.0, "B": 2.0}
 
-    f_a = compute_normalization_factors(cost_map, weights_a)
-    f_b = compute_normalization_factors(cost_map, weights_b)
+    cost_df = pd.DataFrame(cost_map).T
+    w_a = pd.Series(weights_a)
+    w_b = pd.Series(weights_b)
+
+    f_a = compute_normalization_factors(cost_df, w_a)
+    f_b = compute_normalization_factors(cost_df, w_b)
 
     assert f_a["A"] == pytest.approx(f_b["A"], rel=1e-6)
     assert f_a["B"] == pytest.approx(f_b["B"], rel=1e-6)
