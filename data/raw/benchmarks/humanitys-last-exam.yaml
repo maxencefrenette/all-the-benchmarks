@@ -228,8 +228,8 @@ cost_per_task:
   Claude 4 Sonnet Thinking: 35
   Qwen3 1.7B (Reasoning): 32
   Reka Flash 3: 27
-  Grok Beta: 25
   Claude 4 Sonnet: 24
+  QwQ-32B: 24
   GPT-4o (May '24): 22
   Qwen3 4B (Reasoning): 21
   Claude 2.1: 21
@@ -250,7 +250,6 @@ cost_per_task:
   GPT-4o (Aug '24): 13
   DeepSeek R1 Distill Llama 70B: 12
   Qwen3 0.6B (Reasoning): 12
-  QwQ-32B: 12
   Command-R+: 12
   Mistral Large (Feb '24): 11
   Jamba 1.5 Large: 11
@@ -328,6 +327,7 @@ cost_per_task:
   Mistral Small 3.2: 0
   Gemini 1.5 Flash (May): 0
   Qwen2.5 Coder 32B: 0
+  Hermes 3 - Llama-3.1 70B: 0
   Gemini 1.5 Flash (Sep): 0
   Qwen2.5 Turbo: 0
   DeepSeek R1 Distill Llama 8B: 0
