@@ -2,170 +2,170 @@ grok-4:
   score: 23.0
   normalized_score: 100.0
   cost: 696.0
-  normalized_cost: 633.37
+  normalized_cost: 633.4
 gemini-2.5-pro-06-05:
   score: 21.0
-  normalized_score: 90.476
+  normalized_score: 90.48
   cost: 315.0
-  normalized_cost: 286.65
+  normalized_cost: 286.7
 o3-medium:
   score: 20.0
-  normalized_score: 85.714
+  normalized_score: 85.71
   cost: 165.0
-  normalized_cost: 150.15
+  normalized_cost: 150.2
 o4-mini-high:
   score: 17.0
-  normalized_score: 71.429
+  normalized_score: 71.43
   cost: 153.0
-  normalized_cost: 139.23
+  normalized_cost: 139.2
 gemini-2.5-pro-preview-03-25:
   score: 17.0
-  normalized_score: 71.429
+  normalized_score: 71.43
   cost: 309.0
-  normalized_cost: 281.19
+  normalized_cost: 281.2
 gemini-2.5-pro-preview-05-06:
   score: 15.0
-  normalized_score: 61.905
+  normalized_score: 61.9
   cost: 215.0
-  normalized_cost: 195.65
+  normalized_cost: 195.7
 deepseek-r1-0528:
   score: 14.0
-  normalized_score: 57.143
+  normalized_score: 57.14
   cost: 72.0
-  normalized_cost: 65.521
+  normalized_cost: 65.52
 grok-3-mini-high:
   score: 11.0
-  normalized_score: 42.857
+  normalized_score: 42.86
   cost: 18.0
   normalized_cost: 16.38
 gemini-2.5-flash-0520-thinking:
   score: 11.0
-  normalized_score: 42.857
+  normalized_score: 42.86
   cost: 108.0
-  normalized_cost: 98.281
+  normalized_cost: 98.28
 gemini-2.5-flash-preview-0417-thinking:
   score: 11.0
-  normalized_score: 42.857
+  normalized_score: 42.86
   cost: 150.0
   normalized_cost: 136.5
 qwen-3-235b-a22b-thinking:
   score: 11.0
-  normalized_score: 42.857
+  normalized_score: 42.86
   cost: 196.0
-  normalized_cost: 178.36
+  normalized_cost: 178.4
 claude-opus-4-thinking:
   score: 11.0
-  normalized_score: 42.857
+  normalized_score: 42.86
   cost: 546.0
-  normalized_cost: 496.86
+  normalized_cost: 496.9
 claude-3.7-sonnet-thinking:
   score: 10.0
-  normalized_score: 38.095
+  normalized_score: 38.1
   cost: 557.0
-  normalized_cost: 506.87
+  normalized_cost: 506.9
 deepseek-r1-0120:
   score: 9.0
-  normalized_score: 33.333
+  normalized_score: 33.33
   cost: 87.0
-  normalized_cost: 79.171
+  normalized_cost: 79.17
 claude-sonnet-4-thinking:
   score: 8.0
-  normalized_score: 28.571
+  normalized_score: 28.57
   cost: 35.0
   normalized_cost: 31.85
 kimi-k2:
   score: 7.0
   normalized_score: 23.81
   cost: 10.0
-  normalized_cost: 9.1001
+  normalized_cost: 9.1
 deepseek-v3-0324:
   score: 5.0
-  normalized_score: 14.286
+  normalized_score: 14.29
   cost: 3.0
   normalized_cost: 2.73
 gemini-2.5-flash-0520-nothinking:
   score: 5.0
-  normalized_score: 14.286
+  normalized_score: 14.29
   cost: 4.0
   normalized_cost: 3.64
 gemini-2.5-flash-preview-0417-nothinking:
   score: 5.0
-  normalized_score: 14.286
+  normalized_score: 14.29
   cost: 4.0
   normalized_cost: 3.64
 grok-3:
   score: 5.0
-  normalized_score: 14.286
+  normalized_score: 14.29
   cost: 43.0
   normalized_cost: 39.13
 claude-opus-4-nothinking:
   score: 5.0
-  normalized_score: 14.286
+  normalized_score: 14.29
   cost: 110.0
   normalized_cost: 100.1
 llama-4-scout:
   score: 4.0
-  normalized_score: 9.5238
+  normalized_score: 9.524
   cost: 1.0
-  normalized_cost: 0.91001
+  normalized_cost: 0.91
 llama-4-maverick:
   score: 4.0
-  normalized_score: 9.5238
+  normalized_score: 9.524
   cost: 2.0
   normalized_cost: 1.82
 gpt-4.1-mini:
   score: 4.0
-  normalized_score: 9.5238
+  normalized_score: 9.524
   cost: 4.0
   normalized_cost: 3.64
 qwen-3-235b-a22b-nothinking:
   score: 4.0
-  normalized_score: 9.5238
+  normalized_score: 9.524
   cost: 4.0
   normalized_cost: 3.64
 gpt-4.1:
   score: 4.0
-  normalized_score: 9.5238
+  normalized_score: 9.524
   cost: 19.0
   normalized_cost: 17.29
 claude-3.7-sonnet-nothinking:
   score: 4.0
-  normalized_score: 9.5238
+  normalized_score: 9.524
   cost: 20.0
   normalized_cost: 18.2
 claude-sonnet-4-nothinking:
   score: 4.0
-  normalized_score: 9.5238
+  normalized_score: 9.524
   cost: 24.0
   normalized_cost: 21.84
 gpt-4.1-nano:
   score: 3.0
-  normalized_score: 4.7619
+  normalized_score: 4.762
   cost: 1.0
-  normalized_cost: 0.91001
+  normalized_cost: 0.91
 deepseek-v3-1224:
   score: 3.0
-  normalized_score: 4.7619
+  normalized_score: 4.762
   cost: 2.0
   normalized_cost: 1.82
 claude-3.5-haiku:
   score: 3.0
-  normalized_score: 4.7619
+  normalized_score: 4.762
   cost: 4.0
   normalized_cost: 3.64
 claude-3.5-sonnet-v2:
   score: 3.0
-  normalized_score: 4.7619
+  normalized_score: 4.762
   cost: 15.0
   normalized_cost: 13.65
 gpt-4o-2024-11-20:
   score: 3.0
-  normalized_score: 4.7619
+  normalized_score: 4.762
   cost: 17.0
   normalized_cost: 15.47
 claude-3.5-sonnet:
   score: 3.0
-  normalized_score: 4.7619
+  normalized_score: 4.762
   cost: 18.0
   normalized_cost: 16.38
 gpt-4o-2024-08-06:

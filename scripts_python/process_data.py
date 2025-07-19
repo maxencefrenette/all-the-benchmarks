@@ -105,7 +105,7 @@ def build_output(df: pd.DataFrame, factor: Optional[float]) -> Dict[str, Dict[st
     for col in ["score", "normalized_score", "cost", "normalized_cost"]:
         if col in out_df.columns:
             out_df[col] = out_df[col].apply(
-                lambda x: round_sig(float(x), 5) if pd.notna(x) else x
+                lambda x: round_sig(float(x), 4) if pd.notna(x) else x
             )
 
     records = out_df.set_index("slug").to_dict(orient="index")
