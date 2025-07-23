@@ -18,6 +18,7 @@ results:
   Gemini 2.5 Flash (April '25) (Reasoning): 11
   Gemini 2.5 Flash (Reasoning): 11
   Grok 3 mini Reasoning (high): 11
+  Qwen3 235B A22B (Jul '25): 10
   Claude 3.7 Sonnet Thinking: 10
   Magistral Medium: 9
   DeepSeek R1 (Jan '25): 9
@@ -54,11 +55,11 @@ results:
   Pixtral 12B: 5
   DeepSeek Coder V2 Lite: 5
   Llama 3.2 11B (Vision): 5
-  Gemma 3 4B: 5
   Gemma 3 1B: 5
+  Gemma 3 4B: 5
   DeepSeek V3 0324 (Mar '25): 5
-  Qwen3 1.7B: 5
   Qwen3 0.6B: 5
+  Qwen3 1.7B: 5
   Llama 3.2 3B: 5
   Jamba Instruct: 5
   Gemini 2.5 Flash: 5
@@ -86,8 +87,8 @@ results:
   Gemma 3 12B: 4
   Claude 3.7 Sonnet: 4
   Mistral Small 3.1: 4
-  Qwen3 1.7B (Reasoning): 4
   Qwen2.5 Coder 7B: 4
+  Qwen3 1.7B (Reasoning): 4
   OpenChat 3.5: 4
   Command-R (Mar '24): 4
   QwQ 32B-Preview: 4
@@ -118,8 +119,8 @@ results:
   Gemma 3n E4B: 4
   Mistral NeMo: 4
   DeepSeek R1 Distill Qwen 14B: 4
-  Phi-3 Mini: 4
   Phi-4 Multimodal: 4
+  Phi-3 Mini: 4
   Llama 3 70B: 4
   Gemini 2.0 Flash-Lite (Preview): 4
   Mistral Small (Feb '24): 4
@@ -127,8 +128,8 @@ results:
   Mistral Small 3.2: 4
   Mistral Medium 3: 4
   DeepHermes 3 - Llama-3.1 8B: 4
-  Qwen3 32B: 4
   Qwen3 14B (Reasoning): 4
+  Qwen3 32B: 4
   Mistral Small (Sep '24): 4
   Mistral 7B: 4
   Llama 3.1 405B: 4
@@ -248,12 +249,12 @@ cost_per_task:
   Qwen2.5 Max: 14
   Claude 3 Sonnet: 14
   GPT-4o (Aug '24): 13
+  Kimi K2: 13
   DeepSeek R1 Distill Llama 70B: 12
   Qwen3 0.6B (Reasoning): 12
   Command-R+: 12
   Mistral Large (Feb '24): 11
   Jamba 1.5 Large: 11
-  Kimi K2: 10
   Mistral Medium: 9
   QwQ 32B-Preview: 9
   Mistral Large 2 (Nov '24): 9
