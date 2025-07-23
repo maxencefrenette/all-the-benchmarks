@@ -16,13 +16,14 @@ results:
   Grok 3 mini Reasoning (high): 79
   Gemini 2.5 Flash (Reasoning): 79
   o4-mini (high): 78
+  Claude 4 Sonnet Thinking: 77
   o3-mini (high): 77
   Claude 3.7 Sonnet Thinking: 77
   Kimi K2: 76
+  Qwen3 235B A22B (Jul '25): 75
   o3-mini: 74
   o1: 74
   Llama Nemotron Ultra Reasoning: 72
-  Claude 4 Sonnet Thinking: 72
   GPT-4.5 (Preview): 71
   DeepSeek R1 (Jan '25): 70
   Gemini 2.0 Flash Thinking exp. (Jan '25): 70
@@ -207,6 +208,7 @@ cost_per_task:
   Claude 3.7 Sonnet Thinking: 27
   Gemini 2.5 Pro (May' 25): 25
   Gemini 2.5 Pro: 16
+  Claude 4 Sonnet Thinking: 12
   Magistral Medium: 11
   Qwen3 235B (Reasoning): 11
   o3: 10
@@ -223,7 +225,6 @@ cost_per_task:
   Qwen3 14B (Reasoning): 4
   Sonar Reasoning: 4
   DeepSeek R1 0528 (May '25): 4
-  Claude 4 Sonnet Thinking: 3
   Magistral Small: 3
   Grok 3: 3
   Qwen3 8B (Reasoning): 3
@@ -242,6 +243,7 @@ cost_per_task:
   Qwen3 4B (Reasoning): 1
   GPT-4o (ChatGPT): 1
   Command A: 1
+  Kimi K2: 1
   GPT-4o (Aug '24): 1
   Claude 3.5 Sonnet (June): 1
   GPT-4o (Nov '24): 1
@@ -251,7 +253,6 @@ cost_per_task:
   Sonar Pro: 1
   GPT-4.1: 1
   Claude 3.5 Sonnet (Oct): 1
-  Kimi K2: 1
   Claude 2.0: 1
   Qwen2.5 Max: 1
   Claude 3 Sonnet: 1
