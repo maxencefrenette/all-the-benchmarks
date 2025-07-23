@@ -19,12 +19,13 @@ results:
   Claude 4 Opus Thinking: 64
   MiniMax M1 80k: 63
   o3-mini: 63
+  Claude 4 Sonnet Thinking: 63
   Qwen3 235B (Reasoning): 62
   o1: 62
-  Claude 4 Sonnet Thinking: 62
   MiniMax M1 40k: 61
   Llama Nemotron Ultra Reasoning: 61
   Gemini 2.5 Flash (April '25) (Reasoning): 60
+  Qwen3 235B A22B (Jul '25): 60
   DeepSeek R1 (Jan '25): 60
   o1-preview: 60
   Qwen3 32B (Reasoning): 59
@@ -225,6 +226,7 @@ results:
 model_name_mapping_file: artificial-analysis.yaml
 private_holdout: false
 cost_per_task:
+  o3-pro: 3903
   o1: 2767
   Claude 4 Opus Thinking: 2036
   Grok 4: 1630
@@ -235,18 +237,20 @@ cost_per_task:
   Magistral Medium: 744
   Qwen3 235B (Reasoning): 627
   Claude 4 Opus: 551
+  GPT-4: 469
   Qwen3 32B (Reasoning): 459
   Gemini 2.5 Flash (April '25) (Reasoning): 445
   Claude 3 Opus: 411
   o3: 390
+  Claude 4 Sonnet Thinking: 356
   o3-mini (high): 345
-  Claude 4 Sonnet Thinking: 342
   o4-mini (high): 323
   Gemini 2.5 Flash (Reasoning): 319
   DeepSeek R1 (Jan '25): 291
   MiniMax M1 40k: 261
   Qwen3 14B (Reasoning): 221
   DeepSeek R1 0528 (May '25): 220
+  GPT-4 Turbo: 211
   Magistral Small: 208
   Qwen3 0.6B (Reasoning): 158
   Grok 3: 154
@@ -263,6 +267,7 @@ cost_per_task:
   Llama Nemotron Ultra Reasoning: 106
   Claude 2.1: 100
   Reka Flash 3: 100
+  Kimi K2: 86
   Claude 3.5 Sonnet (Oct): 81
   Command A: 80
   Sonar Pro: 80
@@ -275,7 +280,6 @@ cost_per_task:
   GPT-4.1: 65
   Qwen2.5 Max: 62
   Mistral Large (Feb '24): 61
-  Kimi K2: 56
   Gemini 2.5 Flash-Lite (Reasoning): 55
   Command-R+: 52
   Jamba 1.5 Large: 52
