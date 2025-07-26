@@ -18,13 +18,14 @@ results:
   Gemini 2.5 Flash (Reasoning): 65
   Claude 4 Opus Thinking: 64
   MiniMax M1 80k: 63
+  Claude 4 Sonnet Thinking: 63
   o3-mini: 63
   Qwen3 235B (Reasoning): 62
   o1: 62
-  Claude 4 Sonnet Thinking: 62
   MiniMax M1 40k: 61
   Llama Nemotron Ultra Reasoning: 61
   Gemini 2.5 Flash (April '25) (Reasoning): 60
+  Qwen3 235B A22B (Jul '25): 60
   DeepSeek R1 (Jan '25): 60
   o1-preview: 60
   Qwen3 32B (Reasoning): 59
@@ -41,6 +42,7 @@ results:
   Gemini 2.5 Flash-Lite (Reasoning): 55
   Magistral Small: 55
   o1-mini: 54
+  Qwen3 Coder 480B A35B: 54
   Gemini 2.5 Flash: 53
   DeepSeek V3 0324 (Mar '25): 53
   Claude 4 Sonnet: 53
@@ -167,6 +169,7 @@ results:
   Jamba Instruct: 26
   Mixtral 8x22B: 26
   Phi-4 Mini: 26
+  Granite 3.3 8B: 26
   Gemma 3 4B: 25
   Llama 3.2 11B (Vision): 25
   Qwen3 1.7B: 25
@@ -182,6 +185,7 @@ results:
   Mistral Small (Feb '24): 23
   Mistral Medium: 23
   GPT-3.5 Turbo: 23
+  Gemma 3n E2B: 22
   Ministral 8B: 22
   Gemma 2 9B: 22
   Phi-3 Mini: 22
@@ -225,6 +229,7 @@ results:
 model_name_mapping_file: artificial-analysis.yaml
 private_holdout: false
 cost_per_task:
+  o3-pro: 3903
   o1: 2767
   Claude 4 Opus Thinking: 2036
   Grok 4: 1630
@@ -234,19 +239,21 @@ cost_per_task:
   Gemini 2.5 Pro (Mar '25): 859
   Magistral Medium: 744
   Qwen3 235B (Reasoning): 627
+  Claude 4 Sonnet Thinking: 609
   Claude 4 Opus: 551
+  GPT-4: 469
   Qwen3 32B (Reasoning): 459
   Gemini 2.5 Flash (April '25) (Reasoning): 445
   Claude 3 Opus: 411
   o3: 390
   o3-mini (high): 345
-  Claude 4 Sonnet Thinking: 342
   o4-mini (high): 323
   Gemini 2.5 Flash (Reasoning): 319
   DeepSeek R1 (Jan '25): 291
   MiniMax M1 40k: 261
   Qwen3 14B (Reasoning): 221
   DeepSeek R1 0528 (May '25): 220
+  GPT-4 Turbo: 211
   Magistral Small: 208
   Qwen3 0.6B (Reasoning): 158
   Grok 3: 154
@@ -266,16 +273,18 @@ cost_per_task:
   Claude 3.5 Sonnet (Oct): 81
   Command A: 80
   Sonar Pro: 80
+  Qwen3 Coder 480B A35B: 78
+  Kimi K2: 77
   Qwen3 4B (Reasoning): 77
   Nova Premier: 76
   Claude 3 Sonnet: 74
+  Qwen3 235B A22B (Jul '25): 71
   Command-R+ (Apr '24): 68
   GPT-4o (Aug '24): 68
   GPT-4o (Nov '24): 66
   GPT-4.1: 65
   Qwen2.5 Max: 62
   Mistral Large (Feb '24): 61
-  Kimi K2: 56
   Gemini 2.5 Flash-Lite (Reasoning): 55
   Command-R+: 52
   Jamba 1.5 Large: 52
