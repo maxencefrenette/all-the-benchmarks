@@ -54,6 +54,7 @@ results:
   o1-mini: 14
   Claude 3.7: 13.6
   Claude 3.7 (1K): 11.6
+  Qwen3-235b-a22b Instruct (25/07): 11
   GPT-4.5: 10.3
   Magistral Medium (Thinking): 6.1
   Magistral Medium: 5.9
@@ -117,6 +118,7 @@ cost_per_task:
   o1-mini: 0.135
   Claude 3.7: 0.058
   Claude 3.7 (1K): 0.07
+  Qwen3-235b-a22b Instruct (25/07): 0.0025
   GPT-4.5: 0.29
   Magistral Medium (Thinking): 0.0989
   Magistral Medium: 0.1015
