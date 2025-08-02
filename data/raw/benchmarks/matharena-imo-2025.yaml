@@ -1,0 +1,22 @@
+benchmark: MathArena IMO 2025
+description: Accuracy on MathArena IMO 2025 competition
+website: https://matharena.ai/
+github: https://github.com/eth-sri/matharena
+score_weight: 1
+cost_weight: 1
+model_name_mapping_file: matharena.yaml
+private_holdout: false
+results:
+  DeepSeek-R1-0528: 6.845238095238095
+  Grok 4: 11.904761904761905
+  Grok 4 (Specific Prompt) 🚨*: 21.42857142857143
+  gemini-2.5-pro: 31.54761904761905
+  o3 (high): 16.666666666666668
+  o4-mini (high): 14.285714285714285
+cost_per_task:
+  DeepSeek-R1-0528: 59.50485533
+  Grok 4: 527.8525260000001
+  Grok 4 (Specific Prompt) 🚨*: 721.738455
+  gemini-2.5-pro: 431.97068125
+  o3 (high): 223.33294800000002
+  o4-mini (high): 103.3411159

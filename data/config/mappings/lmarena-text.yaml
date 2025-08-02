@@ -219,9 +219,12 @@ qwen2.5-coder-32b-instruct: null
 qwen2.5-max: null
 qwen2.5-plus-1127: null
 qwen3-235b-a22b: qwen-3-235b-a22b-thinking
+qwen3-235b-a22b-instruct-2507: null
 qwen3-235b-a22b-no-thinking: qwen-3-235b-a22b-nothinking
+qwen3-235b-a22b-thinking-2507: null
 qwen3-30b-a3b: null
 qwen3-32b: null
+qwen3-coder-480b-a35b-instruct: null
 qwq-32b: null
 qwq-32b-preview: null
 reka-core-20240501: null

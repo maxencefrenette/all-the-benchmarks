@@ -6,71 +6,71 @@ score_weight: 1
 cost_weight: 1
 results:
   Claude-3.5-Sonnet: 2.5
-  Claude-3.7-Sonnet (Think): 48.88888888888889
+  Claude-3.7-Sonnet (Think): 50.81761006289308
   Claude-Opus-4.0 (Think): 69.72222222222224
-  DeepSeek-R1: 64.16666666666667
-  DeepSeek-R1-0528: 86.1111111111111
+  DeepSeek-R1: 64.87028301886792
+  DeepSeek-R1-0528: 82.14544025157232
   DeepSeek-R1-Distill-1.5B: 15.833333333333334
-  DeepSeek-R1-Distill-14B: 49.72222222222223
-  DeepSeek-R1-Distill-32B: 53.88888888888889
-  DeepSeek-R1-Distill-70B: 51.666666666666664
+  DeepSeek-R1-Distill-14B: 50.97091194968553
+  DeepSeek-R1-Distill-32B: 55.51100628930817
+  DeepSeek-R1-Distill-70B: 53.96226415094338
   DeepSeek-V3: 19.166666666666664
   DeepSeek-V3-03-24: 39.58333333333333
-  Grok 3 Mini (high): 80.27777777777777
-  Grok 3 Mini (low): 60.555555555555564
-  Grok 4: 92.77777777777776
+  Grok 3 Mini (high): 77.17138364779873
+  Grok 3 Mini (low): 56.4441823899371
+  Grok 4: 89.46147798742138
   QwQ-32B: 56.66666666666667
   QwQ-32B-Preview: 25.833333333333332
-  Qwen3-235B-A22B: 76.66666666666667
-  Qwen3-30B-A3B: 66.11111111111113
+  Qwen3-235B-A22B: 76.72169811320754
+  Qwen3-30B-A3B: 66.56446540880503
   gemini-2.0-flash: 20.416666666666664
   gemini-2.0-flash-thinking: 44.58333333333334
   gemini-2.0-pro: 17.5
-  gemini-2.5-flash (think): 72.77777777777777
-  gemini-2.5-pro: 86.66666666666664
+  gemini-2.5-flash (think): 68.88600628930817
+  gemini-2.5-pro: 80.60613207547168
   gemini-2.5-pro-05-06: 84.44444444444444
   gpt-4o: 8.75
   o1 (medium): 65
-  o3 (high): 87.5
+  o3 (high): 85.67216981132076
   o3-mini (high): 77.08333333333334
   o3-mini (low): 38.33333333333333
   o3-mini (medium): 65
-  o4-mini (high): 86.94444444444441
-  o4-mini (low): 58.333333333333336
-  o4-mini (medium): 78.33333333333336
+  o4-mini (high): 86.77751572327043
+  o4-mini (low): 58.02358490566037
+  o4-mini (medium): 75.0683962264151
 model_name_mapping_file: matharena.yaml
 private_holdout: false
 cost_per_task:
   Claude-3.5-Sonnet: 1.0443075
-  Claude-3.7-Sonnet (Think): 43.574268
+  Claude-3.7-Sonnet (Think): 50.847844499999994
   Claude-Opus-4.0 (Think): 137.05744
-  DeepSeek-R1: 7.615026466666666
-  DeepSeek-R1-0528: 5.789034866666667
+  DeepSeek-R1: 6.907756049999999
+  DeepSeek-R1-0528: 7.170494036000001
   DeepSeek-R1-Distill-1.5B: 0.43805169
-  DeepSeek-R1-Distill-14B: 1.8744234833333335
-  DeepSeek-R1-Distill-32B: 100000
-  DeepSeek-R1-Distill-70B: 2.0422122
+  DeepSeek-R1-Distill-14B: 1.5055580125
+  DeepSeek-R1-Distill-32B: 75000.1832994
+  DeepSeek-R1-Distill-70B: 1.85275635
   DeepSeek-V3: 0.39429375
   DeepSeek-V3-03-24: 0.5742304
-  Grok 3 Mini (high): 1.0914801333333333
-  Grok 3 Mini (low): 0.3605974666666667
-  Grok 4: 23.942763000000003
+  Grok 3 Mini (high): 1.475704
+  Grok 3 Mini (low): 0.4612881
+  Grok 4: 32.040753
   QwQ-32B: 2.3519885999999994
   QwQ-32B-Preview: 1.2958284000000002
-  Qwen3-235B-A22B: 1.0163521999999998
-  Qwen3-30B-A3B: 0.6147776
+  Qwen3-235B-A22B: 1.1780326499999998
+  Qwen3-30B-A3B: 0.6983277500000001
   gemini-2.0-flash: 0.14800000000000002
   gemini-2.0-flash-thinking: 100000
   gemini-2.0-pro: 1.6117043999999998
-  gemini-2.5-flash (think): 10.142687666666667
-  gemini-2.5-pro: 17.6676
+  gemini-2.5-flash (think): 11.6963374
+  gemini-2.5-pro: 23.943572999999997
   gemini-2.5-pro-05-06: 100000
   gpt-4o: 1.0293450000000002
   o1 (medium): 96.24245250000001
-  o3 (high): 59.338143333333335
+  o3 (high): 53.8820372
   o3-mini (high): 7.6921834
   o3-mini (low): 1.3484614000000004
   o3-mini (medium): 3.6614754000000005
-  o4-mini (high): 7.2800442
-  o4-mini (low): 1.2769196000000003
-  o4-mini (medium): 3.2483220000000004
+  o4-mini (high): 7.8953039
+  o4-mini (low): 1.516834
+  o4-mini (medium): 3.805219000000001

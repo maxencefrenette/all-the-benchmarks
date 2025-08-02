@@ -1,6 +1,7 @@
 Claude-3.5-Sonnet: null
 Claude-3.7-Sonnet (Think): null
 Claude-Opus-4.0 (Think): null
+Claude-Sonnet-4.0: null
 DeepSeek-R1: null
 DeepSeek-R1-0528: null
 DeepSeek-R1-Distill-1.5B: null
@@ -20,6 +21,7 @@ Grok 3 (Think): null
 Grok 3 Mini (high): null
 Grok 3 Mini (low): null
 Grok 4: null
+"Grok 4 (Specific Prompt) \U0001F6A8*": null
 o1 (medium): null
 o1-pro (high): null
 o3 (high): null

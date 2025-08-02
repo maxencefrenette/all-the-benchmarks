@@ -1,0 +1,30 @@
+benchmark: MathArena CMIMC 2025
+description: Accuracy on MathArena CMIMC 2025 competition
+website: https://matharena.ai/
+github: https://github.com/eth-sri/matharena
+score_weight: 1
+cost_weight: 1
+model_name_mapping_file: matharena.yaml
+private_holdout: false
+results:
+  DeepSeek-R1-0528: 69.375
+  Grok 3 Mini (high): 66.25
+  Grok 3 Mini (low): 36.875
+  Grok 4: 83.125
+  gemini-2.5-flash (think): 50.625
+  gemini-2.5-pro: 58.125
+  o3 (high): 78.125
+  o4-mini (high): 84.375
+  o4-mini (low): 46.25
+  o4-mini (medium): 60.625
+cost_per_task:
+  DeepSeek-R1-0528: 8.955378080000001
+  Grok 3 Mini (high): 2.2208191
+  Grok 3 Mini (low): 0.5704064999999998
+  Grok 4: 49.07721599999999
+  gemini-2.5-flash (think): 12.022837799999998
+  gemini-2.5-pro: 27.2391
+  o3 (high): 16.084526000000004
+  o4-mini (high): 7.9841949
+  o4-mini (low): 1.8562455999999998
+  o4-mini (medium): 4.965345000000001

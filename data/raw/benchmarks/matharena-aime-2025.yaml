@@ -4,6 +4,8 @@ website: https://matharena.ai/
 github: https://github.com/eth-sri/matharena
 score_weight: 1
 cost_weight: 1
+model_name_mapping_file: matharena.yaml
+private_holdout: false
 results:
   Claude-3.5-Sonnet: 3.3333333333333335
   Claude-3.7-Sonnet (Think): 49.16666666666668
@@ -38,8 +40,6 @@ results:
   o4-mini (high): 91.66666666666664
   o4-mini (low): 61.66666666666668
   o4-mini (medium): 84.16666666666669
-model_name_mapping_file: matharena.yaml
-private_holdout: false
 cost_per_task:
   Claude-3.5-Sonnet: 1.0873439999999999
   Claude-3.7-Sonnet (Think): 44.382057

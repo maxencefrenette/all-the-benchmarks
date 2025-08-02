@@ -33,9 +33,11 @@ moonshotai/Kimi-K2-Instruct: kimi-k2
 nvidia/llama-3.1-nemotron-ultra-253b-v1:free: null
 o3: o3-medium
 o4-mini: o4-mini-medium
+openrouter/horizon-alpha: null
 qwen/qwen-2.5-72b-instruct: null
 Qwen/Qwen3-235B-A22B: null
 Qwen/Qwen3-30B-A3B: null
 Qwen/Qwen3-32B: null
 Qwen/Qwen3-8B: null
 qwen/qwq-32b: null
+zai-org/GLM-4.5: null

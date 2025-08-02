@@ -14,6 +14,9 @@ def round_sig(x: float, sig: int) -> float:
 def load_benchmark(file_path: Path) -> pd.DataFrame:
     data = yaml.safe_load(file_path.read_text())
 
+    if "model_name_mapping_file" not in data:
+        raise ValueError(f"model_name_mapping_file not found in {file_path}")
+
     results = data.get("results", {})
     results_df = pd.DataFrame(list(results.items()), columns=["alias", "score"])
     results_df["score"] = pd.to_numeric(results_df["score"], errors="coerce")

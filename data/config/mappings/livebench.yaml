@@ -25,6 +25,8 @@ gemma-3-27b-it: null
 gemma-3-4b-it: null
 gemma-3n-e2b-it: null
 gemma-3n-e4b-it: null
+glm-4.5: null
+glm-4.5-air: null
 gpt-4.1-2025-04-14: gpt-4.1
 gpt-4.1-mini-2025-04-14: gpt-4.1-mini
 gpt-4.1-nano-2025-04-14: gpt-4.1-nano
@@ -47,6 +49,9 @@ o4-mini-2025-04-16-medium: o4-mini-medium
 phi-4-reasoning-plus: null
 qwen2.5-72b-instruct-turbo: null
 qwen2.5-max: null
+qwen3-235b-a22b-instruct-2507: null
 qwen3-235b-a22b-thinking: qwen-3-235b-a22b-thinking
+qwen3-235b-a22b-thinking-2507: null
 qwen3-30b-a3b-thinking: null
 qwen3-32b-thinking: null
+qwen3-coder-480b-a35b-instruct: null
