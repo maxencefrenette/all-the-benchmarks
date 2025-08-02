@@ -119,21 +119,47 @@ def build_output(df: pd.DataFrame, factor: Optional[float]) -> Dict[str, Dict[st
     }
     return cleaned
 
-
 def main() -> None:
+    """Convert raw benchmark YAML files into processed outputs.
+
+    For every file under ``data/raw/benchmarks`` a corresponding YAML file is
+    written to ``data/processed/benchmarks``. If a benchmark has no model name
+    mappings—meaning none of its aliases resolve to a model slug—an *empty*
+    YAML file is still emitted. This acts as a breadcrumb for maintainers that
+    the benchmark exists but lacks mappings, rather than silently skipping it.
+    """
+
     root = Path(__file__).resolve().parents[1]
     bench_dir = root / "data" / "raw" / "benchmarks"
     mapping_dir = root / "data" / "config" / "mappings"
     out_dir = root / "data" / "processed" / "benchmarks"
     out_dir.mkdir(exist_ok=True)
 
-    bench_frames = [load_benchmark(f) for f in bench_dir.glob("*.yaml")]
+    bench_files = list(bench_dir.glob("*.yaml"))
+    bench_frames = [load_benchmark(f) for f in bench_files]
     bench_frames = [df for df in bench_frames if not df.empty]
-    benchmarks_df = pd.concat(bench_frames, ignore_index=True)
+    if bench_frames:
+        benchmarks_df = pd.concat(bench_frames, ignore_index=True)
+    else:
+        benchmarks_df = pd.DataFrame(
+            columns=[
+                "alias",
+                "score",
+                "cost",
+                "benchmark",
+                "cost_weight",
+                "score_weight",
+                "model_name_mapping_file",
+            ]
+        )
+    bench_names = [f.stem for f in bench_files]
 
     map_frames = [load_mapping_file(f) for f in mapping_dir.glob("*.yaml")]
     map_frames = [df for df in map_frames if not df.empty]
-    mapping_df = pd.concat(map_frames, ignore_index=True)
+    if map_frames:
+        mapping_df = pd.concat(map_frames, ignore_index=True)
+    else:
+        mapping_df = pd.DataFrame(columns=["alias", "slug", "model_name_mapping_file"])
     benchmarks_df = benchmarks_df.merge(
         mapping_df,
         on=["alias", "model_name_mapping_file"],
@@ -163,14 +189,20 @@ def main() -> None:
         compute_normalization_factors(cost_df, weights).to_dict() if not cost_df.empty else {}
     )
 
-    for bench_name, df in benchmarks_df.groupby("benchmark"):
-        df = df.sort_values(by=["score", "cost", "slug"], ascending=[False, True, True])
+    for bench_name in bench_names:
+        df = benchmarks_df[benchmarks_df["benchmark"] == bench_name]
+        if not df.empty:
+            df = df.sort_values(
+                by=["score", "cost", "slug"], ascending=[False, True, True]
+            )
         factor = factors.get(bench_name)
         out_dict = build_output(
             df[["slug", "score", "normalized_score", "cost"]],
             factor,
         )
         out_path = out_dir / f"{bench_name}.yaml"
+        # Always write a file, even if ``out_dict`` is empty, to signal that the
+        # benchmark was processed but lacked model mappings.
         out_path.write_text(yaml.safe_dump(out_dict, sort_keys=False))
 
 
