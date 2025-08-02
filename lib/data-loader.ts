@@ -31,6 +31,13 @@ export interface LLMData {
   normalizedCost?: number
 }
 
+/**
+ * Compute weighted average benchmark scores for each language model.
+ *
+ * Each model's normalized scores are multiplied by their benchmark-specific
+ * weights to produce an overall average score. The `averageScore` field on
+ * each {@link LLMData} entry is updated in place.
+ */
 export function computeAverageScores(
   llmMap: Record<string, LLMData>,
 ): LLMData[] {
@@ -53,6 +60,12 @@ export function computeAverageScores(
   })
 }
 
+/**
+ * Load benchmark and model metadata from YAML files on disk.
+ *
+ * The returned array is sorted in descending order by average benchmark score
+ * and contains normalized cost information when available.
+ */
 export async function loadLLMData(): Promise<LLMData[]> {
   const modelDir = path.join(process.cwd(), "data", "config", "models")
   const benchmarkDir = path.join(process.cwd(), "data", "raw", "benchmarks")
@@ -149,6 +162,12 @@ export async function loadLLMData(): Promise<LLMData[]> {
   return results.sort((a, b) => (b.averageScore || 0) - (a.averageScore || 0))
 }
 
+/**
+ * Retrieve the details for a single language model by its slug.
+ *
+ * @param slug The identifier used in the YAML configuration files.
+ * @returns The matching {@link LLMData} or `null` if it is not found.
+ */
 export async function loadLLMDetails(slug: string): Promise<LLMData | null> {
   const all = await loadLLMData()
   return all.find((m) => m.slug === slug) ?? null
