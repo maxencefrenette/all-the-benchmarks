@@ -2,7 +2,7 @@
   slug: grok-4
   model: Grok 4
   provider: xAI
-  averageScore: 91.36
+  averageScore: 91.11
   costPerTask: 478
   costBenchmarkCount: 8
   benchmarkCount: 12
@@ -12,7 +12,7 @@
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro
   provider: Google
-  averageScore: 84.79
+  averageScore: 84.65
   costPerTask: 276
   costBenchmarkCount: 8
   benchmarkCount: 12
@@ -23,7 +23,7 @@
   model: o3-pro (high)
   provider: OpenAI
   averageScore: 83.91
-  costPerTask: 1730
+  costPerTask: 1740
   costBenchmarkCount: 4
   benchmarkCount: 5
   totalBenchmarks: 12
@@ -33,7 +33,7 @@
   model: o3 (high)
   provider: OpenAI
   averageScore: 82.31
-  costPerTask: 199
+  costPerTask: 200
   costBenchmarkCount: 4
   benchmarkCount: 6
   totalBenchmarks: 12
@@ -62,18 +62,28 @@
   slug: claude-opus-4-thinking
   model: Claude 4 Opus (thinking)
   provider: Anthropic
-  averageScore: 72.59
+  averageScore: 72.81
   costPerTask: 628
   costBenchmarkCount: 8
   benchmarkCount: 11
   totalBenchmarks: 12
   totalCostBenchmarks: 8
-- id: deepseek-r1-0528
-  slug: deepseek-r1-0528
-  model: DeepSeek R1 05/28
-  provider: DeepSeek
-  averageScore: 65.27
-  costPerTask: 47.1
+- id: kimi-k2
+  slug: kimi-k2
+  model: Kimi K2
+  provider: Moonshot
+  averageScore: 66.29
+  costPerTask: 18.9
+  costBenchmarkCount: 5
+  benchmarkCount: 8
+  totalBenchmarks: 12
+  totalCostBenchmarks: 8
+- id: claude-sonnet-4-thinking
+  slug: claude-sonnet-4-thinking
+  model: Claude 4 Sonnet (thinking)
+  provider: Anthropic
+  averageScore: 65.1
+  costPerTask: 190
   costBenchmarkCount: 8
   benchmarkCount: 11
   totalBenchmarks: 12
@@ -82,19 +92,9 @@
   slug: grok-3-mini-high
   model: Grok 3 Mini (high)
   provider: xAI
-  averageScore: 64.35
+  averageScore: 64.48
   costPerTask: 12.8
   costBenchmarkCount: 6
   benchmarkCount: 8
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
-- id: kimi-k2
-  slug: kimi-k2
-  model: Kimi K2
-  provider: Moonshot
-  averageScore: 63.95
-  costPerTask: 13.4
-  costBenchmarkCount: 4
-  benchmarkCount: 7
   totalBenchmarks: 12
   totalCostBenchmarks: 8

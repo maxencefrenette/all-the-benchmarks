@@ -1,8 +1,11 @@
 import sys
+import importlib
+import shutil
 from pathlib import Path
-import yaml
-import pytest
+
 import pandas as pd
+import pytest
+import yaml
 
 # Add scripts_python directory to path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -151,3 +154,35 @@ def test_weight_scaling_equivalence() -> None:
 
     assert f_a["A"] == pytest.approx(f_b["A"], rel=1e-6)
     assert f_a["B"] == pytest.approx(f_b["B"], rel=1e-6)
+
+
+def test_creates_empty_processed_file_without_mappings(tmp_path: Path) -> None:
+    root = tmp_path
+    (root / "data" / "raw" / "benchmarks").mkdir(parents=True)
+    (root / "data" / "config" / "mappings").mkdir(parents=True)
+    (root / "data" / "processed").mkdir(parents=True)
+    script_dir = root / "scripts_python"
+    script_dir.mkdir()
+    src_script = Path(__file__).resolve().parents[1] / "process_data.py"
+    shutil.copy(src_script, script_dir / "temp_process_data.py")
+
+    bench_data = {
+        "model_name_mapping_file": "map.yaml",
+        "results": {"Model A": 1.0},
+    }
+    bench_path = root / "data" / "raw" / "benchmarks" / "bench.yaml"
+    bench_path.write_text(yaml.safe_dump(bench_data, sort_keys=False))
+    (root / "data" / "config" / "mappings" / "map.yaml").write_text(
+        yaml.safe_dump({}, sort_keys=False)
+    )
+
+    sys.path.insert(0, str(script_dir))
+    try:
+        module = importlib.import_module("temp_process_data")
+    finally:
+        sys.path.pop(0)
+    module.main()
+
+    out_file = root / "data" / "processed" / "benchmarks" / "bench.yaml"
+    assert out_file.exists()
+    assert yaml.safe_load(out_file.read_text()) == {}
