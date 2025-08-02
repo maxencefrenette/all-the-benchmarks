@@ -1,6 +1,7 @@
 # pnpm usage
 
-This repository uses pnpm as package manager.
+This repository uses pnpm as its JavaScript package manager.
+After cloning the repo run `pnpm install` once to install dependencies.
 
 - Run linting and autofix: `pnpm lint`
 - Validate linting without fixes: `pnpm lint:check`
@@ -10,6 +11,7 @@ This repository uses pnpm as package manager.
 - Update snapshot tests: `pnpm test:update`
 
 After making changes, always run `pnpm prettier`, `pnpm lint`, and `pnpm test:update` to ensure everything is working.
+You can start a local development server with `pnpm dev`.
 
 ## Project structure
 
@@ -54,7 +56,9 @@ To add a new model to the leaderboard:
 
 ## Processing benchmark data with Python
 
+Install the Python dependencies with `uv sync` if you haven't already.
 Run `uv run process_data.py` from `scripts_python/` to convert raw YAML into `data/processed/benchmarks`.
+After processing, execute `pnpm process:all` to refresh any derived files.
 
 # Editing this file
 
