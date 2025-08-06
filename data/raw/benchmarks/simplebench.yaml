@@ -8,6 +8,7 @@ results:
   Human Baseline*: 83.7
   Gemini 2.5 Pro (06-05): 62.4
   Grok 4: 60.5
+  Claude 4.1 Opus: 60
   Claude 4 Opus (thinking): 58.8
   o3 (high): 53.1
   Gemini 2.5 Pro (03-25): 51.6
@@ -38,6 +39,7 @@ results:
   o3-mini (high): 22.8
   Grok 2: 22.7
   Mistral Large v2: 22.5
+  GPT-OSS 120B: 22.1
   Llama 3.3 70b instruct: 19.9
   DeepSeek V3: 18.9
   Gemini 2.0 Flash Exp: 18.9
