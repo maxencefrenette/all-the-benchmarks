@@ -99,8 +99,8 @@ GPT-5 (high): gpt-5-high
 GPT-5 (low): gpt-5-low
 GPT-5 (medium): gpt-5-medium
 GPT-5 (minimal): gpt-5-minimal
-GPT-5 mini: gpt-5-mini
-GPT-5 nano: gpt-5-nano
+GPT-5 mini: gpt-5-mini-medium
+GPT-5 nano: gpt-5-nano-medium
 gpt-oss-120B (high): gpt-oss-120b-high
 gpt-oss-20B (high): gpt-oss-20b-high
 Granite 3.3 8B: null

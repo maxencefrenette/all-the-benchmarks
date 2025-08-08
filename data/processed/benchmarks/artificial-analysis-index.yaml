@@ -12,7 +12,7 @@ grok-4:
   score: 68.0
   normalized_score: 97.83
   cost: 1658.0
-  normalized_cost: 399.3
+  normalized_cost: 399.2
 o3-medium:
   score: 67.0
   normalized_score: 95.65
@@ -22,20 +22,20 @@ o4-mini-high:
   score: 65.0
   normalized_score: 91.3
   cost: 330.0
-  normalized_cost: 79.47
+  normalized_cost: 79.46
 gemini-2.5-pro-06-05:
   score: 65.0
   normalized_score: 91.3
   cost: 983.0
   normalized_cost: 236.7
-gpt-5-mini:
+gpt-5-mini-medium:
   score: 64.0
   normalized_score: 89.13
 gpt-5-low:
   score: 63.0
   normalized_score: 86.96
   cost: 169.0
-  normalized_cost: 40.7
+  normalized_cost: 40.69
 claude-sonnet-4-thinking:
   score: 59.0
   normalized_score: 78.26
@@ -67,7 +67,7 @@ claude-opus-4-thinking:
   normalized_score: 69.57
   cost: 1999.0
   normalized_cost: 481.4
-gpt-5-nano:
+gpt-5-nano-medium:
   score: 54.0
   normalized_score: 67.39
 gpt-oss-20b-high:
