@@ -1,65 +1,47 @@
-# pnpm usage
+# Repository Guidelines
 
-This repository uses pnpm as its JavaScript package manager.
-After cloning the repo run `pnpm install` once to install dependencies.
+## Project Structure & Module Organization
 
-- Run linting and autofix: `pnpm lint`
-- Validate linting without fixes: `pnpm lint:check`
-- Run Prettier and write changes: `pnpm prettier`
-- Validate formatting without writing: `pnpm prettier:check`
-- Run the test suite: `pnpm test`
-- Update snapshot tests: `pnpm test:update`
+- `app/`: Next.js routes, layouts, pages.
+- `components/`: Reusable UI built on shadcn/ui.
+- `hooks/`: Lightweight React hooks (e.g., `use-*.ts`).
+- `lib/`: YAML loaders, scoring, and helpers.
+- `data/`: Benchmarks and model YAML; processed outputs.
+- `scripts/`: Scrapers that fill `data/raw/benchmarks`.
+- `scripts_python/`: Python utilities (run with `uv`).
+- `public/`, `styles/`: Static assets and Tailwind CSS.
 
-After making changes, always run `pnpm prettier`, `pnpm lint`, and `pnpm test:update` to ensure everything is working.
-You can start a local development server with `pnpm dev`.
+## Build, Test, and Development Commands
 
-## Project structure
+- Install: `pnpm install` (first run).
+- Dev server: `pnpm dev` (Next.js local server).
+- Lint + fix: `pnpm lint`; check only: `pnpm lint:check`.
+- Format: `pnpm prettier`; check only: `pnpm prettier:check`.
+- Tests (Vitest): `pnpm test`; update snapshots: `pnpm test:update`.
+- Scraping: `pnpm scrape:all`.
+- Data processing: `pnpm process:all` and `pnpm mappings:update`.
 
-This repository is a Next.js application. Key directories include:
+## Coding Style & Naming Conventions
 
-- `app/` – Route handlers and page components.
-- `components/` – Shared React components built on top of shadcn/ui.
-- `hooks/` – Small React hooks used across the UI.
-- `lib/` – Helper functions for loading YAML data and computing scores.
-- `public/` – Static assets.
-- `data/` – Benchmark and model YAML files.
-- `scripts/` – Scrapers that populate `data/raw/benchmarks`.
-- `scripts_python/` – Python utilities for processing benchmark data using `uv`.
-- `styles/` – Global and Tailwind CSS files.
+- Language: TypeScript + React, Tailwind CSS.
+- Style: ESLint + Prettier (2‑space indent, semicolons, single quotes where configured).
+- Components: PascalCase in `components/`; hooks: `use-*` files in `hooks/`.
+- Routes: follow Next.js `app/` conventions and folder‑based routing.
+- Use shadcn/ui via CLI: `pnpm dlx shadcn-ui@latest add <component>`.
 
-# Adding shadcn/ui components
+## Testing Guidelines
 
-Use the shadcn/ui CLI to scaffold new components. Run `pnpm dlx shadcn-ui@latest add <component>`.
+- Framework: Vitest with snapshots where appropriate.
+- Name tests near code or in `__tests__` using `*.test.ts(x)`.
+- Before pushing: run `pnpm test` and refresh snapshots with `pnpm test:update` when UI or output changes are intended.
 
-# Adding benchmarks
+## Commit & Pull Request Guidelines
 
-To add a new benchmark to the leaderboard:
+- Commits: Prefer Conventional Commits (e.g., `feat:`, `fix:`, `chore:`, `test:`). Keep messages concise and scoped.
+- PRs: Include a clear summary, linked issues, and screenshots/GIFs for UI changes. Note data/script updates and whether snapshots changed.
+- CI hygiene: run `pnpm prettier`, `pnpm lint`, `pnpm test:update` locally; ensure data processed if benchmarks changed.
 
-- Create a YAML file under `data/raw/benchmarks/` containing the benchmark name, description and a `results` mapping.
-- Create a scraping script under `scripts/` that generates the benchmark YAML and
-  add a corresponding npm script in `package.json`.
-- Run the scraping script to generate the benchmark YAML.
-- Run `pnpm process:all` to process the benchmark data.
-- Run `pnpm mappings:update` to update the mappings.
-- Add the scraping script to .github/workflows/scrape.yml
+## Data & Benchmarks
 
-# Model YAML files
-
-Model definitions live in `data/config/models`. Each file includes `model`, `provider`, and optional `aliases`.
-
-To add a new model to the leaderboard:
-
-- Search the web for release notes or documentation to learn the official version names and differences between variants of the model. Capture all known names.
-- Create a new YAML file in `data/config/models/` containing the `model` name and `provider`.
-- Look at the benchmark YAML files `results` keys to find all the aliases for the model.
-- Add every variant or version string as an entry under `aliases`.
-
-## Processing benchmark data with Python
-
-Install the Python dependencies with `uv sync` if you haven't already.
-Run `uv run process_data.py` from `scripts_python/` to convert raw YAML into `data/processed/benchmarks`.
-After processing, execute `pnpm process:all` to refresh any derived files.
-
-# Editing this file
-
-Whenever you learn something new, add it to this file.
+- New benchmark: add YAML under `data/raw/benchmarks/`, a scraper in `scripts/`, run processing commands above, and update workflow as needed.
+- New model: add file in `data/config/models/` with `model`, `provider`, and comprehensive `aliases` gathered from benchmark keys and release notes.
