@@ -24,6 +24,9 @@ type Props = {
   xLabel: string
   yLabel: string
   renderTooltip?: (entry: CostPerformanceEntry) => React.ReactNode
+  getExtraTooltipEntries?: (
+    entry: CostPerformanceEntry,
+  ) => { name: string; value: number | string }[]
   xDomain?: [number, number]
   yDomain?: [number, number] | ["dataMin", "dataMax"]
   yTicks?: number[]
@@ -34,6 +37,7 @@ export default function CostPerformanceChart({
   xLabel,
   yLabel,
   renderTooltip,
+  getExtraTooltipEntries,
   xDomain,
   yDomain,
   yTicks,
@@ -133,7 +137,26 @@ export default function CostPerformanceChart({
                 {typeof value === "number" ? formatSigFig(value) : value}
               </span>
             )}
-            content={<ChartTooltipContent />}
+            content={(props) => {
+              const entry = props.payload?.[0]?.payload as CostPerformanceEntry
+              const extra =
+                entry && getExtraTooltipEntries
+                  ? getExtraTooltipEntries(entry).map((e) => ({
+                      ...(props.payload?.[0] ?? {}),
+                      name: e.name,
+                      dataKey: e.name,
+                      value: e.value,
+                    }))
+                  : []
+              return (
+                <ChartTooltipContent
+                  {...props}
+                  payload={
+                    props.payload ? [...props.payload, ...extra] : props.payload
+                  }
+                />
+              )
+            }}
           />
           {Object.entries(groups).map(([provider, items]) => (
             <Scatter

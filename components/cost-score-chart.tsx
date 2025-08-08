@@ -75,6 +75,13 @@ export default function CostScoreChart({
     )
   }, [])
 
+  const extraTooltipEntries = React.useCallback(
+    (entry: CostPerformanceEntry) => [
+      { name: "score/cost", value: entry.score / entry.cost },
+    ],
+    [],
+  )
+
   if (!entries.length) return null
 
   return (
@@ -85,6 +92,7 @@ export default function CostScoreChart({
       yDomain={[0, 100]}
       yTicks={[0, 25, 50, 75, 100]}
       renderTooltip={renderTooltip}
+      getExtraTooltipEntries={extraTooltipEntries}
     />
   )
 }
