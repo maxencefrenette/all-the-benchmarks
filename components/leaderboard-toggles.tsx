@@ -11,6 +11,7 @@ export default function LeaderboardToggles() {
 
   const showDeprecated = searchParams.get("deprecated") === "true"
   const showIncomplete = searchParams.get("incomplete") === "true"
+  const linearScale = searchParams.get("linear") === "true"
 
   const updateParam = (key: string, value: boolean) => {
     const params = new URLSearchParams(searchParams.toString())
@@ -25,6 +26,14 @@ export default function LeaderboardToggles() {
 
   return (
     <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center gap-2">
+        <Switch
+          id="linear-toggle"
+          checked={linearScale}
+          onCheckedChange={(checked) => updateParam("linear", checked)}
+        />
+        <Label htmlFor="linear-toggle">Linear cost scale</Label>
+      </div>
       <div className="flex items-center gap-2">
         <Switch
           id="deprecated-toggle"

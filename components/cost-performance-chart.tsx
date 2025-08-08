@@ -27,6 +27,7 @@ type Props = {
   xDomain?: [number, number]
   yDomain?: [number, number] | ["dataMin", "dataMax"]
   yTicks?: number[]
+  xScale?: "log" | "linear"
 }
 
 export default function CostPerformanceChart({
@@ -37,6 +38,7 @@ export default function CostPerformanceChart({
   xDomain,
   yDomain,
   yTicks,
+  xScale = "log",
 }: Props) {
   const data = React.useMemo(() => entries.filter((e) => e.cost > 0), [entries])
 
@@ -81,10 +83,12 @@ export default function CostPerformanceChart({
     return [min / FACTOR, max * FACTOR]
   }, [data, xDomain])
 
-  const ticks = React.useMemo(
-    () => BASE_TICKS.filter((t) => t >= costDomain[0] && t <= costDomain[1]),
-    [costDomain],
-  )
+  const ticks = React.useMemo(() => {
+    if (xScale === "log") {
+      return BASE_TICKS.filter((t) => t >= costDomain[0] && t <= costDomain[1])
+    }
+    return undefined
+  }, [costDomain, xScale])
 
   if (!data.length) return null
 
@@ -101,9 +105,9 @@ export default function CostPerformanceChart({
             dataKey="cost"
             type="number"
             name="Cost"
-            scale="log"
+            scale={xScale}
             domain={costDomain as [number, number]}
-            ticks={ticks}
+            {...(ticks ? { ticks } : {})}
             tickFormatter={(v) => (v ? formatSigFig(v) : "")}
             label={{ value: xLabel, position: "insideBottom", offset: -10 }}
           />

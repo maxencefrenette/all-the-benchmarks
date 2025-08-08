@@ -2,6 +2,7 @@
 
 import React from "react"
 import { LLMData } from "@/lib/data-loader"
+import { useSearchParams } from "next/navigation"
 import CostPerformanceChart, {
   CostPerformanceEntry,
 } from "./cost-performance-chart"
@@ -26,6 +27,8 @@ export default function CostScoreChart({
   showDeprecated,
   showIncomplete,
 }: Props) {
+  const searchParams = useSearchParams()
+  const useLinearScale = searchParams.get("linear") === "true"
   const sorted = React.useMemo(
     () => [...llmData].sort((a, b) => a.slug.localeCompare(b.slug)),
     [llmData],
@@ -84,6 +87,7 @@ export default function CostScoreChart({
       yLabel="Average Normalized Score"
       yDomain={[0, 100]}
       yTicks={[0, 25, 50, 75, 100]}
+      xScale={useLinearScale ? "linear" : "log"}
       renderTooltip={renderTooltip}
     />
   )
