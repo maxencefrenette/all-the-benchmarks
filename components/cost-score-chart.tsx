@@ -83,7 +83,7 @@ export default function CostScoreChart({
 
   const extraTooltipEntries = React.useCallback(
     (entry: CostPerformanceEntry) => [
-      { name: "score/cost", value: entry.score / entry.cost },
+      { name: "Score/Cost", value: entry.score / entry.cost },
     ],
     [],
   )
