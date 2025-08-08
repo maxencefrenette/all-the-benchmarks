@@ -7,6 +7,7 @@ import {
   MIN_BENCHMARKS,
   MIN_COST_BENCHMARKS,
   MIN_NEW_MODEL_BENCHMARKS,
+  MIN_NEW_MODEL_COST_BENCHMARKS,
 } from "@/lib/settings"
 
 const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000
@@ -30,7 +31,9 @@ export function useModelFilter(llmData: LLMData[]) {
         const benchmarkCount = Object.keys(m.benchmarks).length
         const costCount = countCostBenchmarks(m)
         return (
-          (isNew && benchmarkCount >= MIN_NEW_MODEL_BENCHMARKS) ||
+          (isNew &&
+            benchmarkCount >= MIN_NEW_MODEL_BENCHMARKS &&
+            costCount >= MIN_NEW_MODEL_COST_BENCHMARKS) ||
           ((showDeprecated || !m.deprecated) &&
             (showIncomplete ||
               (benchmarkCount >= MIN_BENCHMARKS &&
