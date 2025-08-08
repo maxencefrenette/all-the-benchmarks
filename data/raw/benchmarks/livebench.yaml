@@ -12,6 +12,7 @@ results:
   claude-3-7-sonnet-20250219-thinking-64k: 67.43
   claude-4-opus-20250514-base: 65.93
   claude-4-opus-20250514-thinking-32k: 72.93
+  claude-4-1-opus-20250805-thinking-32k: 73.48
   claude-4-sonnet-20250514-base: 63.37
   claude-4-sonnet-20250514-thinking-64k: 72.08
   command-r-08-2024: 27.15
@@ -31,6 +32,8 @@ results:
   gpt-4.1-nano-2025-04-14: 40.51
   gpt-4.5-preview-2025-02-27: 58.65
   gpt-4o-2024-11-20: 47.43
+  gpt-5: 75.84
+  gpt-oss-120b: 54.6
   grok-3-beta: 56.05
   grok-3-mini-beta-high: 62.36
   hunyuan-turbos-20250313: 43.99

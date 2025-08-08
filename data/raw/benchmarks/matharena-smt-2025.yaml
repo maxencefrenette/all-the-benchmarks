@@ -4,8 +4,6 @@ website: https://matharena.ai/
 github: https://github.com/eth-sri/matharena
 score_weight: 1
 cost_weight: 1
-model_name_mapping_file: matharena.yaml
-private_holdout: false
 results:
   Claude-3.7-Sonnet (Think): 56.60377358490564
   DeepSeek-R1: 66.98113207547168
@@ -13,6 +11,10 @@ results:
   DeepSeek-R1-Distill-14B: 54.71698113207544
   DeepSeek-R1-Distill-32B: 60.377358490566
   DeepSeek-R1-Distill-70B: 60.84905660377355
+  GLM 4.5: 82.0754716981132
+  GLM 4.5 Air: 77.35849056603772
+  GPT OSS 120B (high): 87.26415094339622
+  GPT OSS 20B (high): 81.60377358490565
   Grok 3 Mini (high): 78.77358490566037
   Grok 3 Mini (low): 63.679245283018844
   Grok 4: 85.84905660377358
@@ -24,6 +26,8 @@ results:
   o4-mini (high): 88.67924528301887
   o4-mini (low): 68.86792452830186
   o4-mini (medium): 79.71698113207546
+model_name_mapping_file: matharena.yaml
+private_holdout: false
 cost_per_task:
   Claude-3.7-Sonnet (Think): 72.66857399999998
   DeepSeek-R1: 4.7859448
@@ -31,6 +35,10 @@ cost_per_task:
   DeepSeek-R1-Distill-14B: 0.39896159999999997
   DeepSeek-R1-Distill-32B: 0.7331976
   DeepSeek-R1-Distill-70B: 1.2843888
+  GLM 4.5: 9.991668200000001
+  GLM 4.5 Air: 5.380682899999998
+  GPT OSS 120B (high): 2.3344511999999997
+  GPT OSS 20B (high): 4.4756442000000005
   Grok 3 Mini (high): 1.8832605000000004
   Grok 3 Mini (low): 0.6542415999999999
   Grok 4: 39.29826
@@ -38,7 +46,7 @@ cost_per_task:
   Qwen3-30B-A3B: 0.9489782000000003
   gemini-2.5-flash (think): 16.030786199999998
   gemini-2.5-pro: 39.475964999999995
-  o3 (high): 75.31123000000002
+  o3 (high): 18.060750000000006
   o4-mini (high): 9.652192000000001
   o4-mini (low): 1.8971656000000001
   o4-mini (medium): 4.315784

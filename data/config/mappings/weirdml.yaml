@@ -1,24 +1,52 @@
+claude-2.1: null
+claude-3-haiku: null
+claude-3-opus: null
+claude-3-sonnet: null
+claude-3.5-haiku: claude-3.5-haiku
+claude-3.5-sonnet: claude-3.5-sonnet
 claude-3.6-sonnet: claude-3.5-sonnet-v2
 claude-4-opus-20250522 (thinking 16k): claude-opus-4-thinking
 claude-4-sonnet-20250522 (no thinking): claude-sonnet-4-nothinking
 claude-4-sonnet-20250522 (thinking 16k): claude-sonnet-4-thinking
+claude-opus-4.1 (thinking 16k): claude-opus-4.1-thinking
+deepseek-r1: deepseek-r1-0120
 deepseek-r1-0528: deepseek-r1-0528
+deepseek-r1-0528-qwen3-8b: null
 deepseek-v3-0324: deepseek-v3-0324
+gemini-2.0-flash-001: null
 gemini-2.5-flash (thinking 16k): gemini-2.5-flash-0520-thinking
 gemini-2.5-flash-lite-preview-06-17 (thinking 16k): null
 gemini-2.5-pro (thinking 16k): gemini-2.5-pro-06-05
+gemini-flash-1.5-002: null
+gemini-pro-1.5-002: null
 glm-4.5 (thinking): null
+gpt-3.5-turbo-0125: null
+gpt-4-0613: null
+gpt-4-turbo-2024-04-09: null
 gpt-4.1-2025-04-14: gpt-4.1
 gpt-4.1-mini-2025-04-14: gpt-4.1-mini
 gpt-4.1-nano-2025-04-14: gpt-4.1-nano
 gpt-4.5-preview: gpt-4.5-preview
+gpt-4o-2024-11-20: gpt-4o-2024-11-20
+gpt-4o-mini: null
+gpt-oss-120b: gpt-oss-120b-medium
+gpt-oss-20b: gpt-oss-20b-medium
 grok-2-1212: null
 grok-3: grok-3
 grok-3-mini (high): grok-3-mini-high
 grok-4-07-09: grok-4
 kimi-k2: null
+llama-3.1-405b-instruct: null
+llama-3.1-70b-instruct: null
+llama-3.1-8b-instruct: null
+llama-3.3-70b-instruct: null
 llama-4-maverick: llama-4-maverick
+mixtral-8x22b-instruct: null
+o1-2024-12-17 (high): null
+o1-mini: null
+o1-preview: null
 o3-2025-04-16 (high): o3-high
+o3-mini-2025-01-31 (high): null
 o3-pro-2025-06-10 (high): o3-pro-high
 o4-mini-2025-04-16 (high): o4-mini-high
 qwen3-235b-a22b (thinking): qwen-3-235b-a22b-thinking

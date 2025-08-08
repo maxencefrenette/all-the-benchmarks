@@ -16,6 +16,10 @@ results:
   DeepSeek-R1-Distill-70B: 53.96226415094338
   DeepSeek-V3: 19.166666666666664
   DeepSeek-V3-03-24: 39.58333333333333
+  GLM 4.5: 83.3317610062893
+  GLM 4.5 Air: 78.09669811320754
+  GPT OSS 120B (high): 89.07783018867923
+  GPT OSS 20B (high): 80.65408805031447
   Grok 3 Mini (high): 77.17138364779873
   Grok 3 Mini (low): 56.4441823899371
   Grok 4: 89.46147798742138
@@ -44,14 +48,18 @@ cost_per_task:
   Claude-3.5-Sonnet: 1.0443075
   Claude-3.7-Sonnet (Think): 50.847844499999994
   Claude-Opus-4.0 (Think): 137.05744
-  DeepSeek-R1: 6.907756049999999
+  DeepSeek-R1: 3.3687044100000003
   DeepSeek-R1-0528: 7.170494036000001
   DeepSeek-R1-Distill-1.5B: 0.43805169
-  DeepSeek-R1-Distill-14B: 1.5055580125
-  DeepSeek-R1-Distill-32B: 75000.1832994
-  DeepSeek-R1-Distill-70B: 1.85275635
+  DeepSeek-R1-Distill-14B: 0.2762868
+  DeepSeek-R1-Distill-32B: 0.5401635
+  DeepSeek-R1-Distill-70B: 0.89434635
   DeepSeek-V3: 0.39429375
   DeepSeek-V3-03-24: 0.5742304
+  GLM 4.5: 7.4631447600000005
+  GLM 4.5 Air: 3.9582728000000005
+  GPT OSS 120B (high): 1.92912888
+  GPT OSS 20B (high): 3.7010044800000004
   Grok 3 Mini (high): 1.475704
   Grok 3 Mini (low): 0.4612881
   Grok 4: 32.040753
@@ -61,13 +69,13 @@ cost_per_task:
   Qwen3-30B-A3B: 0.6983277500000001
   gemini-2.0-flash: 0.14800000000000002
   gemini-2.0-flash-thinking: 100000
-  gemini-2.0-pro: 1.6117043999999998
+  gemini-2.0-pro: 1.6113977
   gemini-2.5-flash (think): 11.6963374
-  gemini-2.5-pro: 23.943572999999997
+  gemini-2.5-pro: 23.943451
   gemini-2.5-pro-05-06: 100000
   gpt-4o: 1.0293450000000002
   o1 (medium): 96.24245250000001
-  o3 (high): 53.8820372
+  o3 (high): 13.949632400000002
   o3-mini (high): 7.6921834
   o3-mini (low): 1.3484614000000004
   o3-mini (medium): 3.6614754000000005

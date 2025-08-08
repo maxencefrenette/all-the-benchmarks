@@ -1,0 +1,6 @@
+provider: OpenAI
+release_date: 2025-08-05
+reasoning_efforts:
+  gpt-oss-20b-low: GPT-OSS 20B (Low)
+  gpt-oss-20b-medium: GPT-OSS 20B (Medium)
+  gpt-oss-20b-high: GPT-OSS 20B (High)

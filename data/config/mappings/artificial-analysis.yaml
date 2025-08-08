@@ -95,6 +95,14 @@ GPT-4o (March 2025): null
 GPT-4o (May '24): gpt-4o-2024-05-13
 GPT-4o (Nov '24): gpt-4o-2024-11-20
 GPT-4o mini: null
+GPT-5 (high): gpt-5-high
+GPT-5 (low): gpt-5-low
+GPT-5 (medium): gpt-5-medium
+GPT-5 (minimal): gpt-5-minimal
+GPT-5 mini: gpt-5-mini
+GPT-5 nano: gpt-5-nano
+gpt-oss-120B (high): gpt-oss-120b-high
+gpt-oss-20B (high): gpt-oss-20b-high
 Granite 3.3 8B: null
 Grok 2: null
 Grok 3: grok-3
@@ -226,5 +234,6 @@ Solar Pro 2 (Reasoning): null
 Sonar: null
 Sonar Pro: null
 Sonar Reasoning: null
+Sonar Reasoning Pro: null
 Tulu3 405B: null
 Yi-Large: null

@@ -1,4 +1,5 @@
 provider: OpenAI
+deprecated: true
 reasoning_efforts:
   o3-low: o3 (low)
   o3-medium: o3 (medium)

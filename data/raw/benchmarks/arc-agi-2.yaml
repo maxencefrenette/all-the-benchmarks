@@ -7,18 +7,23 @@ cost_weight: 1
 results:
   Human Panel: 100
   Grok 4 (Thinking): 16
+  GPT-5 (High): 9.9
   Claude Opus 4 (Thinking 16K): 8.6
+  GPT-5 (Medium): 7.5
   o3 (High): 6.5
   o4-mini (High): 6.1
   Claude Sonnet 4 (Thinking 16K): 5.9
   o3-Pro (High): 4.9
   Gemini 2.5 Pro (Thinking 32K): 4.9
   Claude Opus 4 (Thinking 8K): 4.5
+  GPT-5 Mini (High): 4.4
   Gemini 2.5 Pro (Thinking 16K): 4
+  GPT-5 Mini (Medium): 4
   o3-preview (Low)*: 4
   o3-mini (High): 3
   o3 (Medium): 3
   Gemini 2.5 Pro (Thinking 8K): 2.9
+  GPT-5 Nano (High): 2.6
   Gemini 2.5 Flash (Preview) (Thinking 24K): 2.5
   ARChitects: 2.5
   o4-mini (Medium): 2.4
@@ -30,8 +35,10 @@ results:
   o3 (Low): 2
   Gemini 2.5 Flash (Preview) (Thinking 16K): 2
   o3-Pro (Medium): 1.9
+  GPT-5 (Low): 1.9
   Gemini 2.5 Flash (Preview): 1.7
   o4-mini (Low): 1.7
+  GPT-5 Mini (Minimal): 1.7
   Icecuber: 1.6
   Gemini 2.0 Flash: 1.3
   Deepseek R1: 1.3
@@ -43,9 +50,11 @@ results:
   Deepseek R1 (05/28): 1.1
   o1-pro (Low): 0.9
   Claude 3.7 (8K): 0.9
+  GPT-5 Nano (Medium): 0.9
   Claude Sonnet 4 (Thinking 1K): 0.9
   o1-mini: 0.8
   o1 (Low): 0.8
+  GPT-5 Mini (Low): 0.8
   Gemini 1.5 Pro: 0.8
   GPT-4.5: 0.8
   Claude 3.7 (16K): 0.7
@@ -66,23 +75,31 @@ results:
   Magistral Medium: 0
   Magistral Medium (Thinking): 0
   Gemini 2.5 Pro (Thinking 1K): 0
+  GPT-5 (Minimal): 0
+  GPT-5 Nano (Low): 0
+  GPT-5 Nano (Minimal): 0
 model_name_mapping_file: arc-agi.yaml
 private_holdout: true
 cost_per_task:
   Human Panel: 17
   Grok 4 (Thinking): 2.1659
+  GPT-5 (High): 0.7302
   Claude Opus 4 (Thinking 16K): 1.9284
+  GPT-5 (Medium): 0.4486
   o3 (High): 0.8339
   o4-mini (High): 0.856
   Claude Sonnet 4 (Thinking 16K): 0.4857
   o3-Pro (High): 7.5516
   Gemini 2.5 Pro (Thinking 32K): 0.757
   Claude Opus 4 (Thinking 8K): 1.1569
+  GPT-5 Mini (High): 0.1977
   Gemini 2.5 Pro (Thinking 16K): 0.7145
+  GPT-5 Mini (Medium): 0.0629
   o3-preview (Low)*: 200
   o3-mini (High): 0.5472
   o3 (Medium): 0.4787
   Gemini 2.5 Pro (Thinking 8K): 0.4439
+  GPT-5 Nano (High): 0.0295
   Gemini 2.5 Flash (Preview) (Thinking 24K): 0.3191
   ARChitects: 0.2
   o4-mini (Medium): 0.2311
@@ -94,8 +111,10 @@ cost_per_task:
   o3 (Low): 0.2343
   Gemini 2.5 Flash (Preview) (Thinking 16K): 0.3173
   o3-Pro (Medium): 4.7441
+  GPT-5 (Low): 0.1896
   Gemini 2.5 Flash (Preview): 0.057
   o4-mini (Low): 0.05
+  GPT-5 Mini (Minimal): 0.0094
   Icecuber: 0.13
   Gemini 2.0 Flash: 0.004
   Deepseek R1: 0.08
@@ -107,9 +126,11 @@ cost_per_task:
   Deepseek R1 (05/28): 0.0527
   o1-pro (Low): 13.9521
   Claude 3.7 (8K): 0.36
+  GPT-5 Nano (Medium): 0.0137
   Claude Sonnet 4 (Thinking 1K): 0.1425
   o1-mini: 0.1907
   o1 (Low): 1.4656
+  GPT-5 Mini (Low): 0.0189
   Gemini 1.5 Pro: 0.04
   GPT-4.5: 2.1
   Claude 3.7 (16K): 0.51
@@ -130,3 +151,6 @@ cost_per_task:
   Magistral Medium: 0.1079
   Magistral Medium (Thinking): 0.123
   Gemini 2.5 Pro (Thinking 1K): 0.0885
+  GPT-5 (Minimal): 0.0562
+  GPT-5 Nano (Low): 0.0033
+  GPT-5 Nano (Minimal): 0.0025

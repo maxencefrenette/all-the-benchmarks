@@ -13,7 +13,6 @@ results:
   gemini-2.0-flash-thinking: 4.166666666666667
   gemini-2.5-pro: 24.404761904761905
   o1-pro (high): 2.8273809523809526
-  o3 (high): 21.726190476190474
   o3-mini (high): 2.0833333333333335
   o4-mini (high): 19.047619047619047
 model_name_mapping_file: matharena.yaml
@@ -25,6 +24,5 @@ cost_per_task:
   QwQ-32B: 0.41695199999999993
   gemini-2.5-pro: 6.232095
   o1-pro (high): 203.4444856
-  o3 (high): 24.169919999999998
   o3-mini (high): 1.1149292
   o4-mini (high): 2.207106

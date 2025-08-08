@@ -1,3 +1,4 @@
 provider: OpenAI
+deprecated: true
 reasoning_efforts:
   gpt-4.1-nano: GPT-4.1 Nano

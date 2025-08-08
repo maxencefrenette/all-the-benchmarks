@@ -1,0 +1,5 @@
+provider: Anthropic
+release_date: 2025-08-05
+reasoning_efforts:
+  claude-opus-4.1-nothinking: Claude 4.1 Opus (no thinking)
+  claude-opus-4.1-thinking: Claude 4.1 Opus (thinking)

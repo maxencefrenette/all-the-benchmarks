@@ -1,5 +1,6 @@
 provider: Anthropic
 release_date: 2025-05-22
+deprecated: true
 reasoning_efforts:
   claude-opus-4-nothinking: Claude 4 Opus (no thinking)
   claude-opus-4-thinking: Claude 4 Opus (thinking)

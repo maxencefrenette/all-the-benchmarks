@@ -1,0 +1,7 @@
+provider: OpenAI
+release_date: 2025-08-07
+reasoning_efforts:
+  gpt-5-nano-minimal: GPT-5 Nano (Minimal)
+  gpt-5-nano-low: GPT-5 Nano (Low)
+  gpt-5-nano-medium: GPT-5 Nano (Medium)
+  gpt-5-nano-high: GPT-5 Nano (High)

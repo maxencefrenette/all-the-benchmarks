@@ -97,6 +97,8 @@ glm-4-0116: null
 glm-4-0520: null
 glm-4-plus: null
 glm-4-plus-0111: null
+glm-4.5: null
+glm-4.5-air: null
 gpt-3.5-turbo-0125: null
 gpt-3.5-turbo-0314: null
 gpt-3.5-turbo-0613: null
@@ -180,6 +182,7 @@ mpt-30b-chat: null
 mpt-7b-chat: null
 nemotron-4-340b-instruct: null
 nous-hermes-2-mixtral-8x7b-dpo: null
+nvidia-llama-3.3-nemotron-super-49b-v1.5: null
 o1-2024-12-17: null
 o1-mini: null
 o1-preview: null
@@ -223,6 +226,7 @@ qwen3-235b-a22b-instruct-2507: null
 qwen3-235b-a22b-no-thinking: qwen-3-235b-a22b-nothinking
 qwen3-235b-a22b-thinking-2507: null
 qwen3-30b-a3b: null
+qwen3-30b-a3b-instruct-2507: null
 qwen3-32b: null
 qwen3-coder-480b-a35b-instruct: null
 qwq-32b: null

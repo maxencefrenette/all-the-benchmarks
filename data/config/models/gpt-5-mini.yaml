@@ -1,0 +1,7 @@
+provider: OpenAI
+release_date: 2025-08-07
+reasoning_efforts:
+  gpt-5-mini-minimal: GPT-5 Mini (Minimal)
+  gpt-5-mini-low: GPT-5 Mini (Low)
+  gpt-5-mini-medium: GPT-5 Mini (Medium)
+  gpt-5-mini-high: GPT-5 Mini (High)

@@ -4,8 +4,6 @@ website: https://matharena.ai/
 github: https://github.com/eth-sri/matharena
 score_weight: 1
 cost_weight: 1
-model_name_mapping_file: matharena.yaml
-private_holdout: false
 results:
   Claude-3.5-Sonnet: 3.3333333333333335
   Claude-3.7-Sonnet (Think): 49.16666666666668
@@ -18,6 +16,10 @@ results:
   DeepSeek-R1-Distill-70B: 55
   DeepSeek-V3: 25
   DeepSeek-V3-03-24: 50
+  GLM 4.5: 93.33333333333331
+  GLM 4.5 Air: 83.33333333333331
+  GPT OSS 120B (high): 90.83333333333331
+  GPT OSS 20B (high): 89.16666666666667
   Grok 3 Mini (high): 81.66666666666666
   Grok 3 Mini (low): 65.00000000000001
   Grok 4: 90.83333333333331
@@ -40,17 +42,24 @@ results:
   o4-mini (high): 91.66666666666664
   o4-mini (low): 61.66666666666668
   o4-mini (medium): 84.16666666666669
+model_name_mapping_file: matharena.yaml
+private_holdout: false
 cost_per_task:
   Claude-3.5-Sonnet: 1.0873439999999999
   Claude-3.7-Sonnet (Think): 44.382057
   Claude-Opus-4.0 (Think): 137.893785
-  DeepSeek-R1: 9.593758999999997
+  DeepSeek-R1: 2.94540778
   DeepSeek-R1-0528: 5.775422759999999
   DeepSeek-R1-Distill-1.5B: 0.37417446000000004
-  DeepSeek-R1-Distill-14B: 2.4139760000000003
-  DeepSeek-R1-Distill-70B: 2.56836
+  DeepSeek-R1-Distill-14B: 0.22631024999999996
+  DeepSeek-R1-Distill-32B: 0.4670115
+  DeepSeek-R1-Distill-70B: 0.7602775999999998
   DeepSeek-V3: 0.4024775
   DeepSeek-V3-03-24: 0.5246675999999999
+  GLM 4.5: 5.81444
+  GLM 4.5 Air: 3.1760577000000003
+  GPT OSS 120B (high): 1.5269171999999998
+  GPT OSS 20B (high): 2.8963044000000004
   Grok 3 Mini (high): 1.1152088
   Grok 3 Mini (low): 0.3499958
   Grok 4: 23.588388
@@ -59,12 +68,12 @@ cost_per_task:
   Qwen3-235B-A22B: 1.0787862
   Qwen3-30B-A3B: 0.6496527
   gemini-2.0-flash: 0.135576
-  gemini-2.0-pro: 1.8546592
+  gemini-2.0-pro: 1.8540458000000002
   gemini-2.5-flash (think): 10.029940400000001
-  gemini-2.5-pro: 16.11023
+  gemini-2.5-pro: 16.10994
   gpt-4o: 1.0982000000000003
   o1 (medium): 85.44400500000002
-  o3 (high): 58.51596999999998
+  o3 (high): 11.703194000000002
   o3-mini (high): 6.043276800000001
   o3-mini (low): 1.2753488000000004
   o3-mini (medium): 3.2926916000000004

@@ -10,17 +10,22 @@ results:
   Avg. Mturker: 77
   o3-preview (Low)*: 75.7
   Grok 4 (Thinking): 66.7
+  GPT-5 (High): 65.7
   o3 (High): 60.8
   o3-Pro (High): 59.3
   o4-mini (High): 58.7
   o3-Pro (Medium): 57
+  GPT-5 (Medium): 56.2
   ARChitects: 56
+  GPT-5 Mini (High): 54.3
   o3 (Medium): 53.8
   o3-Pro (Low): 44.3
+  GPT-5 (Low): 44
   o4-mini (Medium): 41.8
   o3 (Low): 41.5
   Gemini 2.5 Pro (Thinking 16K): 41
   Claude Sonnet 4 (Thinking 16K): 40
+  GPT-5 Mini (Medium): 37.3
   Gemini 2.5 Pro (Thinking 32K): 37
   Claude Opus 4 (Thinking 16K): 35.7
   o3-mini (High): 34.5
@@ -36,6 +41,7 @@ results:
   Codex Mini (Latest): 27.3
   o1 (Low): 27.2
   Claude Opus 4 (Thinking 1K): 27
+  GPT-5 Mini (Low): 26.3
   Gemini 2.5 Flash (Preview) (Thinking 8K): 25.8
   Claude Sonnet 4: 23.8
   o1-pro (Low): 23.3
@@ -44,8 +50,10 @@ results:
   o4-mini (Low): 21.3
   Deepseek R1 (05/28): 21.2
   Claude 3.7 (8K): 21.2
+  GPT-5 Nano (Medium): 20.7
   o1-preview: 18
   Icecuber: 17
+  GPT-5 Nano (High): 16.7
   Grok 3 Mini (Low): 16.5
   Gemini 2.5 Flash (Preview) (Thinking 1K): 16
   Gemini 2.5 Pro (Thinking 1K): 16
@@ -57,13 +65,17 @@ results:
   Qwen3-235b-a22b Instruct (25/07): 11
   GPT-4.5: 10.3
   Magistral Medium (Thinking): 6.1
+  GPT-5 (Minimal): 6
   Magistral Medium: 5.9
   GPT-4.1: 5.5
   Grok 3: 5.5
+  GPT-5 Mini (Minimal): 5.3
   Magistral Small: 5
   GPT-4o: 4.5
   Llama 4 Maverick: 4.4
+  GPT-5 Nano (Low): 4
   GPT-4.1-Mini: 3.5
+  GPT-5 Nano (Minimal): 1.5
   Llama 4 Scout: 0.5
   GPT-4.1-Nano: 0
 model_name_mapping_file: arc-agi.yaml
@@ -74,17 +86,22 @@ cost_per_task:
   Avg. Mturker: 3
   o3-preview (Low)*: 200
   Grok 4 (Thinking): 1.0136
+  GPT-5 (High): 0.5087
   o3 (High): 0.5002
   o3-Pro (High): 4.16
   o4-mini (High): 0.4058
   o3-Pro (Medium): 3.1766
+  GPT-5 (Medium): 0.3301
   ARChitects: 0.2
+  GPT-5 Mini (High): 0.116
   o3 (Medium): 0.2882
   o3-Pro (Low): 1.6382
+  GPT-5 (Low): 0.1531
   o4-mini (Medium): 0.15
   o3 (Low): 0.1764
   Gemini 2.5 Pro (Thinking 16K): 0.4839
   Claude Sonnet 4 (Thinking 16K): 0.3658
+  GPT-5 Mini (Medium): 0.0401
   Gemini 2.5 Pro (Thinking 32K): 0.5123
   Claude Opus 4 (Thinking 16K): 1.2496
   o3-mini (High): 0.3989
@@ -100,6 +117,7 @@ cost_per_task:
   Codex Mini (Latest): 0.1597
   o1 (Low): 1.1803
   Claude Opus 4 (Thinking 1K): 0.5021
+  GPT-5 Mini (Low): 0.0135
   Gemini 2.5 Flash (Preview) (Thinking 8K): 0.1344
   Claude Sonnet 4: 0.0806
   o1-pro (Low): 10.9039
@@ -108,8 +126,10 @@ cost_per_task:
   o4-mini (Low): 0.0406
   Deepseek R1 (05/28): 0.0464
   Claude 3.7 (8K): 0.21
+  GPT-5 Nano (Medium): 0.0124
   o1-preview: 1.6415
   Icecuber: 0.2
+  GPT-5 Nano (High): 0.0292
   Grok 3 Mini (Low): 0.0099
   Gemini 2.5 Flash (Preview) (Thinking 1K): 0.0356
   Gemini 2.5 Pro (Thinking 1K): 0.0573
@@ -121,12 +141,16 @@ cost_per_task:
   Qwen3-235b-a22b Instruct (25/07): 0.0025
   GPT-4.5: 0.29
   Magistral Medium (Thinking): 0.0989
+  GPT-5 (Minimal): 0.0335
   Magistral Medium: 0.1015
   GPT-4.1: 0.039
   Grok 3: 0.0931
+  GPT-5 Mini (Minimal): 0.0057
   Magistral Small: 0.0399
   GPT-4o: 0.05
   Llama 4 Maverick: 0.0078
+  GPT-5 Nano (Low): 0.0033
   GPT-4.1-Mini: 0.0078
+  GPT-5 Nano (Minimal): 0.0015
   Llama 4 Scout: 0.0041
   GPT-4.1-Nano: 0.0021

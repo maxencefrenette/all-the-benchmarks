@@ -4,9 +4,15 @@ gemini-2.5-pro-06-05:
 grok-4:
   score: 60.5
   normalized_score: 95.74
+claude-opus-4.1-nothinking:
+  score: 60.0
+  normalized_score: 94.62
 claude-opus-4-thinking:
   score: 58.8
   normalized_score: 91.93
+gpt-5-high:
+  score: 56.7
+  normalized_score: 87.22
 o3-high:
   score: 53.1
   normalized_score: 79.15
@@ -55,6 +61,9 @@ deepseek-v3-0324:
 gpt-4.1:
   score: 27.0
   normalized_score: 20.63
+gpt-oss-120b-medium:
+  score: 22.1
+  normalized_score: 9.641
 deepseek-v3-1224:
   score: 18.9
   normalized_score: 2.466

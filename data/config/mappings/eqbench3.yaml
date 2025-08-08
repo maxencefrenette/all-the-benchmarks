@@ -19,6 +19,7 @@ gpt-4.1: gpt-4.1
 gpt-4.1-mini: gpt-4.1-mini
 gpt-4.1-nano: gpt-4.1-nano
 gpt-4.5-preview-2025-02-27: gpt-4.5-preview
+gpt-5-chat-latest-2025-08-07: null
 grok-3-beta: grok-3
 grok-3-mini-beta: grok-3-mini-nothinking
 grok-4: grok-4
@@ -33,6 +34,8 @@ moonshotai/Kimi-K2-Instruct: kimi-k2
 nvidia/llama-3.1-nemotron-ultra-253b-v1:free: null
 o3: o3-medium
 o4-mini: o4-mini-medium
+openai/gpt-oss-120b: gpt-oss-120b-medium
+openai/gpt-oss-20b: gpt-oss-20b-medium
 openrouter/horizon-alpha: null
 qwen/qwen-2.5-72b-instruct: null
 Qwen/Qwen3-235B-A22B: null
