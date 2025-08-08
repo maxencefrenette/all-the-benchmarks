@@ -3,7 +3,11 @@
 import { useSearchParams } from "next/navigation"
 import * as React from "react"
 import type { LLMData } from "@/lib/data-loader"
-import { MIN_BENCHMARKS, MIN_COST_BENCHMARKS } from "@/lib/settings"
+import {
+  MIN_BENCHMARKS,
+  MIN_COST_BENCHMARKS,
+  MIN_NEW_MODEL_BENCHMARKS,
+} from "@/lib/settings"
 
 const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000
 
@@ -23,12 +27,14 @@ export function useModelFilter(llmData: LLMData[]) {
       llmData.filter((m) => {
         const isNew =
           m.releaseDate && Date.now() - m.releaseDate.getTime() < ONE_WEEK_MS
+        const benchmarkCount = Object.keys(m.benchmarks).length
+        const costCount = countCostBenchmarks(m)
         return (
-          isNew ||
+          (isNew && benchmarkCount >= MIN_NEW_MODEL_BENCHMARKS) ||
           ((showDeprecated || !m.deprecated) &&
             (showIncomplete ||
-              (Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
-                countCostBenchmarks(m) >= MIN_COST_BENCHMARKS)))
+              (benchmarkCount >= MIN_BENCHMARKS &&
+                costCount >= MIN_COST_BENCHMARKS)))
         )
       }),
     [llmData, showDeprecated, showIncomplete],
