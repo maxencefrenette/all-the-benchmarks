@@ -10,6 +10,9 @@ const BASE_TICKS = [
   0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000, 3000, 10000,
 ] as const
 
+// Default radius for dots derived from the ZAxis range
+const DEFAULT_RADIUS = Math.sqrt(144 / Math.PI)
+
 export type CostPerformanceEntry = {
   label: string
   provider: string
@@ -27,6 +30,13 @@ type Props = {
   xDomain?: [number, number]
   yDomain?: [number, number] | ["dataMin", "dataMax"]
   yTicks?: number[]
+}
+
+type DotProps = {
+  cx: number
+  cy: number
+  payload: CostPerformanceEntry
+  fill: string
 }
 
 export default function CostPerformanceChart({
@@ -68,6 +78,8 @@ export default function CostPerformanceChart({
     return map
   }, [data])
 
+  const [hoverKey, setHoverKey] = React.useState<string | null>(null)
+
   const costDomain = React.useMemo(() => {
     if (xDomain) return xDomain
     const FACTOR = 1.2
@@ -84,6 +96,27 @@ export default function CostPerformanceChart({
   const ticks = React.useMemo(
     () => BASE_TICKS.filter((t) => t >= costDomain[0] && t <= costDomain[1]),
     [costDomain],
+  )
+
+  const renderDot = React.useCallback(
+    (props: DotProps) => {
+      const { cx, cy, payload, fill } = props
+      const key = payload.connectKey ?? payload.label
+      const r = hoverKey === key ? DEFAULT_RADIUS + 4 : DEFAULT_RADIUS
+      return (
+        <circle
+          cx={cx}
+          cy={cy}
+          r={r}
+          fill={fill}
+          stroke="white"
+          strokeWidth={1}
+          onMouseEnter={() => setHoverKey(key)}
+          onMouseLeave={() => setHoverKey(null)}
+        />
+      )
+    },
+    [hoverKey],
   )
 
   if (!data.length) return null
@@ -141,6 +174,7 @@ export default function CostPerformanceChart({
               data={items}
               name={provider}
               fill={PROVIDER_COLORS[provider]}
+              shape={renderDot}
               isAnimationActive={false}
             />
           ))}
@@ -154,6 +188,7 @@ export default function CostPerformanceChart({
                 line={{
                   strokeDasharray: "4 4",
                   stroke: PROVIDER_COLORS[items[0].provider],
+                  strokeWidth: hoverKey === key ? 3 : 1,
                 }}
                 shape={() => <></>}
                 isAnimationActive={false}
