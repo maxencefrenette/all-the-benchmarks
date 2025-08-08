@@ -52,7 +52,11 @@ export default function CostScoreChart({
 
   const entries = React.useMemo(() => {
     return visible
-      .filter((m) => m.normalizedCost !== undefined)
+      .filter(
+        (m) =>
+          m.normalizedCost !== undefined &&
+          (!useLinearScale || (m.normalizedCost as number) <= 300),
+      )
       .map((m) => ({
         label: m.model,
         provider: m.provider,
@@ -61,7 +65,7 @@ export default function CostScoreChart({
         connectKey: m.modelSlug,
         meta: m,
       })) as CostPerformanceEntry[]
-  }, [visible])
+  }, [useLinearScale, visible])
 
   const renderTooltip = React.useCallback((entry: CostPerformanceEntry) => {
     const llm = entry.meta as LLMData
@@ -88,6 +92,7 @@ export default function CostScoreChart({
       yDomain={[0, 100]}
       yTicks={[0, 25, 50, 75, 100]}
       xScale={useLinearScale ? "linear" : "log"}
+      {...(useLinearScale ? { xDomain: [0, 300] } : {})}
       renderTooltip={renderTooltip}
     />
   )
