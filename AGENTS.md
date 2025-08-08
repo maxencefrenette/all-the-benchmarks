@@ -40,7 +40,7 @@ To add a new benchmark to the leaderboard:
   add a corresponding npm script in `package.json`.
 - Run the scraping script to generate the benchmark YAML.
 - Run `pnpm process:all` to process the benchmark data.
-- Run `pnpm update:mappings` to update the mappings.
+- Run `pnpm mappings:update` to update the mappings.
 - Add the scraping script to .github/workflows/scrape.yml
 
 # Model YAML files

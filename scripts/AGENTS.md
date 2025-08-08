@@ -10,4 +10,4 @@ Each script is executed with `tsx` so it can use modern TypeScript features.
 - Register a command in `package.json` like `"scrape:<benchmark>": "tsx scripts/scrape_<benchmark>.ts"`.
 - Run `pnpm lint` and `pnpm prettier` before committing changes.
 - Execute `pnpm test` to confirm the repository still builds.
-- After scraping new results run `pnpm update:mappings` so the model mapping files pick up any new names.
+- After scraping new results run `pnpm mappings:update` so the model mapping files pick up any new names.

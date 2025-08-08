@@ -27,8 +27,8 @@
     "scrape:eqbench3": "tsx scripts/scrape_eqbench3.ts",
     "scrape:all": "tsx scripts/scrape_all.ts",
     "process:all": "uv run --directory scripts_python process_data.py",
-    "update:mappings": "uv run --directory scripts_python update_mappings.py",
-    "full-pipeline": "pnpm scrape:all && pnpm update:mappings && pnpm process:all && pnpm test:update"
+    "mappings:update": "uv run --directory scripts_python update_mappings.py",
+    "full-pipeline": "pnpm scrape:all && pnpm mappings:update && pnpm process:all && pnpm test:update"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
