@@ -96,8 +96,11 @@ export default function CostPerformanceChart({
       max = Math.max(max, item.cost)
     }
     if (!isFinite(min) || !isFinite(max)) return [0, 1]
+    if (xScale === "linear") {
+      return [0, max * FACTOR]
+    }
     return [min / FACTOR, max * FACTOR]
-  }, [data, xDomain])
+  }, [data, xDomain, xScale])
 
   const ticks = React.useMemo(() => {
     if (xScale === "log") {
