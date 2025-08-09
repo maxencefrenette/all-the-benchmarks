@@ -11,6 +11,8 @@ import { formatSigFig } from "../utils"
 test("default leaderboard top 10 data", async () => {
   const MIN_BENCHMARKS = 5
   const MIN_COST_BENCHMARKS = 3
+  const MIN_NEW_MODEL_BENCHMARKS = 3
+  const MIN_NEW_MODEL_COST_BENCHMARKS = 2
   const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000
   function countCostBenchmarks(llm: { benchmarks: Record<string, unknown> }) {
     return Object.values(llm.benchmarks).filter(
@@ -19,7 +21,10 @@ test("default leaderboard top 10 data", async () => {
   }
   const llmData = (await loadLLMData()).filter(
     (m) =>
-      (m.releaseDate && Date.now() - m.releaseDate.getTime() < ONE_WEEK_MS) ||
+      (m.releaseDate &&
+        Date.now() - m.releaseDate.getTime() < ONE_WEEK_MS &&
+        Object.keys(m.benchmarks).length >= MIN_NEW_MODEL_BENCHMARKS &&
+        countCostBenchmarks(m) >= MIN_NEW_MODEL_COST_BENCHMARKS) ||
       (!m.deprecated &&
         Object.keys(m.benchmarks).length >= MIN_BENCHMARKS &&
         countCostBenchmarks(m) >= MIN_COST_BENCHMARKS),
