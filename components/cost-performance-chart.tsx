@@ -86,9 +86,11 @@ export default function CostPerformanceChart({
 
   const [hoverKey, setHoverKey] = React.useState<string | null>(null)
 
-  const costDomain = React.useMemo<[number, number] | undefined>(() => {
+  const costDomain = React.useMemo<
+    [number | "auto", number | "auto"] | undefined
+  >(() => {
     if (xDomain) return xDomain
-    if (xScale === "linear") return undefined
+    if (xScale === "linear") return ["auto", "auto"]
     const FACTOR = 1.2
     let min = Infinity
     let max = -Infinity
@@ -101,7 +103,12 @@ export default function CostPerformanceChart({
   }, [data, xDomain, xScale])
 
   const ticks = React.useMemo(() => {
-    if (xScale === "log" && costDomain) {
+    if (
+      xScale === "log" &&
+      costDomain &&
+      typeof costDomain[0] === "number" &&
+      typeof costDomain[1] === "number"
+    ) {
       return BASE_TICKS.filter((t) => t >= costDomain[0] && t <= costDomain[1])
     }
     return undefined
