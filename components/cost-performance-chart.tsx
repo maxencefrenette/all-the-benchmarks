@@ -90,7 +90,7 @@ export default function CostPerformanceChart({
     [number | "auto", number | "auto"] | undefined
   >(() => {
     if (xDomain) return xDomain
-    if (xScale === "linear") return ["auto", "auto"]
+    if (xScale === "linear") return [0, "auto"]
     const FACTOR = 1.2
     let min = Infinity
     let max = -Infinity
