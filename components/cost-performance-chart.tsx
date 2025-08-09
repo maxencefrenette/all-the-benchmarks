@@ -86,8 +86,9 @@ export default function CostPerformanceChart({
 
   const [hoverKey, setHoverKey] = React.useState<string | null>(null)
 
-  const costDomain = React.useMemo(() => {
+  const costDomain = React.useMemo<[number, number] | undefined>(() => {
     if (xDomain) return xDomain
+    if (xScale === "linear") return undefined
     const FACTOR = 1.2
     let min = Infinity
     let max = -Infinity
@@ -96,14 +97,11 @@ export default function CostPerformanceChart({
       max = Math.max(max, item.cost)
     }
     if (!isFinite(min) || !isFinite(max)) return [0, 1]
-    if (xScale === "linear") {
-      return [0, max * FACTOR]
-    }
     return [min / FACTOR, max * FACTOR]
   }, [data, xDomain, xScale])
 
   const ticks = React.useMemo(() => {
-    if (xScale === "log") {
+    if (xScale === "log" && costDomain) {
       return BASE_TICKS.filter((t) => t >= costDomain[0] && t <= costDomain[1])
     }
     return undefined
@@ -146,7 +144,7 @@ export default function CostPerformanceChart({
             type="number"
             name="Cost"
             scale={xScale}
-            domain={costDomain as [number, number]}
+            {...(costDomain ? { domain: costDomain } : {})}
             {...(ticks ? { ticks } : {})}
             tickFormatter={(v) => (v ? formatSigFig(v) : "")}
             label={{ value: xLabel, position: "insideBottom", offset: -10 }}
