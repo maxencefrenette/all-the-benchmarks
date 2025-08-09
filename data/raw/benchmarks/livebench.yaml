@@ -32,7 +32,7 @@ results:
   gpt-4.1-nano-2025-04-14: 40.51
   gpt-4.5-preview-2025-02-27: 58.65
   gpt-4o-2024-11-20: 47.43
-  gpt-5: 75.84
+  gpt-5-2025-08-07: 75.84
   gpt-oss-120b: 54.6
   grok-3-beta: 56.05
   grok-3-mini-beta-high: 62.36
