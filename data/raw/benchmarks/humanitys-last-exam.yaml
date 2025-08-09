@@ -170,6 +170,7 @@ results:
   Llama 3.3 70B: 4
   Gemma 3n E2B: 4
   Claude 4 Sonnet: 4
+  Qwen3 Coder 30B: 4
   Mistral Large 2 (Nov '24): 4
   Devstral Small (May '25): 4
   Jamba 1.5 Large: 4
@@ -301,6 +302,7 @@ cost_per_task:
   Llama 3.1 405B: 7
   Mistral Large 2 (Jul '24): 6
   Jamba 1.7 Large: 6
+  Qwen3 Coder 30B: 5
   gpt-oss-20B (high): 5
   Qwen3 32B: 5
   Gemini 2.5 Flash (April '25): 4
@@ -327,12 +329,12 @@ cost_per_task:
   Aya Expanse 32B: 2
   Aya Expanse 8B: 2
   MiniMax-Text-01: 2
-  Llama 3.3 70B: 2
   Llama 3.2 90B (Vision): 2
+  Llama 3.3 70B: 2
   Devstral Medium: 2
   DeepSeek V3 (Dec '24): 2
-  Llama 4 Scout: 2
   Command-R (Mar '24): 2
+  Llama 4 Scout: 1
   Mixtral 8x7B: 1
   Claude Instant: 1
   Gemini 2.0 Flash: 1
@@ -361,6 +363,7 @@ cost_per_task:
   Qwen2.5 Instruct 32B: 0
   Mistral Small 3.1: 0
   Mistral Small 3.2: 0
+  Granite 3.3 8B: 0
   Qwen2.5 Coder 32B: 0
   Hermes 3 - Llama-3.1 70B: 0
   Qwen2.5 Turbo: 0
