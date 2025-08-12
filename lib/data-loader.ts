@@ -112,7 +112,18 @@ export async function loadLLMData(): Promise<LLMData[]> {
   let abilityMap: Record<string, number> = {}
   try {
     const abilityText = await fs.readFile(abilityPath, "utf8")
-    abilityMap = parse(abilityText) as Record<string, number>
+    const abilityData = parse(abilityText) as Record<
+      string,
+      { base: number; offsets?: Record<string, number> }
+    >
+    for (const [base, info] of Object.entries(abilityData)) {
+      abilityMap[base] = info.base
+      if (info.offsets) {
+        for (const [variant, offset] of Object.entries(info.offsets)) {
+          abilityMap[variant] = info.base + offset
+        }
+      }
+    }
   } catch {
     abilityMap = {}
   }
