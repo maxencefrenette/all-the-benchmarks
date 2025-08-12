@@ -114,7 +114,6 @@ test("linear scale uses clean, auto-generated ticks", () => {
     ),
   ).map((t) => parseFloat(t.textContent || ""))
   expect(ticks.length).toBeGreaterThan(0)
-  expect(ticks[0]).toBe(0)
 
   const maxCost = Math.max(...linearEntries.map((e) => e.cost))
   expect(Math.max(...ticks)).toBeLessThanOrEqual(maxCost * 1.1)

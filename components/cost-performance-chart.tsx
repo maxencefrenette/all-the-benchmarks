@@ -86,6 +86,12 @@ export default function CostPerformanceChart({
 
   const [hoverKey, setHoverKey] = React.useState<string | null>(null)
 
+  /**
+   * Recharts generates a "nice" domain and tick set for linear scales, so we
+   * leave `costDomain` undefined and let the library handle it. For log scales
+   * we compute a padded domain around the data so we can later filter the base
+   * logarithmic ticks to those that fall within range.
+   */
   const costDomain = React.useMemo<
     [number | "auto", number | "auto"] | undefined
   >(() => {
@@ -102,6 +108,11 @@ export default function CostPerformanceChart({
     return [min / FACTOR, max * FACTOR]
   }, [data, xDomain, xScale])
 
+  /**
+   * In linear mode we rely on Recharts' default tick generator. For log scales
+   * we filter a set of base ticks down to those that fit within the computed
+   * domain.
+   */
   const ticks = React.useMemo(() => {
     if (
       xScale === "log" &&
