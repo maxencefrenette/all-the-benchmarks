@@ -9,16 +9,58 @@ import {
 } from "./yaml-schemas"
 import { ABILITY_SIGMOID } from "./settings"
 
+/**
+ * Apply the inverse of a benchmark's sigmoid to obtain an ability value from a
+ * raw score.
+ */
+function scoreToAbility(
+  score: number,
+  params: { min: number; max: number; midpoint: number; slope: number },
+) {
+  const { min, max, midpoint, slope } = params
+  const eps = 1e-6
+  const s = Math.min(Math.max(score, min + eps), max - eps)
+  return midpoint - slope * Math.log((max - s) / (s - min))
+}
+
+/**
+ * Map an ability value through the global sigmoid to produce a normalized
+ * score on a [0, 100] scale.
+ */
+function abilityToNormalized(ability: number) {
+  const { min, max, midpoint, slope } = ABILITY_SIGMOID
+  return min + (max - min) / (1 + Math.exp(-(ability - midpoint) / slope))
+}
+
+/** Result for a model on a single benchmark. */
 export interface BenchmarkResult {
+  /** Raw score reported by the benchmark. */
   score: number
+  /**
+   * Per-benchmark normalized score derived by converting `score` to an ability
+   * via the benchmark's inverse sigmoid and then passing that ability through
+   * the global sigmoid.
+   */
   normalizedScore?: number
+  /** Benchmark's textual description. */
   description: string
+  /** Monetary cost per task, when provided by the benchmark. */
   costPerTask?: number
+  /** Normalized cost as provided by preprocessing scripts. */
   normalizedCost?: number
+  /** Weight used when aggregating scores. */
   scoreWeight: number
+  /** Weight used when aggregating costs. */
   costWeight: number
 }
 
+/**
+ * Aggregated data for a language model across all benchmarks.
+ *
+ * Each entry in {@link benchmarks} contains a `BenchmarkResult` whose
+ * `normalizedScore` follows the flow: raw score → benchmark inverse sigmoid →
+ * global sigmoid.
+ */
 export interface LLMData {
   slug: string
   model: string
@@ -27,8 +69,9 @@ export interface LLMData {
   reasoningOrder: number
   deprecated?: boolean
   releaseDate?: Date
+  /** Benchmark results keyed by benchmark slug. */
   benchmarks: Record<string, BenchmarkResult>
-  ability?: number
+  /** Model's overall normalized ability from the ability map. */
   averageScore?: number
   normalizedCost?: number
 }
@@ -36,8 +79,10 @@ export interface LLMData {
 /**
  * Load benchmark and model metadata from YAML files on disk.
  *
- * The returned array is sorted in descending order by average benchmark score
- * and contains normalized cost information when available.
+ * Each benchmark score is normalized by first inverting the benchmark-specific
+ * sigmoid to obtain a model ability and then applying the global sigmoid. The
+ * returned array is sorted in descending order by average normalized score and
+ * contains normalized cost information when available.
  */
 export async function loadLLMData(): Promise<LLMData[]> {
   const modelDir = path.join(process.cwd(), "data", "config", "models")
@@ -102,8 +147,9 @@ export async function loadLLMData(): Promise<LLMData[]> {
       const data = BenchmarkFileSchema.parse(parse(text))
       const procPath = path.join(processedDir, `${slug}.yaml`)
       const procText = await fs.readFile(procPath, "utf8")
-      const results = ProcessedBenchmarkFileSchema.parse(parse(procText))
-      for (const [modelSlug, result] of Object.entries(results)) {
+      const proc = ProcessedBenchmarkFileSchema.parse(parse(procText))
+      const sigmoid = proc.sigmoid
+      for (const [modelSlug, result] of Object.entries(proc)) {
         if (modelSlug === "sigmoid") continue
         const llm = llmMap[modelSlug]
         if (!llm) continue
@@ -112,10 +158,13 @@ export async function loadLLMData(): Promise<LLMData[]> {
           result.normalized_cost !== undefined
             ? Number(result.normalized_cost)
             : undefined
-        const normScore =
-          result.normalized_score !== undefined
-            ? Number(result.normalized_score)
-            : undefined
+        let normScore: number | undefined
+        if (sigmoid) {
+          const ability = scoreToAbility(Number(result.score), sigmoid)
+          normScore = abilityToNormalized(ability)
+        } else if (result.normalized_score !== undefined) {
+          normScore = Number(result.normalized_score)
+        }
         llm.benchmarks[data.benchmark] = {
           score: Number(result.score),
           description: data.description,
@@ -136,7 +185,6 @@ export async function loadLLMData(): Promise<LLMData[]> {
   for (const llm of results) {
     const ability = abilityMap[llm.slug]
     if (ability !== undefined) {
-      llm.ability = ability
       const { min, max, midpoint, slope } = ABILITY_SIGMOID
       llm.averageScore =
         min + (max - min) / (1 + Math.exp(-(ability - midpoint) / slope))
