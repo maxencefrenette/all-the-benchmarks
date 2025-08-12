@@ -103,6 +103,9 @@ export default function CostPerformanceChart({
   }, [data, xDomain, xScale])
 
   const ticks = React.useMemo(() => {
+    if (xScale === "linear") {
+      return [0, 50, 100, 150, 200, 250, 300]
+    }
     if (
       xScale === "log" &&
       costDomain &&
