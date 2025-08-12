@@ -213,3 +213,8 @@ gpt-4o-2024-05-13:
   normalized_score: 0.0
   cost: 22.0
   normalized_cost: 16.66
+sigmoid:
+  min: 1.761934537429772
+  max: 35.90071114004829
+  midpoint: 0.9521182185982103
+  slope: 0.5758167315582734

@@ -208,3 +208,8 @@ claude-3.5-haiku:
   normalized_score: 0.0
   cost: 12.0
   normalized_cost: 6.08
+sigmoid:
+  min: 67.05865432738173
+  max: 91.1408857810289
+  midpoint: -0.10903623431323582
+  slope: 0.9203917397089714

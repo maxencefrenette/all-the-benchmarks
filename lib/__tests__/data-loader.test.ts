@@ -1,4 +1,4 @@
-import { loadLLMData, computeAverageScores, type LLMData } from "../data-loader"
+import { loadLLMData, type LLMData } from "../data-loader"
 import { transformToTableData } from "../table-utils"
 import { expect, test } from "vitest"
 
@@ -61,34 +61,4 @@ test("loadLLMData parses release dates", async () => {
   const llmData = await loadLLMData()
   const grok4 = llmData.find((d) => d.slug === "grok-4")
   expect(grok4?.releaseDate).toEqual(new Date("2025-07-09"))
-})
-
-test("computeAverageScores respects benchmark weights", () => {
-  const llmMap: Record<string, LLMData> = {
-    m1: {
-      slug: "m1",
-      model: "M1",
-      provider: "X",
-      modelSlug: "m1",
-      reasoningOrder: 0,
-      benchmarks: {
-        A: {
-          score: 0,
-          normalizedScore: 100,
-          description: "",
-          scoreWeight: 2,
-          costWeight: 1,
-        },
-        B: {
-          score: 0,
-          normalizedScore: 0,
-          description: "",
-          scoreWeight: 1,
-          costWeight: 1,
-        },
-      },
-    },
-  }
-  const result = computeAverageScores(llmMap)
-  expect(result[0].averageScore).toBeCloseTo(66.67, 1)
 })

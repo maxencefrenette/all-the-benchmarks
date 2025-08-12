@@ -189,3 +189,8 @@ gpt-4.1-nano:
 claude-3.5-haiku:
   score: 40.0
   normalized_score: 0.0
+sigmoid:
+  min: 48.12373194535359
+  max: 88.27834397343698
+  midpoint: 0.008025001733123965
+  slope: 0.5154756517948066

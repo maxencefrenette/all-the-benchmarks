@@ -44,6 +44,7 @@ export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
         "utf8",
       )
       const results = ProcessedBenchmarkFileSchema.parse(parse(procText))
+      const entries = Object.entries(results).filter(([k]) => k !== "sigmoid")
       benchmarks.push({
         slug,
         benchmark: data.benchmark,
@@ -52,8 +53,8 @@ export async function loadBenchmarks(): Promise<BenchmarkInfo[]> {
         github: data.github ?? undefined,
         scoreWeight: data.score_weight,
         costWeight: data.cost_weight,
-        modelCount: Object.keys(results).length,
-        hasCost: Object.values(results).some((r) => r.cost !== undefined),
+        modelCount: entries.length,
+        hasCost: entries.some(([, r]) => r.cost !== undefined),
         privateHoldout: data.private_holdout,
       })
     } catch (error) {
@@ -89,12 +90,13 @@ export async function loadBenchmarkDetails(
       "utf8",
     )
     const results = ProcessedBenchmarkFileSchema.parse(parse(procText))
+    const entries = Object.entries(results).filter(([k]) => k !== "sigmoid")
     const costMap: Record<string, number> = {}
-    for (const [k, v] of Object.entries(results)) {
+    for (const [k, v] of entries) {
       if (v.cost !== undefined) costMap[k] = v.cost
     }
     const scoreMap: Record<string, number> = {}
-    for (const [k, v] of Object.entries(results)) {
+    for (const [k, v] of entries) {
       scoreMap[k] = v.score
     }
     return {
@@ -105,7 +107,7 @@ export async function loadBenchmarkDetails(
       github: data.github ?? undefined,
       scoreWeight: data.score_weight,
       costWeight: data.cost_weight,
-      modelCount: Object.keys(results).length,
+      modelCount: entries.length,
       hasCost: Object.keys(costMap).length > 0,
       privateHoldout: data.private_holdout,
       results: scoreMap,
