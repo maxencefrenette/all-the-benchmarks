@@ -67,7 +67,7 @@ export default async function Leaderboard() {
                     {llm.averageScore?.toFixed(1)}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Average Normalized Score
+                    Ability Score
                   </div>
                 </div>
               </div>

@@ -7,6 +7,7 @@ import {
   ModelFileSchema,
   ProcessedBenchmarkFileSchema,
 } from "./yaml-schemas"
+import { ABILITY_SIGMOID } from "./settings"
 
 export interface BenchmarkResult {
   score: number
@@ -29,6 +30,7 @@ export interface LLMData {
   benchmarks: Record<string, BenchmarkResult>
   averageScore?: number
   normalizedCost?: number
+  ability?: number
 }
 
 /**
@@ -75,6 +77,12 @@ export async function loadLLMData(): Promise<LLMData[]> {
     "processed",
     "benchmarks",
   )
+  const abilityPath = path.join(
+    process.cwd(),
+    "data",
+    "processed",
+    "model_abilities.yaml",
+  )
 
   const modelFiles = (await fs.readdir(modelDir)).filter((f) =>
     f.endsWith(".yaml"),
@@ -108,6 +116,17 @@ export async function loadLLMData(): Promise<LLMData[]> {
     }
   }
 
+  let abilities: Record<string, number> = {}
+  try {
+    const abilityText = await fs.readFile(abilityPath, "utf8")
+    abilities = parse(abilityText) as Record<string, number>
+    for (const [slug, val] of Object.entries(abilities)) {
+      if (llmMap[slug]) llmMap[slug].ability = val
+    }
+  } catch (error) {
+    console.error("Failed to load model abilities:", error)
+  }
+
   for (const slug of benchmarkSlugs) {
     try {
       const filePath = path.join(benchmarkDir, `${slug}.yaml`)
@@ -115,25 +134,40 @@ export async function loadLLMData(): Promise<LLMData[]> {
       const data = BenchmarkFileSchema.parse(parse(text))
       const procPath = path.join(processedDir, `${slug}.yaml`)
       const procText = await fs.readFile(procPath, "utf8")
-      const results = ProcessedBenchmarkFileSchema.parse(parse(procText))
-      for (const [modelSlug, result] of Object.entries(results)) {
+      const parsed = ProcessedBenchmarkFileSchema.parse(parse(procText))
+      const { sigmoid, ...modelResults } = parsed as {
+        sigmoid?: { min: number; max: number; midpoint: number; slope: number }
+      } &
+        Record<
+          string,
+          {
+            score: number
+            normalized_score?: number
+            cost?: number
+            normalized_cost?: number
+          }
+        >
+      for (const modelSlug of Object.keys(llmMap)) {
         const llm = llmMap[modelSlug]
-        if (!llm) continue
-        const hasCost = result.cost !== undefined && result.cost > 0
-        const normalized =
-          result.normalized_cost !== undefined
-            ? Number(result.normalized_cost)
-            : undefined
-        const normScore =
-          result.normalized_score !== undefined
-            ? Number(result.normalized_score)
+        const ability = llm.ability
+        if (ability === undefined || !sigmoid) continue
+        const norm =
+          1 / (1 + Math.exp(-(ability - sigmoid.midpoint) / sigmoid.slope))
+        const score = sigmoid.min + (sigmoid.max - sigmoid.min) * norm
+        const res = modelResults[modelSlug]
+        const hasCost = res && res.cost !== undefined && res.cost > 0
+        const normalizedCost =
+          res && res.normalized_cost !== undefined
+            ? Number(res.normalized_cost)
             : undefined
         llm.benchmarks[data.benchmark] = {
-          score: Number(result.score),
+          score: score,
+          normalizedScore: norm * 100,
           description: data.description,
-          ...(hasCost ? { costPerTask: Number(result.cost) } : {}),
-          ...(normalized !== undefined ? { normalizedCost: normalized } : {}),
-          ...(normScore !== undefined ? { normalizedScore: normScore } : {}),
+          ...(hasCost ? { costPerTask: Number(res.cost) } : {}),
+          ...(normalizedCost !== undefined
+            ? { normalizedCost: normalizedCost }
+            : {}),
           scoreWeight: data.score_weight,
           costWeight: data.cost_weight,
         }
@@ -143,7 +177,18 @@ export async function loadLLMData(): Promise<LLMData[]> {
     }
   }
 
-  const results = computeAverageScores(llmMap)
+  const abilityScore = (a: number) =>
+    ABILITY_SIGMOID.min +
+    (ABILITY_SIGMOID.max - ABILITY_SIGMOID.min) /
+      (1 + Math.exp(-(a - ABILITY_SIGMOID.midpoint) / ABILITY_SIGMOID.slope))
+
+  const results = Object.values(llmMap).map((llm) => {
+    const ability = llm.ability
+    if (ability !== undefined) {
+      llm.averageScore = abilityScore(ability)
+    }
+    return llm
+  })
 
   for (const llm of results) {
     const costs: { value: number; weight: number }[] = []

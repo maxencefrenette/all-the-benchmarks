@@ -104,7 +104,7 @@ export default function CostScoreChart({
     <CostPerformanceChart
       entries={entries}
       xLabel="Normalized Cost per Task ($)"
-      yLabel="Average Normalized Score"
+      yLabel="Ability Score"
       yDomain={[0, 100]}
       yTicks={[0, 25, 50, 75, 100]}
       xScale={useLinearScale ? "linear" : "log"}
