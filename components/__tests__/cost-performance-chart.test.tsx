@@ -96,9 +96,9 @@ describe("CostPerformanceChart hover interactions", () => {
 
 test("linear scale uses clean, auto-generated ticks", () => {
   const linearEntries: CostPerformanceEntry[] = [
-    { label: "L1", provider: "openai", cost: 50, score: 1 },
-    { label: "L2", provider: "openai", cost: 100, score: 2 },
-    { label: "L3", provider: "openai", cost: 200, score: 3 },
+    { label: "L1", provider: "openai", cost: 55.55, score: 1 },
+    { label: "L2", provider: "openai", cost: 123.45, score: 2 },
+    { label: "L3", provider: "openai", cost: 188.88, score: 3 },
   ]
   const { container } = render(
     <CostPerformanceChart
@@ -114,6 +114,7 @@ test("linear scale uses clean, auto-generated ticks", () => {
     ),
   ).map((t) => parseFloat(t.textContent || ""))
   expect(ticks.length).toBeGreaterThan(0)
+  expect(ticks[0]).toBe(0)
 
   const maxCost = Math.max(...linearEntries.map((e) => e.cost))
   expect(Math.max(...ticks)).toBeLessThanOrEqual(maxCost * 1.1)
