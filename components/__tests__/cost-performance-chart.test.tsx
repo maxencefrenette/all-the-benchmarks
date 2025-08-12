@@ -93,3 +93,25 @@ describe("CostPerformanceChart hover interactions", () => {
     expect(parseFloat(line!.getAttribute("stroke-width") || "")).toBe(1)
   })
 })
+
+test("linear scale uses fixed 50-unit ticks", () => {
+  const linearEntries: CostPerformanceEntry[] = [
+    { label: "L1", provider: "openai", cost: 55.55, score: 1 },
+    { label: "L2", provider: "openai", cost: 123.45, score: 2 },
+    { label: "L3", provider: "openai", cost: 188.88, score: 3 },
+  ]
+  const { container } = render(
+    <CostPerformanceChart
+      entries={linearEntries}
+      xLabel="Cost"
+      yLabel="Score"
+      xScale="linear"
+    />,
+  )
+  const ticks = Array.from(
+    container.querySelectorAll(
+      ".recharts-xAxis .recharts-cartesian-axis-tick text",
+    ),
+  ).map((t) => parseFloat(t.textContent || ""))
+  expect(ticks).toEqual([0, 50, 100, 150, 200, 250, 300])
+})
