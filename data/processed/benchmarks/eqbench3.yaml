@@ -70,3 +70,8 @@ llama-4-maverick:
 llama-4-scout:
   score: 469.4
   normalized_score: 0.0
+sigmoid:
+  min: 422.25124980169824
+  max: 1843.32914056633
+  midpoint: 0.005005156214826547
+  slope: 0.6212107324210964

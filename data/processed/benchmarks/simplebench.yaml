@@ -70,3 +70,8 @@ deepseek-v3-1224:
 gpt-4o-2024-08-06:
   score: 17.8
   normalized_score: 0.0
+sigmoid:
+  min: 10.747727575385268
+  max: 66.61834585284723
+  midpoint: 0.06856280697233083
+  slope: 0.9728194171400122

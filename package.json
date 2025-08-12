@@ -28,6 +28,7 @@
     "scrape:all": "tsx scripts/scrape_all.ts",
     "process:all": "uv run --directory scripts_python process_data.py",
     "mappings:update": "uv run --directory scripts_python update_mappings.py",
+    "ability:fit": "uv run --directory scripts_python fit_sigmoid_model.py",
     "full-pipeline": "pnpm scrape:all && pnpm mappings:update && pnpm process:all && pnpm test:update"
   },
   "dependencies": {

@@ -100,3 +100,8 @@ llama-4-scout:
 claude-3.5-haiku:
   score: 1256.0
   normalized_score: 0.0
+sigmoid:
+  min: 1264.7011807988845
+  max: 1446.6908284798087
+  midpoint: -0.04524904603761326
+  slope: 0.36716779434141045

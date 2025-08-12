@@ -208,3 +208,8 @@ gpt-4.1-nano:
   normalized_score: 0.0
   cost: 0.0021
   normalized_cost: 0.8345
+sigmoid:
+  min: 2.902544562695572
+  max: 99.19287784657254
+  midpoint: 0.9686410439268242
+  slope: 0.6303152100496779

@@ -7,6 +7,7 @@ import {
   ModelFileSchema,
   ProcessedBenchmarkFileSchema,
 } from "./yaml-schemas"
+import { ABILITY_SIGMOID } from "./settings"
 
 export interface BenchmarkResult {
   score: number
@@ -27,37 +28,9 @@ export interface LLMData {
   deprecated?: boolean
   releaseDate?: Date
   benchmarks: Record<string, BenchmarkResult>
+  ability?: number
   averageScore?: number
   normalizedCost?: number
-}
-
-/**
- * Compute weighted average benchmark scores for each language model.
- *
- * Each model's normalized scores are multiplied by their benchmark-specific
- * weights to produce an overall average score. The `averageScore` field on
- * each {@link LLMData} entry is updated in place.
- */
-export function computeAverageScores(
-  llmMap: Record<string, LLMData>,
-): LLMData[] {
-  return Object.values(llmMap).map((llm) => {
-    const weighted: { value: number; weight: number }[] = []
-    for (const result of Object.values(llm.benchmarks)) {
-      if (result.normalizedScore !== undefined) {
-        weighted.push({
-          value: result.normalizedScore / 100,
-          weight: result.scoreWeight,
-        })
-      }
-    }
-    const totalWeight = weighted.reduce((s, n) => s + n.weight, 0)
-    llm.averageScore =
-      (weighted.reduce((sum, n) => sum + n.value * n.weight, 0) /
-        (totalWeight || 1)) *
-      100
-    return llm
-  })
 }
 
 /**
@@ -75,6 +48,12 @@ export async function loadLLMData(): Promise<LLMData[]> {
     "processed",
     "benchmarks",
   )
+  const abilityPath = path.join(
+    process.cwd(),
+    "data",
+    "processed",
+    "model_abilities.yaml",
+  )
 
   const modelFiles = (await fs.readdir(modelDir)).filter((f) =>
     f.endsWith(".yaml"),
@@ -84,6 +63,14 @@ export async function loadLLMData(): Promise<LLMData[]> {
     .filter((f) => f.endsWith(".yaml"))
     .map((f) => f.replace(/\.yaml$/, ""))
   const llmMap: Record<string, LLMData> = {}
+
+  let abilityMap: Record<string, number> = {}
+  try {
+    const abilityText = await fs.readFile(abilityPath, "utf8")
+    abilityMap = parse(abilityText) as Record<string, number>
+  } catch {
+    abilityMap = {}
+  }
 
   for (const file of modelFiles) {
     try {
@@ -117,6 +104,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
       const procText = await fs.readFile(procPath, "utf8")
       const results = ProcessedBenchmarkFileSchema.parse(parse(procText))
       for (const [modelSlug, result] of Object.entries(results)) {
+        if (modelSlug === "sigmoid") continue
         const llm = llmMap[modelSlug]
         if (!llm) continue
         const hasCost = result.cost !== undefined && result.cost > 0
@@ -143,9 +131,16 @@ export async function loadLLMData(): Promise<LLMData[]> {
     }
   }
 
-  const results = computeAverageScores(llmMap)
+  const results = Object.values(llmMap)
 
   for (const llm of results) {
+    const ability = abilityMap[llm.slug]
+    if (ability !== undefined) {
+      llm.ability = ability
+      const { min, max, midpoint, slope } = ABILITY_SIGMOID
+      llm.averageScore =
+        min + (max - min) / (1 + Math.exp(-(ability - midpoint) / slope))
+    }
     const costs: { value: number; weight: number }[] = []
     for (const res of Object.values(llm.benchmarks)) {
       if (res.normalizedCost !== undefined) {
