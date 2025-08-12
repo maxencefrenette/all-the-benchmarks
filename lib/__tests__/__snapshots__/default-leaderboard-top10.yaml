@@ -2,7 +2,7 @@
   slug: gpt-5-high
   model: GPT-5 (High)
   provider: OpenAI
-  averageScore: 80.59
+  averageScore: 85.17
   costPerTask: 198
   costBenchmarkCount: 6
   benchmarkCount: 7
@@ -12,7 +12,7 @@
   slug: gpt-5-medium
   model: GPT-5 (Medium)
   provider: OpenAI
-  averageScore: 75.59
+  averageScore: 79.06
   costPerTask: 109
   costBenchmarkCount: 6
   benchmarkCount: 7
@@ -22,7 +22,7 @@
   slug: kimi-k2
   model: Kimi K2
   provider: Moonshot
-  averageScore: 70.37
+  averageScore: 72.12
   costPerTask: 16.1
   costBenchmarkCount: 5
   benchmarkCount: 8
@@ -32,7 +32,7 @@
   slug: gpt-5-low
   model: GPT-5 (Low)
   provider: OpenAI
-  averageScore: 69.05
+  averageScore: 70.28
   costPerTask: 44.9
   costBenchmarkCount: 6
   benchmarkCount: 6
@@ -42,7 +42,7 @@
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro
   provider: Google
-  averageScore: 65.97
+  averageScore: 65.92
   costPerTask: 236
   costBenchmarkCount: 8
   benchmarkCount: 12
@@ -52,7 +52,7 @@
   slug: gpt-5-mini-medium
   model: GPT-5 Mini (Medium)
   provider: OpenAI
-  averageScore: 65.76
+  averageScore: 65.63
   costPerTask: 14
   costBenchmarkCount: 5
   benchmarkCount: 6
@@ -62,7 +62,7 @@
   slug: deepseek-r1-0528
   model: DeepSeek R1 05/28
   provider: DeepSeek
-  averageScore: 63.9
+  averageScore: 62.95
   costPerTask: 26.9
   costBenchmarkCount: 4
   benchmarkCount: 7
@@ -72,7 +72,7 @@
   slug: gemini-2.5-flash-0520-thinking
   model: Gemini 2.5 Flash 05/20 (thinking)
   provider: Google
-  averageScore: 60.6
+  averageScore: 58.16
   costPerTask: 55.5
   costBenchmarkCount: 8
   benchmarkCount: 10
@@ -82,7 +82,7 @@
   slug: claude-sonnet-4-nothinking
   model: Claude 4 Sonnet (no thinking)
   provider: Anthropic
-  averageScore: 55.3
+  averageScore: 50.46
   costPerTask: 58.2
   costBenchmarkCount: 8
   benchmarkCount: 11
@@ -92,7 +92,7 @@
   slug: qwen-3-235b-a22b-nothinking
   model: Qwen3 235B A22B (no thinking)
   provider: Qwen
-  averageScore: 54.55
+  averageScore: 49.37
   costPerTask: 5.14
   costBenchmarkCount: 3
   benchmarkCount: 6
