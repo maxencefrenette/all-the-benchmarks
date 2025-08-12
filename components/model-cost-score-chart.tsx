@@ -31,13 +31,13 @@ export default function ModelCostScoreChart({
       .filter(
         (e) =>
           e.result.normalizedCost !== undefined &&
-          e.result.sigmoidScore !== undefined,
+          e.result.normalizedScore !== undefined,
       )
       .map((e) => ({
         label: e.benchmark,
         provider,
         cost: e.result.normalizedCost as number,
-        score: e.result.sigmoidScore as number,
+        score: e.result.normalizedScore as number,
       })) as CostPerformanceEntry[]
   }, [entries, provider])
 
@@ -52,7 +52,7 @@ export default function ModelCostScoreChart({
     <CostPerformanceChart
       entries={items}
       xLabel="Normalized Cost per Task ($)"
-      yLabel="Sigmoid Score"
+      yLabel="Normalized Score"
       xDomain={xDomain}
       yDomain={yDomain}
       yTicks={yTicks}

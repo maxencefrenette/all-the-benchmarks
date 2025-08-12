@@ -41,7 +41,7 @@ export interface BenchmarkResult {
    * benchmark's inverse sigmoid and then passing that ability through the
    * global sigmoid.
    */
-  sigmoidScore?: number
+  normalizedScore?: number
   /** Benchmark's textual description. */
   description: string
   /** Monetary cost per task, when provided by the benchmark. */
@@ -58,7 +58,7 @@ export interface BenchmarkResult {
  * Aggregated data for a language model across all benchmarks.
  *
  * Each entry in {@link benchmarks} contains a `BenchmarkResult` whose
- * `sigmoidScore` follows the flow: raw score → benchmark inverse sigmoid →
+ * `normalizedScore` follows the flow: raw score → benchmark inverse sigmoid →
  * global sigmoid.
  */
 export interface LLMData {
@@ -81,7 +81,7 @@ export interface LLMData {
  *
  * Each benchmark score is normalized by first inverting the benchmark-specific
  * sigmoid to obtain a model ability and then applying the global sigmoid. The
- * returned array is sorted in descending order by average sigmoid score and
+ * returned array is sorted in descending order by average normalized score and
  * contains normalized cost information when available.
  */
 export async function loadLLMData(): Promise<LLMData[]> {
@@ -168,7 +168,7 @@ export async function loadLLMData(): Promise<LLMData[]> {
           description: data.description,
           ...(hasCost ? { costPerTask: Number(result.cost) } : {}),
           ...(normalized !== undefined ? { normalizedCost: normalized } : {}),
-          ...(normScore !== undefined ? { sigmoidScore: normScore } : {}),
+          ...(normScore !== undefined ? { normalizedScore: normScore } : {}),
           scoreWeight: data.score_weight,
           costWeight: data.cost_weight,
         }
