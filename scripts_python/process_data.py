@@ -80,24 +80,6 @@ def compute_normalization_factors(
     return factors
 
 
-def normalize_benchmark_scores(df: pd.DataFrame) -> pd.DataFrame:
-    """Add a ``normalized_score`` column per benchmark."""
-
-    df = df.copy()
-    df["cost"] = df["cost"].replace(0, np.nan)
-
-    grouped = df.groupby("benchmark")
-    min_scores = grouped["score"].transform("min")
-    max_scores = grouped["score"].transform("max")
-    df["normalized_score"] = np.where(
-        max_scores != min_scores,
-        (df["score"] - min_scores) / (max_scores - min_scores) * 100,
-        100.0,
-    )
-    return df
-
-
-
 def build_output(df: pd.DataFrame, factor: Optional[float]) -> Dict[str, Dict[str, float]]:
     """Return a mapping ready for YAML serialization."""
 
@@ -105,7 +87,7 @@ def build_output(df: pd.DataFrame, factor: Optional[float]) -> Dict[str, Dict[st
     if factor is not None:
         out_df["normalized_cost"] = out_df["cost"] * factor
 
-    for col in ["score", "normalized_score", "cost", "normalized_cost"]:
+    for col in ["score", "cost", "normalized_cost"]:
         if col in out_df.columns:
             out_df[col] = out_df[col].apply(
                 lambda x: round_sig(float(x), 4) if pd.notna(x) else x
@@ -176,7 +158,7 @@ def main() -> None:
         ]
     ]
 
-    benchmarks_df = normalize_benchmark_scores(benchmarks_df)
+    benchmarks_df["cost"] = benchmarks_df["cost"].replace(0, np.nan)
 
     cost_df = (
         benchmarks_df.dropna(subset=["cost"])
@@ -197,10 +179,16 @@ def main() -> None:
             )
         factor = factors.get(bench_name)
         out_dict = build_output(
-            df[["slug", "score", "normalized_score", "cost"]],
+            df[["slug", "score", "cost"]],
             factor,
         )
         out_path = out_dir / f"{bench_name}.yaml"
+
+        if out_path.exists():
+            existing = yaml.safe_load(out_path.read_text()) or {}
+            if "sigmoid" in existing:
+                out_dict["sigmoid"] = existing["sigmoid"]
+
         # Always write a file, even if ``out_dict`` is empty, to signal that the
         # benchmark was processed but lacked model mappings.
         out_path.write_text(yaml.safe_dump(out_dict, sort_keys=False))

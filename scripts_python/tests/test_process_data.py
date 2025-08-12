@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 import pytest
 import yaml
+import numpy as np
 
 # Add scripts_python directory to path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -13,13 +14,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from process_data import (
     load_benchmark,
     load_mapping_file,
-    normalize_benchmark_scores,
     build_output,
     compute_normalization_factors,
 )
 
 
-def test_normalize_benchmarks(tmp_path: Path):
+def test_build_output(tmp_path: Path):
     bench_file = tmp_path / "bench.yaml"
     mapping_dir = tmp_path
 
@@ -48,12 +48,12 @@ def test_normalize_benchmarks(tmp_path: Path):
     map_df = load_mapping_file(mapping_dir / "map.yaml")
     df = bench_df.merge(map_df, on="alias", how="left")[["benchmark", "slug", "score", "cost", "cost_weight"]]
     df = df.dropna(subset=["slug"])
-    df = normalize_benchmark_scores(df)
-    output = build_output(df[["slug", "score", "normalized_score", "cost"]], None)
+    df.loc[df["cost"] == 0, "cost"] = np.nan
+    output = build_output(df[["slug", "score", "cost"]], None)
 
     expected = {
-        "slug-a": {"score": 0.9, "cost": 0.1, "normalized_score": 100.0},
-        "slug-b": {"score": 0.5, "cost": 0.2, "normalized_score": 0.0},
+        "slug-a": {"score": 0.9, "cost": 0.1},
+        "slug-b": {"score": 0.5, "cost": 0.2},
     }
     assert output == expected
     assert df["cost_weight"].iloc[0] == 1.0
@@ -86,12 +86,12 @@ def test_zero_cost_ignored(tmp_path: Path):
     map_df = load_mapping_file(mapping_dir / "map.yaml")
     df = bench_df.merge(map_df, on="alias", how="left")[["benchmark", "slug", "score", "cost", "cost_weight"]]
     df = df.dropna(subset=["slug"])
-    df = normalize_benchmark_scores(df)
-    output = build_output(df[["slug", "score", "normalized_score", "cost"]], None)
+    df.loc[df["cost"] == 0, "cost"] = np.nan
+    output = build_output(df[["slug", "score", "cost"]], None)
 
     expected = {
-        "slug-a": {"score": 1.0, "cost": 0.1, "normalized_score": 100.0},
-        "slug-b": {"score": 0.8, "normalized_score": 0.0},
+        "slug-a": {"score": 1.0, "cost": 0.1},
+        "slug-b": {"score": 0.8},
     }
     assert output == expected
     assert df.set_index("slug")["cost"].dropna().to_dict() == {"slug-a": 0.1}

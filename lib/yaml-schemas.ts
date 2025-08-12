@@ -42,7 +42,6 @@ export const ProcessedBenchmarkFileSchema = z
   .catchall(
     z.object({
       score: z.number(),
-      normalized_score: z.number(),
       cost: z.number().optional(),
       normalized_cost: z.number().optional(),
     }),

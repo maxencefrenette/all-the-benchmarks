@@ -67,7 +67,7 @@ export default async function Leaderboard() {
                     {llm.averageScore?.toFixed(1)}
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Average Normalized Score
+                    Average Sigmoid Score
                   </div>
                 </div>
               </div>
