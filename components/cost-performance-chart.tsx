@@ -90,7 +90,7 @@ export default function CostPerformanceChart({
     [number | "auto", number | "auto"] | undefined
   >(() => {
     if (xDomain) return xDomain
-    if (xScale === "linear") return [0, "auto"]
+    if (xScale === "linear") return undefined
     const FACTOR = 1.2
     let min = Infinity
     let max = -Infinity
@@ -103,9 +103,6 @@ export default function CostPerformanceChart({
   }, [data, xDomain, xScale])
 
   const ticks = React.useMemo(() => {
-    if (xScale === "linear") {
-      return [0, 50, 100, 150, 200, 250, 300]
-    }
     if (
       xScale === "log" &&
       costDomain &&
