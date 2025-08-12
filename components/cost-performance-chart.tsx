@@ -10,6 +10,9 @@ const BASE_TICKS = [
   0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000, 3000, 10000,
 ] as const
 
+// Fixed tick marks for the linear cost axis
+const LINEAR_TICKS = [0, 50, 100, 150, 200, 250, 300] as const
+
 // Default radius for dots derived from the ZAxis range
 const DEFAULT_RADIUS = Math.sqrt(144 / Math.PI)
 
@@ -87,16 +90,15 @@ export default function CostPerformanceChart({
   const [hoverKey, setHoverKey] = React.useState<string | null>(null)
 
   /**
-   * Recharts generates a "nice" domain and tick set for linear scales, so we
-   * leave `costDomain` undefined and let the library handle it. For log scales
-   * we compute a padded domain around the data so we can later filter the base
-   * logarithmic ticks to those that fall within range.
+   * Linear scales use a fixed 0–300 domain with 50-unit ticks for consistently
+   * spaced marks. Log scales compute a padded domain around the data and filter
+   * a set of base ticks to those that fall within range.
    */
   const costDomain = React.useMemo<
     [number | "auto", number | "auto"] | undefined
   >(() => {
     if (xDomain) return xDomain
-    if (xScale === "linear") return undefined
+    if (xScale === "linear") return [0, 300]
     const FACTOR = 1.2
     let min = Infinity
     let max = -Infinity
@@ -109,11 +111,11 @@ export default function CostPerformanceChart({
   }, [data, xDomain, xScale])
 
   /**
-   * In linear mode we rely on Recharts' default tick generator. For log scales
-   * we filter a set of base ticks down to those that fit within the computed
-   * domain.
+   * Linear mode returns predefined ticks while log scales filter base ticks to
+   * those within the computed domain.
    */
   const ticks = React.useMemo(() => {
+    if (xScale === "linear") return LINEAR_TICKS
     if (
       xScale === "log" &&
       costDomain &&
@@ -163,8 +165,8 @@ export default function CostPerformanceChart({
             name="Cost"
             scale={xScale}
             {...(costDomain ? { domain: costDomain } : {})}
-            {...(ticks ? { ticks } : {})}
-            tickFormatter={(v) => (v ? formatSigFig(v) : "")}
+            {...(ticks ? { ticks, interval: 0 } : {})}
+            tickFormatter={(v) => formatSigFig(v)}
             label={{ value: xLabel, position: "insideBottom", offset: -10 }}
           />
           <YAxis
