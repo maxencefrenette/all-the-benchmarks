@@ -63,7 +63,7 @@ export default async function ModelPage({
               <TableRow>
                 <TableHead>Benchmark</TableHead>
                 <TableHead className="text-right">Raw Score</TableHead>
-                <TableHead className="text-right">Sigmoid Score</TableHead>
+                <TableHead className="text-right">Normalized Score</TableHead>
                 <TableHead className="text-right">Raw Cost</TableHead>
                 <TableHead className="text-right">Normalized Cost</TableHead>
               </TableRow>
@@ -76,8 +76,8 @@ export default async function ModelPage({
                     {res?.score !== undefined ? res.score : "—"}
                   </TableCell>
                   <TableCell className="text-right">
-                    {res?.sigmoidScore !== undefined
-                      ? res.sigmoidScore.toFixed(1)
+                    {res?.normalizedScore !== undefined
+                      ? res.normalizedScore.toFixed(1)
                       : "—"}
                   </TableCell>
                   <TableCell className="text-right">

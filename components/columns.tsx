@@ -119,7 +119,7 @@ export const columns: ColumnDef<TableRow>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Average Sigmoid Score
+          Average Normalized Score
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
