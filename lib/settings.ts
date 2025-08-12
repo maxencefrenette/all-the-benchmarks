@@ -6,6 +6,6 @@ export const MIN_NEW_MODEL_COST_BENCHMARKS = 2
 export const ABILITY_SIGMOID = {
   min: 0,
   max: 100,
-  midpoint: 0,
-  slope: 1,
+  midpoint: 0.2,
+  slope: 0.7,
 }
