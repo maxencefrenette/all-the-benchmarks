@@ -45,7 +45,7 @@ export default function BenchmarkSection({ llmData, benchmark }: Props) {
       model: string
       provider: string
       score: number
-      normalizedScore?: number
+      sigmoidScore?: number
       normalizedCost?: number
       costPerTask?: number
     }[]
@@ -70,7 +70,7 @@ export default function BenchmarkSection({ llmData, benchmark }: Props) {
               <TableRow>
                 <TableHead>Model</TableHead>
                 <TableHead className="text-right">Raw Score</TableHead>
-                <TableHead className="text-right">Normalized Score</TableHead>
+                <TableHead className="text-right">Sigmoid Score</TableHead>
                 <TableHead className="text-right">Raw Cost</TableHead>
                 <TableHead className="text-right">Normalized Cost</TableHead>
               </TableRow>
@@ -81,8 +81,8 @@ export default function BenchmarkSection({ llmData, benchmark }: Props) {
                   <TableCell>{entry.model}</TableCell>
                   <TableCell className="text-right">{entry.score}</TableCell>
                   <TableCell className="text-right">
-                    {entry.normalizedScore !== undefined
-                      ? entry.normalizedScore.toFixed(1)
+                    {entry.sigmoidScore !== undefined
+                      ? entry.sigmoidScore.toFixed(1)
                       : "—"}
                   </TableCell>
                   <TableCell className="text-right">

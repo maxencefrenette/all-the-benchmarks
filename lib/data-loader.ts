@@ -37,11 +37,11 @@ export interface BenchmarkResult {
   /** Raw score reported by the benchmark. */
   score: number
   /**
-   * Per-benchmark normalized score derived by converting `score` to an ability
-   * via the benchmark's inverse sigmoid and then passing that ability through
-   * the global sigmoid.
+   * Per-benchmark score produced by converting `score` to an ability via the
+   * benchmark's inverse sigmoid and then passing that ability through the
+   * global sigmoid.
    */
-  normalizedScore?: number
+  sigmoidScore?: number
   /** Benchmark's textual description. */
   description: string
   /** Monetary cost per task, when provided by the benchmark. */
@@ -58,7 +58,7 @@ export interface BenchmarkResult {
  * Aggregated data for a language model across all benchmarks.
  *
  * Each entry in {@link benchmarks} contains a `BenchmarkResult` whose
- * `normalizedScore` follows the flow: raw score → benchmark inverse sigmoid →
+ * `sigmoidScore` follows the flow: raw score → benchmark inverse sigmoid →
  * global sigmoid.
  */
 export interface LLMData {
@@ -81,7 +81,7 @@ export interface LLMData {
  *
  * Each benchmark score is normalized by first inverting the benchmark-specific
  * sigmoid to obtain a model ability and then applying the global sigmoid. The
- * returned array is sorted in descending order by average normalized score and
+ * returned array is sorted in descending order by average sigmoid score and
  * contains normalized cost information when available.
  */
 export async function loadLLMData(): Promise<LLMData[]> {
@@ -162,15 +162,13 @@ export async function loadLLMData(): Promise<LLMData[]> {
         if (sigmoid) {
           const ability = scoreToAbility(Number(result.score), sigmoid)
           normScore = abilityToNormalized(ability)
-        } else if (result.normalized_score !== undefined) {
-          normScore = Number(result.normalized_score)
         }
         llm.benchmarks[data.benchmark] = {
           score: Number(result.score),
           description: data.description,
           ...(hasCost ? { costPerTask: Number(result.cost) } : {}),
           ...(normalized !== undefined ? { normalizedCost: normalized } : {}),
-          ...(normScore !== undefined ? { normalizedScore: normScore } : {}),
+          ...(normScore !== undefined ? { sigmoidScore: normScore } : {}),
           scoreWeight: data.score_weight,
           costWeight: data.cost_weight,
         }

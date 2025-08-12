@@ -1,75 +1,51 @@
 kimi-k2:
   score: 1565.0
-  normalized_score: 100.0
 o3-medium:
   score: 1500.0
-  normalized_score: 94.04
 gemini-2.5-pro-06-05:
   score: 1470.0
-  normalized_score: 91.32
 o4-mini-medium:
   score: 1291.0
-  normalized_score: 74.97
 claude-opus-4-nothinking:
   score: 1290.0
-  normalized_score: 74.88
 gemini-2.5-pro-preview-03-25:
   score: 1284.0
-  normalized_score: 74.38
 deepseek-r1-0120:
   score: 1270.0
-  normalized_score: 73.06
 claude-sonnet-4-nothinking:
   score: 1261.0
-  normalized_score: 72.21
 gemini-2.5-pro-preview-05-06:
   score: 1247.0
-  normalized_score: 70.96
 gpt-4.1:
   score: 1235.0
-  normalized_score: 69.84
 grok-4:
   score: 1193.0
-  normalized_score: 66.05
 deepseek-v3-0324:
   score: 1170.0
-  normalized_score: 63.97
 gpt-oss-120b-medium:
   score: 1152.0
-  normalized_score: 62.3
 gpt-4.1-mini:
   score: 1144.0
-  normalized_score: 61.6
 gpt-4.5-preview:
   score: 1093.0
-  normalized_score: 56.88
 claude-3.7-sonnet-nothinking:
   score: 1083.0
-  normalized_score: 55.96
 claude-3.5-sonnet-v2:
   score: 1068.0
-  normalized_score: 54.59
 grok-3:
   score: 1066.0
-  normalized_score: 54.47
 gemini-2.5-flash-preview-0417-nothinking:
   score: 1046.0
-  normalized_score: 52.64
 grok-3-mini-nothinking:
   score: 984.7
-  normalized_score: 47.02
 gpt-4.1-nano:
   score: 903.6
-  normalized_score: 39.62
 gpt-oss-20b-medium:
   score: 800.2
-  normalized_score: 30.19
 llama-4-maverick:
   score: 627.8
-  normalized_score: 14.45
 llama-4-scout:
   score: 469.4
-  normalized_score: 0.0
 sigmoid:
   min: 422.25124980169824
   max: 1843.32914056633
