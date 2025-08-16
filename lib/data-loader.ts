@@ -109,10 +109,17 @@ export async function loadLLMData(): Promise<LLMData[]> {
     .map((f) => f.replace(/\.yaml$/, ""))
   const llmMap: Record<string, LLMData> = {}
 
-  let abilityMap: Record<string, number> = {}
+  let abilityMap: Record<
+    string,
+    { base: number; offsets: Record<string, number> }
+  >
+  abilityMap = {}
   try {
     const abilityText = await fs.readFile(abilityPath, "utf8")
-    abilityMap = parse(abilityText) as Record<string, number>
+    abilityMap = parse(abilityText) as Record<
+      string,
+      { base: number; offsets: Record<string, number> }
+    >
   } catch {
     abilityMap = {}
   }
@@ -181,8 +188,10 @@ export async function loadLLMData(): Promise<LLMData[]> {
   const results = Object.values(llmMap)
 
   for (const llm of results) {
-    const ability = abilityMap[llm.slug]
-    if (ability !== undefined) {
+    const entry = abilityMap[llm.modelSlug]
+    if (entry) {
+      const ability =
+        Number(entry.base) + Number(entry.offsets?.[llm.slug] ?? 0)
       const { min, max, midpoint, slope } = ABILITY_SIGMOID
       llm.averageScore =
         min + (max - min) / (1 + Math.exp(-(ability - midpoint) / slope))

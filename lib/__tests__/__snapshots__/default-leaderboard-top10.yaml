@@ -2,7 +2,7 @@
   slug: gpt-5-high
   model: GPT-5 (High)
   provider: OpenAI
-  averageScore: 85.17
+  averageScore: 100
   costPerTask: 198
   costBenchmarkCount: 6
   benchmarkCount: 7
@@ -12,47 +12,37 @@
   slug: gpt-5-medium
   model: GPT-5 (Medium)
   provider: OpenAI
-  averageScore: 79.06
+  averageScore: 99.66
   costPerTask: 109
   costBenchmarkCount: 6
   benchmarkCount: 7
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
-- id: kimi-k2
-  slug: kimi-k2
-  model: Kimi K2
-  provider: Moonshot
-  averageScore: 72.12
-  costPerTask: 16.1
-  costBenchmarkCount: 5
-  benchmarkCount: 8
   totalBenchmarks: 12
   totalCostBenchmarks: 8
 - id: gpt-5-low
   slug: gpt-5-low
   model: GPT-5 (Low)
   provider: OpenAI
-  averageScore: 70.28
+  averageScore: 95.37
   costPerTask: 44.9
   costBenchmarkCount: 6
   benchmarkCount: 6
   totalBenchmarks: 12
   totalCostBenchmarks: 8
-- id: gemini-2.5-pro-06-05
-  slug: gemini-2.5-pro-06-05
-  model: Gemini 2.5 Pro
-  provider: Google
-  averageScore: 65.92
-  costPerTask: 236
-  costBenchmarkCount: 8
-  benchmarkCount: 12
+- id: kimi-k2
+  slug: kimi-k2
+  model: Kimi K2
+  provider: Moonshot
+  averageScore: 94.38
+  costPerTask: 16.1
+  costBenchmarkCount: 5
+  benchmarkCount: 8
   totalBenchmarks: 12
   totalCostBenchmarks: 8
 - id: gpt-5-mini-medium
   slug: gpt-5-mini-medium
   model: GPT-5 Mini (Medium)
   provider: OpenAI
-  averageScore: 65.63
+  averageScore: 91.19
   costPerTask: 14
   costBenchmarkCount: 5
   benchmarkCount: 6
@@ -62,39 +52,49 @@
   slug: deepseek-r1-0528
   model: DeepSeek R1 05/28
   provider: DeepSeek
-  averageScore: 62.95
+  averageScore: 89.52
   costPerTask: 26.9
   costBenchmarkCount: 4
   benchmarkCount: 7
+  totalBenchmarks: 12
+  totalCostBenchmarks: 8
+- id: gemini-2.5-pro-06-05
+  slug: gemini-2.5-pro-06-05
+  model: Gemini 2.5 Pro
+  provider: Google
+  averageScore: 89.23
+  costPerTask: 236
+  costBenchmarkCount: 8
+  benchmarkCount: 12
   totalBenchmarks: 12
   totalCostBenchmarks: 8
 - id: gemini-2.5-flash-0520-thinking
   slug: gemini-2.5-flash-0520-thinking
   model: Gemini 2.5 Flash 05/20 (thinking)
   provider: Google
-  averageScore: 58.16
+  averageScore: 82.74
   costPerTask: 55.5
   costBenchmarkCount: 8
   benchmarkCount: 10
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
-- id: claude-sonnet-4-nothinking
-  slug: claude-sonnet-4-nothinking
-  model: Claude 4 Sonnet (no thinking)
-  provider: Anthropic
-  averageScore: 50.46
-  costPerTask: 58.2
-  costBenchmarkCount: 8
-  benchmarkCount: 11
   totalBenchmarks: 12
   totalCostBenchmarks: 8
 - id: qwen-3-235b-a22b-nothinking
   slug: qwen-3-235b-a22b-nothinking
   model: Qwen3 235B A22B (no thinking)
   provider: Qwen
-  averageScore: 49.37
+  averageScore: 69.23
   costPerTask: 5.14
   costBenchmarkCount: 3
   benchmarkCount: 6
+  totalBenchmarks: 12
+  totalCostBenchmarks: 8
+- id: claude-sonnet-4-nothinking
+  slug: claude-sonnet-4-nothinking
+  model: Claude 4 Sonnet (no thinking)
+  provider: Anthropic
+  averageScore: 67.77
+  costPerTask: 58.2
+  costBenchmarkCount: 8
+  benchmarkCount: 11
   totalBenchmarks: 12
   totalCostBenchmarks: 8
