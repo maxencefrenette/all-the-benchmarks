@@ -10,6 +10,7 @@ results:
   GPT-5 (medium): 23
   Gemini 2.5 Pro: 21
   o3: 20
+  gpt-oss-120B (high): 18
   GPT-5 (low): 18
   o4-mini (high): 17
   Gemini 2.5 Pro (Mar '25): 17
@@ -28,7 +29,6 @@ results:
   EXAONE 4.0 32B (Reasoning): 10
   Claude 3.7 Sonnet Thinking: 10
   Qwen3 30B 2507 (Reasoning): 9
-  gpt-oss-120B (high): 9
   Claude 4 Sonnet Thinking: 9
   Magistral Medium: 9
   DeepSeek R1 (Jan '25): 9
@@ -75,8 +75,8 @@ results:
   Llama 3.2 3B: 5
   DeepSeek V3 0324 (Mar '25): 5
   Jamba Instruct: 5
-  Qwen3 1.7B: 5
   Qwen3 0.6B: 5
+  Qwen3 1.7B: 5
   Gemini 2.5 Flash: 5
   Grok 3: 5
   Llama 3.1 Nemotron Nano 4B v1.1 (Reasoning): 5
@@ -105,8 +105,8 @@ results:
   Mistral Small 3.1: 4
   OpenChat 3.5: 4
   Command-R (Mar '24): 4
-  Qwen3 1.7B (Reasoning): 4
   QwQ 32B-Preview: 4
+  Qwen3 1.7B (Reasoning): 4
   Qwen2.5 Coder 7B: 4
   Gemma 3 27B: 4
   Nova Premier: 4
@@ -115,8 +115,8 @@ results:
   Grok Beta: 4
   Nova Micro: 4
   Qwen3 235B: 4
-  GPT-4.1: 4
   GPT-4.1 mini: 4
+  GPT-4.1: 4
   Llama 3.1 Nemotron 70B: 4
   Command A: 4
   Llama 3.1 70B: 4
@@ -133,6 +133,7 @@ results:
   Command-R+ (Apr '24): 4
   Qwen2.5 Max: 4
   Gemma 3n E4B: 4
+  Mistral Medium 3.1: 4
   Phi-4 Multimodal: 4
   Qwen3 Coder 480B: 4
   Llama 3 70B: 4
@@ -142,8 +143,8 @@ results:
   DeepSeek R1 Distill Qwen 14B: 4
   Phi-3 Mini: 4
   Llama 4 Scout: 4
-  Mistral Medium 3: 4
   Mistral Small 3.2: 4
+  Mistral Medium 3: 4
   Llama Nemotron Super 49B v1.5: 4
   DeepHermes 3 - Llama-3.1 8B: 4
   Mistral Small (Sep '24): 4
@@ -159,8 +160,8 @@ results:
   Phi-4 Mini: 4
   Qwen2.5 72B: 4
   Qwen2.5 Turbo: 4
-  Qwen3 8B (Reasoning): 4
   Qwen3 14B: 4
+  Qwen3 8B (Reasoning): 4
   Phi-4: 4
   Mistral Small 3: 4
   Mixtral 8x22B: 4
@@ -170,10 +171,11 @@ results:
   Llama 3.3 70B: 4
   Gemma 3n E2B: 4
   Claude 4 Sonnet: 4
+  Qwen3 Coder 30B: 4
   Mistral Large 2 (Nov '24): 4
   Devstral Small (May '25): 4
-  Jamba 1.5 Large: 4
   Jamba 1.6 Large: 4
+  Jamba 1.5 Large: 4
   GPT-4.1 nano: 3
   DeepHermes 3 - Mistral 24B: 3
   Gemma 2 9B: 3
@@ -257,6 +259,7 @@ cost_per_task:
   EXAONE 4.0 32B (Reasoning): 33
   Qwen3 1.7B (Reasoning): 32
   Qwen3 235B 2507 (Non-reasoning): 31
+  gpt-oss-120B (high): 29
   Reka Flash 3: 27
   Claude 4 Sonnet: 24
   GPT-4o (May '24): 22
@@ -281,13 +284,15 @@ cost_per_task:
   Qwen2.5 Max: 14
   Claude 3 Sonnet: 14
   GPT-4o (Aug '24): 13
-  DeepSeek R1 Distill Llama 70B: 12
+  DeepSeek R1 Distill Llama 70B: 13
   Qwen3 0.6B (Reasoning): 12
   Kimi K2: 12
   Command-R+: 12
   Mistral Large (Feb '24): 11
   Jamba 1.5 Large: 11
   GPT-5 (minimal): 10
+  Mistral Medium 3.1: 10
+  DeepSeek R1 Distill Qwen 14B: 9
   Mistral Medium: 9
   QwQ 32B-Preview: 9
   Mistral Large 2 (Nov '24): 9
@@ -301,38 +306,37 @@ cost_per_task:
   Llama 3.1 405B: 7
   Mistral Large 2 (Jul '24): 6
   Jamba 1.7 Large: 6
+  Qwen3 Coder 30B: 5
   gpt-oss-20B (high): 5
   Qwen3 32B: 5
   Gemini 2.5 Flash (April '25): 4
   Qwen3 235B: 4
   GPT-4.1 mini: 4
-  gpt-oss-120B (high): 4
   Qwen3 8B: 4
   Claude 3.5 Haiku: 4
   Mistral Medium 3: 4
-  DeepSeek R1 Distill Qwen 32B: 3
   Nova Pro: 3
   DeepSeek V3 0324 (Mar '25): 3
   EXAONE 4.0 32B: 3
   MiniMax M1 80k: 3
+  DeepSeek R1 Distill Qwen 32B: 2
   Llama 3.1 70B: 2
   DeepSeek R1 0528 Qwen3 8B: 2
   Mistral Small (Feb '24): 2
   Sonar: 2
   Qwen3 14B: 2
   Llama 4 Maverick: 2
-  DeepSeek R1 Distill Qwen 14B: 2
+  Llama 3.2 90B (Vision): 2
   Qwen3 4B: 2
   Gemini 1.0 Pro: 2
   Aya Expanse 32B: 2
   Aya Expanse 8B: 2
   MiniMax-Text-01: 2
-  Llama 3.3 70B: 2
-  Llama 3.2 90B (Vision): 2
   Devstral Medium: 2
+  Llama 3.3 70B: 2
   DeepSeek V3 (Dec '24): 2
-  Llama 4 Scout: 2
   Command-R (Mar '24): 2
+  Llama 4 Scout: 1
   Mixtral 8x7B: 1
   Claude Instant: 1
   Gemini 2.0 Flash: 1
@@ -346,6 +350,8 @@ cost_per_task:
   Qwen3 30B: 1
   Mistral Saba: 1
   Gemini 2.0 Flash-Lite (Preview): 1
+  Phi-3 Mini: 1
+  Llama 3.2 11B (Vision): 1
   Llama 3.1 Nemotron 70B: 1
   Codestral (May '24): 1
   Gemini 2.0 Flash-Lite (Feb '25): 1
@@ -356,11 +362,11 @@ cost_per_task:
   Jamba 1.6 Mini: 1
   Jamba 1.5 Mini: 0
   Mistral Small 3: 0
-  Llama 3.2 11B (Vision): 0
   Jamba 1.7 Mini: 0
   Qwen2.5 Instruct 32B: 0
   Mistral Small 3.1: 0
   Mistral Small 3.2: 0
+  Granite 3.3 8B: 0
   Qwen2.5 Coder 32B: 0
   Hermes 3 - Llama-3.1 70B: 0
   Qwen2.5 Turbo: 0
@@ -369,9 +375,9 @@ cost_per_task:
   Llama 2 Chat 7B: 0
   Gemma 2 9B: 0
   Pixtral 12B: 0
-  Llama 3.1 8B: 0
   Devstral Small (May '25): 0
   Devstral Small: 0
+  Llama 3.1 8B: 0
   Gemma 3 12B: 0
   Qwen3 0.6B: 0
   Llama 3.2 1B: 0
