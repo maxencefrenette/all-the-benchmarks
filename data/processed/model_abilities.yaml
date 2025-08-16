@@ -1,180 +1,180 @@
 claude-3.5-haiku:
-  base: -4.15183407016222
+  base: -1.4375016540251342
   offsets:
-    claude-3.5-haiku: 2.002494235402742
+    claude-3.5-haiku: 0.0
 claude-3.5-sonnet:
-  base: -0.8593933314415312
+  base: -0.24734186324910112
   offsets:
-    claude-3.5-sonnet: -0.5222317552491568
+    claude-3.5-sonnet: 0.0
 claude-3.5-sonnet-v2:
-  base: 0.014080960473778444
+  base: -0.18682391420926844
   offsets:
-    claude-3.5-sonnet-v2: 0.09574112121197668
+    claude-3.5-sonnet-v2: 0.0
 claude-3.7-sonnet:
-  base: 0.033952009463700396
+  base: -0.062218747292193406
   offsets:
-    claude-3.7-sonnet-nothinking: 0.12270940391105228
-    claude-3.7-sonnet-thinking: -0.2660232079829892
+    claude-3.7-sonnet-nothinking: -0.1307710106329965
+    claude-3.7-sonnet-thinking: -0.11616204083063622
 claude-opus-4:
-  base: 0.5742354265172614
+  base: 0.48962073001843226
   offsets:
-    claude-opus-4-nothinking: 0.2605823038290478
-    claude-opus-4-thinking: 0.2344799070922952
+    claude-opus-4-nothinking: -0.6375449905677786
+    claude-opus-4-thinking: 0.24545555905242122
 claude-opus-4.1:
-  base: 0.32660765385433044
+  base: 1.1506384862426562
   offsets:
-    claude-opus-4.1-nothinking: 80.10453660005908
-    claude-opus-4.1-thinking: 1.593311119054499
+    claude-opus-4.1-nothinking: 0.0
+    claude-opus-4.1-thinking: 0.0
 claude-sonnet-4:
-  base: 0.4943272881129212
+  base: 0.4138796949876971
   offsets:
-    claude-sonnet-4-nothinking: 0.22602963097270615
-    claude-sonnet-4-thinking: -0.1279079762723893
+    claude-sonnet-4-nothinking: -0.5794519205735579
+    claude-sonnet-4-thinking: -0.57138658030334
 deepseek-r1-0120:
-  base: 0.5587343032378348
+  base: 0.42953662353393923
   offsets:
-    deepseek-r1-0120: 0.20799564929918263
+    deepseek-r1-0120: 0.0
 deepseek-r1-0528:
-  base: 0.8886118159840228
+  base: 0.45218024486723973
   offsets:
-    deepseek-r1-0528: 0.8126637070973878
+    deepseek-r1-0528: 0.0
 deepseek-v3-0324:
-  base: 0.32736056362780475
+  base: 0.15761912178294893
   offsets:
-    deepseek-v3-0324: 0.12099600329569529
+    deepseek-v3-0324: 0.0
 deepseek-v3-1224:
-  base: -0.3066408414042799
+  base: -0.16850125844726047
   offsets:
-    deepseek-v3-1224: -0.022431570755178314
+    deepseek-v3-1224: 0.0
 gemini-2.5-flash-0520:
-  base: 0.5261095885806395
+  base: 0.4972966898816146
   offsets:
-    gemini-2.5-flash-0520-nothinking: -0.2774880011017431
-    gemini-2.5-flash-0520-thinking: 0.7712489079980195
+    gemini-2.5-flash-0520-nothinking: -0.5919818460452083
+    gemini-2.5-flash-0520-thinking: -0.2921528783285946
 gemini-2.5-flash-preview-0417:
-  base: 0.0591335791381969
+  base: -0.12705121213945209
   offsets:
-    gemini-2.5-flash-preview-0417-nothinking: 0.009349969363253397
-    gemini-2.5-flash-preview-0417-thinking: 0.9698422248169029
+    gemini-2.5-flash-preview-0417-nothinking: -0.31649450790250255
+    gemini-2.5-flash-preview-0417-thinking: 0.1862886609139055
 gemini-2.5-pro-06-05:
-  base: 1.258894343134015
+  base: 1.0412414305633355
   offsets:
-    gemini-2.5-pro-06-05: 0.42137697745574665
+    gemini-2.5-pro-06-05: 0.0
 gemini-2.5-pro-preview-03-25:
-  base: 0.6713586416302494
+  base: 0.4785634592304281
   offsets:
-    gemini-2.5-pro-preview-03-25: 0.15876399299630303
+    gemini-2.5-pro-preview-03-25: 0.0
 gemini-2.5-pro-preview-05-06:
-  base: 0.5931529243843217
+  base: 0.3759543898393702
   offsets:
-    gemini-2.5-pro-preview-05-06: 0.142004500442349
+    gemini-2.5-pro-preview-05-06: 0.0
 gpt-4.1:
-  base: 0.5488806335140374
+  base: 0.3290475204057281
   offsets:
-    gpt-4.1: 0.10251834087462124
+    gpt-4.1: 0.0
 gpt-4.1-mini:
-  base: 0.31653300595084705
+  base: 0.08202201354965491
   offsets:
-    gpt-4.1-mini: 0.03024974041179939
+    gpt-4.1-mini: 0.0
 gpt-4.1-nano:
-  base: -0.2821966884198045
+  base: -0.5954649632725986
   offsets:
-    gpt-4.1-nano: -0.10925002701282675
+    gpt-4.1-nano: 0.0
 gpt-4.5-preview:
-  base: 0.20257451213301153
+  base: -0.04631006641079792
   offsets:
-    gpt-4.5-preview: 0.03114493004126601
+    gpt-4.5-preview: 0.0
 gpt-4o-2024-05-13:
-  base: -0.7392080065947478
+  base: -0.19385459977571096
   offsets:
-    gpt-4o-2024-05-13: -0.2616380866372215
+    gpt-4o-2024-05-13: 0.0
 gpt-4o-2024-08-06:
-  base: -0.8043256040431607
+  base: -1.7148501441908017
   offsets:
-    gpt-4o-2024-08-06: -0.6070132288408329
+    gpt-4o-2024-08-06: 0.0
 gpt-4o-2024-11-20:
-  base: -0.4788821802228537
+  base: -1.4486258469209914
   offsets:
-    gpt-4o-2024-11-20: -1.1308921951802309
+    gpt-4o-2024-11-20: 0.0
 gpt-5:
-  base: 0.6288978867371237
+  base: 0.8273080621751764
   offsets:
-    gpt-5-high: 165.1039983024247
-    gpt-5-low: 1.6881989671674034
-    gpt-5-medium: 3.550416387293011
-    gpt-5-minimal: -1.0268169660845152
+    gpt-5-high: 1.863176625585867
+    gpt-5-low: 0.46639649430556207
+    gpt-5-medium: 1.1942756206158762
+    gpt-5-minimal: -1.0827072730028693
 gpt-5-mini:
-  base: 0.04588509494255327
+  base: 0.3579106029383024
   offsets:
-    gpt-5-mini-high: 3.484995318562804
-    gpt-5-mini-low: 0.6274280549018589
-    gpt-5-mini-medium: 1.790264484003058
-    gpt-5-mini-minimal: -1.1964003562318068
+    gpt-5-mini-high: 1.5136516876313073
+    gpt-5-mini-low: 0.0055307758945132325
+    gpt-5-mini-medium: 0.6065215569434559
+    gpt-5-mini-minimal: -1.636924736141442
 gpt-5-nano:
-  base: -0.5524474059690564
+  base: -0.08211240790817638
   offsets:
-    gpt-5-nano-high: 0.4589617656082139
-    gpt-5-nano-low: -0.7538833668786458
-    gpt-5-nano-medium: 0.9535952087098447
-    gpt-5-nano-minimal: -1.047804783388701
+    gpt-5-nano-high: -0.1514660456226476
+    gpt-5-nano-low: -1.3752321502471851
+    gpt-5-nano-medium: 0.11168257270027573
+    gpt-5-nano-minimal: -1.7864809304333922
 gpt-oss-120b:
-  base: 0.33757399650128617
+  base: 0.11310479850513232
   offsets:
-    gpt-oss-120b-high: 0.7533815777823604
+    gpt-oss-120b-high: 0.0
     gpt-oss-120b-low: 0.0
-    gpt-oss-120b-medium: 0.05236602529319989
+    gpt-oss-120b-medium: 0.0
 gpt-oss-20b:
-  base: -0.5547134080738921
+  base: -0.9217672795653102
   offsets:
-    gpt-oss-20b-high: 0.6331249636163457
+    gpt-oss-20b-high: 0.0
     gpt-oss-20b-low: 0.0
-    gpt-oss-20b-medium: -0.13835391952326304
+    gpt-oss-20b-medium: 0.0
 grok-3:
-  base: 0.1347463617758974
+  base: -0.0961963523797509
   offsets:
-    grok-3: 0.02329749528590929
+    grok-3: 0.0
 grok-3-mini:
-  base: -0.08111456358970044
+  base: -0.32317900490293383
   offsets:
-    grok-3-mini-high: 0.4184162975055707
-    grok-3-mini-low: -0.506330364734874
-    grok-3-mini-nothinking: -0.024511648338667983
+    grok-3-mini-high: 0.17148111473288283
+    grok-3-mini-low: -0.31908617515209003
+    grok-3-mini-nothinking: 0.17092579507171743
 grok-4:
-  base: 0.44624999370144935
+  base: 0.24279248223184105
   offsets:
-    grok-4: 0.11889274440331156
+    grok-4: 0.0
 kimi-k2:
-  base: 1.5766146316415774
+  base: 1.3857878354613054
   offsets:
-    kimi-k2: 0.597513957482698
+    kimi-k2: 0.0
 llama-4-maverick:
-  base: -1.2357084117984978
+  base: -1.6811862522958014
   offsets:
-    llama-4-maverick: -0.12266887118920927
+    llama-4-maverick: 0.0
 llama-4-scout:
-  base: -2.2824925497162925
+  base: -3.564084832066758
   offsets:
-    llama-4-scout: -0.06769383632812903
+    llama-4-scout: 0.0
 o3:
-  base: 1.443945609350834
+  base: 1.1381955092267309
   offsets:
-    o3-high: 3.3936113514795765
-    o3-low: 0.5208688998529946
-    o3-medium: 0.3702577298425507
+    o3-high: 1.1545048583720756
+    o3-low: 0.03551001692474706
+    o3-medium: 0.6869781029443671
 o3-pro:
-  base: -0.4631911048106128
+  base: 2.3532413437064608
   offsets:
-    o3-pro-high: 5.658670665166299
-    o3-pro-low: 2.703738450294821
-    o3-pro-medium: 4.442133006520625
+    o3-pro-high: -0.1877454680340068
+    o3-pro-low: -1.0346135929429545
+    o3-pro-medium: -0.36077207685911017
 o4-mini:
-  base: 0.7444545293223144
+  base: 0.49544536203302053
   offsets:
-    o4-mini-high: 2.1209502768912594
-    o4-mini-low: -0.4660349047227503
-    o4-mini-medium: 0.09411984879673313
+    o4-mini-high: 1.6528632579566176
+    o4-mini-low: -0.427007929824198
+    o4-mini-medium: 0.6651645623589698
 qwen-3-235b-a22b:
-  base: 0.03923281253664128
+  base: 0.08568399787102586
   offsets:
-    qwen-3-235b-a22b-nothinking: 0.7284359962545486
-    qwen-3-235b-a22b-thinking: 0.33624549522376534
+    qwen-3-235b-a22b-nothinking: -0.20894962224787644
+    qwen-3-235b-a22b-thinking: -0.23374565757378116
