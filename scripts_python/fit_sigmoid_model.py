@@ -6,6 +6,22 @@ from scipy.optimize import minimize
 
 ROOT = Path(__file__).resolve().parents[1]
 PROCESSED_DIR = ROOT / "data" / "processed" / "benchmarks"
+MODEL_CONFIG_DIR = ROOT / "data" / "config" / "models"
+
+
+def load_model_configs():
+    base_models = set()
+    variant_to_base = {}
+    for file in MODEL_CONFIG_DIR.glob("*.yaml"):
+        base = file.stem
+        base_models.add(base)
+        data = yaml.safe_load(file.read_text()) or {}
+        for variant in (data.get("reasoning_efforts") or {}):
+            variant_to_base[variant] = base
+    return base_models, variant_to_base
+
+
+BASE_MODELS, VARIANT_TO_BASE = load_model_configs()
 
 
 def load_scores() -> pd.DataFrame:
@@ -14,7 +30,7 @@ def load_scores() -> pd.DataFrame:
         bench = file.stem
         data = yaml.safe_load(file.read_text()) or {}
         for model, res in data.items():
-            if model == "sigmoid":
+            if model == "sigmoid" or model not in VARIANT_TO_BASE:
                 continue
             score = res.get("score")
             if score is None:
@@ -24,17 +40,25 @@ def load_scores() -> pd.DataFrame:
 
 
 def initialise(df: pd.DataFrame):
-    models = sorted(df["model"].unique())
-    benchmarks = sorted(df["benchmark"].unique())
-    m2i = {m: i for i, m in enumerate(models)}
-    b2i = {b: i for i, b in enumerate(benchmarks)}
-    y = df["score"].values
-    model_idx = df["model"].map(m2i).values
-    bench_idx = df["benchmark"].map(b2i).values
+    base_models = sorted(BASE_MODELS)
+    variants = sorted(VARIANT_TO_BASE.keys())
+    b2i = {b: i for i, b in enumerate(base_models)}
+    v2i = {v: i for i, v in enumerate(variants)}
 
-    model_means = df.groupby("model")["score"].mean()
-    raw_a = model_means.reindex(models).fillna(0).values
+    y = df["score"].values
+    base_idx = df["model"].map(lambda m: b2i[VARIANT_TO_BASE[m]]).values
+    variant_idx = df["model"].map(v2i).values
+
+    benchmarks = sorted(df["benchmark"].unique())
+    b2i_bench = {b: i for i, b in enumerate(benchmarks)}
+    bench_idx = df["benchmark"].map(b2i_bench).values
+    observed_variants = set(df["model"].unique())
+
+    df_base = df.assign(base=df["model"].map(VARIANT_TO_BASE))
+    model_means = df_base.groupby("base")["score"].mean()
+    raw_a = model_means.reindex(base_models).fillna(0).values
     raw_a = (raw_a - raw_a.mean()) / (raw_a.std() or 1)
+    offsets = np.zeros(len(variants))
 
     grouped = df.groupby("benchmark")["score"]
     y_min = grouped.min().reindex(benchmarks).values
@@ -52,17 +76,28 @@ def initialise(df: pd.DataFrame):
     log_sigma = np.log(sigma)
 
     params = np.concatenate(
-        [raw_a, min_b, log_range_b, mid_b, log_slope_b, [log_sigma]]
+        [raw_a, offsets, min_b, log_range_b, mid_b, log_slope_b, [log_sigma]]
     )
-    return params, models, benchmarks, y, model_idx, bench_idx
+    return (
+        params,
+        base_models,
+        benchmarks,
+        y,
+        base_idx,
+        bench_idx,
+        variant_idx,
+        variants,
+        observed_variants,
+    )
 
 
-def unpack(params, M, B):
+def unpack(params, M, V, B):
     raw_a = params[:M]
-    min_b = params[M : M + B]
-    log_range_b = params[M + B : M + 2 * B]
-    mid_b = params[M + 2 * B : M + 3 * B]
-    log_slope_b = params[M + 3 * B : M + 4 * B]
+    offsets = params[M : M + V]
+    min_b = params[M + V : M + V + B]
+    log_range_b = params[M + V + B : M + V + 2 * B]
+    mid_b = params[M + V + 2 * B : M + V + 3 * B]
+    log_slope_b = params[M + V + 3 * B : M + V + 4 * B]
     log_sigma = params[-1]
 
     a = raw_a - raw_a.mean()
@@ -74,25 +109,29 @@ def unpack(params, M, B):
     max_b = min_b + range_b
     slope_b = np.exp(log_slope_b)
     sigma = np.exp(log_sigma)
-    return a, min_b, max_b, mid_b, slope_b, sigma
+    return a, offsets, min_b, max_b, mid_b, slope_b, sigma
 
 
-def predict(a, min_b, max_b, mid_b, slope_b, model_idx, bench_idx):
+def predict(a, offsets, min_b, max_b, mid_b, slope_b, base_idx, bench_idx, variant_idx):
+    ability = a[base_idx] + offsets[variant_idx]
     return min_b[bench_idx] + (
         (max_b[bench_idx] - min_b[bench_idx])
-        / (1 + np.exp(-(a[model_idx] - mid_b[bench_idx]) / slope_b[bench_idx]))
+        / (1 + np.exp(-(ability - mid_b[bench_idx]) / slope_b[bench_idx]))
     )
 
 
-def neg_loglike(params, M, B, y, model_idx, bench_idx):
-    a, min_b, max_b, mid_b, slope_b, sigma = unpack(params, M, B)
-    pred = predict(a, min_b, max_b, mid_b, slope_b, model_idx, bench_idx)
+def neg_loglike(params, M, V, B, y, base_idx, bench_idx, variant_idx):
+    a, offsets, min_b, max_b, mid_b, slope_b, sigma = unpack(params, M, V, B)
+    pred = predict(a, offsets, min_b, max_b, mid_b, slope_b, base_idx, bench_idx, variant_idx)
     resid = y - pred
     return 0.5 * np.sum((resid / sigma) ** 2 + 2 * np.log(sigma) + np.log(2 * np.pi))
 
 
-def save_outputs(a, benchmarks, min_b, max_b, mid_b, slope_b, sigma, models):
-    abilities = {m: float(ai) for m, ai in zip(models, a)}
+def save_outputs(a, offsets, benchmarks, min_b, max_b, mid_b, slope_b, sigma, base_models, variants):
+    abilities = {b: {"base": float(ai), "offsets": {}} for b, ai in zip(base_models, a)}
+    for v, off in zip(variants, offsets):
+        abilities[VARIANT_TO_BASE[v]]["offsets"][v] = float(off)
+
     out_dir = ROOT / "data" / "processed"
     out_dir.mkdir(exist_ok=True)
     (out_dir / "model_abilities.yaml").write_text(
@@ -120,16 +159,40 @@ def main():
     df = load_scores()
     if df.empty:
         raise SystemExit("No scores found")
-    params, models, benchmarks, y, model_idx, bench_idx = initialise(df)
-    M, B = len(models), len(benchmarks)
+    (
+        params,
+        base_models,
+        benchmarks,
+        y,
+        base_idx,
+        bench_idx,
+        variant_idx,
+        variants,
+        observed,
+    ) = initialise(df)
+    M, V, B = len(base_models), len(variants), len(benchmarks)
     result = minimize(
         neg_loglike,
         params,
-        args=(M, B, y, model_idx, bench_idx),
+        args=(M, V, B, y, base_idx, bench_idx, variant_idx),
         method="Powell",
     )
-    a, min_b, max_b, mid_b, slope_b, sigma = unpack(result.x, M, B)
-    save_outputs(a, benchmarks, min_b, max_b, mid_b, slope_b, sigma, models)
+    a, offsets, min_b, max_b, mid_b, slope_b, sigma = unpack(result.x, M, V, B)
+    for i, v in enumerate(variants):
+        if v not in observed:
+            offsets[i] = 0.0
+    save_outputs(
+        a,
+        offsets,
+        benchmarks,
+        min_b,
+        max_b,
+        mid_b,
+        slope_b,
+        sigma,
+        base_models,
+        variants,
+    )
 
 
 if __name__ == "__main__":

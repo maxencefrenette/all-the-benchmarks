@@ -1,64 +1,180 @@
-claude-3.5-haiku: -2.4961666452165745
-claude-3.5-sonnet: -0.8425749701841515
-claude-3.5-sonnet-v2: -0.12633599570209567
-claude-3.7-sonnet-nothinking: -0.09832870938475848
-claude-3.7-sonnet-thinking: -0.19474425999311373
-claude-opus-4-nothinking: 0.27523397568444097
-claude-opus-4-thinking: 0.20571963167584328
-claude-opus-4.1-nothinking: 2.4790288627279247
-claude-opus-4.1-thinking: 0.7534442104899757
-claude-sonnet-4-nothinking: 0.21288099402863447
-claude-sonnet-4-thinking: 0.034230289551304846
-deepseek-r1-0120: 0.23972466681656718
-deepseek-r1-0528: 0.5711064644506606
-deepseek-v3-0324: 0.07056373135362291
-deepseek-v3-1224: -0.22744567873686927
-gemini-2.5-flash-0520-nothinking: -0.0486006718606664
-gemini-2.5-flash-0520-thinking: 0.4306676913699614
-gemini-2.5-flash-preview-0417-nothinking: -0.14793436837226484
-gemini-2.5-flash-preview-0417-thinking: 0.2981198420316859
-gemini-2.5-pro-06-05: 0.6617587096207319
-gemini-2.5-pro-preview-03-25: 0.27620241950168556
-gemini-2.5-pro-preview-05-06: 0.2295352477947052
-gpt-4.1: 0.17929860031326111
-gpt-4.1-mini: 0.009179452502981805
-gpt-4.1-nano: -0.4265806450582604
-gpt-4.5-preview: -0.04383474398111588
-gpt-4o-2024-05-13: -0.5682703586007399
-gpt-4o-2024-08-06: -0.8140127606032469
-gpt-4o-2024-11-20: -0.6823620203992052
-gpt-5-high: 1.4235095858218594
-gpt-5-low: 0.802398184230731
-gpt-5-medium: 1.1301186446286948
-gpt-5-mini-high: 1.074198730488936
-gpt-5-mini-low: 0.3132468006182852
-gpt-5-mini-medium: 0.6528120112781034
-gpt-5-mini-minimal: -3.473381019401928
-gpt-5-minimal: -0.19594803415578174
-gpt-5-nano-high: -1.8594217156716462
-gpt-5-nano-low: -2.459946726796803
-gpt-5-nano-medium: 0.12124429649274528
-gpt-5-nano-minimal: -2.39963044291671
-gpt-oss-120b-high: 0.3637519290096939
-gpt-oss-120b-medium: 0.03782017968595532
-gpt-oss-20b-high: 0.047225787229836134
-gpt-oss-20b-medium: -0.6247653289525388
-grok-3: -0.0848770098283983
-grok-3-mini-high: 0.024475265926005428
-grok-3-mini-low: -0.30784144288955606
-grok-3-mini-nothinking: -0.24648562603399196
-grok-4: 0.14178863131927172
-kimi-k2: 0.8651902712085816
-llama-4-maverick: -1.0896436060138477
-llama-4-scout: -2.073255959925118
-o3-high: 1.2094195939003543
-o3-low: 0.7998406836602554
-o3-medium: 0.7190439800057896
-o3-pro-high: 1.1195580040875666
-o3-pro-low: 0.8958303402281255
-o3-pro-medium: 1.1006771727959241
-o4-mini-high: 1.0763635671662137
-o4-mini-low: 0.1823023726160113
-o4-mini-medium: 0.2767578713404157
-qwen-3-235b-a22b-nothinking: 0.18245887473706987
-qwen-3-235b-a22b-thinking: 0.045661172288969674
+claude-3.5-haiku:
+  base: -4.15183407016222
+  offsets:
+    claude-3.5-haiku: 2.002494235402742
+claude-3.5-sonnet:
+  base: -0.8593933314415312
+  offsets:
+    claude-3.5-sonnet: -0.5222317552491568
+claude-3.5-sonnet-v2:
+  base: 0.014080960473778444
+  offsets:
+    claude-3.5-sonnet-v2: 0.09574112121197668
+claude-3.7-sonnet:
+  base: 0.033952009463700396
+  offsets:
+    claude-3.7-sonnet-nothinking: 0.12270940391105228
+    claude-3.7-sonnet-thinking: -0.2660232079829892
+claude-opus-4:
+  base: 0.5742354265172614
+  offsets:
+    claude-opus-4-nothinking: 0.2605823038290478
+    claude-opus-4-thinking: 0.2344799070922952
+claude-opus-4.1:
+  base: 0.32660765385433044
+  offsets:
+    claude-opus-4.1-nothinking: 80.10453660005908
+    claude-opus-4.1-thinking: 1.593311119054499
+claude-sonnet-4:
+  base: 0.4943272881129212
+  offsets:
+    claude-sonnet-4-nothinking: 0.22602963097270615
+    claude-sonnet-4-thinking: -0.1279079762723893
+deepseek-r1-0120:
+  base: 0.5587343032378348
+  offsets:
+    deepseek-r1-0120: 0.20799564929918263
+deepseek-r1-0528:
+  base: 0.8886118159840228
+  offsets:
+    deepseek-r1-0528: 0.8126637070973878
+deepseek-v3-0324:
+  base: 0.32736056362780475
+  offsets:
+    deepseek-v3-0324: 0.12099600329569529
+deepseek-v3-1224:
+  base: -0.3066408414042799
+  offsets:
+    deepseek-v3-1224: -0.022431570755178314
+gemini-2.5-flash-0520:
+  base: 0.5261095885806395
+  offsets:
+    gemini-2.5-flash-0520-nothinking: -0.2774880011017431
+    gemini-2.5-flash-0520-thinking: 0.7712489079980195
+gemini-2.5-flash-preview-0417:
+  base: 0.0591335791381969
+  offsets:
+    gemini-2.5-flash-preview-0417-nothinking: 0.009349969363253397
+    gemini-2.5-flash-preview-0417-thinking: 0.9698422248169029
+gemini-2.5-pro-06-05:
+  base: 1.258894343134015
+  offsets:
+    gemini-2.5-pro-06-05: 0.42137697745574665
+gemini-2.5-pro-preview-03-25:
+  base: 0.6713586416302494
+  offsets:
+    gemini-2.5-pro-preview-03-25: 0.15876399299630303
+gemini-2.5-pro-preview-05-06:
+  base: 0.5931529243843217
+  offsets:
+    gemini-2.5-pro-preview-05-06: 0.142004500442349
+gpt-4.1:
+  base: 0.5488806335140374
+  offsets:
+    gpt-4.1: 0.10251834087462124
+gpt-4.1-mini:
+  base: 0.31653300595084705
+  offsets:
+    gpt-4.1-mini: 0.03024974041179939
+gpt-4.1-nano:
+  base: -0.2821966884198045
+  offsets:
+    gpt-4.1-nano: -0.10925002701282675
+gpt-4.5-preview:
+  base: 0.20257451213301153
+  offsets:
+    gpt-4.5-preview: 0.03114493004126601
+gpt-4o-2024-05-13:
+  base: -0.7392080065947478
+  offsets:
+    gpt-4o-2024-05-13: -0.2616380866372215
+gpt-4o-2024-08-06:
+  base: -0.8043256040431607
+  offsets:
+    gpt-4o-2024-08-06: -0.6070132288408329
+gpt-4o-2024-11-20:
+  base: -0.4788821802228537
+  offsets:
+    gpt-4o-2024-11-20: -1.1308921951802309
+gpt-5:
+  base: 0.6288978867371237
+  offsets:
+    gpt-5-high: 165.1039983024247
+    gpt-5-low: 1.6881989671674034
+    gpt-5-medium: 3.550416387293011
+    gpt-5-minimal: -1.0268169660845152
+gpt-5-mini:
+  base: 0.04588509494255327
+  offsets:
+    gpt-5-mini-high: 3.484995318562804
+    gpt-5-mini-low: 0.6274280549018589
+    gpt-5-mini-medium: 1.790264484003058
+    gpt-5-mini-minimal: -1.1964003562318068
+gpt-5-nano:
+  base: -0.5524474059690564
+  offsets:
+    gpt-5-nano-high: 0.4589617656082139
+    gpt-5-nano-low: -0.7538833668786458
+    gpt-5-nano-medium: 0.9535952087098447
+    gpt-5-nano-minimal: -1.047804783388701
+gpt-oss-120b:
+  base: 0.33757399650128617
+  offsets:
+    gpt-oss-120b-high: 0.7533815777823604
+    gpt-oss-120b-low: 0.0
+    gpt-oss-120b-medium: 0.05236602529319989
+gpt-oss-20b:
+  base: -0.5547134080738921
+  offsets:
+    gpt-oss-20b-high: 0.6331249636163457
+    gpt-oss-20b-low: 0.0
+    gpt-oss-20b-medium: -0.13835391952326304
+grok-3:
+  base: 0.1347463617758974
+  offsets:
+    grok-3: 0.02329749528590929
+grok-3-mini:
+  base: -0.08111456358970044
+  offsets:
+    grok-3-mini-high: 0.4184162975055707
+    grok-3-mini-low: -0.506330364734874
+    grok-3-mini-nothinking: -0.024511648338667983
+grok-4:
+  base: 0.44624999370144935
+  offsets:
+    grok-4: 0.11889274440331156
+kimi-k2:
+  base: 1.5766146316415774
+  offsets:
+    kimi-k2: 0.597513957482698
+llama-4-maverick:
+  base: -1.2357084117984978
+  offsets:
+    llama-4-maverick: -0.12266887118920927
+llama-4-scout:
+  base: -2.2824925497162925
+  offsets:
+    llama-4-scout: -0.06769383632812903
+o3:
+  base: 1.443945609350834
+  offsets:
+    o3-high: 3.3936113514795765
+    o3-low: 0.5208688998529946
+    o3-medium: 0.3702577298425507
+o3-pro:
+  base: -0.4631911048106128
+  offsets:
+    o3-pro-high: 5.658670665166299
+    o3-pro-low: 2.703738450294821
+    o3-pro-medium: 4.442133006520625
+o4-mini:
+  base: 0.7444545293223144
+  offsets:
+    o4-mini-high: 2.1209502768912594
+    o4-mini-low: -0.4660349047227503
+    o4-mini-medium: 0.09411984879673313
+qwen-3-235b-a22b:
+  base: 0.03923281253664128
+  offsets:
+    qwen-3-235b-a22b-nothinking: 0.7284359962545486
+    qwen-3-235b-a22b-thinking: 0.33624549522376534
