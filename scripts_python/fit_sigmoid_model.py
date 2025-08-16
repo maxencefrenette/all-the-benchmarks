@@ -36,7 +36,15 @@ def load_scores() -> pd.DataFrame:
             if score is None:
                 continue
             rows.append({"model": model, "benchmark": bench, "score": float(score)})
-    return pd.DataFrame(rows)
+
+    df = pd.DataFrame(rows)
+    if df.empty:
+        return df
+
+    df["base"] = df["model"].map(VARIANT_TO_BASE)
+    variant_counts = df.groupby(["benchmark", "base"])["model"].transform("nunique")
+    df["offset_mask"] = variant_counts > 1
+    return df
 
 
 def initialise(df: pd.DataFrame):
@@ -48,11 +56,12 @@ def initialise(df: pd.DataFrame):
     y = df["score"].values
     base_idx = df["model"].map(lambda m: b2i[VARIANT_TO_BASE[m]]).values
     variant_idx = df["model"].map(v2i).values
+    offset_mask = df["offset_mask"].values
 
     benchmarks = sorted(df["benchmark"].unique())
     b2i_bench = {b: i for i, b in enumerate(benchmarks)}
     bench_idx = df["benchmark"].map(b2i_bench).values
-    observed_variants = set(df["model"].unique())
+    observed_variants = set(df.loc[df["offset_mask"], "model"].unique())
 
     df_base = df.assign(base=df["model"].map(VARIANT_TO_BASE))
     model_means = df_base.groupby("base")["score"].mean()
@@ -86,6 +95,7 @@ def initialise(df: pd.DataFrame):
         base_idx,
         bench_idx,
         variant_idx,
+        offset_mask,
         variants,
         observed_variants,
     )
@@ -112,17 +122,28 @@ def unpack(params, M, V, B):
     return a, offsets, min_b, max_b, mid_b, slope_b, sigma
 
 
-def predict(a, offsets, min_b, max_b, mid_b, slope_b, base_idx, bench_idx, variant_idx):
-    ability = a[base_idx] + offsets[variant_idx]
+def predict(a, offsets, min_b, max_b, mid_b, slope_b, base_idx, bench_idx, variant_idx, offset_mask):
+    ability = a[base_idx] + offset_mask * offsets[variant_idx]
     return min_b[bench_idx] + (
         (max_b[bench_idx] - min_b[bench_idx])
         / (1 + np.exp(-(ability - mid_b[bench_idx]) / slope_b[bench_idx]))
     )
 
 
-def neg_loglike(params, M, V, B, y, base_idx, bench_idx, variant_idx):
+def neg_loglike(params, M, V, B, y, base_idx, bench_idx, variant_idx, offset_mask):
     a, offsets, min_b, max_b, mid_b, slope_b, sigma = unpack(params, M, V, B)
-    pred = predict(a, offsets, min_b, max_b, mid_b, slope_b, base_idx, bench_idx, variant_idx)
+    pred = predict(
+        a,
+        offsets,
+        min_b,
+        max_b,
+        mid_b,
+        slope_b,
+        base_idx,
+        bench_idx,
+        variant_idx,
+        offset_mask,
+    )
     resid = y - pred
     return 0.5 * np.sum((resid / sigma) ** 2 + 2 * np.log(sigma) + np.log(2 * np.pi))
 
@@ -167,6 +188,7 @@ def main():
         base_idx,
         bench_idx,
         variant_idx,
+        offset_mask,
         variants,
         observed,
     ) = initialise(df)
@@ -174,7 +196,7 @@ def main():
     result = minimize(
         neg_loglike,
         params,
-        args=(M, V, B, y, base_idx, bench_idx, variant_idx),
+        args=(M, V, B, y, base_idx, bench_idx, variant_idx, offset_mask),
         method="Powell",
     )
     a, offsets, min_b, max_b, mid_b, slope_b, sigma = unpack(result.x, M, V, B)
