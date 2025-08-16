@@ -67,6 +67,7 @@ results:
   o3-pro (high): 84.9
   grok-4 (high): 79.6
   Kimi K2: 59.1
+  gpt-oss-120b (high): 41.8
 model_name_mapping_file: aider-polyglot.yaml
 private_holdout: false
 cost_per_task:
@@ -131,3 +132,4 @@ cost_per_task:
   o3-pro (high): 0.6503
   grok-4 (high): 0.265
   Kimi K2: 0.0055
+  gpt-oss-120b (high): 0.0033
