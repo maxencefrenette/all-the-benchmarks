@@ -32,7 +32,19 @@ results:
   gpt-4.1-nano-2025-04-14: 40.51
   gpt-4.5-preview-2025-02-27: 58.65
   gpt-4o-2024-11-20: 47.43
-  gpt-5: 75.84
+  gpt-5-2025-08-07: 76.45
+  gpt-5-chat-latest: 60.78
+  gpt-5-2025-08-07-high: 78.59
+  gpt-5-2025-08-07-low: 75.34
+  gpt-5-2025-08-07-minimal: 56.46
+  gpt-5-mini-2025-08-07: 70.69
+  gpt-5-mini-2025-08-07-high: 72.2
+  gpt-5-mini-2025-08-07-low: 63.85
+  gpt-5-mini-2025-08-07-minimal: 51.93
+  gpt-5-nano-2025-08-07: 58.74
+  gpt-5-nano-2025-08-07-high: 58.47
+  gpt-5-nano-2025-08-07-low: 45.45
+  gpt-5-nano-2025-08-07-minimal: 32.09
   gpt-oss-120b: 54.6
   grok-3-beta: 56.05
   grok-3-mini-beta-high: 62.36
@@ -65,5 +77,7 @@ results:
   qwen3-235b-a22b-thinking-2507: 70.76
   glm-4.5: 63.55
   glm-4.5-air: 59.93
+  deepseek-v3.1: 62.55
+  deepseek-v3.1-thinking: 70.75
 model_name_mapping_file: livebench.yaml
 private_holdout: true
