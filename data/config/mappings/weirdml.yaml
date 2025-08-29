@@ -9,6 +9,8 @@ claude-4-opus-20250522 (thinking 16k): claude-opus-4-thinking
 claude-4-sonnet-20250522 (no thinking): claude-sonnet-4-nothinking
 claude-4-sonnet-20250522 (thinking 16k): claude-sonnet-4-thinking
 claude-opus-4.1 (thinking 16k): claude-opus-4.1-thinking
+deepseek-chat-v3.1: null
+deepseek-chat-v3.1 (thinking): null
 deepseek-r1: deepseek-r1-0120
 deepseek-r1-0528: deepseek-r1-0528
 deepseek-r1-0528-qwen3-8b: null
@@ -29,8 +31,13 @@ gpt-4.1-nano-2025-04-14: gpt-4.1-nano
 gpt-4.5-preview: gpt-4.5-preview
 gpt-4o-2024-11-20: gpt-4o-2024-11-20
 gpt-4o-mini: null
-gpt-oss-120b: gpt-oss-120b-medium
-gpt-oss-20b: gpt-oss-20b-medium
+gpt-5 (high): null
+gpt-5-mini (high): null
+gpt-5-nano (high): null
+gpt-oss-120b (high): null
+gpt-oss-120b (medium): null
+gpt-oss-20b (high): null
+gpt-oss-20b (medium): null
 grok-2-1212: null
 grok-3: grok-3
 grok-3-mini (high): grok-3-mini-high
@@ -41,6 +48,7 @@ llama-3.1-70b-instruct: null
 llama-3.1-8b-instruct: null
 llama-3.3-70b-instruct: null
 llama-4-maverick: llama-4-maverick
+mistral-medium-3.1: null
 mixtral-8x22b-instruct: null
 o1-2024-12-17 (high): null
 o1-mini: null

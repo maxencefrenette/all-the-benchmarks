@@ -15,6 +15,8 @@ Claude 4 Opus: claude-opus-4-nothinking
 Claude 4 Opus Thinking: claude-opus-4-thinking
 Claude 4 Sonnet: claude-sonnet-4-nothinking
 Claude 4 Sonnet Thinking: claude-sonnet-4-thinking
+Claude 4.1 Opus: null
+Claude 4.1 Opus Thinking: null
 Claude Instant: null
 Codestral (Jan '25): null
 Codestral (May '24): null
@@ -39,6 +41,8 @@ DeepSeek R1 Distill Qwen 14B: null
 DeepSeek R1 Distill Qwen 32B: null
 DeepSeek V3 (Dec '24): deepseek-v3-1224
 DeepSeek V3 0324 (Mar '25): deepseek-v3-0324
+DeepSeek V3.1 (Non-reasoning): null
+DeepSeek V3.1 (Reasoning): null
 DeepSeek-Coder-V2: null
 DeepSeek-V2: null
 DeepSeek-V2.5: null
@@ -46,6 +50,8 @@ DeepSeek-V2.5 (Dec '24): null
 Devstral Medium: null
 Devstral Small: null
 Devstral Small (May '25): null
+Exaone 4.0 1.2B: null
+Exaone 4.0 1.2B (Reasoning): null
 EXAONE 4.0 32B: null
 EXAONE 4.0 32B (Reasoning): null
 Gemini 1.0 Pro: null
@@ -82,6 +88,7 @@ Gemma 3n E4B: null
 Gemma 3n E4B (May '25): null
 GLM-4.5: null
 GLM-4.5-Air: null
+GLM-4.5V (Reasoning): null
 GPT-3.5 Turbo: null
 GPT-4: null
 GPT-4 Turbo: null
@@ -99,8 +106,12 @@ GPT-5 (high): gpt-5-high
 GPT-5 (low): gpt-5-low
 GPT-5 (medium): gpt-5-medium
 GPT-5 (minimal): gpt-5-minimal
-GPT-5 mini: gpt-5-mini-medium
-GPT-5 nano: gpt-5-nano-medium
+GPT-5 mini (high): null
+GPT-5 mini (medium): null
+GPT-5 mini (minimal): null
+GPT-5 nano (high): null
+GPT-5 nano (medium): null
+GPT-5 nano (minimal): null
 gpt-oss-120B (high): gpt-oss-120b-high
 gpt-oss-20B (high): gpt-oss-20b-high
 Granite 3.3 8B: null
@@ -121,6 +132,7 @@ Jamba 1.7 Mini: null
 Jamba Instruct: null
 Kimi K2: kimi-k2
 LFM 40B: null
+LFM2 1.2B: null
 Llama 2 Chat 13B: null
 Llama 2 Chat 70B: null
 Llama 2 Chat 7B: null
@@ -157,6 +169,7 @@ Mistral Large 2 (Jul '24): null
 Mistral Large 2 (Nov '24): null
 Mistral Medium: null
 Mistral Medium 3: null
+Mistral Medium 3.1: null
 Mistral NeMo: null
 Mistral Saba: null
 Mistral Small (Feb '24): null
@@ -170,6 +183,8 @@ Nova Lite: null
 Nova Micro: null
 Nova Premier: null
 Nova Pro: null
+NVIDIA Nemotron Nano 9B V2: null
+NVIDIA Nemotron Nano 9B V2 (Reasoning): null
 o1: null
 o1-mini: null
 o1-preview: null
@@ -216,8 +231,10 @@ Qwen3 32B: null
 Qwen3 32B (Reasoning): null
 Qwen3 4B: null
 Qwen3 4B (Reasoning): null
+Qwen3 4B 2507 (Reasoning): null
 Qwen3 8B: null
 Qwen3 8B (Reasoning): null
+Qwen3 Coder 30B: null
 Qwen3 Coder 480B: null
 QwQ 32B-Preview: null
 QwQ-32B: null

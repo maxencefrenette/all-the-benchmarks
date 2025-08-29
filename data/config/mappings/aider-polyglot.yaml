@@ -35,6 +35,7 @@ gpt-4.5-preview: gpt-4.5-preview
 gpt-4o-2024-08-06: gpt-4o-2024-08-06
 gpt-4o-2024-11-20: gpt-4o-2024-11-20
 gpt-4o-mini-2024-07-18: null
+gpt-oss-120b (high): null
 Grok 3 Beta: grok-3
 Grok 3 Mini Beta (high): grok-3-mini-high
 Grok 3 Mini Beta (low): grok-3-mini-low

@@ -47,6 +47,7 @@ GPT-5 Nano (Minimal): gpt-5-nano-minimal
 Grok 3: grok-3
 Grok 3 Mini (Low): grok-3-mini-low
 Grok 4 (Thinking): grok-4
+Hierarchical Reasoning Model (HRM): null
 Human Panel: null
 Icecuber: null
 Llama 4 Maverick: llama-4-maverick
@@ -54,11 +55,7 @@ Llama 4 Scout: llama-4-scout
 Magistral Medium: null
 Magistral Medium (Thinking): null
 Magistral Small: null
-o1 (Low): null
-o1 (Medium): null
 o1-mini: null
-o1-preview: null
-o1-pro (Low): null
 o3 (High): o3-high
 o3 (Low): o3-low
 o3 (Medium): o3-medium
