@@ -24,6 +24,7 @@ GPT-4o 08-06: gpt-4o-2024-08-06
 GPT-4o mini: null
 GPT-5 (high): gpt-5-high
 GPT-OSS 120B: gpt-oss-120b-medium
+GPT-OSS 20B: gpt-oss-20b-medium
 Grok 2: null
 Grok 3: grok-3
 Grok 4: grok-4
