@@ -42,6 +42,17 @@ export default async function ModelPage({
   const entries = benchNames.map(
     (name) => [name, model.benchmarks[name]] as const,
   )
+  const familyEntries = allModels
+    .filter((m) => m.modelSlug === model.modelSlug && m.slug !== model.slug)
+    .flatMap((m) =>
+      benchNames.map((name) => ({
+        model: m.model,
+        provider: m.provider,
+        benchmark: name,
+        result: m.benchmarks[name],
+      })),
+    )
+    .filter((e) => e.result !== undefined)
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-7xl space-y-6">
@@ -52,6 +63,7 @@ export default async function ModelPage({
         entries={entries
           .filter(([, res]) => res !== undefined)
           .map(([benchmark, res]) => ({ benchmark, result: res! }))}
+        familyEntries={familyEntries}
         xDomain={costDomain}
         yDomain={[0, 100]}
         yTicks={[0, 25, 50, 75, 100]}
