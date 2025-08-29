@@ -10,9 +10,6 @@ const BASE_TICKS = [
   0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000, 3000, 10000,
 ] as const
 
-// Fixed tick marks for the linear cost axis
-const LINEAR_TICKS = [0, 50, 100, 150, 200, 250, 300] as const
-
 // Default radius for dots derived from the ZAxis range
 const DEFAULT_RADIUS = Math.sqrt(144 / Math.PI)
 
@@ -91,15 +88,21 @@ export default function CostPerformanceChart({
   const [hoverKey, setHoverKey] = React.useState<string | null>(null)
 
   /**
-   * Linear scales use a fixed 0–300 domain with 50-unit ticks for consistently
-   * spaced marks. Log scales compute a padded domain around the data and filter
-   * a set of base ticks to those that fall within range.
+   * Linear scales compute a 0-based domain up to the max data value while
+   * log scales compute a padded domain around the data and filter a set of base
+   * ticks to those that fall within range.
    */
   const costDomain = React.useMemo<
     [number | "auto", number | "auto"] | undefined
   >(() => {
     if (xDomain) return xDomain
-    if (xScale === "linear") return [0, 300]
+    if (xScale === "linear") {
+      let max = -Infinity
+      for (const item of data) {
+        max = Math.max(max, item.cost)
+      }
+      return [0, isFinite(max) ? max * 1.1 : 1]
+    }
     const FACTOR = 1.2
     let min = Infinity
     let max = -Infinity
@@ -112,11 +115,20 @@ export default function CostPerformanceChart({
   }, [data, xDomain, xScale])
 
   /**
-   * Linear mode returns predefined ticks while log scales filter base ticks to
-   * those within the computed domain.
+   * Linear mode generates 50-unit ticks up to the domain max while log scales
+   * filter base ticks to those within the computed domain.
    */
   const ticks = React.useMemo(() => {
-    if (xScale === "linear") return LINEAR_TICKS
+    if (
+      xScale === "linear" &&
+      costDomain &&
+      typeof costDomain[1] === "number"
+    ) {
+      const max = costDomain[1]
+      const out = []
+      for (let v = 0; v <= max; v += 50) out.push(v)
+      return out
+    }
     if (
       xScale === "log" &&
       costDomain &&
