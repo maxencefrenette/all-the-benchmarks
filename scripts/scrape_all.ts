@@ -13,6 +13,7 @@ const scripts = [
   "scrape:artificial-analysis-index",
   "scrape:weirdml",
   "scrape:eqbench3",
+  "scrape:gorilla-bfcl",
 ]
 
 for (const script of scripts) {

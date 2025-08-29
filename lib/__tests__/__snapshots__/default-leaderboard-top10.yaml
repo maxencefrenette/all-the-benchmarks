@@ -3,98 +3,98 @@
   model: GPT-5 (High)
   provider: OpenAI
   averageScore: 93.7
-  costPerTask: 221
+  costPerTask: 220
   costBenchmarkCount: 7
   benchmarkCount: 9
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
 - id: grok-4
   slug: grok-4
   model: Grok 4
   provider: xAI
-  averageScore: 89.13
-  costPerTask: 420
-  costBenchmarkCount: 8
-  benchmarkCount: 12
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  averageScore: 88.34
+  costPerTask: 418
+  costBenchmarkCount: 9
+  benchmarkCount: 13
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
 - id: gpt-5-medium
   slug: gpt-5-medium
   model: GPT-5 (Medium)
   provider: OpenAI
   averageScore: 86.05
-  costPerTask: 110
+  costPerTask: 109
   costBenchmarkCount: 6
   benchmarkCount: 7
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
 - id: gemini-2.5-pro-06-05
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro
   provider: Google
-  averageScore: 82.91
-  costPerTask: 244
-  costBenchmarkCount: 8
-  benchmarkCount: 12
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  averageScore: 80.85
+  costPerTask: 234
+  costBenchmarkCount: 9
+  benchmarkCount: 13
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
 - id: gpt-5-mini-high
   slug: gpt-5-mini-high
   model: GPT-5 Mini (High)
   provider: OpenAI
   averageScore: 77.04
-  costPerTask: 45.5
+  costPerTask: 45.2
   costBenchmarkCount: 7
   benchmarkCount: 8
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
 - id: gpt-5-low
   slug: gpt-5-low
   model: GPT-5 (Low)
   provider: OpenAI
   averageScore: 72.35
-  costPerTask: 45.4
+  costPerTask: 45.2
   costBenchmarkCount: 6
   benchmarkCount: 7
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
 - id: gpt-5-mini-medium
   slug: gpt-5-mini-medium
   model: GPT-5 Mini (Medium)
   provider: OpenAI
   averageScore: 67.51
-  costPerTask: 13.9
+  costPerTask: 13.8
   costBenchmarkCount: 6
   benchmarkCount: 7
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
 - id: kimi-k2
   slug: kimi-k2
   model: Kimi K2
   provider: Moonshot
-  averageScore: 66.04
-  costPerTask: 16.1
-  costBenchmarkCount: 5
-  benchmarkCount: 8
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  averageScore: 66.24
+  costPerTask: 14.8
+  costBenchmarkCount: 6
+  benchmarkCount: 9
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
 - id: deepseek-v3.1-thinking
   slug: deepseek-v3.1-thinking
   model: DeepSeek V3.1 (Thinking)
   provider: DeepSeek
   averageScore: 65.81
-  costPerTask: 18.1
+  costPerTask: 18
   costBenchmarkCount: 1
   benchmarkCount: 2
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
 - id: claude-sonnet-4-thinking
   slug: claude-sonnet-4-thinking
   model: Claude 4 Sonnet (thinking)
   provider: Anthropic
   averageScore: 64.11
-  costPerTask: 168
+  costPerTask: 167
   costBenchmarkCount: 8
   benchmarkCount: 11
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9

@@ -1,0 +1,118 @@
+Amazon-Nova-Lite-v1:0 (FC): null
+Amazon-Nova-Micro-v1:0 (FC): null
+Amazon-Nova-Pro-v1:0 (FC): null
+Arch-Agent-1.5B: null
+Arch-Agent-32B: null
+Arch-Agent-3B: null
+Bielik-11B-v2.3-Instruct (Prompt): null
+BitAgent-8B: null
+BitAgent-Bounty-8B: null
+claude-3.5-haiku-20241022 (FC): claude-3.5-haiku
+claude-3.5-haiku-20241022 (Prompt): null
+Claude-Opus-4-1-20250805 (FC): claude-opus-4.1-nothinking
+Claude-Opus-4-1-20250805 (Prompt): null
+Claude-Sonnet-4-20250514 (FC): claude-sonnet-4-nothinking
+Claude-Sonnet-4-20250514 (Prompt): null
+CoALM-405B: null
+CoALM-70B: null
+CoALM-8B: null
+Command A (FC): null
+Command R7B (FC): null
+DeepSeek-R1-0528 (FC): deepseek-r1-0528
+DeepSeek-R1-0528 (Prompt): null
+DeepSeek-V3-0324 (FC): deepseek-v3-0324
+DM-Cito-8B-v2 (Prompt): null
+Falcon3-10B-Instruct (FC): null
+Falcon3-1B-Instruct (FC): null
+Falcon3-3B-Instruct (FC): null
+Falcon3-7B-Instruct (FC): null
+Gemini-2.5-Flash (FC): gemini-2.5-flash-0520-nothinking
+Gemini-2.5-Flash (Prompt): null
+Gemini-2.5-Flash-Lite-Preview-06-17 (FC): null
+Gemini-2.5-Flash-Lite-Preview-06-17 (Prompt): null
+Gemini-2.5-Pro (FC): gemini-2.5-pro-06-05
+Gemini-2.5-Pro (Prompt): null
+Gemma-3-12b-it (Prompt): null
+Gemma-3-1b-it (Prompt): null
+Gemma-3-27b-it (Prompt): null
+Gemma-3-4b-it (Prompt): null
+GLM-4-9b-Chat (FC): null
+GLM-4.5 (FC): null
+GLM-4.5-Air (FC): null
+GPT-4o-2024-11-20 (FC): gpt-4o-2024-11-20
+GPT-4o-2024-11-20 (Prompt): null
+GPT-4o-mini-2024-07-18 (FC): null
+GPT-4o-mini-2024-07-18 (Prompt): null
+GPT-5-2025-08-07 (FC): gpt-5-medium
+GPT-5-2025-08-07 (Prompt): null
+GPT-5-mini-2025-08-07 (FC): gpt-5-mini-medium
+GPT-5-mini-2025-08-07 (Prompt): null
+GPT-5-nano-2025-08-07 (FC): gpt-5-nano-medium
+GPT-5-nano-2025-08-07 (Prompt): null
+Granite-20b-FunctionCalling (FC): null
+Granite-3.1-8B-Instruct (FC): null
+Granite-3.2-8B-Instruct (FC): null
+Grok-4-0709 (FC): grok-4
+Grok-4-0709 (Prompt): null
+Haha-7B: null
+Hammer2.1-0.5b (FC): null
+Hammer2.1-1.5b (FC): null
+Hammer2.1-3b (FC): null
+Hammer2.1-7b (FC): null
+Llama-3.1-70B-Instruct (FC): null
+Llama-3.1-70B-Instruct (Prompt): null
+Llama-3.1-8B-Instruct (FC): null
+Llama-3.1-8B-Instruct (Prompt): null
+Llama-3.2-1B-Instruct (FC): null
+Llama-3.2-3B-Instruct (FC): null
+Llama-3.3-70B-Instruct (FC): null
+Llama-4-Maverick-17B-128E-Instruct-FP8 (FC): llama-4-maverick
+Llama-4-Scout-17B-16E-Instruct (FC): llama-4-scout
+MiniCPM3-4B (Prompt): null
+MiniCPM3-4B-FC (FC): null
+Ministral-8B-Instruct-2410 (FC): null
+mistral-large-2411 (FC): null
+mistral-large-2411 (Prompt): null
+Mistral-Medium-2505: null
+Mistral-Medium-2505 (FC): null
+Mistral-small-2506 (FC): null
+Mistral-Small-2506 (Prompt): null
+Moonshotai-Kimi-K2-Instruct (FC): kimi-k2
+Moonshotai-Kimi-K2-Instruct (Prompt): null
+o3-2025-04-16 (FC): o3-high
+o3-2025-04-16 (Prompt): null
+o4-mini-2025-04-16 (FC): o4-mini-high
+o4-mini-2025-04-16 (Prompt): null
+Open-Mistral-Nemo-2407 (FC): null
+Open-Mistral-Nemo-2407 (Prompt): null
+palmyra-x-004 (FC): null
+Phi-4 (Prompt): null
+Phi-4-mini-instruct (FC): null
+Qwen3-0.6B (FC): null
+Qwen3-0.6B (Prompt): null
+Qwen3-1.7B (FC): null
+Qwen3-1.7B (Prompt): null
+Qwen3-14B (FC): null
+Qwen3-14B (Prompt): null
+Qwen3-235B-A22B-Instruct-2507 (FC): qwen-3-235b-a22b-nothinking
+Qwen3-235B-A22B-Instruct-2507 (Prompt): null
+Qwen3-30B-A3B-Instruct-2507 (FC): null
+Qwen3-30B-A3B-Instruct-2507 (Prompt): null
+Qwen3-32B (FC): null
+Qwen3-32B (Prompt): null
+Qwen3-4B-Instruct-2507 (FC): null
+Qwen3-4B-Instruct-2507 (Prompt): null
+Qwen3-8B (FC): null
+Qwen3-8B (Prompt): null
+QwQ-32B (FC): null
+QwQ-32B (Prompt): null
+RZN-T (Prompt): null
+ThinkAgent-1B (FC): null
+ToolACE-2-8B (FC): null
+watt-tool-70B (FC): null
+watt-tool-8B (FC): null
+xLAM-2-1b-fc-r (FC): null
+xLAM-2-32b-fc-r (FC): null
+xLAM-2-3b-fc-r (FC): null
+xLAM-2-70b-fc-r (FC): null
+xLAM-2-8b-fc-r (FC): null

@@ -2,9 +2,9 @@ deepseek-v3.1-thinking:
   score: 83.96
   normalized_score: 100.0
   cost: 7.047
-  normalized_cost: 470.8
+  normalized_cost: 468.9
 qwen-3-235b-a22b-thinking:
   score: 76.89
   normalized_score: 0.0
   cost: 1.663
-  normalized_cost: 111.1
+  normalized_cost: 110.7

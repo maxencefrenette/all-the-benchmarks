@@ -25,6 +25,7 @@
     "scrape:artificial-analysis-index": "tsx scripts/scrape_artificial_analysis_index.ts",
     "scrape:weirdml": "tsx scripts/scrape_weirdml.ts",
     "scrape:eqbench3": "tsx scripts/scrape_eqbench3.ts",
+    "scrape:gorilla-bfcl": "tsx scripts/scrape_gorilla_bfcl.ts",
     "scrape:all": "tsx scripts/scrape_all.ts",
     "process:all": "uv run --directory scripts_python process_data.py",
     "mappings:update": "uv run --directory scripts_python update_mappings.py",
