@@ -2,8 +2,8 @@ benchmark: MathArena SMT 2025
 description: Accuracy on MathArena SMT 2025 competition
 website: https://matharena.ai/
 github: https://github.com/eth-sri/matharena
-score_weight: 1
-cost_weight: 1
+score_weight: 0
+cost_weight: 0
 results:
   Claude-3.7-Sonnet (Think): 56.60377358490564
   DeepSeek-R1: 66.98113207547168

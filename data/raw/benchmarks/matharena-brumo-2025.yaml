@@ -2,8 +2,8 @@ benchmark: MathArena BRUMO 2025
 description: Accuracy on MathArena BRUMO 2025 competition
 website: https://matharena.ai/
 github: https://github.com/eth-sri/matharena
-score_weight: 1
-cost_weight: 1
+score_weight: 0
+cost_weight: 0
 results:
   Claude-3.7-Sonnet (Think): 65.83333333333334
   Claude-Opus-4.0 (Think): 81.66666666666669

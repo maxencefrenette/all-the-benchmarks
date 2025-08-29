@@ -2,8 +2,8 @@ benchmark: MathArena IMC 2025
 description: Accuracy on MathArena IMC 2025 competition
 website: https://matharena.ai/
 github: https://github.com/eth-sri/matharena
-score_weight: 1
-cost_weight: 1
+score_weight: 0
+cost_weight: 0
 results:
   Gemini IMO Deep Think: 93
   gemini-2.5-pro (agent): 94.5
