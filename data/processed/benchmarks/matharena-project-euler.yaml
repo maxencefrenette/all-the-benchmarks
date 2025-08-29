@@ -2,24 +2,24 @@ gpt-5-high:
   score: 56.67
   normalized_score: 100.0
   cost: 66.52
-  normalized_cost: 216.8
+  normalized_cost: 168.4
 grok-4:
   score: 46.67
   normalized_score: 81.82
   cost: 140.8
-  normalized_cost: 458.8
+  normalized_cost: 356.5
 o4-mini-high:
   score: 38.33
   normalized_score: 66.67
   cost: 29.65
-  normalized_cost: 96.64
+  normalized_cost: 75.08
 gemini-2.5-pro-06-05:
   score: 11.67
   normalized_score: 18.18
   cost: 21.7
-  normalized_cost: 70.71
+  normalized_cost: 54.94
 claude-sonnet-4-nothinking:
   score: 1.667
   normalized_score: 0.0
   cost: 46.06
-  normalized_cost: 150.1
+  normalized_cost: 116.6
