@@ -3,7 +3,7 @@
   model: GPT-5 (High)
   provider: OpenAI
   averageScore: 93.7
-  costPerTask: 220
+  costPerTask: 219
   costBenchmarkCount: 7
   benchmarkCount: 9
   totalBenchmarks: 13
@@ -13,7 +13,7 @@
   model: Grok 4
   provider: xAI
   averageScore: 88.34
-  costPerTask: 418
+  costPerTask: 415
   costBenchmarkCount: 9
   benchmarkCount: 13
   totalBenchmarks: 13
@@ -22,10 +22,10 @@
   slug: gpt-5-medium
   model: GPT-5 (Medium)
   provider: OpenAI
-  averageScore: 86.05
-  costPerTask: 109
-  costBenchmarkCount: 6
-  benchmarkCount: 7
+  averageScore: 84.66
+  costPerTask: 121
+  costBenchmarkCount: 7
+  benchmarkCount: 8
   totalBenchmarks: 13
   totalCostBenchmarks: 9
 - id: gemini-2.5-pro-06-05
@@ -33,7 +33,7 @@
   model: Gemini 2.5 Pro
   provider: Google
   averageScore: 80.85
-  costPerTask: 234
+  costPerTask: 233
   costBenchmarkCount: 9
   benchmarkCount: 13
   totalBenchmarks: 13
@@ -53,7 +53,7 @@
   model: GPT-5 (Low)
   provider: OpenAI
   averageScore: 72.35
-  costPerTask: 45.2
+  costPerTask: 45.1
   costBenchmarkCount: 6
   benchmarkCount: 7
   totalBenchmarks: 13
@@ -62,10 +62,10 @@
   slug: gpt-5-mini-medium
   model: GPT-5 Mini (Medium)
   provider: OpenAI
-  averageScore: 67.51
-  costPerTask: 13.8
-  costBenchmarkCount: 6
-  benchmarkCount: 7
+  averageScore: 67.02
+  costPerTask: 15.4
+  costBenchmarkCount: 7
+  benchmarkCount: 8
   totalBenchmarks: 13
   totalCostBenchmarks: 9
 - id: kimi-k2
@@ -83,7 +83,7 @@
   model: DeepSeek V3.1 (Thinking)
   provider: DeepSeek
   averageScore: 65.81
-  costPerTask: 18
+  costPerTask: 17.9
   costBenchmarkCount: 1
   benchmarkCount: 2
   totalBenchmarks: 13
@@ -93,7 +93,7 @@
   model: Claude 4 Sonnet (thinking)
   provider: Anthropic
   averageScore: 64.11
-  costPerTask: 167
+  costPerTask: 166
   costBenchmarkCount: 8
   benchmarkCount: 11
   totalBenchmarks: 13
