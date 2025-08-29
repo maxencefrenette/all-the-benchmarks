@@ -58,6 +58,11 @@ deepseek-r1-0528:
   normalized_score: 58.62
   cost: 0.071
   normalized_cost: 41.15
+glm-4.5-air:
+  score: 40.76
+  normalized_score: 58.29
+  cost: 0.07364
+  normalized_cost: 42.68
 claude-3.5-sonnet-v2:
   score: 39.78
   normalized_score: 55.66
@@ -92,7 +97,7 @@ gpt-4.1-mini:
   score: 37.25
   normalized_score: 48.87
   cost: 0.01648
-  normalized_cost: 9.553
+  normalized_cost: 9.552
 deepseek-v3.1-thinking:
   score: 37.1
   normalized_score: 48.47

@@ -67,6 +67,9 @@ gemini-2.5-flash-0520-thinking:
 gpt-5-mini-low:
   score: 63.85
   normalized_score: 68.3
+glm-4.5:
+  score: 63.55
+  normalized_score: 67.66
 claude-sonnet-4-nothinking:
   score: 63.37
   normalized_score: 67.27
@@ -79,6 +82,9 @@ deepseek-v3.1:
 grok-3-mini-high:
   score: 62.36
   normalized_score: 65.1
+glm-4.5-air:
+  score: 59.93
+  normalized_score: 59.87
 gpt-5-nano-medium:
   score: 58.74
   normalized_score: 57.31

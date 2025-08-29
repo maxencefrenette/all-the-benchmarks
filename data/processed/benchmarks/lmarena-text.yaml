@@ -4,6 +4,9 @@ gemini-2.5-pro-06-05:
 gemini-2.5-pro-preview-05-06:
   score: 1446.0
   normalized_score: 88.66
+glm-4.5:
+  score: 1435.0
+  normalized_score: 83.39
 grok-4:
   score: 1435.0
   normalized_score: 83.32
@@ -25,6 +28,9 @@ gemini-2.5-flash-0520-thinking:
 gemini-2.5-flash-preview-0417-thinking:
   score: 1397.0
   normalized_score: 65.79
+glm-4.5-air:
+  score: 1394.0
+  normalized_score: 64.37
 qwen-3-235b-a22b-nothinking:
   score: 1391.0
   normalized_score: 63.19

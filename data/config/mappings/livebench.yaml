@@ -28,8 +28,8 @@ gemma-3-27b-it: null
 gemma-3-4b-it: null
 gemma-3n-e2b-it: null
 gemma-3n-e4b-it: null
-glm-4.5: null
-glm-4.5-air: null
+glm-4.5: glm-4.5
+glm-4.5-air: glm-4.5-air
 gpt-4.1-2025-04-14: gpt-4.1
 gpt-4.1-mini-2025-04-14: gpt-4.1-mini
 gpt-4.1-nano-2025-04-14: gpt-4.1-nano

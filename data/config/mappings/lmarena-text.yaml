@@ -97,8 +97,8 @@ glm-4-0116: null
 glm-4-0520: null
 glm-4-plus: null
 glm-4-plus-0111: null
-glm-4.5: null
-glm-4.5-air: null
+glm-4.5: glm-4.5
+glm-4.5-air: glm-4.5-air
 gpt-3.5-turbo-0125: null
 gpt-3.5-turbo-0314: null
 gpt-3.5-turbo-0613: null
