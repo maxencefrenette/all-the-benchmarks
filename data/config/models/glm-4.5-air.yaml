@@ -1,0 +1,3 @@
+provider: ZhipuAI
+reasoning_efforts:
+  glm-4.5-air: GLM-4.5-Air

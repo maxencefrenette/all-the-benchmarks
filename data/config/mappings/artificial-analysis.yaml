@@ -86,8 +86,8 @@ Gemma 3 4B: null
 Gemma 3n E2B: null
 Gemma 3n E4B: null
 Gemma 3n E4B (May '25): null
-GLM-4.5: null
-GLM-4.5-Air: null
+GLM-4.5: glm-4.5
+GLM-4.5-Air: glm-4.5-air
 GLM-4.5V (Reasoning): null
 GPT-3.5 Turbo: null
 GPT-4: null

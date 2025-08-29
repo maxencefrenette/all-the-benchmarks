@@ -1,5 +1,15 @@
+glm-4.5:
+  score: 77.5
+  normalized_score: 100.0
+  cost: 6.725
+  normalized_cost: 313.0
+glm-4.5-air:
+  score: 69.17
+  normalized_score: 44.44
+  cost: 3.662
+  normalized_cost: 170.5
 qwen-3-235b-a22b-thinking:
   score: 62.5
-  normalized_score: 100.0
+  normalized_score: 0.0
   cost: 1.09
-  normalized_cost: 161.7
+  normalized_cost: 50.75
