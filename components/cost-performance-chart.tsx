@@ -23,6 +23,7 @@ export type CostPerformanceEntry = {
   score: number
   connectKey?: string
   meta?: unknown
+  opacity?: number
 }
 
 type Props = {
@@ -138,6 +139,7 @@ export default function CostPerformanceChart({
           cy={cy}
           r={r}
           fill={fill}
+          fillOpacity={payload.opacity ?? 1}
           stroke="white"
           strokeWidth={1}
           onMouseEnter={() => setHoverKey(key)}

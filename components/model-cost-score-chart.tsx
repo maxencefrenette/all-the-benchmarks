@@ -11,9 +11,15 @@ type Entry = {
   result: BenchmarkResult
 }
 
+type FamilyEntry = Entry & {
+  model: string
+  provider: string
+}
+
 type Props = {
   provider: string
   entries: Entry[]
+  familyEntries?: FamilyEntry[]
   xDomain: [number, number]
   yDomain?: [number, number]
   yTicks?: number[]
@@ -22,12 +28,13 @@ type Props = {
 export default function ModelCostScoreChart({
   provider,
   entries,
+  familyEntries = [],
   xDomain,
   yDomain = [0, 100],
   yTicks = [0, 25, 50, 75, 100],
 }: Props) {
   const items = React.useMemo(() => {
-    return entries
+    const base = entries
       .filter(
         (e) =>
           e.result.normalizedCost !== undefined &&
@@ -38,8 +45,24 @@ export default function ModelCostScoreChart({
         provider,
         cost: e.result.normalizedCost as number,
         score: e.result.normalizedScore as number,
-      })) as CostPerformanceEntry[]
-  }, [entries, provider])
+      }))
+
+    const extras = familyEntries
+      .filter(
+        (e) =>
+          e.result.normalizedCost !== undefined &&
+          e.result.normalizedScore !== undefined,
+      )
+      .map((e) => ({
+        label: `${e.model} – ${e.benchmark}`,
+        provider: e.provider,
+        cost: e.result.normalizedCost as number,
+        score: e.result.normalizedScore as number,
+        opacity: 0.6,
+      }))
+
+    return [...base, ...extras] as CostPerformanceEntry[]
+  }, [entries, familyEntries, provider])
 
   const renderTooltip = React.useCallback(
     (entry: CostPerformanceEntry) => <span>{entry.label}</span>,
