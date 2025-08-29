@@ -31,9 +31,9 @@ gpt-4.1-nano-2025-04-14: gpt-4.1-nano
 gpt-4.5-preview: gpt-4.5-preview
 gpt-4o-2024-11-20: gpt-4o-2024-11-20
 gpt-4o-mini: null
-gpt-5 (high): null
-gpt-5-mini (high): null
-gpt-5-nano (high): null
+gpt-5 (high): gpt-5-high
+gpt-5-mini (high): gpt-5-mini-high
+gpt-5-nano (high): gpt-5-nano-high
 gpt-oss-120b (high): null
 gpt-oss-120b (medium): null
 gpt-oss-20b (high): null
