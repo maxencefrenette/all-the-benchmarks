@@ -7,6 +7,9 @@ o3-medium:
 gemini-2.5-pro-06-05:
   score: 1470.0
   normalized_score: 91.32
+glm-4.5:
+  score: 1312.0
+  normalized_score: 76.86
 o4-mini-medium:
   score: 1291.0
   normalized_score: 74.97

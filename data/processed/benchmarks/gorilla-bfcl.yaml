@@ -1,90 +1,100 @@
+glm-4.5:
+  score: 70.85
+  normalized_score: 100.0
+  cost: 2.9
+  normalized_cost: 3.527
 claude-opus-4.1-nothinking:
   score: 70.36
-  normalized_score: 100.0
+  normalized_score: 98.91
   cost: 207.1
-  normalized_cost: 246.7
+  normalized_cost: 251.9
 claude-sonnet-4-nothinking:
   score: 70.29
-  normalized_score: 99.84
+  normalized_score: 98.75
   cost: 41.49
-  normalized_cost: 49.42
+  normalized_cost: 50.46
+glm-4.5-air:
+  score: 67.87
+  normalized_score: 93.36
+  cost: 4.22
+  normalized_cost: 5.132
 grok-4:
   score: 61.01
-  normalized_score: 78.92
+  normalized_score: 78.06
   cost: 329.4
-  normalized_cost: 392.4
+  normalized_cost: 400.7
 gpt-5-medium:
   score: 59.22
-  normalized_score: 74.89
+  normalized_score: 74.07
   cost: 159.2
-  normalized_cost: 189.6
+  normalized_cost: 193.6
 kimi-k2:
   score: 56.07
-  normalized_score: 67.79
+  normalized_score: 67.05
   cost: 6.94
-  normalized_cost: 8.267
+  normalized_cost: 8.44
 qwen-3-235b-a22b-nothinking:
   score: 54.37
-  normalized_score: 63.95
+  normalized_score: 63.26
   cost: 12.02
-  normalized_cost: 14.32
+  normalized_cost: 14.62
 o3-high:
   score: 54.36
-  normalized_score: 63.93
+  normalized_score: 63.23
   cost: 136.8
-  normalized_cost: 162.9
+  normalized_cost: 166.3
 gpt-5-mini-medium:
   score: 54.21
-  normalized_score: 63.59
+  normalized_score: 62.9
   cost: 21.14
-  normalized_cost: 25.18
+  normalized_cost: 25.71
 gemini-2.5-flash-0520-nothinking:
   score: 53.63
-  normalized_score: 62.29
+  normalized_score: 61.61
   cost: 26.32
-  normalized_cost: 31.35
+  normalized_cost: 32.01
 o4-mini-high:
   score: 53.25
-  normalized_score: 61.43
+  normalized_score: 60.76
   cost: 82.46
-  normalized_cost: 98.22
+  normalized_cost: 100.3
 gemini-2.5-pro-06-05:
   score: 50.92
-  normalized_score: 56.18
+  normalized_score: 55.56
   cost: 132.8
-  normalized_cost: 158.2
+  normalized_cost: 161.5
 gpt-4o-2024-11-20:
   score: 50.27
-  normalized_score: 54.71
+  normalized_score: 54.11
   cost: 133.6
-  normalized_cost: 159.1
+  normalized_cost: 162.5
 deepseek-r1-0528:
   score: 48.97
-  normalized_score: 51.78
+  normalized_score: 51.22
   cost: 53.04
-  normalized_cost: 63.18
+  normalized_cost: 64.51
 gpt-5-nano-medium:
   score: 48.75
-  normalized_score: 51.28
+  normalized_score: 50.72
   cost: 8.99
-  normalized_cost: 10.71
+  normalized_cost: 10.93
 deepseek-v3-0324:
   score: 45.2
-  normalized_score: 43.28
+  normalized_score: 42.81
   cost: 6.11
-  normalized_cost: 7.278
+  normalized_cost: 7.431
 claude-3.5-haiku:
   score: 43.42
-  normalized_score: 39.27
+  normalized_score: 38.84
   cost: 10.66
-  normalized_cost: 12.7
+  normalized_cost: 12.96
 llama-4-maverick:
   score: 36.37
-  normalized_score: 23.38
+  normalized_score: 23.12
   cost: 4.63
-  normalized_cost: 5.515
+  normalized_cost: 5.631
 llama-4-scout:
   score: 26.0
   normalized_score: 0.0
   cost: 5.0
-  normalized_cost: 5.956
+  normalized_cost: 6.081

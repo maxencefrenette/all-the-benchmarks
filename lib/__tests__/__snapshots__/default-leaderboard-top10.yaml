@@ -3,7 +3,7 @@
   model: GPT-5 (High)
   provider: OpenAI
   averageScore: 93.7
-  costPerTask: 219
+  costPerTask: 220
   costBenchmarkCount: 7
   benchmarkCount: 9
   totalBenchmarks: 13
@@ -12,8 +12,8 @@
   slug: grok-4
   model: Grok 4
   provider: xAI
-  averageScore: 88.34
-  costPerTask: 415
+  averageScore: 88.27
+  costPerTask: 418
   costBenchmarkCount: 9
   benchmarkCount: 13
   totalBenchmarks: 13
@@ -22,8 +22,8 @@
   slug: gpt-5-medium
   model: GPT-5 (Medium)
   provider: OpenAI
-  averageScore: 84.66
-  costPerTask: 121
+  averageScore: 84.55
+  costPerTask: 122
   costBenchmarkCount: 7
   benchmarkCount: 8
   totalBenchmarks: 13
@@ -32,8 +32,8 @@
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro
   provider: Google
-  averageScore: 80.85
-  costPerTask: 233
+  averageScore: 80.8
+  costPerTask: 235
   costBenchmarkCount: 9
   benchmarkCount: 13
   totalBenchmarks: 13
@@ -43,9 +43,19 @@
   model: GPT-5 Mini (High)
   provider: OpenAI
   averageScore: 77.04
-  costPerTask: 45.2
+  costPerTask: 45.4
   costBenchmarkCount: 7
   benchmarkCount: 8
+  totalBenchmarks: 13
+  totalCostBenchmarks: 9
+- id: glm-4.5
+  slug: glm-4.5
+  model: GLM-4.5
+  provider: Zhipu AI
+  averageScore: 76.44
+  costPerTask: 46.3
+  costBenchmarkCount: 5
+  benchmarkCount: 6
   totalBenchmarks: 13
   totalCostBenchmarks: 9
 - id: gpt-5-low
@@ -53,7 +63,7 @@
   model: GPT-5 (Low)
   provider: OpenAI
   averageScore: 72.35
-  costPerTask: 45.1
+  costPerTask: 45.4
   costBenchmarkCount: 6
   benchmarkCount: 7
   totalBenchmarks: 13
@@ -62,8 +72,8 @@
   slug: gpt-5-mini-medium
   model: GPT-5 Mini (Medium)
   provider: OpenAI
-  averageScore: 67.02
-  costPerTask: 15.4
+  averageScore: 66.93
+  costPerTask: 15.6
   costBenchmarkCount: 7
   benchmarkCount: 8
   totalBenchmarks: 13
@@ -72,8 +82,8 @@
   slug: kimi-k2
   model: Kimi K2
   provider: Moonshot
-  averageScore: 66.24
-  costPerTask: 14.8
+  averageScore: 66.15
+  costPerTask: 14.9
   costBenchmarkCount: 6
   benchmarkCount: 9
   totalBenchmarks: 13
@@ -83,18 +93,8 @@
   model: DeepSeek V3.1 (Thinking)
   provider: DeepSeek
   averageScore: 65.81
-  costPerTask: 17.9
+  costPerTask: 18
   costBenchmarkCount: 1
   benchmarkCount: 2
-  totalBenchmarks: 13
-  totalCostBenchmarks: 9
-- id: claude-sonnet-4-thinking
-  slug: claude-sonnet-4-thinking
-  model: Claude 4 Sonnet (thinking)
-  provider: Anthropic
-  averageScore: 64.11
-  costPerTask: 166
-  costBenchmarkCount: 8
-  benchmarkCount: 11
   totalBenchmarks: 13
   totalCostBenchmarks: 9

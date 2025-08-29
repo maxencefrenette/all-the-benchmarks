@@ -37,8 +37,8 @@ Gemma-3-1b-it (Prompt): null
 Gemma-3-27b-it (Prompt): null
 Gemma-3-4b-it (Prompt): null
 GLM-4-9b-Chat (FC): null
-GLM-4.5 (FC): null
-GLM-4.5-Air (FC): null
+GLM-4.5 (FC): glm-4.5
+GLM-4.5-Air (FC): glm-4.5-air
 GPT-4o-2024-11-20 (FC): gpt-4o-2024-11-20
 GPT-4o-2024-11-20 (Prompt): null
 GPT-4o-mini-2024-07-18 (FC): null
