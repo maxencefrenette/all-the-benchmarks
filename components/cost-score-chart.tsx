@@ -107,6 +107,8 @@ export default function CostScoreChart({
         xScale={useLinearScale ? "linear" : "log"}
         renderTooltip={renderTooltip}
         getExtraTooltipEntries={extraTooltipEntries}
+        className={useLinearScale ? "aspect-auto" : undefined}
+        style={useLinearScale ? { height: "calc(100vw * 0.5625)" } : undefined}
       />
     </div>
   )

@@ -35,6 +35,8 @@ type Props = {
   yDomain?: [number, number] | ["dataMin", "dataMax"]
   yTicks?: number[]
   xScale?: "log" | "linear"
+  className?: string
+  style?: React.CSSProperties
 }
 
 type DotProps = {
@@ -54,6 +56,8 @@ export default function CostPerformanceChart({
   yDomain,
   yTicks,
   xScale = "log",
+  className,
+  style,
 }: Props) {
   const data = React.useMemo(() => entries.filter((e) => e.cost > 0), [entries])
 
@@ -167,6 +171,8 @@ export default function CostPerformanceChart({
   return (
     <div className="p-6 pt-0">
       <ChartContainer
+        className={className}
+        style={style}
         config={{
           cost: { label: xLabel },
           score: { label: yLabel },
