@@ -38,7 +38,7 @@ openai/gpt-oss-120b: gpt-oss-120b-medium
 openai/gpt-oss-20b: gpt-oss-20b-medium
 openrouter/horizon-alpha: null
 qwen/qwen-2.5-72b-instruct: null
-Qwen/Qwen3-235B-A22B: null
+Qwen/Qwen3-235B-A22B: qwen-3-235b-a22b-thinking
 Qwen/Qwen3-30B-A3B: null
 Qwen/Qwen3-32B: null
 Qwen/Qwen3-8B: null
