@@ -1,4 +1,5 @@
 provider: xAI
+release_date: 2025-02-19
 deprecated: true
 reasoning_efforts:
   grok-3: Grok 3
