@@ -49,6 +49,7 @@ gpt-5-nano-2025-08-07-high: null
 gpt-5-nano-2025-08-07-low: null
 gpt-5-nano-2025-08-07-minimal: null
 gpt-oss-120b: gpt-oss-120b-medium
+gpt-oss-20b: gpt-oss-20b-medium
 grok-3-beta: grok-3
 grok-3-mini-beta-high: grok-3-mini-high
 grok-4-0709: grok-4
