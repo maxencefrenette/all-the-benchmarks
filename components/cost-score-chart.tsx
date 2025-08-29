@@ -61,11 +61,7 @@ export default function CostScoreChart({
 
   const entries = React.useMemo(() => {
     return visible
-      .filter(
-        (m) =>
-          m.normalizedCost !== undefined &&
-          (!useLinearScale || (m.normalizedCost as number) <= 300),
-      )
+      .filter((m) => m.normalizedCost !== undefined)
       .map((m) => ({
         label: m.model,
         provider: m.provider,
@@ -74,7 +70,7 @@ export default function CostScoreChart({
         connectKey: m.modelSlug,
         meta: m,
       })) as CostPerformanceEntry[]
-  }, [useLinearScale, visible])
+  }, [visible])
 
   const renderTooltip = React.useCallback((entry: CostPerformanceEntry) => {
     const llm = entry.meta as LLMData
@@ -101,16 +97,19 @@ export default function CostScoreChart({
   if (!entries.length) return null
 
   return (
-    <CostPerformanceChart
-      entries={entries}
-      xLabel="Normalized Cost per Task ($)"
-      yLabel="Average Normalized Score"
-      yDomain={[0, 100]}
-      yTicks={[0, 25, 50, 75, 100]}
-      xScale={useLinearScale ? "linear" : "log"}
-      {...(useLinearScale ? { xDomain: [0, 300] } : {})}
-      renderTooltip={renderTooltip}
-      getExtraTooltipEntries={extraTooltipEntries}
-    />
+    <div className={useLinearScale ? "w-[3000px]" : undefined}>
+      <CostPerformanceChart
+        entries={entries}
+        xLabel="Normalized Cost per Task ($)"
+        yLabel="Average Normalized Score"
+        yDomain={[0, 100]}
+        yTicks={[0, 25, 50, 75, 100]}
+        xScale={useLinearScale ? "linear" : "log"}
+        renderTooltip={renderTooltip}
+        getExtraTooltipEntries={extraTooltipEntries}
+        className={useLinearScale ? "aspect-auto" : undefined}
+        style={useLinearScale ? { height: "calc(100vw * 0.5625)" } : undefined}
+      />
+    </div>
   )
 }
