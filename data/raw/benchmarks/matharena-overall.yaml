@@ -2,8 +2,8 @@ benchmark: MathArena Overall
 description: Average accuracy across MathArena competitions
 website: https://matharena.ai/
 github: https://github.com/eth-sri/matharena
-score_weight: 1
-cost_weight: 1
+score_weight: 0
+cost_weight: 0
 results:
   Claude-3.5-Sonnet: 2.5
   Claude-3.7-Sonnet (Think): 50.81761006289308

@@ -2,8 +2,8 @@ benchmark: MathArena Project Euler
 description: Accuracy on MathArena Project Euler competition
 website: https://matharena.ai/
 github: https://github.com/eth-sri/matharena
-score_weight: 1
-cost_weight: 1
+score_weight: 0
+cost_weight: 0
 results:
   Claude-Sonnet-4.0: 1.6666666666666667
   GPT-5 (high): 56.666666666666664
