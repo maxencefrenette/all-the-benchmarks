@@ -1,1 +1,25 @@
-{}
+deepseek-r1-0528:
+  score: 30.06
+  normalized_score: 100.0
+  cost: 0.9123
+  normalized_cost: 35.09
+gemini-2.5-pro-06-05:
+  score: 24.4
+  normalized_score: 78.59
+  cost: 6.232
+  normalized_cost: 239.7
+o4-mini-high:
+  score: 19.05
+  normalized_score: 58.31
+  cost: 2.207
+  normalized_cost: 84.88
+deepseek-r1-0120:
+  score: 4.762
+  normalized_score: 4.225
+  cost: 2.03
+  normalized_cost: 78.06
+claude-3.7-sonnet-thinking:
+  score: 3.646
+  normalized_score: 0.0
+  cost: 9.033
+  normalized_cost: 347.4

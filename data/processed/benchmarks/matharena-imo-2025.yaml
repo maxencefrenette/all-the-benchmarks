@@ -1,1 +1,30 @@
-{}
+gpt-5-high:
+  score: 38.1
+  normalized_score: 100.0
+  cost: 214.4
+  normalized_cost: 152.0
+gemini-2.5-pro-06-05:
+  score: 31.55
+  normalized_score: 79.05
+  cost: 432.0
+  normalized_cost: 306.1
+o3-high:
+  score: 16.67
+  normalized_score: 31.43
+  cost: 223.3
+  normalized_cost: 158.3
+o4-mini-high:
+  score: 14.29
+  normalized_score: 23.81
+  cost: 103.3
+  normalized_cost: 73.23
+grok-4:
+  score: 11.9
+  normalized_score: 16.19
+  cost: 527.9
+  normalized_cost: 374.1
+deepseek-r1-0528:
+  score: 6.845
+  normalized_score: 0.0
+  cost: 59.5
+  normalized_cost: 42.17
