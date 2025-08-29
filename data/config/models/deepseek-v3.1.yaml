@@ -1,0 +1,4 @@
+provider: DeepSeek
+reasoning_efforts:
+  deepseek-v3.1: DeepSeek V3.1
+  deepseek-v3.1-thinking: DeepSeek V3.1 (Thinking)

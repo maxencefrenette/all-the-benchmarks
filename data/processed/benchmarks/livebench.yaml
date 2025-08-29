@@ -34,6 +34,9 @@ o3-medium:
 o4-mini-high:
   score: 71.52
   normalized_score: 84.8
+deepseek-v3.1-thinking:
+  score: 70.75
+  normalized_score: 83.14
 gpt-5-mini-medium:
   score: 70.69
   normalized_score: 83.01
@@ -70,6 +73,9 @@ claude-sonnet-4-nothinking:
 kimi-k2:
   score: 62.7
   normalized_score: 65.83
+deepseek-v3.1:
+  score: 62.55
+  normalized_score: 65.51
 grok-3-mini-high:
   score: 62.36
   normalized_score: 65.1

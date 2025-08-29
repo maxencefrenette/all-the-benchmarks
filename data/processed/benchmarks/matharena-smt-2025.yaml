@@ -1,1 +1,5 @@
-{}
+deepseek-v3.1-thinking:
+  score: 83.96
+  normalized_score: 100.0
+  cost: 7.047
+  normalized_cost: 18.07

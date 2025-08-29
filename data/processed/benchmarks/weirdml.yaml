@@ -83,11 +83,21 @@ gpt-4.5-preview:
   normalized_score: 49.95
   cost: 1.58
   normalized_cost: 915.8
+deepseek-v3.1:
+  score: 37.42
+  normalized_score: 49.33
+  cost: 0.01961
+  normalized_cost: 11.37
 gpt-4.1-mini:
   score: 37.25
   normalized_score: 48.87
   cost: 0.01648
   normalized_cost: 9.553
+deepseek-v3.1-thinking:
+  score: 37.1
+  normalized_score: 48.47
+  cost: 0.03122
+  normalized_cost: 18.09
 grok-3:
   score: 36.44
   normalized_score: 46.7

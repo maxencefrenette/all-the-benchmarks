@@ -16,8 +16,8 @@ deepseek-r1-0528: deepseek-r1-0528
 deepseek-r1-distill-llama-70b: null
 deepseek-r1-distill-qwen-32b: null
 deepseek-v3-0324: deepseek-v3-0324
-deepseek-v3.1: null
-deepseek-v3.1-thinking: null
+deepseek-v3.1: deepseek-v3.1
+deepseek-v3.1-thinking: deepseek-v3.1-thinking
 gemini-2.0-flash-lite-001: null
 gemini-2.5-flash-lite-preview-06-17-highthinking: null
 gemini-2.5-flash-preview-05-20: gemini-2.5-flash-0520-thinking
