@@ -38,7 +38,8 @@ export default function ModelCostScoreChart({
       .filter(
         (e) =>
           e.result.normalizedCost !== undefined &&
-          e.result.normalizedScore !== undefined,
+          e.result.normalizedScore !== undefined &&
+          !(e.result.costWeight === 0 && e.result.scoreWeight === 0),
       )
       .map((e) => ({
         label: e.benchmark,
@@ -51,7 +52,8 @@ export default function ModelCostScoreChart({
       .filter(
         (e) =>
           e.result.normalizedCost !== undefined &&
-          e.result.normalizedScore !== undefined,
+          e.result.normalizedScore !== undefined &&
+          !(e.result.costWeight === 0 && e.result.scoreWeight === 0),
       )
       .map((e) => ({
         label: `${e.model} – ${e.benchmark}`,
