@@ -18,6 +18,7 @@
 - Lint + fix: `pnpm lint`; check only: `pnpm lint:check`.
 - Format: `pnpm prettier`; check only: `pnpm prettier:check`.
 - Tests (Vitest): `pnpm test`; update snapshots: `pnpm test:update`.
+- Type check: `pnpm build` to ensure type safety.
 - Scraping: `pnpm scrape:all`.
 - Data processing: `pnpm process:all` and `pnpm mappings:update`.
 
@@ -38,7 +39,9 @@
 ## Commit & Pull Request Guidelines
 
 - Commits: Prefer Conventional Commits (e.g., `feat:`, `fix:`, `chore:`, `test:`). Keep messages concise and scoped.
+- Documentation: prefix doc-only commits with `docs:` and mention affected sections.
 - PRs: Include a clear summary, linked issues, and screenshots/GIFs for UI changes. Note data/script updates and whether snapshots changed.
+- Reference issues in commit messages or PR descriptions using keywords like `Closes #123` when applicable.
 - CI hygiene: run `pnpm prettier`, `pnpm lint`, `pnpm test:update` locally; ensure data processed if benchmarks changed.
 
 ## Data & Benchmarks
