@@ -1,0 +1,30 @@
+benchmark: MathArena CMIMC 2025
+description: Accuracy on MathArena CMIMC 2025 competition
+website: https://matharena.ai/
+github: https://github.com/eth-sri/matharena
+score_weight: 1
+cost_weight: 1
+model_name_mapping_file: matharena.yaml
+private_holdout: false
+results:
+  DeepSeek-R1-0528: 1.0416666666666667
+  DeepSeek-v3.1 (Think): 0.5208333333333334
+  GLM 4.5: 1.0416666666666667
+  GPT OSS 120B (high): 0.5208333333333334
+  GPT-5 (High) Agent: 2.0833333333333335
+  GPT-5 (high): 1.0416666666666667
+  GPT-5-mini (high): 1.0416666666666667
+  Grok 4: 2.0833333333333335
+  Qwen3-A22B-2507-Think: 5.208333333333333
+  gemini-2.5-pro: 0.5208333333333334
+cost_per_task:
+  DeepSeek-R1-0528: 15.69940849
+  DeepSeek-v3.1 (Think): 14.0387113
+  GLM 4.5: 14.497510600000002
+  GPT OSS 120B (high): 5.277512999999999
+  GPT-5 (High) Agent: 183.79099874999997
+  GPT-5 (high): 88.58715500000001
+  GPT-5-mini (high): 13.4204005
+  Grok 4: 99.39334799999999
+  Qwen3-A22B-2507-Think: 9.8915076
+  gemini-2.5-pro: 59.898649999999996

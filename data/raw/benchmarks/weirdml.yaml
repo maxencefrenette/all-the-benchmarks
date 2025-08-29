@@ -5,10 +5,13 @@ github: null
 score_weight: 1
 cost_weight: 1
 results:
+  gpt-5 (high): 56.3
   o3-pro-2025-06-10 (high): 53.95
   gemini-2.5-pro (thinking 16k): 50.3
   o3-2025-04-16 (high): 49.76
+  gpt-5-mini (high): 49.66
   o4-mini-2025-04-16 (high): 49.17
+  gpt-oss-120b (high): 48.9
   o1-preview: 46.15
   claude-4-sonnet-20250522 (thinking 16k): 45.28
   o1-2024-12-17 (high): 43.61
@@ -20,7 +23,8 @@ results:
   deepseek-r1-0528: 40.88
   glm-4.5 (thinking): 40.76
   qwen3-coder: 40.71
-  gpt-oss-120b: 40.25
+  gpt-oss-120b (medium): 40.25
+  gpt-oss-20b (high): 39.81
   claude-3.6-sonnet: 39.78
   grok-3-mini (high): 39.58
   qwen3-235b-a22b-thinking-2507: 38.88
@@ -29,14 +33,18 @@ results:
   gpt-4.1-2025-04-14: 37.88
   qwen3-235b-a22b-07-25: 37.72
   gpt-4.5-preview: 37.65
+  deepseek-chat-v3.1: 37.42
   gpt-4.1-mini-2025-04-14: 37.25
+  deepseek-chat-v3.1 (thinking): 37.1
   grok-3: 36.44
   qwen3-235b-a22b (thinking): 36.25
-  gpt-oss-20b: 35.92
+  gpt-oss-20b (medium): 35.92
+  gpt-5-nano (high): 35.57
   deepseek-r1: 35.56
   o1-mini: 35.41
   deepseek-v3-0324: 35.09
   gemini-2.5-flash-lite-preview-06-17 (thinking 16k): 33.89
+  mistral-medium-3.1: 32.14
   claude-3.5-sonnet: 30.06
   claude-3.5-haiku: 30.04
   qwen3-30b-a3b (thinking): 29.74
@@ -64,59 +72,67 @@ results:
 model_name_mapping_file: weirdml.yaml
 private_holdout: false
 cost_per_task:
-  o3-pro-2025-06-10 (high): 5.228346341463414
-  gemini-2.5-pro (thinking 16k): 0.8231632972631578
-  o3-2025-04-16 (high): 0.4637190857142858
-  o4-mini-2025-04-16 (high): 0.3868577204081632
-  o1-preview: 3.738411315789474
-  claude-4-sonnet-20250522 (thinking 16k): 0.667855163265306
-  o1-2024-12-17 (high): 3.1714263157894735
-  claude-4-sonnet-20250522 (no thinking): 0.6080159361702128
-  grok-4-07-09: 0.9339984292035399
-  claude-4-opus-20250522 (thinking 16k): 3.3979484210526314
-  claude-opus-4.1 (thinking 16k): 3.4574486842105263
-  o3-mini-2025-01-31 (high): 0.353334172631579
-  deepseek-r1-0528: 0.1420080642105263
-  glm-4.5 (thinking): 0.1472820685714286
-  qwen3-coder: 0.14427242105263158
-  gpt-oss-120b: 0.023248490526315786
-  claude-3.6-sonnet: 0.4931495368421052
-  grok-3-mini (high): 0.03498513
-  qwen3-235b-a22b-thinking-2507: 0.039607944
-  gemini-2.5-flash (thinking 16k): 0.21184530736842103
-  kimi-k2: 0.06815525026666668
-  gpt-4.1-2025-04-14: 0.1965767234042554
-  qwen3-235b-a22b-07-25: 0.02639886902654868
-  gpt-4.5-preview: 3.1601368421052634
-  gpt-4.1-mini-2025-04-14: 0.03296698105263157
-  grok-3: 0.5004218315789474
-  qwen3-235b-a22b (thinking): 0.04171634687022901
-  gpt-oss-20b: 0.007736698947368419
-  deepseek-r1: 0.15836069263157895
-  o1-mini: 0.22513964468085104
-  deepseek-v3-0324: 0.027581992
-  gemini-2.5-flash-lite-preview-06-17 (thinking 16k): 0.060986399999999996
-  claude-3.5-sonnet: 0.4874115789473684
-  claude-3.5-haiku: 0.11407819789473683
-  qwen3-30b-a3b (thinking): 0.016747094143646408
-  gpt-4o-2024-11-20: 0.16640789473684212
-  gemini-2.0-flash-001: 0.013479552631578948
-  llama-4-maverick: 0.012274920000000003
-  claude-3-opus: 1.6896071052631576
-  gemini-flash-1.5-002: 0.0056141542105263165
-  grok-2-1212: 0.22587717894736836
-  gemini-pro-1.5-002: 0.10287210526315793
-  llama-3.1-405b-instruct: 0.040583511578947365
-  gpt-4.1-nano-2025-04-14: 0.005178074782608696
-  gpt-4-turbo-2024-04-09: 0.6431060215053763
-  llama-3.3-70b-instruct: 0.002968142863157895
-  deepseek-r1-0528-qwen3-8b: 0.003008405957446808
-  gpt-4o-mini: 0.01046932659574468
-  gpt-4-0613: 1.279016756756757
-  claude-3-sonnet: 0.35578487234042555
-  claude-3-haiku: 0.028481310526315796
-  llama-3.1-70b-instruct: 0.006407569263157894
-  claude-2.1: 0.3465390769230769
-  gpt-3.5-turbo-0125: 0.08332002083333333
-  mixtral-8x22b-instruct: 0.0776043
-  llama-3.1-8b-instruct: 0.0008099135789473686
+  gpt-5 (high): 0.6031172629310343
+  o3-pro-2025-06-10 (high): 2.614173170731707
+  gemini-2.5-pro (thinking 16k): 0.4115816486315789
+  o3-2025-04-16 (high): 0.23185954285714283
+  gpt-5-mini (high): 0.10940666368421051
+  o4-mini-2025-04-16 (high): 0.19342886020408162
+  gpt-oss-120b (high): 0.033
+  o1-preview: 1.869205657894737
+  claude-4-sonnet-20250522 (thinking 16k): 0.333927581632653
+  o1-2024-12-17 (high): 1.585713157894737
+  claude-4-sonnet-20250522 (no thinking): 0.30400796808510633
+  grok-4-07-09: 0.46699921460176996
+  claude-4-opus-20250522 (thinking 16k): 1.6989742105263157
+  claude-opus-4.1 (thinking 16k): 1.7287243421052632
+  o3-mini-2025-01-31 (high): 0.17666708631578948
+  deepseek-r1-0528: 0.07100403210526315
+  glm-4.5 (thinking): 0.0736410342857143
+  qwen3-coder: 0.07213621052631579
+  gpt-oss-120b (medium): 0.011624245263157893
+  gpt-oss-20b (high): 0.010800000000000002
+  claude-3.6-sonnet: 0.2465747684210526
+  grok-3-mini (high): 0.017492564999999998
+  qwen3-235b-a22b-thinking-2507: 0.019803972000000003
+  gemini-2.5-flash (thinking 16k): 0.10592265368421054
+  kimi-k2: 0.03407762513333333
+  gpt-4.1-2025-04-14: 0.09828836170212768
+  qwen3-235b-a22b-07-25: 0.013199434513274336
+  gpt-4.5-preview: 1.5800684210526317
+  deepseek-chat-v3.1: 0.019611536842105263
+  gpt-4.1-mini-2025-04-14: 0.01648349052631579
+  deepseek-chat-v3.1 (thinking): 0.03121709381443299
+  grok-3: 0.2502109157894737
+  qwen3-235b-a22b (thinking): 0.020858173435114508
+  gpt-oss-20b (medium): 0.0038683494736842096
+  gpt-5-nano (high): 0.026870331052631584
+  deepseek-r1: 0.07918034631578948
+  o1-mini: 0.11256982234042553
+  deepseek-v3-0324: 0.013790996
+  gemini-2.5-flash-lite-preview-06-17 (thinking 16k): 0.03049320000000001
+  mistral-medium-3.1: 0.03947750315789474
+  claude-3.5-sonnet: 0.24370578947368415
+  claude-3.5-haiku: 0.05703909894736841
+  qwen3-30b-a3b (thinking): 0.008373547071823204
+  gpt-4o-2024-11-20: 0.08320394736842104
+  gemini-2.0-flash-001: 0.006739776315789473
+  llama-4-maverick: 0.006137459999999999
+  claude-3-opus: 0.844803552631579
+  gemini-flash-1.5-002: 0.002807077105263157
+  grok-2-1212: 0.11293858947368418
+  gemini-pro-1.5-002: 0.051436052631578945
+  llama-3.1-405b-instruct: 0.020291755789473686
+  gpt-4.1-nano-2025-04-14: 0.002589037391304348
+  gpt-4-turbo-2024-04-09: 0.32155301075268816
+  llama-3.3-70b-instruct: 0.0014840714315789468
+  deepseek-r1-0528-qwen3-8b: 0.0015042029787234047
+  gpt-4o-mini: 0.00523466329787234
+  gpt-4-0613: 0.6395083783783784
+  claude-3-sonnet: 0.17789243617021275
+  claude-3-haiku: 0.014240655263157893
+  llama-3.1-70b-instruct: 0.003203784631578947
+  claude-2.1: 0.17326953846153845
+  gpt-3.5-turbo-0125: 0.04166001041666667
+  mixtral-8x22b-instruct: 0.03880215000000001
+  llama-3.1-8b-instruct: 0.00040495678947368417

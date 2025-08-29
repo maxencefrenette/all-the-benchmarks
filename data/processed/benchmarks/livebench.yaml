@@ -1,96 +1,93 @@
-gpt-5-medium:
-  score: 75.84
-  normalized_score: 100.0
 o3-pro-high:
   score: 74.72
-  normalized_score: 96.92
+  normalized_score: 100.0
 o3-high:
   score: 74.61
-  normalized_score: 96.61
+  normalized_score: 99.69
 claude-opus-4.1-thinking:
   score: 73.48
-  normalized_score: 93.5
+  normalized_score: 96.48
 claude-opus-4-thinking:
   score: 72.93
-  normalized_score: 91.99
+  normalized_score: 94.92
 grok-4:
   score: 72.11
-  normalized_score: 89.73
+  normalized_score: 92.59
 claude-sonnet-4-thinking:
   score: 72.08
-  normalized_score: 89.65
+  normalized_score: 92.5
 o3-medium:
   score: 71.98
-  normalized_score: 89.38
+  normalized_score: 92.22
 o4-mini-high:
   score: 71.52
-  normalized_score: 88.11
+  normalized_score: 90.91
 deepseek-r1-0528:
   score: 70.1
-  normalized_score: 84.2
+  normalized_score: 86.88
 gemini-2.5-pro-06-05:
   score: 69.39
-  normalized_score: 82.25
+  normalized_score: 84.86
 claude-3.7-sonnet-thinking:
   score: 67.43
-  normalized_score: 76.85
+  normalized_score: 79.3
 o4-mini-medium:
   score: 66.87
-  normalized_score: 75.31
+  normalized_score: 77.71
 claude-opus-4-nothinking:
   score: 65.93
-  normalized_score: 72.72
+  normalized_score: 75.04
 deepseek-r1-0120:
   score: 65.15
-  normalized_score: 70.58
+  normalized_score: 72.82
 qwen-3-235b-a22b-thinking:
   score: 64.93
-  normalized_score: 69.97
+  normalized_score: 72.2
 gemini-2.5-flash-0520-thinking:
   score: 64.42
-  normalized_score: 68.57
+  normalized_score: 70.75
 claude-sonnet-4-nothinking:
   score: 63.37
-  normalized_score: 65.68
+  normalized_score: 67.76
 kimi-k2:
   score: 62.7
-  normalized_score: 63.83
+  normalized_score: 65.86
 grok-3-mini-high:
   score: 62.36
-  normalized_score: 62.9
+  normalized_score: 64.9
 gpt-4.5-preview:
   score: 58.65
-  normalized_score: 52.68
+  normalized_score: 54.36
 claude-3.7-sonnet-nothinking:
   score: 58.48
-  normalized_score: 52.22
+  normalized_score: 53.88
 grok-3:
   score: 56.05
-  normalized_score: 45.53
+  normalized_score: 46.98
 deepseek-v3-0324:
   score: 55.99
-  normalized_score: 45.36
+  normalized_score: 46.8
 gpt-4.1:
   score: 55.9
-  normalized_score: 45.11
+  normalized_score: 46.55
 gpt-oss-120b-medium:
   score: 54.6
-  normalized_score: 41.54
+  normalized_score: 42.86
 claude-3.5-sonnet-v2:
   score: 51.8
-  normalized_score: 33.83
+  normalized_score: 34.9
 gpt-4.1-mini:
   score: 51.57
-  normalized_score: 33.2
+  normalized_score: 34.25
 llama-4-maverick:
   score: 47.78
-  normalized_score: 22.76
+  normalized_score: 23.49
 gpt-4o-2024-11-20:
   score: 47.43
-  normalized_score: 21.8
+  normalized_score: 22.49
 gpt-4.1-nano:
   score: 40.51
-  normalized_score: 2.753
+  normalized_score: 2.84
 claude-3.5-haiku:
   score: 39.51
   normalized_score: 0.0

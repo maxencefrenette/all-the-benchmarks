@@ -5,14 +5,16 @@ github: https://github.com/eth-sri/matharena
 score_weight: 1
 cost_weight: 1
 results:
-  Claude-Sonnet-4.0: 3.3333333333333335
-  Grok 4: 28.333333333333336
-  gemini-2.5-pro: 8.333333333333334
+  Claude-Sonnet-4.0: 1.6666666666666667
+  GPT-5 (high): 56.666666666666664
+  Grok 4: 46.666666666666664
+  gemini-2.5-pro: 11.666666666666666
   o4-mini (high): 38.333333333333336
 model_name_mapping_file: matharena.yaml
 private_holdout: false
 cost_per_task:
-  Claude-Sonnet-4.0: 10.192359
-  Grok 4: 77.05681200000001
-  gemini-2.5-pro: 31.419613750000003
+  Claude-Sonnet-4.0: 46.061502000000004
+  GPT-5 (high): 66.51521000000001
+  Grok 4: 140.775543
+  gemini-2.5-pro: 21.69539875
   o4-mini (high): 29.649027099999998

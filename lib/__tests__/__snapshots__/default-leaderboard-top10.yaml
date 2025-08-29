@@ -3,7 +3,7 @@
   model: GPT-5 (High)
   provider: OpenAI
   averageScore: 91.91
-  costPerTask: 198
+  costPerTask: 202
   costBenchmarkCount: 6
   benchmarkCount: 7
   totalBenchmarks: 12
@@ -12,8 +12,8 @@
   slug: grok-4
   model: Grok 4
   provider: xAI
-  averageScore: 89.7
-  costPerTask: 408
+  averageScore: 89.94
+  costPerTask: 428
   costBenchmarkCount: 8
   benchmarkCount: 12
   totalBenchmarks: 12
@@ -22,18 +22,18 @@
   slug: gpt-5-medium
   model: GPT-5 (Medium)
   provider: OpenAI
-  averageScore: 86.56
-  costPerTask: 109
+  averageScore: 84.32
+  costPerTask: 111
   costBenchmarkCount: 6
-  benchmarkCount: 7
+  benchmarkCount: 6
   totalBenchmarks: 12
   totalCostBenchmarks: 8
 - id: gemini-2.5-pro-06-05
   slug: gemini-2.5-pro-06-05
   model: Gemini 2.5 Pro
   provider: Google
-  averageScore: 83.46
-  costPerTask: 236
+  averageScore: 83.68
+  costPerTask: 248
   costBenchmarkCount: 8
   benchmarkCount: 12
   totalBenchmarks: 12
@@ -43,7 +43,7 @@
   model: GPT-5 (Low)
   provider: OpenAI
   averageScore: 68.74
-  costPerTask: 44.9
+  costPerTask: 46.2
   costBenchmarkCount: 6
   benchmarkCount: 6
   totalBenchmarks: 12
@@ -52,8 +52,8 @@
   slug: kimi-k2
   model: Kimi K2
   provider: Moonshot
-  averageScore: 65.14
-  costPerTask: 16.1
+  averageScore: 65.39
+  costPerTask: 16.4
   costBenchmarkCount: 5
   benchmarkCount: 8
   totalBenchmarks: 12
@@ -62,28 +62,18 @@
   slug: claude-sonnet-4-thinking
   model: Claude 4 Sonnet (thinking)
   provider: Anthropic
-  averageScore: 64.59
-  costPerTask: 163
+  averageScore: 64.85
+  costPerTask: 171
   costBenchmarkCount: 8
   benchmarkCount: 11
-  totalBenchmarks: 12
-  totalCostBenchmarks: 8
-- id: gpt-5-mini-medium
-  slug: gpt-5-mini-medium
-  model: GPT-5 Mini (Medium)
-  provider: OpenAI
-  averageScore: 64.05
-  costPerTask: 14
-  costBenchmarkCount: 5
-  benchmarkCount: 6
   totalBenchmarks: 12
   totalCostBenchmarks: 8
 - id: grok-3-mini-high
   slug: grok-3-mini-high
   model: Grok 3 Mini (high)
   provider: xAI
-  averageScore: 62.47
-  costPerTask: 11.6
+  averageScore: 62.72
+  costPerTask: 11.9
   costBenchmarkCount: 6
   benchmarkCount: 8
   totalBenchmarks: 12
@@ -92,9 +82,19 @@
   slug: gemini-2.5-flash-0520-thinking
   model: Gemini 2.5 Flash 05/20 (thinking)
   provider: Google
-  averageScore: 59.18
-  costPerTask: 55.5
+  averageScore: 59.4
+  costPerTask: 57.9
   costBenchmarkCount: 8
   benchmarkCount: 10
+  totalBenchmarks: 12
+  totalCostBenchmarks: 8
+- id: deepseek-r1-0528
+  slug: deepseek-r1-0528
+  model: DeepSeek R1 05/28
+  provider: DeepSeek
+  averageScore: 57.4
+  costPerTask: 29.7
+  costBenchmarkCount: 4
+  benchmarkCount: 7
   totalBenchmarks: 12
   totalCostBenchmarks: 8

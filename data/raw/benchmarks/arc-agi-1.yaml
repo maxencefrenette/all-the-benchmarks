@@ -32,26 +32,23 @@ results:
   Gemini 2.5 Flash (Preview): 33.3
   Gemini 2.5 Flash (Preview) (Thinking 16K): 33.3
   Gemini 2.5 Flash (Preview) (Thinking 24K): 32.3
-  o1 (Medium): 30.7
+  Hierarchical Reasoning Model (HRM): 32
   Claude Opus 4 (Thinking 8K): 30.7
   Gemini 2.5 Pro (Thinking 8K): 29.5
   Claude Sonnet 4 (Thinking 8K): 29
   Claude 3.7 (16K): 28.6
   Claude Sonnet 4 (Thinking 1K): 28
   Codex Mini (Latest): 27.3
-  o1 (Low): 27.2
   Claude Opus 4 (Thinking 1K): 27
   GPT-5 Mini (Low): 26.3
   Gemini 2.5 Flash (Preview) (Thinking 8K): 25.8
   Claude Sonnet 4: 23.8
-  o1-pro (Low): 23.3
   Claude Opus 4: 22.5
   o3-mini (Medium): 22.3
   o4-mini (Low): 21.3
   Deepseek R1 (05/28): 21.2
   Claude 3.7 (8K): 21.2
   GPT-5 Nano (Medium): 20.7
-  o1-preview: 18
   Icecuber: 17
   GPT-5 Nano (High): 16.7
   Grok 3 Mini (Low): 16.5
@@ -108,26 +105,23 @@ cost_per_task:
   Gemini 2.5 Flash (Preview): 0.0371
   Gemini 2.5 Flash (Preview) (Thinking 16K): 0.2134
   Gemini 2.5 Flash (Preview) (Thinking 24K): 0.1971
-  o1 (Medium): 1.9329
+  Hierarchical Reasoning Model (HRM): 1.48
   Claude Opus 4 (Thinking 8K): 0.7408
   Gemini 2.5 Pro (Thinking 8K): 0.2947
   Claude Sonnet 4 (Thinking 8K): 0.1952
   Claude 3.7 (16K): 0.33
   Claude Sonnet 4 (Thinking 1K): 0.0937
   Codex Mini (Latest): 0.1597
-  o1 (Low): 1.1803
   Claude Opus 4 (Thinking 1K): 0.5021
   GPT-5 Mini (Low): 0.0135
   Gemini 2.5 Flash (Preview) (Thinking 8K): 0.1344
   Claude Sonnet 4: 0.0806
-  o1-pro (Low): 10.9039
   Claude Opus 4: 0.4036
   o3-mini (Medium): 0.1907
   o4-mini (Low): 0.0406
   Deepseek R1 (05/28): 0.0464
   Claude 3.7 (8K): 0.21
   GPT-5 Nano (Medium): 0.0124
-  o1-preview: 1.6415
   Icecuber: 0.2
   GPT-5 Nano (High): 0.0292
   Grok 3 Mini (Low): 0.0099

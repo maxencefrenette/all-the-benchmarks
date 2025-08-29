@@ -6,16 +6,20 @@ score_weight: 1
 cost_weight: 1
 results:
   DeepSeek-R1-0528: 69.375
+  DeepSeek-v3.1 (Think): 81.25
   GLM 4.5: 71.25
   GLM 4.5 Air: 70.625
   GPT OSS 120B (high): 85.625
   GPT OSS 20B (high): 72.5
+  GPT-5 (high): 90
+  GPT-5-mini (high): 83.125
+  GPT-5-nano (high): 73.75
   Grok 3 Mini (high): 66.25
   Grok 3 Mini (low): 36.875
   Grok 4: 83.125
   gemini-2.5-flash (think): 50.625
   gemini-2.5-pro: 58.125
-  o3 (high): 78.125
+  o3 (high): 78.75
   o4-mini (high): 84.375
   o4-mini (low): 46.25
   o4-mini (medium): 60.625
@@ -23,10 +27,14 @@ model_name_mapping_file: matharena.yaml
 private_holdout: false
 cost_per_task:
   DeepSeek-R1-0528: 8.955378080000001
+  DeepSeek-v3.1 (Think): 7.379446399999999
   GLM 4.5: 9.5677804
   GLM 4.5 Air: 4.8840272
-  GPT OSS 120B (high): 2.5074378
-  GPT OSS 20B (high): 4.741184399999999
+  GPT OSS 120B (high): 1.1716909839999998
+  GPT OSS 20B (high): 1.18616218
+  GPT-5 (high): 27.7588075
+  GPT-5-mini (high): 6.222105999999998
+  GPT-5-nano (high): 2.0649332
   Grok 3 Mini (high): 2.2208191
   Grok 3 Mini (low): 0.5704064999999998
   Grok 4: 49.07721599999999
