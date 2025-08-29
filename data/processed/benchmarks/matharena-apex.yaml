@@ -1,5 +1,10 @@
+glm-4.5:
+  score: 1.042
+  normalized_score: 100.0
+  cost: 14.5
+  normalized_cost: 44.51
 deepseek-v3.1-thinking:
   score: 0.5208
-  normalized_score: 100.0
+  normalized_score: 0.0
   cost: 14.04
-  normalized_cost: 17.9
+  normalized_cost: 43.1

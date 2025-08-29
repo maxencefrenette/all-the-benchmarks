@@ -20,8 +20,8 @@ gemini-2.5-pro: null
 gemini-2.5-pro (agent): null
 gemini-2.5-pro (best-of-32): null
 gemini-2.5-pro-05-06: null
-GLM 4.5: null
-GLM 4.5 Air: null
+GLM 4.5: glm-4.5
+GLM 4.5 Air: glm-4.5-air
 GPT OSS 120B (high): null
 GPT OSS 20B (high): null
 gpt-4o: null
