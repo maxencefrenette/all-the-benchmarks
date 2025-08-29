@@ -48,6 +48,9 @@ gpt-oss-120b-high:
   normalized_score: 82.61
   cost: 66.0
   normalized_cost: 12.21
+claude-opus-4.1-thinking:
+  score: 61.0
+  normalized_score: 82.61
 claude-sonnet-4-thinking:
   score: 59.0
   normalized_score: 78.26
@@ -112,6 +115,9 @@ kimi-k2:
   normalized_score: 56.52
   cost: 76.0
   normalized_cost: 14.06
+claude-opus-4.1-nothinking:
+  score: 49.0
+  normalized_score: 56.52
 qwen-3-235b-a22b-thinking:
   score: 48.0
   normalized_score: 54.35
