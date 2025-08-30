@@ -336,8 +336,8 @@ cost_per_task:
   MiniMax M1 80k: 13
   gpt-oss-20B (high): 11
   Qwen3 14B: 10
-  DeepSeek R1 Distill Qwen 32B: 10
   Llama 4 Maverick: 10
+  DeepSeek R1 Distill Qwen 32B: 10
   Devstral Medium: 9
   Llama 3.1 70B: 9
   DeepSeek R1 0528 Qwen3 8B: 9
