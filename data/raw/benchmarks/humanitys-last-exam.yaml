@@ -63,8 +63,8 @@ results:
   Claude 4 Opus: 5
   GLM-4.5V (Reasoning): 5
   Qwen3 4B 2507 (Reasoning): 5
-  Exaone 4.0 1.2B (Reasoning): 5
   Exaone 4.0 1.2B: 5
+  Exaone 4.0 1.2B (Reasoning): 5
   Llama 2 Chat 7B: 5
   LFM2 1.2B: 5
   Solar Pro 2  (Reasoning): 5
@@ -79,8 +79,8 @@ results:
   Pixtral 12B: 5
   DeepSeek Coder V2 Lite: 5
   Llama 3.2 11B (Vision): 5
-  Gemma 3 4B: 5
   Gemma 3 1B: 5
+  Gemma 3 4B: 5
   Llama 3.2 3B: 5
   DeepSeek V3 0324 (Mar '25): 5
   Jamba Instruct: 5
@@ -154,8 +154,8 @@ results:
   DeepSeek R1 Distill Qwen 14B: 4
   Phi-3 Mini: 4
   Llama 4 Scout: 4
-  Mistral Medium 3: 4
   Mistral Small 3.2: 4
+  Mistral Medium 3: 4
   Llama Nemotron Super 49B v1.5: 4
   DeepHermes 3 - Llama-3.1 8B: 4
   Mistral Small (Sep '24): 4
@@ -396,9 +396,9 @@ cost_per_task:
   Llama 2 Chat 7B: 0
   Gemma 2 9B: 0
   Pixtral 12B: 0
+  Llama 3.1 8B: 0
   Devstral Small (May '25): 0
   Devstral Small: 0
-  Llama 3.1 8B: 0
   Qwen3 0.6B: 0
   Llama 3.2 1B: 0
   Mistral NeMo: 0
