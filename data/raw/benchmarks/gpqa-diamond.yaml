@@ -353,8 +353,8 @@ cost_per_task:
   Llama 3.1 70B: 0
   Qwen3 30B: 0
   Mistral Small (Feb '24): 0
-  Aya Expanse 32B: 0
   Llama 3.3 70B: 0
+  Aya Expanse 32B: 0
   Gemini 1.0 Pro: 0
   Aya Expanse 8B: 0
   MiniMax-Text-01: 0
@@ -399,8 +399,8 @@ cost_per_task:
   Command-R: 0
   Nova Lite: 0
   Phi-3 Mini: 0
-  Qwen2.5 Turbo: 0
   Llama 3.1 8B: 0
+  Qwen2.5 Turbo: 0
   Pixtral 12B: 0
   Gemma 2 9B: 0
   Llama 2 Chat 7B: 0
