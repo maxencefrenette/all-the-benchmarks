@@ -15,6 +15,7 @@ results:
   o3: 82
   Gemini 2.5 Pro (May' 25): 82
   DeepSeek R1 0528: 81
+  Claude 4.1 Opus Thinking: 80
   GPT-5 (low): 80
   GPT-5 mini (medium): 80
   Claude 4 Opus Thinking: 79
@@ -37,11 +38,13 @@ results:
   DeepSeek V3.1 (Non-reasoning): 73
   GLM-4.5-Air: 73
   Llama Nemotron Ultra Reasoning: 72
+  Grok Code Fast 1: 72
   DeepSeek R1 (Jan '25): 70
   Qwen3 30B 2507 (Reasoning): 70
   Claude 4 Opus: 70
   Gemini 2.0 Flash Thinking exp. (Jan '25): 70
   Qwen3 235B (Reasoning): 70
+  Hermes 4 - Llama-3.1 70B (Reasoning): 69
   Gemini 2.5 Flash (April '25) (Reasoning): 69
   MiniMax M1 80k: 69
   Grok 3: 69
@@ -93,6 +96,7 @@ results:
   Sonar Pro: 57
   Solar Pro 2  (Reasoning): 57
   Phi-4: 57
+  GLM-4.5V: 57
   NVIDIA Nemotron Nano 9B V2 (Reasoning): 57
   Nova Premier: 56
   Solar Pro 2: 54
@@ -102,6 +106,7 @@ results:
   QwQ 32B-Preview: 55
   GPT-4o (Nov '24): 54
   Gemini 2.0 Flash-Lite (Preview): 54
+  Hermes 4 405B: 53
   Gemini 2.0 Flash-Lite (Feb '25): 53
   Qwen3 32B: 53
   Reka Flash 3: 52
@@ -123,6 +128,7 @@ results:
   Nova Pro: 49
   Llama 3.3 70B: 49
   Devstral Medium: 49
+  Hermes 4 70B: 49
   Qwen2.5 72B: 49
   Claude 3 Opus: 48
   Mistral Large 2 (Nov '24): 48
@@ -237,6 +243,7 @@ private_holdout: false
 cost_per_task:
   o3-pro: 56
   o1: 45
+  Claude 4.1 Opus Thinking: 35
   Claude 4 Opus Thinking: 32
   Grok 4: 27
   Claude 3.7 Sonnet Thinking: 27
@@ -249,7 +256,6 @@ cost_per_task:
   Qwen3 235B (Reasoning): 11
   o3: 10
   Gemini 2.5 Pro (Mar '25): 10
-  Gemini 2.5 Flash (April '25) (Reasoning): 8
   Qwen3 32B (Reasoning): 8
   Claude 4 Opus: 8
   GPT-5 (medium): 7
@@ -265,6 +271,7 @@ cost_per_task:
   DeepSeek R1 0528: 4
   Qwen3 30B 2507 (Reasoning): 3
   Magistral Small: 3
+  Grok Code Fast 1: 3
   GPT-5 (low): 3
   GPT-5 mini (high): 3
   Grok 3: 3
@@ -289,8 +296,8 @@ cost_per_task:
   GPT-4o (ChatGPT): 1
   gpt-oss-120B (high): 1
   Command A: 1
-  GPT-4o (Aug '24): 1
   GLM-4.5V (Reasoning): 1
+  GPT-4o (Aug '24): 1
   Claude 3.5 Sonnet (June): 1
   GPT-4o (Nov '24): 1
   Command-R+ (Apr '24): 1
@@ -312,10 +319,11 @@ cost_per_task:
   DeepSeek R1 Distill Qwen 14B: 1
   Grok 3 mini Reasoning (high): 1
   Command-R+: 1
-  DeepSeek R1 Distill Llama 70B: 1
   Mistral Medium: 1
-  Jamba 1.7 Large: 1
   Llama 3.1 405B: 1
+  DeepSeek R1 Distill Llama 70B: 1
+  Jamba 1.7 Large: 1
+  Hermes 4 - Llama-3.1 70B (Reasoning): 1
   Pixtral Large: 1
   GPT-5 (minimal): 1
   Jamba 1.6 Large: 1
@@ -337,11 +345,12 @@ cost_per_task:
   Nova Pro: 0
   EXAONE 4.0 32B: 0
   GPT-4.1 mini: 0
+  Hermes 4 405B: 0
   Mistral Medium 3: 0
-  Gemini 2.5 Flash (April '25): 0
   Claude 3.5 Haiku: 0
   Sonar: 0
   DeepSeek V3 0324 (Mar '25): 0
+  GLM-4.5V: 0
   Devstral Medium: 0
   Llama 4 Maverick: 0
   DeepSeek R1 0528 Qwen3 8B: 0
@@ -353,8 +362,8 @@ cost_per_task:
   Llama 3.1 70B: 0
   Qwen3 30B: 0
   Mistral Small (Feb '24): 0
-  Aya Expanse 32B: 0
   Llama 3.3 70B: 0
+  Aya Expanse 32B: 0
   Gemini 1.0 Pro: 0
   Aya Expanse 8B: 0
   MiniMax-Text-01: 0
@@ -387,29 +396,29 @@ cost_per_task:
   Gemini 2.0 Flash-Lite (Feb '25): 0
   Qwen2.5 Instruct 32B: 0
   Qwen3 1.7B: 0
+  Qwen2.5 Coder 32B: 0
+  Hermes 4 70B: 0
   Devstral Small: 0
   Devstral Small (May '25): 0
   Mistral Small 3.1: 0
   Granite 3.3 8B: 0
   Mistral 7B: 0
   Mistral Small 3: 0
-  Qwen2.5 Coder 32B: 0
   DeepSeek R1 Distill Llama 8B: 0
   Jamba 1.7 Mini: 0
   Command-R: 0
   Nova Lite: 0
   Phi-3 Mini: 0
-  Qwen2.5 Turbo: 0
   Llama 3.1 8B: 0
+  Qwen2.5 Turbo: 0
   Pixtral 12B: 0
   Gemma 2 9B: 0
   Llama 2 Chat 7B: 0
   Hermes 3 - Llama-3.1 70B: 0
+  Llama 3.2 3B: 0
   Llama 3.2 1B: 0
   Mistral NeMo: 0
   Ministral 8B: 0
-  Llama 3.2 3B: 0
-  LFM 40B: 0
   Nova Micro: 0
   Gemma 3n E4B: 0
   Llama 3 8B: 0
