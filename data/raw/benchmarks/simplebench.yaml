@@ -20,6 +20,7 @@ results:
   Claude 3.5 Sonnet 10-22: 41.4
   DeepSeek R1 05/28: 40.8
   o1-2024-12-17 (high): 40.1
+  DeepSeek V3.1: 40
   o4-mini (high): 38.7
   o1-2024-12-17 (med): 36.7
   Grok 3: 36.1
