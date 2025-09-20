@@ -80,5 +80,10 @@ results:
   deepseek-v3.1: 62.55
   deepseek-v3.1-thinking: 70.75
   grok-code-fast-1-0825: 57.94
+  sonoma-dusk-alpha: 46.56
+  sonoma-sky-alpha: 67.81
+  gpt-5-pro: 24.44
+  qwen3-next-80b-a3b-instruct: 66.54
+  qwen3-next-80b-a3b-thinking: 65.29
 model_name_mapping_file: livebench.yaml
 private_holdout: true
