@@ -7,7 +7,8 @@ cost_weight: 1
 results:
   Human Panel: 98
   Stem Grad: 98
-  Avg. Mturker: 77
+  J. Berman (2025): 79.6
+  E. Pang (2025): 77.1
   o3-preview (Low)*: 75.7
   Grok 4 (Thinking): 66.7
   GPT-5 (High): 65.7
@@ -32,7 +33,6 @@ results:
   Gemini 2.5 Flash (Preview): 33.3
   Gemini 2.5 Flash (Preview) (Thinking 16K): 33.3
   Gemini 2.5 Flash (Preview) (Thinking 24K): 32.3
-  Hierarchical Reasoning Model (HRM): 32
   Claude Opus 4 (Thinking 8K): 30.7
   Gemini 2.5 Pro (Thinking 8K): 29.5
   Claude Sonnet 4 (Thinking 8K): 29
@@ -80,7 +80,8 @@ private_holdout: true
 cost_per_task:
   Human Panel: 17
   Stem Grad: 10
-  Avg. Mturker: 3
+  J. Berman (2025): 8.42
+  E. Pang (2025): 2.56
   o3-preview (Low)*: 200
   Grok 4 (Thinking): 1.0136
   GPT-5 (High): 0.5087
@@ -105,7 +106,6 @@ cost_per_task:
   Gemini 2.5 Flash (Preview): 0.0371
   Gemini 2.5 Flash (Preview) (Thinking 16K): 0.2134
   Gemini 2.5 Flash (Preview) (Thinking 24K): 0.1971
-  Hierarchical Reasoning Model (HRM): 1.48
   Claude Opus 4 (Thinking 8K): 0.7408
   Gemini 2.5 Pro (Thinking 8K): 0.2947
   Claude Sonnet 4 (Thinking 8K): 0.1952

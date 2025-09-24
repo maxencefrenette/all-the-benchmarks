@@ -6,6 +6,8 @@ score_weight: 1
 cost_weight: 1
 results:
   Human Panel: 100
+  J. Berman (2025): 29.4
+  E. Pang (2025): 26
   Grok 4 (Thinking): 16
   GPT-5 (High): 9.9
   Claude Opus 4 (Thinking 16K): 8.6
@@ -79,6 +81,8 @@ model_name_mapping_file: arc-agi.yaml
 private_holdout: true
 cost_per_task:
   Human Panel: 17
+  J. Berman (2025): 30.4
+  E. Pang (2025): 3.97
   Grok 4 (Thinking): 2.1659
   GPT-5 (High): 0.7302
   Claude Opus 4 (Thinking 16K): 1.9284
