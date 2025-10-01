@@ -80,5 +80,16 @@ results:
   deepseek-v3.1: 62.55
   deepseek-v3.1-thinking: 70.75
   grok-code-fast-1-0825: 57.94
+  gpt-5-pro: 24.44
+  qwen3-next-80b-a3b-instruct: 66.54
+  qwen3-next-80b-a3b-thinking: 65.29
+  grok-4-fast-non-reasoning: 45.46
+  grok-4-fast-reasoning: 68.09
+  deepseek-v3.1-terminus: 63.76
+  deepseek-v3.1-terminus-thinking: 69.97
+  gpt-5-codex: 74.43
+  qwen3-max-2025-09-23: 69.14
+  claude-sonnet-4-5-20250929: 67.47
+  claude-sonnet-4-5-20250929-thinking-64k: 75.41
 model_name_mapping_file: livebench.yaml
 private_holdout: true
