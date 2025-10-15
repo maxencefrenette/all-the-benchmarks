@@ -68,6 +68,11 @@ results:
   grok-4 (high): 79.6
   Kimi K2: 59.1
   gpt-oss-120b (high): 41.8
+  gpt-5 (high): 88
+  gpt-5 (medium): 86.7
+  gpt-5 (low): 81.3
+  DeepSeek-V3.2-Exp (Reasoner): 74.2
+  DeepSeek-V3.2-Exp (Chat): 70.2
 model_name_mapping_file: aider-polyglot.yaml
 private_holdout: false
 cost_per_task:
@@ -133,3 +138,8 @@ cost_per_task:
   grok-4 (high): 0.265
   Kimi K2: 0.0055
   gpt-oss-120b (high): 0.0033
+  gpt-5 (high): 0.1293
+  gpt-5 (medium): 0.0786
+  gpt-5 (low): 0.0461
+  DeepSeek-V3.2-Exp (Reasoner): 0.0058
+  DeepSeek-V3.2-Exp (Chat): 0.0039
