@@ -6,13 +6,20 @@ score_weight: 1
 cost_weight: 1
 results:
   Human Panel: 100
+  J. Berman (2025): 29.4
+  E. Pang (2025): 26
+  GPT-5 Pro: 18.3
   Grok 4 (Thinking): 16
+  Claude Sonnet 4.5 (Thinking 32K): 13.6
   GPT-5 (High): 9.9
   Claude Opus 4 (Thinking 16K): 8.6
   GPT-5 (Medium): 7.5
+  Claude Sonnet 4.5 (Thinking 8K): 6.9
+  Claude Sonnet 4.5 (Thinking 16K): 6.9
   o3 (High): 6.5
   o4-mini (High): 6.1
   Claude Sonnet 4 (Thinking 16K): 5.9
+  Claude Sonnet 4.5 (Thinking 1K): 5.8
   o3-Pro (High): 4.9
   Gemini 2.5 Pro (Thinking 32K): 4.9
   Claude Opus 4 (Thinking 8K): 4.5
@@ -20,6 +27,7 @@ results:
   Gemini 2.5 Pro (Thinking 16K): 4
   GPT-5 Mini (Medium): 4
   o3-preview (Low)*: 4
+  Claude Sonnet 4.5: 3.8
   o3-mini (High): 3
   o3 (Medium): 3
   Gemini 2.5 Pro (Thinking 8K): 2.9
@@ -79,13 +87,20 @@ model_name_mapping_file: arc-agi.yaml
 private_holdout: true
 cost_per_task:
   Human Panel: 17
+  J. Berman (2025): 30.4
+  E. Pang (2025): 3.97
+  GPT-5 Pro: 7.1432
   Grok 4 (Thinking): 2.1659
+  Claude Sonnet 4.5 (Thinking 32K): 0.7589
   GPT-5 (High): 0.7302
   Claude Opus 4 (Thinking 16K): 1.9284
   GPT-5 (Medium): 0.4486
+  Claude Sonnet 4.5 (Thinking 8K): 0.2349
+  Claude Sonnet 4.5 (Thinking 16K): 0.3499
   o3 (High): 0.8339
   o4-mini (High): 0.856
   Claude Sonnet 4 (Thinking 16K): 0.4857
+  Claude Sonnet 4.5 (Thinking 1K): 0.1424
   o3-Pro (High): 7.5516
   Gemini 2.5 Pro (Thinking 32K): 0.757
   Claude Opus 4 (Thinking 8K): 1.1569
@@ -93,6 +108,7 @@ cost_per_task:
   Gemini 2.5 Pro (Thinking 16K): 0.7145
   GPT-5 Mini (Medium): 0.0629
   o3-preview (Low)*: 200
+  Claude Sonnet 4.5: 0.1295
   o3-mini (High): 0.5472
   o3 (Medium): 0.4787
   Gemini 2.5 Pro (Thinking 8K): 0.4439
