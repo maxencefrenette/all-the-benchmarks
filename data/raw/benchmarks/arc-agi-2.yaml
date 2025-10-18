@@ -6,23 +6,34 @@ score_weight: 1
 cost_weight: 1
 results:
   Human Panel: 100
+  J. Berman (2025): 29.4
+  E. Pang (2025): 26
+  GPT-5 Pro: 18.3
   Grok 4 (Thinking): 16
+  Claude Sonnet 4.5 (Thinking 32K): 13.6
   GPT-5 (High): 9.9
   Claude Opus 4 (Thinking 16K): 8.6
   GPT-5 (Medium): 7.5
+  Claude Sonnet 4.5 (Thinking 8K): 6.9
+  Claude Sonnet 4.5 (Thinking 16K): 6.9
   o3 (High): 6.5
+  Tiny Recursion Model (TRM): 6.3
   o4-mini (High): 6.1
   Claude Sonnet 4 (Thinking 16K): 5.9
+  Claude Sonnet 4.5 (Thinking 1K): 5.8
   o3-Pro (High): 4.9
   Gemini 2.5 Pro (Thinking 32K): 4.9
   Claude Opus 4 (Thinking 8K): 4.5
   GPT-5 Mini (High): 4.4
   Gemini 2.5 Pro (Thinking 16K): 4
   GPT-5 Mini (Medium): 4
+  Claude Haiku 4.5 (Thinking 32K): 4
   o3-preview (Low)*: 4
+  Claude Sonnet 4.5: 3.8
   o3-mini (High): 3
   o3 (Medium): 3
   Gemini 2.5 Pro (Thinking 8K): 2.9
+  Claude Haiku 4.5 (Thinking 16K): 2.8
   GPT-5 Nano (High): 2.6
   Gemini 2.5 Flash (Preview) (Thinking 24K): 2.5
   ARChitects: 2.5
@@ -32,6 +43,7 @@ results:
   Claude Sonnet 4 (Thinking 8K): 2.1
   o3-mini (Medium): 2.1
   o3-Pro (Low): 2.1
+  Hierarchical Reasoning Model (HRM): 2
   o3 (Low): 2
   Gemini 2.5 Flash (Preview) (Thinking 16K): 2
   o3-Pro (Medium): 1.9
@@ -39,6 +51,7 @@ results:
   Gemini 2.5 Flash (Preview): 1.7
   o4-mini (Low): 1.7
   GPT-5 Mini (Minimal): 1.7
+  Claude Haiku 4.5 (Thinking 8K): 1.7
   Icecuber: 1.6
   Gemini 2.0 Flash: 1.3
   Deepseek R1: 1.3
@@ -46,6 +59,8 @@ results:
   Claude Sonnet 4: 1.3
   Claude Opus 4: 1.3
   Qwen3-235b-a22b Instruct (25/07): 1.3
+  Claude Haiku 4.5: 1.3
+  Claude Haiku 4.5 (Thinking 1K): 1.3
   Deepseek R1 (05/28): 1.1
   Claude 3.7 (8K): 0.9
   GPT-5 Nano (Medium): 0.9
@@ -79,23 +94,34 @@ model_name_mapping_file: arc-agi.yaml
 private_holdout: true
 cost_per_task:
   Human Panel: 17
+  J. Berman (2025): 30.4
+  E. Pang (2025): 3.97
+  GPT-5 Pro: 7.1432
   Grok 4 (Thinking): 2.1659
+  Claude Sonnet 4.5 (Thinking 32K): 0.7589
   GPT-5 (High): 0.7302
   Claude Opus 4 (Thinking 16K): 1.9284
   GPT-5 (Medium): 0.4486
+  Claude Sonnet 4.5 (Thinking 8K): 0.2349
+  Claude Sonnet 4.5 (Thinking 16K): 0.3499
   o3 (High): 0.8339
+  Tiny Recursion Model (TRM): 2.1
   o4-mini (High): 0.856
   Claude Sonnet 4 (Thinking 16K): 0.4857
+  Claude Sonnet 4.5 (Thinking 1K): 0.1424
   o3-Pro (High): 7.5516
   Gemini 2.5 Pro (Thinking 32K): 0.757
   Claude Opus 4 (Thinking 8K): 1.1569
   GPT-5 Mini (High): 0.1977
   Gemini 2.5 Pro (Thinking 16K): 0.7145
   GPT-5 Mini (Medium): 0.0629
+  Claude Haiku 4.5 (Thinking 32K): 0.3766
   o3-preview (Low)*: 200
+  Claude Sonnet 4.5: 0.1295
   o3-mini (High): 0.5472
   o3 (Medium): 0.4787
   Gemini 2.5 Pro (Thinking 8K): 0.4439
+  Claude Haiku 4.5 (Thinking 16K): 0.1392
   GPT-5 Nano (High): 0.0295
   Gemini 2.5 Flash (Preview) (Thinking 24K): 0.3191
   ARChitects: 0.2
@@ -105,6 +131,7 @@ cost_per_task:
   Claude Sonnet 4 (Thinking 8K): 0.2654
   o3-mini (Medium): 0.2843
   o3-Pro (Low): 2.2293
+  Hierarchical Reasoning Model (HRM): 1.68
   o3 (Low): 0.2343
   Gemini 2.5 Flash (Preview) (Thinking 16K): 0.3173
   o3-Pro (Medium): 4.7441
@@ -112,6 +139,7 @@ cost_per_task:
   Gemini 2.5 Flash (Preview): 0.057
   o4-mini (Low): 0.05
   GPT-5 Mini (Minimal): 0.0094
+  Claude Haiku 4.5 (Thinking 8K): 0.0909
   Icecuber: 0.13
   Gemini 2.0 Flash: 0.004
   Deepseek R1: 0.08
@@ -119,6 +147,8 @@ cost_per_task:
   Claude Sonnet 4: 0.1272
   Claude Opus 4: 0.6388
   Qwen3-235b-a22b Instruct (25/07): 0.0044
+  Claude Haiku 4.5: 0.0426
+  Claude Haiku 4.5 (Thinking 1K): 0.0471
   Deepseek R1 (05/28): 0.0527
   Claude 3.7 (8K): 0.36
   GPT-5 Nano (Medium): 0.0137
